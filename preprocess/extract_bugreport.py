@@ -36,6 +36,7 @@ def get_json(file_json):
 def save_bug_report(path_folder):
     result = ''
     json_list = os.listdir(path_folder)
+    json_list.sort()
     for j in json_list:
         with open(os.path.join(path_folder,j), 'r+') as f:
             name = j.split('.')[0]
