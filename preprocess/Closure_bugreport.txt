@@ -1,174 +1,174 @@
-1,https://storage.googleapis.com/google-code-archive/v2/code.google.com/closure-compiler/issues/issue-253.json
-2,https://storage.googleapis.com/google-code-archive/v2/code.google.com/closure-compiler/issues/issue-884.json
-3,https://storage.googleapis.com/google-code-archive/v2/code.google.com/closure-compiler/issues/issue-864.json
-4,https://storage.googleapis.com/google-code-archive/v2/code.google.com/closure-compiler/issues/issue-873.json
-5,https://storage.googleapis.com/google-code-archive/v2/code.google.com/closure-compiler/issues/issue-851.json
-6,https://storage.googleapis.com/google-code-archive/v2/code.google.com/closure-compiler/issues/issue-635.json
-7,https://storage.googleapis.com/google-code-archive/v2/code.google.com/closure-compiler/issues/issue-841.json
-8,https://storage.googleapis.com/google-code-archive/v2/code.google.com/closure-compiler/issues/issue-820.json
-9,https://storage.googleapis.com/google-code-archive/v2/code.google.com/closure-compiler/issues/issue-824.json
-10,https://storage.googleapis.com/google-code-archive/v2/code.google.com/closure-compiler/issues/issue-821.json
-11,https://storage.googleapis.com/google-code-archive/v2/code.google.com/closure-compiler/issues/issue-810.json
-12,https://storage.googleapis.com/google-code-archive/v2/code.google.com/closure-compiler/issues/issue-794.json
-13,https://storage.googleapis.com/google-code-archive/v2/code.google.com/closure-compiler/issues/issue-787.json
-14,https://storage.googleapis.com/google-code-archive/v2/code.google.com/closure-compiler/issues/issue-779.json
-15,https://storage.googleapis.com/google-code-archive/v2/code.google.com/closure-compiler/issues/issue-773.json
-16,https://storage.googleapis.com/google-code-archive/v2/code.google.com/closure-compiler/issues/issue-772.json
-17,https://storage.googleapis.com/google-code-archive/v2/code.google.com/closure-compiler/issues/issue-688.json
-18,https://storage.googleapis.com/google-code-archive/v2/code.google.com/closure-compiler/issues/issue-768.json
-19,https://storage.googleapis.com/google-code-archive/v2/code.google.com/closure-compiler/issues/issue-769.json
-20,https://storage.googleapis.com/google-code-archive/v2/code.google.com/closure-compiler/issues/issue-759.json
-21,https://storage.googleapis.com/google-code-archive/v2/code.google.com/closure-compiler/issues/issue-753.json
-22,https://storage.googleapis.com/google-code-archive/v2/code.google.com/closure-compiler/issues/issue-753.json
-23,https://storage.googleapis.com/google-code-archive/v2/code.google.com/closure-compiler/issues/issue-747.json
-24,https://storage.googleapis.com/google-code-archive/v2/code.google.com/closure-compiler/issues/issue-737.json
-25,https://storage.googleapis.com/google-code-archive/v2/code.google.com/closure-compiler/issues/issue-729.json
-26,https://storage.googleapis.com/google-code-archive/v2/code.google.com/closure-compiler/issues/issue-732.json
-27,https://storage.googleapis.com/google-code-archive/v2/code.google.com/closure-compiler/issues/issue-727.json
-28,https://storage.googleapis.com/google-code-archive/v2/code.google.com/closure-compiler/issues/issue-728.json
-29,https://storage.googleapis.com/google-code-archive/v2/code.google.com/closure-compiler/issues/issue-724.json
-30,https://storage.googleapis.com/google-code-archive/v2/code.google.com/closure-compiler/issues/issue-698.json
-31,https://storage.googleapis.com/google-code-archive/v2/code.google.com/closure-compiler/issues/issue-703.json
-32,https://storage.googleapis.com/google-code-archive/v2/code.google.com/closure-compiler/issues/issue-701.json
-33,https://storage.googleapis.com/google-code-archive/v2/code.google.com/closure-compiler/issues/issue-700.json
-34,https://storage.googleapis.com/google-code-archive/v2/code.google.com/closure-compiler/issues/issue-691.json
-35,https://storage.googleapis.com/google-code-archive/v2/code.google.com/closure-compiler/issues/issue-669.json
-36,https://storage.googleapis.com/google-code-archive/v2/code.google.com/closure-compiler/issues/issue-668.json
-37,https://storage.googleapis.com/google-code-archive/v2/code.google.com/closure-compiler/issues/issue-663.json
-38,https://storage.googleapis.com/google-code-archive/v2/code.google.com/closure-compiler/issues/issue-657.json
-39,https://storage.googleapis.com/google-code-archive/v2/code.google.com/closure-compiler/issues/issue-643.json
-40,https://storage.googleapis.com/google-code-archive/v2/code.google.com/closure-compiler/issues/issue-284.json
-41,https://storage.googleapis.com/google-code-archive/v2/code.google.com/closure-compiler/issues/issue-368.json
-42,https://storage.googleapis.com/google-code-archive/v2/code.google.com/closure-compiler/issues/issue-644.json
-43,https://storage.googleapis.com/google-code-archive/v2/code.google.com/closure-compiler/issues/issue-314.json
-44,https://storage.googleapis.com/google-code-archive/v2/code.google.com/closure-compiler/issues/issue-620.json
-45,https://storage.googleapis.com/google-code-archive/v2/code.google.com/closure-compiler/issues/issue-618.json
-46,https://storage.googleapis.com/google-code-archive/v2/code.google.com/closure-compiler/issues/issue-603.json
-47,https://storage.googleapis.com/google-code-archive/v2/code.google.com/closure-compiler/issues/issue-575.json
-48,https://storage.googleapis.com/google-code-archive/v2/code.google.com/closure-compiler/issues/issue-586.json
-49,https://storage.googleapis.com/google-code-archive/v2/code.google.com/closure-compiler/issues/issue-539.json
-50,https://storage.googleapis.com/google-code-archive/v2/code.google.com/closure-compiler/issues/issue-558.json
-51,https://storage.googleapis.com/google-code-archive/v2/code.google.com/closure-compiler/issues/issue-582.json
-52,https://storage.googleapis.com/google-code-archive/v2/code.google.com/closure-compiler/issues/issue-569.json
-53,https://storage.googleapis.com/google-code-archive/v2/code.google.com/closure-compiler/issues/issue-545.json
-54,https://storage.googleapis.com/google-code-archive/v2/code.google.com/closure-compiler/issues/issue-537.json
-55,https://storage.googleapis.com/google-code-archive/v2/code.google.com/closure-compiler/issues/issue-538.json
-56,https://storage.googleapis.com/google-code-archive/v2/code.google.com/closure-compiler/issues/issue-511.json
-57,https://storage.googleapis.com/google-code-archive/v2/code.google.com/closure-compiler/issues/issue-530.json
-58,https://storage.googleapis.com/google-code-archive/v2/code.google.com/closure-compiler/issues/issue-528.json
-59,https://storage.googleapis.com/google-code-archive/v2/code.google.com/closure-compiler/issues/issue-521.json
-60,https://storage.googleapis.com/google-code-archive/v2/code.google.com/closure-compiler/issues/issue-504.json
-61,https://storage.googleapis.com/google-code-archive/v2/code.google.com/closure-compiler/issues/issue-501.json
-62,https://storage.googleapis.com/google-code-archive/v2/code.google.com/closure-compiler/issues/issue-487.json
-64,https://storage.googleapis.com/google-code-archive/v2/code.google.com/closure-compiler/issues/issue-489.json
-65,https://storage.googleapis.com/google-code-archive/v2/code.google.com/closure-compiler/issues/issue-486.json
-66,https://storage.googleapis.com/google-code-archive/v2/code.google.com/closure-compiler/issues/issue-482.json
-67,https://storage.googleapis.com/google-code-archive/v2/code.google.com/closure-compiler/issues/issue-459.json
-68,https://storage.googleapis.com/google-code-archive/v2/code.google.com/closure-compiler/issues/issue-477.json
-69,https://storage.googleapis.com/google-code-archive/v2/code.google.com/closure-compiler/issues/issue-440.json
-70,https://storage.googleapis.com/google-code-archive/v2/code.google.com/closure-compiler/issues/issue-433.json
-71,https://storage.googleapis.com/google-code-archive/v2/code.google.com/closure-compiler/issues/issue-254.json
-72,https://storage.googleapis.com/google-code-archive/v2/code.google.com/closure-compiler/issues/issue-435.json
-73,https://storage.googleapis.com/google-code-archive/v2/code.google.com/closure-compiler/issues/issue-416.json
-74,https://storage.googleapis.com/google-code-archive/v2/code.google.com/closure-compiler/issues/issue-413.json
-75,https://storage.googleapis.com/google-code-archive/v2/code.google.com/closure-compiler/issues/issue-395.json
-76,https://storage.googleapis.com/google-code-archive/v2/code.google.com/closure-compiler/issues/issue-384.json
-77,https://storage.googleapis.com/google-code-archive/v2/code.google.com/closure-compiler/issues/issue-383.json
-78,https://storage.googleapis.com/google-code-archive/v2/code.google.com/closure-compiler/issues/issue-381.json
-79,https://storage.googleapis.com/google-code-archive/v2/code.google.com/closure-compiler/issues/issue-367.json
-80,https://storage.googleapis.com/google-code-archive/v2/code.google.com/closure-compiler/issues/issue-364.json
-81,https://storage.googleapis.com/google-code-archive/v2/code.google.com/closure-compiler/issues/issue-251.json
-82,https://storage.googleapis.com/google-code-archive/v2/code.google.com/closure-compiler/issues/issue-301.json
-83,https://storage.googleapis.com/google-code-archive/v2/code.google.com/closure-compiler/issues/issue-319.json
-84,https://storage.googleapis.com/google-code-archive/v2/code.google.com/closure-compiler/issues/issue-215.json
-85,https://storage.googleapis.com/google-code-archive/v2/code.google.com/closure-compiler/issues/issue-311.json
-86,https://storage.googleapis.com/google-code-archive/v2/code.google.com/closure-compiler/issues/issue-303.json
-87,https://storage.googleapis.com/google-code-archive/v2/code.google.com/closure-compiler/issues/issue-291.json
-88,https://storage.googleapis.com/google-code-archive/v2/code.google.com/closure-compiler/issues/issue-297.json
-89,https://storage.googleapis.com/google-code-archive/v2/code.google.com/closure-compiler/issues/issue-289.json
-90,https://storage.googleapis.com/google-code-archive/v2/code.google.com/closure-compiler/issues/issue-274.json
-91,https://storage.googleapis.com/google-code-archive/v2/code.google.com/closure-compiler/issues/issue-248.json
-92,https://storage.googleapis.com/google-code-archive/v2/code.google.com/closure-compiler/issues/issue-261.json
-94,https://storage.googleapis.com/google-code-archive/v2/code.google.com/closure-compiler/issues/issue-255.json
-95,https://storage.googleapis.com/google-code-archive/v2/code.google.com/closure-compiler/issues/issue-66.json
-96,https://storage.googleapis.com/google-code-archive/v2/code.google.com/closure-compiler/issues/issue-229.json
-97,https://storage.googleapis.com/google-code-archive/v2/code.google.com/closure-compiler/issues/issue-200.json
-98,https://storage.googleapis.com/google-code-archive/v2/code.google.com/closure-compiler/issues/issue-174.json
-99,https://storage.googleapis.com/google-code-archive/v2/code.google.com/closure-compiler/issues/issue-125.json
-100,https://storage.googleapis.com/google-code-archive/v2/code.google.com/closure-compiler/issues/issue-144.json
-101,https://storage.googleapis.com/google-code-archive/v2/code.google.com/closure-compiler/issues/issue-130.json
-102,https://storage.googleapis.com/google-code-archive/v2/code.google.com/closure-compiler/issues/issue-115.json
-103,https://storage.googleapis.com/google-code-archive/v2/code.google.com/closure-compiler/issues/issue-113.json
-104,https://storage.googleapis.com/google-code-archive/v2/code.google.com/closure-compiler/issues/issue-114.json
-105,https://storage.googleapis.com/google-code-archive/v2/code.google.com/closure-compiler/issues/issue-106.json
-106,https://storage.googleapis.com/google-code-archive/v2/code.google.com/closure-compiler/issues/issue-19.json
-107,https://storage.googleapis.com/google-code-archive/v2/code.google.com/closure-compiler/issues/issue-1135.json
-108,https://storage.googleapis.com/google-code-archive/v2/code.google.com/closure-compiler/issues/issue-1144.json
-109,https://storage.googleapis.com/google-code-archive/v2/code.google.com/closure-compiler/issues/issue-1105.json
-110,https://storage.googleapis.com/google-code-archive/v2/code.google.com/closure-compiler/issues/issue-1111.json
-111,https://storage.googleapis.com/google-code-archive/v2/code.google.com/closure-compiler/issues/issue-1114.json
-112,https://storage.googleapis.com/google-code-archive/v2/code.google.com/closure-compiler/issues/issue-1058.json
-113,https://storage.googleapis.com/google-code-archive/v2/code.google.com/closure-compiler/issues/issue-1079.json
-114,https://storage.googleapis.com/google-code-archive/v2/code.google.com/closure-compiler/issues/issue-1085.json
-115,https://storage.googleapis.com/google-code-archive/v2/code.google.com/closure-compiler/issues/issue-1101.json
-116,https://storage.googleapis.com/google-code-archive/v2/code.google.com/closure-compiler/issues/issue-1101.json
-117,https://storage.googleapis.com/google-code-archive/v2/code.google.com/closure-compiler/issues/issue-1047.json
-118,https://storage.googleapis.com/google-code-archive/v2/code.google.com/closure-compiler/issues/issue-1024.json
-119,https://storage.googleapis.com/google-code-archive/v2/code.google.com/closure-compiler/issues/issue-1070.json
-120,https://storage.googleapis.com/google-code-archive/v2/code.google.com/closure-compiler/issues/issue-1053.json
-121,https://storage.googleapis.com/google-code-archive/v2/code.google.com/closure-compiler/issues/issue-1053.json
-122,https://storage.googleapis.com/google-code-archive/v2/code.google.com/closure-compiler/issues/issue-1037.json
-123,https://storage.googleapis.com/google-code-archive/v2/code.google.com/closure-compiler/issues/issue-1033.json
-124,https://storage.googleapis.com/google-code-archive/v2/code.google.com/closure-compiler/issues/issue-1017.json
-125,https://storage.googleapis.com/google-code-archive/v2/code.google.com/closure-compiler/issues/issue-1002.json
-126,https://storage.googleapis.com/google-code-archive/v2/code.google.com/closure-compiler/issues/issue-936.json
-127,https://storage.googleapis.com/google-code-archive/v2/code.google.com/closure-compiler/issues/issue-936.json
-128,https://storage.googleapis.com/google-code-archive/v2/code.google.com/closure-compiler/issues/issue-942.json
-129,https://storage.googleapis.com/google-code-archive/v2/code.google.com/closure-compiler/issues/issue-937.json
-130,https://storage.googleapis.com/google-code-archive/v2/code.google.com/closure-compiler/issues/issue-931.json
-131,https://storage.googleapis.com/google-code-archive/v2/code.google.com/closure-compiler/issues/issue-921.json
-132,https://storage.googleapis.com/google-code-archive/v2/code.google.com/closure-compiler/issues/issue-925.json
-133,https://storage.googleapis.com/google-code-archive/v2/code.google.com/closure-compiler/issues/issue-919.json
-134,https://storage.googleapis.com/google-code-archive/v2/code.google.com/closure-compiler/issues/issue-86.json
-135,https://storage.googleapis.com/google-code-archive/v2/code.google.com/closure-compiler/issues/issue-59.json
-136,https://storage.googleapis.com/google-code-archive/v2/code.google.com/closure-compiler/issues/issue-103.json
-137,https://storage.googleapis.com/google-code-archive/v2/code.google.com/closure-compiler/issues/issue-124.json
-138,https://storage.googleapis.com/google-code-archive/v2/code.google.com/closure-compiler/issues/issue-124.json
-139,https://storage.googleapis.com/google-code-archive/v2/code.google.com/closure-compiler/issues/issue-33.json
-140,https://storage.googleapis.com/google-code-archive/v2/code.google.com/closure-compiler/issues/issue-126.json
-141,https://storage.googleapis.com/google-code-archive/v2/code.google.com/closure-compiler/issues/issue-116.json
-142,https://storage.googleapis.com/google-code-archive/v2/code.google.com/closure-compiler/issues/issue-58.json
-143,https://storage.googleapis.com/google-code-archive/v2/code.google.com/closure-compiler/issues/issue-139.json
-144,https://storage.googleapis.com/google-code-archive/v2/code.google.com/closure-compiler/issues/issue-143.json
-145,https://storage.googleapis.com/google-code-archive/v2/code.google.com/closure-compiler/issues/issue-190.json
-146,https://storage.googleapis.com/google-code-archive/v2/code.google.com/closure-compiler/issues/issue-172.json
-147,https://storage.googleapis.com/google-code-archive/v2/code.google.com/closure-compiler/issues/issue-182.json
-148,https://storage.googleapis.com/google-code-archive/v2/code.google.com/closure-compiler/issues/issue-196.json
-149,https://storage.googleapis.com/google-code-archive/v2/code.google.com/closure-compiler/issues/issue-205.json
-150,https://storage.googleapis.com/google-code-archive/v2/code.google.com/closure-compiler/issues/issue-61.json
-151,https://storage.googleapis.com/google-code-archive/v2/code.google.com/closure-compiler/issues/issue-74.json
-152,https://storage.googleapis.com/google-code-archive/v2/code.google.com/closure-compiler/issues/issue-268.json
-153,https://storage.googleapis.com/google-code-archive/v2/code.google.com/closure-compiler/issues/issue-290.json
-154,https://storage.googleapis.com/google-code-archive/v2/code.google.com/closure-compiler/issues/issue-204.json
-155,https://storage.googleapis.com/google-code-archive/v2/code.google.com/closure-compiler/issues/issue-378.json
-156,https://storage.googleapis.com/google-code-archive/v2/code.google.com/closure-compiler/issues/issue-389.json
-157,https://storage.googleapis.com/google-code-archive/v2/code.google.com/closure-compiler/issues/issue-347.json
-158,https://storage.googleapis.com/google-code-archive/v2/code.google.com/closure-compiler/issues/issue-407.json
-159,https://storage.googleapis.com/google-code-archive/v2/code.google.com/closure-compiler/issues/issue-423.json
-160,https://storage.googleapis.com/google-code-archive/v2/code.google.com/closure-compiler/issues/issue-467.json
-161,https://storage.googleapis.com/google-code-archive/v2/code.google.com/closure-compiler/issues/issue-522.json
-162,https://storage.googleapis.com/google-code-archive/v2/code.google.com/closure-compiler/issues/issue-548.json
-163,https://storage.googleapis.com/google-code-archive/v2/code.google.com/closure-compiler/issues/issue-600.json
-164,https://storage.googleapis.com/google-code-archive/v2/code.google.com/closure-compiler/issues/issue-634.json
-165,https://storage.googleapis.com/google-code-archive/v2/code.google.com/closure-compiler/issues/issue-725.json
-166,https://storage.googleapis.com/google-code-archive/v2/code.google.com/closure-compiler/issues/issue-785.json
-167,https://storage.googleapis.com/google-code-archive/v2/code.google.com/closure-compiler/issues/issue-783.json
-168,https://storage.googleapis.com/google-code-archive/v2/code.google.com/closure-compiler/issues/issue-726.json
-169,https://storage.googleapis.com/google-code-archive/v2/code.google.com/closure-compiler/issues/issue-791.json
-170,https://storage.googleapis.com/google-code-archive/v2/code.google.com/closure-compiler/issues/issue-965.json
-171,https://storage.googleapis.com/google-code-archive/v2/code.google.com/closure-compiler/issues/issue-1023.json
-172,https://storage.googleapis.com/google-code-archive/v2/code.google.com/closure-compiler/issues/issue-1042.json
-173,https://storage.googleapis.com/google-code-archive/v2/code.google.com/closure-compiler/issues/issue-1062.json
-174,https://storage.googleapis.com/google-code-archive/v2/code.google.com/closure-compiler/issues/issue-1103.json
-175,https://storage.googleapis.com/google-code-archive/v2/code.google.com/closure-compiler/issues/issue-1101.json
-176,https://storage.googleapis.com/google-code-archive/v2/code.google.com/closure-compiler/issues/issue-1056.json
+Closure-65,String escaping mishandles null byte
+Closure-32,Preserve doesn't preserve whitespace at start of line
+Closure-24,goog.scope doesn't properly check declared functions
+Closure-9,Compiler fails to find amd module in a subdirectory
+Closure-73,Codepoint U+007f appears raw in output
+Closure-176,initial type of variable wrong when initialize in a "var" statement with type declaration.
+Closure-121,Overzealous optimization confuses variables
+Closure-49,Incorrect output if a function is assigned to a variable, and the function contains a variable with the same name
+Closure-137,Invalid JSC_DETERMINISTIC_TEST
+Closure-160,checkVars / undefinedVars diagnostics not working from command line
+Closure-69,Compiler should warn/error when instance methods are operated on
+Closure-117,Wrong type name reported on missing property error.
+Closure-86,side-effects analysis incorrectly removing function calls with side effects
+Closure-140,Google Common Loader Extern
+Closure-5,Compiler ignores 'delete' statements, can break functionality.
+Closure-28,constant functions not inlined aggressively enough
+Closure-156,Compiler crashes on assign statement
+Closure-101,--process_closure_primitives can't be set to false
+Closure-90,@this emits warning when used with a typedef
+Closure-53,compiler-20110811 crashes with index(1) must be less than size(1)
+Closure-45,Assignment removed when used as an expression result to Array.push
+Closure-12,Try/catch blocks incorporate code not inside original blocks
+Closure-13,true/false are not always replaced for !0/!1
+Closure-44,alert(/ / / / /)
+Closure-52,Converts string properties into numbers in literal object definitions
+Closure-100,Only assignment to "this" issues a "dangerous use of the global this object" warning.
+Closure-91,support @lends annotation
+Closure-4,Converting from an interface type to a constructor which @implements itself causes stack overflow.
+Closure-29,closure compiler screws up a perfectly valid isFunction() implementation
+Closure-157,Numbers and quoted property names reject for get and set properties.
+Closure-141,The side effects of function1||function2 are not calculated
+Closure-68,Cryptic error message on invalid "@type function" annotation
+Closure-116,Erroneous optimization in ADVANCED_OPTIMIZATIONS mode
+Closure-87,IE8 error: Object doesn't support this action
+Closure-161,peephole constants folding pass is trying to fold [][11] as if it were a property lookup instead of a property assignment
+Closure-48,Type checking error when replacing a function with a stub after calling.
+Closure-136,$super is replaced when it should not be replaced
+Closure-120,Overzealous optimization confuses variables
+Closure-72,Internal Compiler Error on Bullet
+Closure-25,anonymous object type inference behavior is different when calling constructors
+Closure-8,Obfuscated code triggers TypeError in Firefox
+Closure-33,weird object literal invalid property error on unrelated object prototype
+Closure-64,--language_in=ECMASCRIPT5_STRICT results in 1 'use strict' per input file
+Closure-111,goog.isArray doesn't hint compiler
+Closure-80,Unexpected expression nodeDELPROP 1
+Closure-146,bad type inference for != undefined
+Closure-38,Identifier minus a negative number needs a space between the "-"s
+Closure-150,Type checker misses annotations on functions defined within functions
+Closure-3,optimization fails with variable in catch clause
+Closure-107,Variable names prefixed with MSG_ cause error with advanced optimizations
+Closure-79,RuntimeException when compiling with extern prototype
+Closure-96,Missing type-checks for var_args notation
+Closure-55,Exception when emitting code containing getters
+Closure-43,@lends does not work unless class is defined beforehand
+Closure-14,bogus 'missing return' warning
+Closure-34,StackOverflowError exception when running closure compiler (javascript attached)
+Closure-22,Classify non-rightmost expressions as problematic
+Closure-75,closure compiled swfobject error
+Closure-170,Overly aggressive comma removal
+Closure-127,Break in finally block isn't optimized properly
+Closure-59,Cannot exclude globalThis checks through command line
+Closure-131,unicode characters in property names result in invalid output
+Closure-166,anonymous object type inference inconsistency when used in union
+Closure-18,Dependency sorting with closurePass set to false no longer works.
+Closure-167,invalid property not erroring in for loop in prototype function
+Closure-19,Type refining of 'this' raises IllegalArgumentException
+Closure-130,arguments is moved to another scope
+Closure-126,Break in finally block isn't optimized properly
+Closure-58,Online CC bug: report java error.
+Closure-171,Assigning object literals to obj.prototype in a immediately executed function not recognized.
+Closure-74,Obvious optimizations don't works in "inline if"
+Closure-23,tryFoldArrayAccess does not check for side effects
+Closure-35,assignment to object in conditional causes type error on function w/ record type return type
+Closure-62,Column-indicating caret is sometimes not in error output
+Closure-15,Switched order of "delete key" and "key in" statements changes semantic
+Closure-42,Simple "Whitespace only" compression removing "each" keyword from "for each (var x in arr)" loop
+Closure-54,Prototype methods can't be used from the constructor in case prototype is explicitly defined.
+Closure-106,Exception thrown from com.google.javascript.jscomp.CollapseProperties.addStubsForUndeclaredProperties
+Closure-78,division by zero wrongly throws JSC_DIVIDE_BY_0_ERROR
+Closure-97,Unsigned Shift Right (>>>) bug operating on negative numbers
+Closure-151,Add a --version option for the compiler.
+Closure-2,combining @interface and multiple @extends can crash compiler
+Closure-147,Lost a JSC_USED_GLOBAL_THIS warning in 0616 release vs 0514
+Closure-39,externExport with @typedef can generate invalid externs
+Closure-110,Allow @private top-level functions in goog.scope
+Closure-81,An unnamed function statement statements should generate a parse error
+Closure-16,JSCompiler does not recursively resolve typedefs
+Closure-168,Wrong argument count error not reported on this aliasing (on function with @this annotation)
+Closure-41,In ADVANCED mode, Compiler fails to warn about overridden methods with different signatures.
+Closure-57,compiler crashes when  goog.provide used with non string 
+Closure-129,Casting a function before calling it produces bad code and breaks plugin code
+Closure-94,closure-compiler @define annotation does not allow line to be split on 80 characters.
+Closure-105,Array Join Munged Incorrectly
+Closure-1,function arguments should not be optimized away
+Closure-152,resolveTypes: jstype.UnionType cannot be cast to jstype.ObjectType
+Closure-144,Auto-identify void functions
+Closure-82,.indexOf fails to produce missing property warning
+Closure-113,Bug in require calls processing
+Closure-164,{function(number, string)} should not be assignable to {function(number)}
+Closure-133,Exception when parsing erroneous jsdoc: /**@return {@code foo} bar   *    baz. */
+Closure-125,IllegalStateException at com.google.javascript.rhino.jstype.FunctionType.getInstanceType
+Closure-172,Type of prototype property incorrectly inferred to string
+Closure-98,bad variable inlining in closure
+Closure-77,\0 \x00 and \u0000 are translated to null character
+Closure-109,Constructor types that return all or unknown fail to parse
+Closure-20,String conversion optimization is incorrect
+Closure-36,goog.addSingletonGetter prevents unused class removal
+Closure-148,CSS3 'writingMode' not recognised in advanced mode
+Closure-61,Closure removes needed code.
+Closure-60,void function () {}(); wrongly identified as having no side effects
+Closure-37,incomplete function definition crashes the compiler when ideMode is enabled
+Closure-149,Add option to turn off string escaping
+Closure-21,Classify non-rightmost expressions as problematic
+Closure-99,Prototypes declared with quotes produce a JSC_USED_GLOBAL_THIS warning.
+Closure-76,Assignments within conditions are sometimes incorrectly removed
+Closure-108,precondition crash: goog.scope local with aliased in the type declaration
+Closure-173,Operator precedence breaks with certain combinations of *, / and %.
+Closure-124,Different output from RestAPI and command line jar
+Closure-132,if statement
+Closure-165,Properties defined on any record type applying to unrelated record types
+Closure-83,Cannot see version with --version
+Closure-112,Template types on methods incorrectly trigger inference of a template on the class if that template type is unknown
+Closure-145,Bug with labeled loops and breaks
+Closure-153,Namespace definition in Prototype is broken
+Closure-95,Use @public tag to prevent compression of symbol names
+Closure-104,Typos in externs/html5.js
+Closure-56,Last warning or error in output is truncated
+Closure-128,The compiler quotes the "0" keys in object literals
+Closure-40,smartNameRemoval causing compiler crash
+Closure-17,@const dumps type cast information
+Closure-169,Strange "wrong parameter" warning for callback function
+Closure-162,Type aliases cannot be used in type annotations before their definitions
+Closure-135,Inheritance not detected when prototype directly assigned
+Closure-123,Generates code with invalid for/in left-hand assignment
+Closure-174,compiler crash on goog.scope locals
+Closure-71,no warnings when @private prop is redeclared on subclass
+Closure-158,Order of jscomp_error, jscomp_warning, jscomp_off flags are not preserved
+Closure-26,ProcessCommonJSModules module$exports failures when checkTypes enabled
+Closure-30,Combining temporary strings are over-optimized in advanced build
+Closure-88,Incorrect assignment removal from expression in simple mode.
+Closure-119,catch(e) yields JSC_UNDEFINED_NAME warning when e is used in catch in advanced mode
+Closure-67,Advanced compilations renames a function and then deletes it, leaving a reference to a renamed but non-existent function
+Closure-10,Wrong code generated if mixing types in ternary operator
+Closure-139,Redefinition of a function in third party code can be miscompiled
+Closure-47,Original source line numbers are one-based in source maps.
+Closure-51,-0.0 becomes 0 even in whitespace mode
+Closure-92,bug with implicit namespaces across modules
+Closure-103,Compiler gives false error with respect to unreachable code
+Closure-154,Add support for data members on interfaces
+Closure-7,Bad type inference with goog.isFunction and friends
+Closure-142,Internet Explorer runtime error after compilation.
+Closure-84,Invalid left-hand side of assignment not detected
+Closure-115,Erroneous optimization in ADVANCED_OPTIMIZATIONS mode
+Closure-85,Reproduceable crash with switch statement
+Closure-114,Crash on the web closure compiler
+Closure-143,@define does not support strings
+Closure-155,Overzealous arguments optimisation
+Closure-6,better 'this' type checking
+Closure-102,compiler assumes that 'arguments' can be shadowed
+Closure-50,Optimisation: convert array.join(",") to array.join()
+Closure-138,Invalid JSC_DETERMINISTIC_TEST
+Closure-46,ClassCastException during TypeCheck pass
+Closure-11,Record type invalid property not reported on function with @this annotation
+Closure-89,Compiler removes function properties that it should not
+Closure-118,Prototype method incorrectly removed
+Closure-66,@enum does not type correctly
+Closure-31,Add support for --manage_closure_dependencies and --only_closure_dependencies with compilation level WHITESPACE_ONLY
+Closure-159,Closure Compiler failed to translate all instances of a function name
+Closure-27,Error trying to build try-catch block (AST)
+Closure-70,unexpected typed coverage of less than 100%
+Closure-175,Erroneous optimization in ADVANCED_OPTIMIZATIONS mode
+Closure-122,Inconsistent handling of non-JSDoc comments
+Closure-134,@inheritDoc doesn't play well with interfaces
+Closure-163,VarCheck Crash When Using Modules

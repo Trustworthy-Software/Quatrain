@@ -44,7 +44,7 @@ def save_bug_report(path_folder):
 
             result += name + ',' + summary + '\n'
     print result
-    with open('Closure_result.txt', 'w+') as f:
+    with open('Closure_bugreport.txt', 'w+') as f:
         f.write(result)
 
 
@@ -53,5 +53,5 @@ def get_bug_report(file_json):
     save_bug_report(path_folder='Closure_json')
 
 if  __name__ == '__main__':
-    file_json = 'Closure_bugreport.txt'
+    file_json = 'Closure_url.txt'
     get_bug_report(file_json)
