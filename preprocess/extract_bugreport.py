@@ -53,6 +53,6 @@ def get_bug_report(file_json):
     get_json(file_json)
     save_bug_report(path_folder='Closure_json')
 
-if  __name__ == '__main__':
+if __name__ == '__main__':
     file_json = 'Closure_url.txt'
     get_bug_report(file_json)
