@@ -134,6 +134,7 @@ Closure-6,better 'this' type checking
 Closure-60,void function () {}(); wrongly identified as having no side effects
 Closure-61,Closure removes needed code.
 Closure-62,Column-indicating caret is sometimes not in error output
+Closure-63,Column-indicating caret is sometimes not in error output
 Closure-64,--language_in=ECMASCRIPT5_STRICT results in 1 'use strict' per input file
 Closure-65,String escaping mishandles null byte
 Closure-66,@enum does not type correctly
@@ -166,6 +167,7 @@ Closure-9,Compiler fails to find amd module in a subdirectory
 Closure-90,@this emits warning when used with a typedef
 Closure-91,support @lends annotation
 Closure-92,bug with implicit namespaces across modules
+Closure-93,bug with implicit namespaces across modules
 Closure-94,closure-compiler @define annotation does not allow line to be split on 80 characters.
 Closure-95,Use @public tag to prevent compression of symbol names
 Closure-96,Missing type-checks for var_args notation
