@@ -28,7 +28,7 @@ class Word2vector:
                 pass
             else:
                 ssl._create_default_https_context = _create_unverified_https_context
-            nltk.download('punkt')
+            # nltk.download('punkt')
 
             logging.getLogger().info('Waiting for Bert server')
             self.m = BertClient(check_length=False, check_version=False)
