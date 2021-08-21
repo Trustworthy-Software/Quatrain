@@ -43,8 +43,8 @@ def save_bug_report(path_folder):
             json_dict = json.load(f)
             summary = str(json_dict['summary'])
 
-            result += name + ',' + summary + '\n'
-    print result
+            result += name + '$$' + summary + '\n'
+    print (result)
     with open('Closure_bugreport.txt', 'w+') as f:
         f.write(result)
 
