@@ -7,6 +7,7 @@ from sklearn.model_selection import KFold, StratifiedKFold
 import numpy as np
 from sklearn.metrics import roc_curve, auc, accuracy_score, recall_score, precision_score
 from sklearn.metrics import confusion_matrix
+import xgboost as xgb
 
 class Classifier:
     def __init__(self, dataset, labels, algorithm, kfold):
@@ -57,11 +58,19 @@ class Classifier:
             elif self.algorithm == 'dt':
                 clf = DecisionTreeClassifier().fit(X=x_train, y=y_train, sample_weight=None)
             elif self.algorithm == 'rf':
-                clf = RandomForestClassifier().fit(X=x_train, y=y_train)
+                clf = RandomForestClassifier().fit(X=x_train, y=y_train,)
+            elif self.algorithm == 'xgb':
+                dtrain = xgb.DMatrix(x_train, label=y_train)
+                clf = xgb.train(params={'objective': 'binary:logistic', 'verbosity': 0}, dtrain=dtrain, )
             elif self.algorithm == 'nb':
                 clf = GaussianNB().fit(X=x_train, y=y_train)
 
-            y_pred = clf.predict_proba(x_test)[:, 1]
+            if self.algorithm == 'xgb':
+                x_test_xgb = x_test
+                x_test_xgb_dmatrix = xgb.DMatrix(x_test_xgb, label=y_test)
+                y_pred = clf.predict(x_test_xgb_dmatrix)
+            else:
+                y_pred = clf.predict_proba(x_test)[:, 1]
 
             auc_, recall_p, recall_n, acc, prc, rc, f1 = self.evaluation_metrics(y_true=list(y_test), y_pred_prob=list(y_pred))
 
