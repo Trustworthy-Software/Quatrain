@@ -1,0 +1,1783 @@
+Math-34$$None$$patch1-Math-34-HDRepair$$Fix ListPopulation . iterator ( )$$1
+Math-70$$None$$patch1-Math-70-HDRepair$$fixed erroneous loop$$1
+Math-5$$None$$patch1-Math-5-HDRepair$$Fix NaN - > org . apache . commons . math3 . complex . Complex$$1
+Math-22$$None$$patch1-Math-22-HDRepair$$Fix FDistribution and UniformRealDistribution . isSupportLowerBoundInclusive ( )$$1
+Time-19$$None$$patch1-Time-19-HDRepair$$fixed typo .$$1
+Lang-57$$None$$patch1-Lang-57-HDRepair$$Use availableLocaleList ( ) instead of cAvailableLocaleSet$$1
+Math-50$$None$$patch1-Math-50-HDRepair$$Fix warning on int precision thingie in BaseSecantSolver$$0
+Math-85$$None$$patch1-Math-85-HDRepair$$Fix a numeric equality bug in UnivariateRealSolverUtils$$0
+Math-82$$None$$patch1-Math-82-HDRepair$$I had left it harwired to the edge ( and also in the inverse ) .$$0
+Closure-61$$Closure removes needed code.$$patch1-Closure-61-Developer$$Fix regex global references in Closure metadata$$1
+Closure-95$$Use @public tag to prevent compression of symbol names$$patch1-Closure-95-Developer$$fix this one .$$1
+Closure-132$$if statement$$patch1-Closure-132-Developer$$don ' t let the receiver have side effects on the left$$1
+Closure-59$$Cannot exclude globalThis checks through command line$$patch1-Closure-59-Developer$$"Revert "" Enable check for globalThis level """$$1
+Closure-92$$bug with implicit namespaces across modules$$patch1-Closure-92-Developer$$Fixing the warning for invalid symbol indexing .$$1
+Closure-66$$@enum does not type correctly$$patch1-Closure-66-Developer$$Set typeable = false for OBJECTLIT key nodes$$1
+Closure-104$$Typos in externs/html5.js$$patch1-Closure-104-Developer$$Fix warning$$1
+Closure-50$$Optimisation: convert array.join(",") to array.join()$$patch1-Closure-50-Developer$$added code change notification$$1
+Closure-68$$Cryptic error message on invalid "@type function" annotation$$patch1-Closure-68-Developer$$Restore look ahead indicator for TypeParameters$$1
+Closure-103$$Compiler gives false error with respect to unreachable code$$patch1-Closure-103-Developer$$Fix false positives in closure analysis$$1
+Closure-57$$compiler crashes when  goog.provide used with non string $$patch1-Closure-57-Developer$$Fix warning$$1
+Closure-32$$Preserve doesn't preserve whitespace at start of line$$patch1-Closure-32-Developer$$Reset lineStartChar after the * - 1 or * the * - 1 case .$$1
+Closure-35$$assignment to object in conditional causes type error on function w/ record type return type$$patch1-Closure-35-Developer$$Fix closure type inference$$1
+Closure-102$$compiler assumes that 'arguments' can be shadowed$$patch1-Closure-102-Developer$$Fixing the closure compiler warnings$$1
+Closure-69$$Compiler should warn/error when instance methods are operated on$$patch1-Closure-69-Developer$$Fix reported error in TypeCheck$$1
+Closure-56$$Last warning or error in output is truncated$$patch1-Closure-56-Developer$$fix possible NPE at startup$$1
+Closure-105$$Array Join Munged Incorrectly$$patch1-Closure-105-Developer$$Allow null string input$$1
+Closure-51$$-0.0 becomes 0 even in whitespace mode$$patch1-Closure-51-Developer$$Fix comparison to non - negative numbers$$1
+Closure-58$$Online CC bug: report java error.$$patch1-Closure-58-Developer$$Fix closure bit .$$1
+Closure-133$$Exception when parsing erroneous jsdoc: /**@return {@code foo} bar   *    baz. */$$patch1-Closure-133-Developer$$Reset unread token on getRemainingJSDocLine ( )$$1
+Closure-67$$Advanced compilations renames a function and then deletes it, leaving a reference to a renamed but non-existent function$$patch1-Closure-67-Developer$$Add an empty line$$1
+Closure-93$$None$$patch1-Closure-93-Developer$$Fixing the build .$$1
+Closure-94$$closure-compiler @define annotation does not allow line to be split on 80 characters.$$patch1-Closure-94-Developer$$Added some known valid characters .$$1
+Closure-60$$void function () {}(); wrongly identified as having no side effects$$patch1-Closure-60-Developer$$fixing side - effects in boolean - literals$$1
+Closure-34$$StackOverflowError exception when running closure compiler (javascript attached)$$patch1-Closure-34-Developer$$Fix unrolling of operators in Closure_34$$1
+Closure-33$$weird object literal invalid property error on unrelated object prototype$$patch1-Closure-33-Developer$$Handle anonymous constraints$$1
+Closure-20$$String conversion optimization is incorrect$$patch1-Closure-20-Developer$$closure compiler doesn ' t likeImmutableValue ( ) for inline code$$1
+Closure-18$$Dependency sorting with closurePass set to false no longer works.$$patch1-Closure-18-Developer$$fix the marking of dead code$$1
+Closure-27$$Error trying to build try-catch block (AST)$$patch1-Closure-27-Developer$$Updated information$$1
+Closure-9$$Compiler fails to find amd module in a subdirectory$$patch1-Closure-9-Developer$$Fix a warning$$1
+Closure-11$$Record type invalid property not reported on function with @this annotation$$patch1-Closure-11-Developer$$Fix warning$$1
+Closure-7$$Bad type inference with goog.isFunction and friends$$patch1-Closure-7-Developer$$Don ' t filter out subtypes of "" function "" unless the receiver type is a non -$$1
+Closure-29$$closure compiler screws up a perfectly valid isFunction() implementation$$patch1-Closure-29-Developer$$Added a set of properties that are valid on object literals$$1
+Closure-16$$JSCompiler does not recursively resolve typedefs$$patch1-Closure-16-Developer$$Fixing an warning$$1
+Closure-129$$Casting a function before calling it produces bad code and breaks plugin code$$patch1-Closure-129-Developer$$Fixing cruft$$1
+Closure-42$$Simple "Whitespace only" compression removing "each" keyword from "for each (var x in arr)" loop$$patch1-Closure-42-Developer$$said error reporter to have been logging for the for - each loop extension .$$1
+Closure-89$$Compiler removes function properties that it should not$$patch1-Closure-89-Developer$$fix # 1862$$1
+Closure-116$$Erroneous optimization in ADVANCED_OPTIMIZATIONS mode$$patch1-Closure-116-Developer$$Allow side effects on function declarations in empty functions$$1
+Closure-45$$Assignment removed when used as an expression result to Array.push$$patch1-Closure-45-Developer$$Allow vars to be marked as escaped in closure closures$$1
+Closure-111$$goog.isArray doesn't hint compiler$$patch1-Closure-111-Developer$$Allow array types in closure implementations$$1
+Closure-73$$Codepoint U+007f appears raw in output$$patch1-Closure-73-Developer$$Fix typo in data$$1
+Closure-118$$Prototype method incorrectly removed$$patch1-Closure-118-Developer$$removed over quoting$$1
+Closure-87$$IE8 error: Object doesn't support this action$$patch1-Closure-87-Developer$$Allow looping in JS files$$1
+Closure-127$$Break in finally block isn't optimized properly$$patch1-Closure-127-Developer$$added inFinally ( ) check for try / catch statement$$1
+Closure-80$$Unexpected expression nodeDELPROP 1$$patch1-Closure-80-Developer$$fix merge issue$$1
+Closure-74$$Obvious optimizations don't works in "inline if"$$patch1-Closure-74-Developer$$Fixed a bug in Closure_74 where NOT nodes were being reorganised as literals .$$1
+Closure-120$$Overzealous optimization confuses variables$$patch1-Closure-120-Developer$$fix # 1210$$1
+Closure-6$$better 'this' type checking$$patch1-Closure-6-Developer$$Allow one - line ifs$$1
+Closure-28$$constant functions not inlined aggressively enough$$patch1-Closure-28-Developer$$Adding constant to closure in inline cost estimate$$1
+Closure-17$$@const dumps type cast information$$patch1-Closure-17-Developer$$Fixed type - casting issues in TypedScopeCreator$$1
+Closure-1$$function arguments should not be optimized away$$patch1-Closure-1-Developer$$don ' t remove unused vars if we don ' t remove globals$$1
+Closure-10$$Wrong code generated if mixing types in ternary operator$$patch1-Closure-10-Developer$$fixing typo in mayBeString predicate$$1
+Closure-19$$Type refining of 'this' raises IllegalArgumentException$$patch1-Closure-19-Developer$$Fixing this case$$1
+Closure-26$$ProcessCommonJSModules module$exports failures when checkTypes enabled$$patch1-Closure-26-Developer$$Do not emit module exports twice in one go$$1
+Closure-8$$Obfuscated code triggers TypeError in Firefox$$patch1-Closure-8-Developer$$fix # 417$$1
+Closure-21$$Classify non-rightmost expressions as problematic$$patch1-Closure-21-Developer$$Do not check side effects of expr results with result < - > block$$1
+Closure-75$$closure compiled swfobject error$$patch1-Closure-75-Developer$$Allow null string input$$1
+Closure-81$$An unnamed function statement statements should generate a parse error$$patch1-Closure-81-Developer$$reported an error about the missing function type in the source code$$1
+Closure-121$$Overzealous optimization confuses variables$$patch1-Closure-121-Developer$$fix failing test$$1
+Closure-119$$catch(e) yields JSC_UNDEFINED_NAME warning when e is used in catch in advanced mode$$patch1-Closure-119-Developer$$Handle catch / error in Closure data$$1
+Closure-86$$side-effects analysis incorrectly removing function calls with side effects$$patch1-Closure-86-Developer$$fix merge conflict resolution$$1
+Closure-72$$Internal Compiler Error on Bullet$$patch1-Closure-72-Developer$$Fix compiler error$$1
+Closure-126$$Break in finally block isn't optimized properly$$patch1-Closure-126-Developer$$Remove tryMinimizeExitPoints from Closure_MinimizeExitPoints$$1
+Closure-44$$alert(/ / / / /)$$patch1-Closure-44-Developer$$Allow forward slash in regexps$$1
+Closure-110$$Allow @private top-level functions in goog.scope$$patch1-Closure-110-Developer$$Fix possible NPE in closure scopeing info$$1
+Closure-43$$@lends does not work unless class is defined beforehand$$patch1-Closure-43-Developer$$Fix @ lends to not throw an error if lentObjectLiterals is null .$$1
+Closure-128$$The compiler quotes the "0" keys in object literals$$patch1-Closure-128-Developer$$Fix isSimpleNumber ( )$$1
+Closure-88$$Incorrect assignment removal from expression in simple mode.$$patch1-Closure-88-Developer$$Add a check for isVariableReadBeforeKill ( Node , String )$$1
+Closure-117$$Wrong type name reported on missing property error.$$patch1-Closure-117-Developer$$Fix getReadableJSTypeName for GETPROP .$$1
+Closure-38$$Identifier minus a negative number needs a space between the "-"s$$patch1-Closure-38-Developer$$added missing closing - > positive zero$$1
+Closure-36$$goog.addSingletonGetter prevents unused class removal$$patch1-Closure-36-Developer$$Fix inline with singleton methods$$1
+Closure-31$$Add support for --manage_closure_dependencies and --only_closure_dependencies with compilation level WHITESPACE_ONLY$$patch1-Closure-31-Developer$$fix some JARs / folders that are not used .$$1
+Closure-131$$unicode characters in property names result in invalid output$$patch1-Closure-131-Developer$$Fix possible identifierInStringMatch$$1
+Closure-91$$support @lends annotation$$patch1-Closure-91-Developer$$Fix check for isObjectLitKey ( )$$1
+Closure-65$$String escaping mishandles null byte$$patch1-Closure-65-Developer$$Fix code generator$$1
+Closure-62$$Column-indicating caret is sometimes not in error output$$patch1-Closure-62-Developer$$Fixed whitespace in source excerpt$$1
+Closure-96$$Missing type-checks for var_args notation$$patch1-Closure-96-Developer$$Allow var_args parameter access from closure_96$$1
+Closure-109$$Constructor types that return all or unknown fail to parse$$patch1-Closure-109-Developer$$Parser now uses new type AST .$$1
+Closure-100$$Only assignment to "this" issues a "dangerous use of the global this object" warning.$$patch1-Closure-100-Developer$$Added check for property access in closures$$1
+Closure-54$$Prototype methods can't be used from the constructor in case prototype is explicitly defined.$$patch1-Closure-54-Developer$$Fix wrong source formatting .$$1
+Closure-107$$Variable names prefixed with MSG_ cause error with advanced optimizations$$patch1-Closure-107-Developer$$shut up i18n warnings$$1
+Closure-98$$bad variable inlining in closure$$patch1-Closure-98-Developer$$Fixing possible loop in closure scope$$1
+Closure-53$$compiler-20110811 crashes with index(1) must be less than size(1)$$patch1-Closure-53-Developer$$Fix an issue with closure objects where empty collections are not used$$1
+Closure-30$$Combining temporary strings are over-optimized in advanced build$$patch1-Closure-30-Developer$$Do not traverse roots of Closure data$$1
+Closure-37$$incomplete function definition crashes the compiler when ideMode is enabled$$patch1-Closure-37-Developer$$Added check for expanded macros$$1
+Closure-39$$externExport with @typedef can generate invalid externs$$patch1-Closure-39-Developer$$Fix toStringHelper for Closure_39$$1
+Closure-106$$Exception thrown from com.google.javascript.jscomp.CollapseProperties.addStubsForUndeclaredProperties$$patch1-Closure-106-Developer$$Fixing Preconditions . checkNotNull ( description ) .$$1
+Closure-99$$Prototypes declared with quotes produce a JSC_USED_GLOBAL_THIS warning.$$patch1-Closure-99-Developer$$Fix check for prototype properties on interfaces ( and @ interface )$$1
+Closure-52$$Converts string properties into numbers in literal object definitions$$patch1-Closure-52-Developer$$Fixed false positives in getSimpleNumber ( )$$1
+Closure-101$$--process_closure_primitives can't be set to false$$patch1-Closure-101-Developer$$Fix closure pass by moving to the right place .$$1
+Closure-55$$Exception when emitting code containing getters$$patch1-Closure-55-Developer$$Allow closure nodes to be reduced by properties$$1
+Closure-97$$Unsigned Shift Right (>>>) bug operating on negative numbers$$patch1-Closure-97-Developer$$Fix 64 - bit long shift operator in Closure_97$$1
+Closure-108$$precondition crash: goog.scope local with aliased in the type declaration$$patch1-Closure-108-Developer$$Do not remove injectedDecls as we process the same kind of code when creating the alias .$$1
+Closure-63$$None$$patch1-Closure-63-Developer$$add whitespace to sourceExcerpt$$1
+Closure-130$$arguments is moved to another scope$$patch1-Closure-130-Developer$$don ' t inline if in externs$$1
+Closure-64$$--language_in=ECMASCRIPT5_STRICT results in 1 'use strict' per input file$$patch1-Closure-64-Developer$$Fix toSource ( ) method$$1
+Closure-90$$@this emits warning when used with a typedef$$patch1-Closure-90-Developer$$Allow null values for closure types$$1
+Closure-46$$ClassCastException during TypeCheck pass$$patch1-Closure-46-Developer$$Remove special treatment for property types .$$1
+Closure-79$$RuntimeException when compiling with extern prototype$$patch1-Closure-79-Developer$$Fix code change reported by Closure_79_VarCheck_s$$1
+Closure-112$$Template types on methods incorrectly trigger inference of a template on the class if that template type is unknown$$patch1-Closure-112-Developer$$Allow template types to be included in inferred by default$$1
+Closure-41$$In ADVANCED mode, Compiler fails to warn about overridden methods with different signatures.$$patch1-Closure-41-Developer$$fix merge issue$$1
+Closure-115$$Erroneous optimization in ADVANCED_OPTIMIZATIONS mode$$patch1-Closure-115-Developer$$disable side effects check for function arguments$$1
+Closure-83$$Cannot see version with --version$$patch1-Closure-83-Developer$$Fixed try catch block for parseArguments$$1
+Closure-77$$\0 \x00 and \u0000 are translated to null character$$patch1-Closure-77-Developer$$Fix code generator$$1
+Closure-123$$Generates code with invalid for/in left-hand assignment$$patch1-Closure-123-Developer$$Fix an issue with ' in ' after being told to use the context for the in operator$$1
+Closure-48$$Type checking error when replacing a function with a stub after calling.$$patch1-Closure-48-Developer$$Fix inferred flag for functions in unscoped qualified name .$$1
+Closure-70$$unexpected typed coverage of less than 100%$$patch1-Closure-70-Developer$$Fixing the warning about jsDoc parameter definition for typed scope creator$$1
+Closure-84$$Invalid left-hand side of assignment not detected$$patch1-Closure-84-Developer$$Fix an error in Closure data that is not valid assignment targets .$$1
+Closure-124$$Different output from RestAPI and command line jar$$patch1-Closure-124-Developer$$Fix download age$$1
+Closure-24$$goog.scope doesn't properly check declared functions$$patch1-Closure-24-Developer$$fix another broken link to ' alias ' report$$1
+Closure-23$$tryFoldArrayAccess does not check for side effects$$patch1-Closure-23-Developer$$Fix swapped loop$$1
+Closure-4$$Converting from an interface type to a constructor which @implements itself causes stack overflow.$$patch1-Closure-4-Developer$$Fix Cycles in Closure_4_NamedType_t$$1
+Closure-15$$Switched order of "delete key" and "key in" statements changes semantic$$patch1-Closure-15-Developer$$Added another check for delProp$$1
+Closure-3$$optimization fails with variable in catch clause$$patch1-Closure-3-Developer$$Fix possible ES6 error$$1
+Closure-12$$Try/catch blocks incorporate code not inside original blocks$$patch1-Closure-12-Developer$$Fix error in maybeReachingVariableUse$$1
+Closure-85$$Reproduceable crash with switch statement$$patch1-Closure-85-Developer$$Fix tryRemoveUnconditionalBranching ( )$$1
+Closure-71$$no warnings when @private prop is redeclared on subclass$$patch1-Closure-71-Developer$$Fix warning$$1
+Closure-125$$IllegalStateException at com.google.javascript.rhino.jstype.FunctionType.getInstanceType$$patch1-Closure-125-Developer$$Fix TypeCheck$$1
+Closure-76$$Assignments within conditions are sometimes incorrectly removed$$patch1-Closure-76-Developer$$fix the case$$1
+Closure-82$$.indexOf fails to produce missing property warning$$patch1-Closure-82-Developer$$isEmptyType ( ) is not a function type$$1
+Closure-49$$Incorrect output if a function is assigned to a variable, and the function contains a variable with the same name$$patch1-Closure-49-Developer$$Do not visit LP as varargs to "" varargs "" when move to LP"$$1
+Closure-122$$Inconsistent handling of non-JSDoc comments$$patch1-Closure-122-Developer$$Allow comments to be ignored .$$1
+Closure-40$$smartNameRemoval causing compiler crash$$patch1-Closure-40-Developer$$Fix possible NPE$$1
+Closure-114$$Crash on the web closure compiler$$patch1-Closure-114-Developer$$Fix merge conflict in ODS data$$1
+Closure-47$$Original source line numbers are one-based in source maps.$$patch1-Closure-47-Developer$$Fix source map offset for v3 source map entries .$$1
+Closure-113$$Bug in require calls processing$$patch1-Closure-113-Developer$$Allow for changes to provided$$1
+Closure-78$$division by zero wrongly throws JSC_DIVIDE_BY_0_ERROR$$patch1-Closure-78-Developer$$Fix PeepholeFoldConstants data$$1
+Closure-2$$combining @interface and multiple @extends can crash compiler$$patch1-Closure-2-Developer$$Fix typo in interfaceType data$$1
+Closure-13$$true/false are not always replaced for !0/!1$$patch1-Closure-13-Developer$$Fix PeepholeOptimizationsPass$$1
+Closure-5$$Compiler ignores 'delete' statements, can break functionality.$$patch1-Closure-5-Developer$$fix merge issue$$1
+Closure-14$$bogus 'missing return' warning$$patch1-Closure-14-Developer$$Fix CFA$$1
+Closure-22$$Classify non-rightmost expressions as problematic$$patch1-Closure-22-Developer$$Allow ' + ' after the closing parenthesis in closure - scoped code$$1
+Closure-25$$anonymous object type inference behavior is different when calling constructors$$patch1-Closure-25-Developer$$Updated scope for constructors with arguments$$1
+Chart-20$$None$$patch1-Chart-20-Developer$$Added missing closing parenthesis in ValueMarker$$1
+Chart-18$$None$$patch1-Chart-18-Developer$$Fix bugs in Controller and File ( ODS ) .$$1
+Chart-9$$None$$patch1-Chart-9-Developer$$Fix empty range in chart_9_TimeSeries_t$$1
+Chart-11$$None$$patch1-Chart-11-Developer$$Fix human patching$$1
+Chart-7$$None$$patch1-Chart-7-Developer$$Fix bug in chart$$1
+Chart-16$$None$$patch1-Chart-16-Developer$$Fix uninitialized variables in DefaultIntervalCategoryDataset .$$1
+Chart-6$$None$$patch1-Chart-6-Developer$$Fix chart6 shape list fixing$$1
+Chart-17$$None$$patch1-Chart-17-Developer$$deep clone the timeline and timeline data lists .$$1
+Chart-1$$None$$patch1-Chart-1-Developer$$Fix nullability assertion .$$1
+Chart-10$$None$$patch1-Chart-10-Developer$$Fix build$$1
+Chart-19$$None$$patch1-Chart-19-Developer$$Fix a warning$$1
+Chart-26$$None$$patch1-Chart-26-Developer$$Add perfomance label to human patche$$1
+Chart-8$$None$$patch1-Chart-8-Developer$$Fix bug in week constructor$$1
+Chart-21$$None$$patch1-Chart-21-Developer$$Fixed a bug in chart bounds$$1
+Chart-24$$None$$patch1-Chart-24-Developer$$Fix bug in chart_24_GrayPaintScale$$1
+Chart-23$$None$$patch1-Chart-23-Developer$$Fix minor warning$$1
+Chart-4$$None$$patch1-Chart-4-Developer$$added missing test$$1
+Chart-15$$None$$patch1-Chart-15-Developer$$Fix an NPE if the dataset is null .$$1
+Chart-3$$None$$patch1-Chart-3-Developer$$Fix chart error$$1
+Chart-12$$None$$patch1-Chart-12-Developer$$Fixed a bug in MultiplePiePlot .$$1
+Chart-2$$None$$patch1-Chart-2-Developer$$Fix NaN values in XY dataset$$1
+Chart-13$$None$$patch1-Chart-13-Developer$$Fix chart border arrangement issue$$1
+Chart-5$$None$$patch1-Chart-5-Developer$$Fix allowDuplicateXValues for XYSeries$$1
+Chart-14$$None$$patch1-Chart-14-Developer$$added human patches$$1
+Chart-22$$None$$patch1-Chart-22-Developer$$Fix removeRow ( ) where the column key was not found .$$1
+Chart-25$$None$$patch1-Chart-25-Developer$$Add missing fix from previous commit .$$1
+Math-61$$None$$patch1-Math-61-Developer$$Add missing import$$1
+Math-95$$None$$patch1-Math-95-Developer$$Fix @@$$1
+Math-59$$None$$patch1-Math-59-Developer$$Fix typo in last commit$$1
+Math-92$$None$$patch1-Math-92-Developer$$Fix a bug in binomial coefficient ( n , k )$$1
+Math-66$$None$$patch1-Math-66-Developer$$Fix a bug in the Math_66_BrentOptimizer class .$$1
+Math-104$$None$$patch1-Math-104-Developer$$Add back missing @@$$1
+Math-50$$None$$patch1-Math-50-Developer$$Fix REGULA_FALSI case .$$1
+Math-68$$None$$patch1-Math-68-Developer$$Added a convergence checker$$1
+Math-103$$None$$patch1-Math-103-Developer$$Fix max iterations reached in Math_103 NormalDistributionImpl$$1
+Math-57$$None$$patch1-Math-57-Developer$$Fix the build .$$1
+Math-32$$None$$patch1-Math-32-Developer$$Fixed a bug in Controller of Controller data .$$1
+Math-35$$None$$patch1-Math-35-Developer$$ElitisticListPopulation constructor should set the elitism rate before setting the population limit .$$1
+Math-102$$None$$patch1-Math-102-Developer$$added rescale option to observed count$$1
+Math-69$$None$$patch1-Math-69-Developer$$PearsonsCorrelation tDistribution is not 1 - tDistribution$$1
+Math-56$$None$$patch1-Math-56-Developer$$Fixed bug in Math_56_MultidimensionalCounter_t$$1
+Math-105$$None$$patch1-Math-105-Developer$$Add missing @@$$1
+Math-51$$None$$patch1-Math-51-Developer$$Add case for regula_FALSI to update the functionive value .$$1
+Math-58$$None$$patch1-Math-58-Developer$$Added tagging$$1
+Math-67$$None$$patch1-Math-67-Developer$$Added missing @@$$1
+Math-93$$None$$patch1-Math-93-Developer$$Fix a bug in factorial ( )$$1
+Math-94$$None$$patch1-Math-94-Developer$$Fix gcd ( )$$1
+Math-60$$None$$patch1-Math-60-Developer$$Fix max iterations reached in Math_60_NormalDistributionImpl_t$$1
+Math-34$$None$$patch1-Math-34-Developer$$Fix bug in HIVE - 1299$$1
+Math-33$$None$$patch1-Math-33-Developer$$maxUlps - > epsilon$$1
+Math-20$$None$$patch1-Math-20-Developer$$Fix the fix in CMAESOptimizer$$1
+Math-18$$None$$patch1-Math-18-Developer$$Fix CMAESOptimizer test .$$1
+Math-27$$None$$patch1-Math-27-Developer$$Added missing @@$$1
+Math-9$$None$$patch1-Math-9-Developer$$Fixed test data$$1
+Math-11$$None$$patch1-Math-11-Developer$$Fix a bug in MultivariateNormalDistribution$$1
+Math-7$$None$$patch1-Math-7-Developer$$Fix human patching$$1
+Math-29$$None$$patch1-Math-29-Developer$$Fix the for - loop of Math_29 OpenMapRealVector data$$1
+Math-16$$None$$patch1-Math-16-Developer$$Fix a bug in Math_16_FastMath_t$$1
+Math-42$$None$$patch1-Math-42-Developer$$Fix the case for the objective function row being invalid after correction$$1
+Math-89$$None$$patch1-Math-89-Developer$$Add throw argument for addValue ( )$$1
+Math-45$$None$$patch1-Math-45-Developer$$Add throw condition$$1
+Math-73$$None$$patch1-Math-73-Developer$$Added a message to the console if yMin * yMax > 0$$1
+Math-87$$None$$patch1-Math-87-Developer$$Improved the following$$1
+Math-80$$None$$patch1-Math-80-Developer$$Fixed a bug in EigenDecompositionImpl . flipIfWarranted ( ) .$$1
+Math-74$$None$$patch1-Math-74-Developer$$Fix the bug in EmbeddedRungeKuttaIntegator .$$1
+Math-6$$None$$patch1-Math-6-Developer$$Fix infinite loop in Controller and Gremlin .$$1
+Math-28$$None$$patch1-Math-28-Developer$$Using the fix from Bland ' s rule$$1
+Math-17$$None$$patch1-Math-17-Developer$$Fix the multiply ( ) method$$1
+Math-1$$None$$patch1-Math-1-Developer$$Add epsilon check in Math_1_Fraction$$1
+Math-10$$None$$patch1-Math-10-Developer$$Fix typo in Math_10_DSCompiler_t$$1
+Math-19$$None$$patch1-Math-19-Developer$$Add missing exception message$$1
+Math-26$$None$$patch1-Math-26-Developer$$Fix overflow in Math_26_Fraction$$1
+Math-8$$None$$patch1-Math-8-Developer$$Fix the sample method to return Object [] instead of T [] .$$1
+Math-21$$None$$patch1-Math-21-Developer$$Fix swapped indexing$$1
+Math-75$$None$$patch1-Math-75-Developer$$Fix typo in Pct method$$1
+Math-81$$None$$patch1-Math-81-Developer$$fix a possible NPE in EigenDecompositionImpl , added a fix$$1
+Math-86$$None$$patch1-Math-86-Developer$$CholeskyDecompositionImpl_t can throw NotPositiveDefiniteMatrixException on diagonal elements$$1
+Math-72$$None$$patch1-Math-72-Developer$$Fix case$$1
+Math-44$$None$$patch1-Math-44-Developer$$Fix bug in Math_44_AbstractIntegator_t$$1
+Math-43$$None$$patch1-Math-43-Developer$$Fix secondMoment$$1
+Math-88$$None$$patch1-Math-88-Developer$$removed a redundant line$$1
+Math-38$$None$$patch1-Math-38-Developer$$Fix NPE in Controller and InterpolationPoints$$1
+Math-36$$None$$patch1-Math-36-Developer$$Fix a bug in Controller / Math_36_BigFraction_t$$1
+Math-31$$None$$patch1-Math-31-Developer$$Fix Precision . equals ( dN , 0 . 0 , small ) .$$1
+Math-91$$None$$patch1-Math-91-Developer$$Fix comparison warning in Math_91_Fraction$$1
+Math-65$$None$$patch1-Math-65-Developer$$Fix case .$$1
+Math-62$$None$$patch1-Math-62-Developer$$Fix a bug in MultiStartUnivariateRealOptimizer . optimize ( f , goal ,$$1
+Math-96$$None$$patch1-Math-96-Developer$$Fix comparison issues with Math_96_Complex$$1
+Math-100$$None$$patch1-Math-100-Developer$$Fix NPE in Math_100_AbstractEstimator_t$$1
+Math-54$$None$$patch1-Math-54-Developer$$Fix trade - off in Math_54_Dfp_s$$1
+Math-98$$None$$patch1-Math-98-Developer$$Fix a bug in the human_patches API , added test data$$1
+Math-53$$None$$patch1-Math-53-Developer$$Add the missing isNaN check$$1
+Math-30$$None$$patch1-Math-30-Developer$$Remove unnecessary ints$$1
+Math-37$$None$$patch1-Math-37-Developer$$Fix NPE in Math_37_Complex_t$$1
+Math-39$$None$$patch1-Math-39-Developer$$Fixed test for forward / upper case$$1
+Math-106$$None$$patch1-Math-106-Developer$$Fix invalid closing / missing closing paren in ProperFractionFormat$$1
+Math-99$$None$$patch1-Math-99-Developer$$Fix bug in Math_99_MathUtils_t$$1
+Math-52$$None$$patch1-Math-52-Developer$$Updated inPlaneThreshold variable$$1
+Math-101$$None$$patch1-Math-101-Developer$$fix a bug in the source string to make it work reliably outside the source string$$1
+Math-55$$None$$patch1-Math-55-Developer$$Fix potential NPE in cross product test$$1
+Math-97$$None$$patch1-Math-97-Developer$$Fixing bracketing in Math_97_BrentSolver_t$$1
+Math-63$$None$$patch1-Math-63-Developer$$Add missing @@$$1
+Math-64$$None$$patch1-Math-64-Developer$$Fix a crash in the QTy function$$1
+Math-90$$None$$patch1-Math-90-Developer$$Fix addValue ( )$$1
+Math-46$$None$$patch1-Math-46-Developer$$Add the fix on Math_46_Complex_t$$1
+Math-79$$None$$patch1-Math-79-Developer$$Fix OSGi release .$$1
+Math-41$$None$$patch1-Math-41-Developer$$Added missing patch for human patch$$1
+Math-83$$None$$patch1-Math-83-Developer$$ignore objective functions$$1
+Math-77$$None$$patch1-Math-77-Developer$$Remove intermittent loop$$1
+Math-48$$None$$patch1-Math-48-Developer$$Add a throw in case of still being able to work together$$1
+Math-70$$None$$patch1-Math-70-Developer$$Added beta solution .$$1
+Math-84$$None$$patch1-Math-84-Developer$$Fix a bug in iterateSimplex ( )$$1
+Math-24$$None$$patch1-Math-24-Developer$$Added another attempt to improve the situation .$$1
+Math-23$$None$$patch1-Math-23-Developer$$Added a couple of attempts to improve the score$$1
+Math-4$$None$$patch1-Math-4-Developer$$Fixed NPE in Math_4_SubLine_t$$1
+Math-15$$None$$patch1-Math-15-Developer$$Fix typo in human_patches$$1
+Math-3$$None$$patch1-Math-3-Developer$$Revert MathArrays_t to scalar multiplication .$$1
+Math-12$$None$$patch1-Math-12-Developer$$Fixed bug in BitsStreamGenerator$$1
+Math-85$$None$$patch1-Math-85-Developer$$Fix a bug in the Math_85 test .$$1
+Math-71$$None$$patch1-Math-71-Developer$$Add the missing patch ( y0 )$$1
+Math-76$$None$$patch1-Math-76-Developer$$Fix the for - loop of singular values in Bt , where B is not upper bidiagonal$$1
+Math-82$$None$$patch1-Math-82-Developer$$removed epsilon from tableau test$$1
+Math-49$$None$$patch1-Math-49-Developer$$Fix a bug in ebeDivide ( RealVector )$$1
+Math-40$$None$$patch1-Math-40-Developer$$Added fix for bracketing update$$1
+Math-47$$None$$patch1-Math-47-Developer$$Fix the case for Math_47_Complex_t$$1
+Math-78$$None$$patch1-Math-78-Developer$$added epsilon step for g ( ta , gb )$$1
+Math-2$$None$$patch1-Math-2-Developer$$Fix an issue with Math_2_HypergeometricDistribution . getNumericalMean ( ) that could$$1
+Math-13$$None$$patch1-Math-13-Developer$$Fix NPE in AbstractLeastSquaresOptimizer$$1
+Math-5$$None$$patch1-Math-5-Developer$$Fixed a bug in Math_5_Complex_t$$1
+Math-14$$None$$patch1-Math-14-Developer$$Fix NPE in Weight class$$1
+Math-22$$None$$patch1-Math-22-Developer$$Fixed case of Math_22 being non - inclusive .$$1
+Math-25$$None$$patch1-Math-25-Developer$$Add a throw if the denominator of Math_25 is zero .$$1
+Time-20$$None$$patch1-Time-20-Developer$$Fix for Persian and Urdu language maps # 208$$1
+Time-18$$None$$patch1-Time-18-Developer$$Fixed bug in GJChronology . getDateTimeMillis + ( year , monthOfYear ,$$1
+Time-27$$None$$patch1-Time-27-Developer$$Fix broken parser / period formatting test$$1
+Time-9$$None$$patch1-Time-9-Developer$$throw exception if offset is out of range$$1
+Time-11$$None$$patch1-Time-11-Developer$$Fixed loading of tzm files in HZO$$1
+Time-7$$None$$patch1-Time-7-Developer$$Fixed year parser bug$$1
+Time-16$$None$$patch1-Time-16-Developer$$Fix parse error$$1
+Time-6$$None$$patch1-Time-6-Developer$$Fix bug # 1862$$1
+Time-17$$None$$patch1-Time-17-Developer$$Fix broken HIVE - 593 integration test$$1
+Time-1$$None$$patch1-Time-1-Developer$$Fix build$$1
+Time-10$$None$$patch1-Time-10-Developer$$Fixed a bug in Controller / Controller data .$$1
+Time-19$$None$$patch1-Time-19-Developer$$Fixed test data$$1
+Time-26$$None$$patch1-Time-26-Developer$$Fix broken HIVE - 662 workflow$$1
+Time-8$$None$$patch1-Time-8-Developer$$Fix incorrect exception message$$1
+Time-21$$None$$patch1-Time-21-Developer$$Fix broken HIVE5199 cache update .$$1
+Time-24$$None$$patch1-Time-24-Developer$$Fix broken patch$$1
+Time-23$$None$$patch1-Time-23-Developer$$Fixed map . put ( )$$1
+Time-4$$None$$patch1-Time-4-Developer$$Add missing second argument$$1
+Time-15$$None$$patch1-Time-15-Developer$$Add a throw if we have a min value .$$1
+Time-3$$None$$patch1-Time-3-Developer$$Fixed Add method .$$1
+Time-12$$None$$patch1-Time-12-Developer$$Fixed year / month data issues$$1
+Time-2$$None$$patch1-Time-2-Developer$$Fix a bug in Controller and other frameworks$$1
+Time-13$$None$$patch1-Time-13-Developer$$Handle the - 1 . 5 sign in the histogram$$1
+Time-5$$None$$patch1-Time-5-Developer$$Fix bug in period implementation$$1
+Time-14$$None$$patch1-Time-14-Developer$$Fix bug in monthOfYearDateTimeField$$1
+Time-22$$None$$patch1-Time-22-Developer$$Fix bug in BasePeriod class .$$1
+Time-25$$None$$patch1-Time-25-Developer$$Fixed test data for offsetLocal < = 0$$1
+Lang-61$$None$$patch1-Lang-61-Developer$$Fix a bug in the string builder$$1
+Lang-59$$None$$patch1-Lang-59-Developer$$fix a bug in string builder$$1
+Lang-50$$None$$patch1-Lang-50-Developer$$Fix possible NPE$$1
+Lang-57$$None$$patch1-Lang-57-Developer$$added missing @@$$1
+Lang-32$$None$$patch1-Lang-32-Developer$$Fix ThreadLocal ' s value check$$1
+Lang-35$$None$$patch1-Lang-35-Developer$$Fixed a bug in ArrayUtils$$1
+Lang-56$$None$$patch1-Lang-56-Developer$$Fix bug$$1
+Lang-51$$None$$patch1-Lang-51-Developer$$Missing return statement on booleanUtils$$1
+Lang-58$$None$$patch1-Lang-58-Developer$$fix a bug in Lang_58_NumberUtils_t$$1
+Lang-60$$None$$patch1-Lang-60-Developer$$Fix bug in StrBuilder . contains ( )$$1
+Lang-34$$None$$patch1-Lang-34-Developer$$Fix null pointer check in toString style$$1
+Lang-33$$None$$patch1-Lang-33-Developer$$fix a bug in the array to null$$1
+Lang-20$$None$$patch1-Lang-20-Developer$$Fix the bug of StringUtils parsing being called after I finished with the string utils$$1
+Lang-18$$None$$patch1-Lang-18-Developer$$Fix year field$$1
+Lang-27$$None$$patch1-Lang-27-Developer$$Fix a bug in the NumberFormatUtils class .$$1
+Lang-9$$None$$patch1-Lang-9-Developer$$throw exception if pattern matcher regionEnd is not matched$$1
+Lang-11$$None$$patch1-Lang-11-Developer$$throw exception if end < start$$1
+Lang-7$$None$$patch1-Lang-7-Developer$$Handle spaces in string .$$1
+Lang-29$$None$$patch1-Lang-29-Developer$$Fix typo$$1
+Lang-16$$None$$patch1-Lang-16-Developer$$missing patch$$1
+Lang-42$$None$$patch1-Lang-42-Developer$$don ' t increment entity name in String entities$$1
+Lang-45$$None$$patch1-Lang-45-Developer$$Fixed a bug in Lang_45_WordUtils where negative lower value was set$$1
+Lang-6$$None$$patch1-Lang-6-Developer$$Fix bug in CharSequenceTranslator$$1
+Lang-28$$None$$patch1-Lang-28-Developer$$fix 64 bit detection failure$$1
+Lang-17$$None$$patch1-Lang-17-Developer$$Fix bug in CharSequenceTranslator$$1
+Lang-1$$None$$patch1-Lang-1-Developer$$Fix a bug in the hex number utils$$1
+Lang-10$$None$$patch1-Lang-10-Developer$$don ' t ignore white spaces in regex$$1
+Lang-19$$None$$patch1-Lang-19-Developer$$fix small bug$$1
+Lang-26$$None$$patch1-Lang-26-Developer$$Missing locale string for format ( )$$1
+Lang-8$$None$$patch1-Lang-8-Developer$$Fix bug$$1
+Lang-21$$None$$patch1-Lang-21-Developer$$Fixed formatting issues$$1
+Lang-44$$None$$patch1-Lang-44-Developer$$fix a bug in StringUtils$$1
+Lang-43$$None$$patch1-Lang-43-Developer$$don ' t put backslash at the end of a string in the pattern$$1
+Lang-38$$None$$patch1-Lang-38-Developer$$Fixed weekdays for string output$$1
+Lang-36$$None$$patch1-Lang-36-Developer$$fix foundDigit = false for decimal point after non - exponent$$1
+Lang-31$$None$$patch1-Lang-31-Developer$$capitalized search characters$$1
+Lang-65$$None$$patch1-Lang-65-Developer$$Fixed for Persian and Urdu language maps # 1896$$1
+Lang-62$$None$$patch1-Lang-62-Developer$$fix a crash in parsing of string entity values from HIVE - 593$$1
+Lang-54$$None$$patch1-Lang-54-Developer$$Missing _ sign in locale format example$$1
+Lang-53$$None$$patch1-Lang-53-Developer$$Fix OSGi reported by @ jancborchardt$$1
+Lang-30$$None$$patch1-Lang-30-Developer$$Improved containsAny ( )$$1
+Lang-37$$None$$patch1-Lang-37-Developer$$Fix broken patch$$1
+Lang-39$$None$$patch1-Lang-39-Developer$$fix null values in string utils$$1
+Lang-52$$None$$patch1-Lang-52-Developer$$Add backslash backslash$$1
+Lang-55$$None$$patch1-Lang-55-Developer$$Add missing stop time assignment in Stopwatch$$1
+Lang-63$$None$$patch1-Lang-63-Developer$$Fixed test for M$$1
+Lang-64$$None$$patch1-Lang-64-Developer$$Fix a bug in ValuedEnum$$1
+Lang-46$$None$$patch1-Lang-46-Developer$$Don ' t escape backslash backslash when closing string separators , see EvilSeph .$$1
+Lang-41$$None$$patch1-Lang-41-Developer$$Fix reverse abbreviation map presence$$1
+Lang-48$$None$$patch1-Lang-48-Developer$$Fixed a bug in equals builder$$1
+Lang-24$$None$$patch1-Lang-24-Developer$$allow L with a decimal point$$1
+Lang-23$$None$$patch1-Lang-23-Developer$$Fix a bug in the extender class$$1
+Lang-4$$None$$patch1-Lang-4-Developer$$String conversion to HashMap < CharSequence , CharSequence >$$1
+Lang-15$$None$$patch1-Lang-15-Developer$$fix a bug in TypeUtils$$1
+Lang-3$$None$$patch1-Lang-3-Developer$$Fix typo in human_patches$$1
+Lang-12$$None$$patch1-Lang-12-Developer$$Fix exception in Lang_12_RandomStringUtils_t$$1
+Lang-49$$None$$patch1-Lang-49-Developer$$fix # 1796$$1
+Lang-40$$None$$patch1-Lang-40-Developer$$Improve StringUtils presence code$$1
+Lang-47$$None$$patch1-Lang-47-Developer$$Fix the build .$$1
+Lang-2$$None$$patch1-Lang-2-Developer$$Handle contains ( ) for Java 7$$1
+Lang-13$$None$$patch1-Lang-13-Developer$$Fix possible NPE in ODS file$$1
+Lang-5$$None$$patch1-Lang-5-Developer$$I am using the LocaleUtils class for Java 8 ( UK )$$1
+Lang-14$$None$$patch1-Lang-14-Developer$$fixed test data$$1
+Lang-22$$None$$patch1-Lang-22-Developer$$Fix a bug in the greatest common divisor$$1
+Lang-25$$None$$patch1-Lang-25-Developer$$$$1
+Closure-126$$Break in finally block isn't optimized properly$$patch1-Closure-126-SketchFix$$Fix try / catch in minimizeExitPoints$$1
+Closure-14$$bogus 'missing return' warning$$patch1-Closure-14-SketchFix$$Fix finally map .$$1
+Chart-20$$None$$patch1-Chart-20-SketchFix$$Fix ValueMarker constructor to ignore the outline paint for now .$$1
+Chart-9$$None$$patch1-Chart-9-SketchFix$$Fix empty range in TimeSeries$$1
+Chart-11$$None$$patch1-Chart-11-SketchFix$$fix an issue with TwoDimTest$$1
+Chart-1$$None$$patch1-Chart-1-SketchFix$$Fix nullability note in AbstractCategoryItemRenderer$$1
+Chart-8$$None$$patch1-Chart-8-SketchFix$$Missing constructor .$$1
+Chart-24$$None$$patch1-Chart-24-SketchFix$$Fix bug in GrayPaintScale$$1
+Math-59$$None$$patch1-Math-59-SketchFix$$Fix NaN in FastMath . max ( a , b )$$1
+Math-50$$None$$patch1-Math-50-SketchFix$$Fix renegation of baseSecantSolver$$1
+Math-33$$None$$patch1-Math-33-SketchFix$$reduce error in SimplexTableau$$1
+Math-70$$None$$patch1-Math-70-SketchFix$$fixed erroneous loop$$1
+Math-82$$None$$patch1-Math-82-SketchFix$$Fixed an error in the linear search .$$1
+Math-5$$None$$patch1-Math-5-SketchFix$$Fix NaN - > INF in Complex$$1
+Lang-59$$None$$patch1-Lang-59-SketchFix$$StrBuilder . append ( obj , width )$$1
+Lang-6$$None$$patch1-Lang-6-SketchFix$$Fix bug in CharSequenceTranslator$$1
+Chart-1$$None$$patch1-Chart-1-SketchFix$$Improved nullability in CategoryItemRenderer$$0
+Chart-1$$None$$patch2-Chart-1-SketchFix$$Fix CategoryItemRenderer to handle non - null datasets$$0
+Math-33$$None$$patch1-Math-33-SketchFix$$Fix a bug in SimplexSolver . compareTo ( double , double , double , double ) .$$0
+Math-70$$None$$patch1-Math-70-SketchFix$$fixed a typo in BisectionSolver . solve ( )$$0
+Math-70$$None$$patch2-Math-70-SketchFix$$fixed a typo in BisectionSolver . solve ( )$$0
+Math-82$$None$$patch1-Math-82-SketchFix$$Using less restrictive default value for minRatio$$0
+Math-82$$None$$patch2-Math-82-SketchFix$$Fixed a bug in the SimplexSolver . getEntry ( ) method where the ratio was too high$$0
+Lang-6$$None$$patch1-Lang-6-SketchFix$$Don ' t reverse the changes since we ' re about to manipulate the codepoint count$$0
+Lang-6$$None$$patch2-Lang-6-SketchFix$$Use the writer null pointer for CharSequenceTranslator$$0
+Math-50$$None$$patch1-Math-50-DynaMoth$$FastMath . abs ( x ) doesn ' t allow false positives in baseSecantSolver$$1
+Chart-18$$None$$patch1-Chart-18-DynaMoth$$Add column remove after filtering$$0
+Chart-15$$None$$patch1-Chart-15-DynaMoth$$Exported new plot area for Android 4 . 0 .$$0
+Chart-13$$None$$patch1-Chart-13-DynaMoth$$Fix swapped line lengths for left block$$0
+Chart-5$$None$$patch1-Chart-5-DynaMoth$$don ' t sort XYSeries by default$$0
+Chart-25$$None$$patch1-Chart-25-DynaMoth$$StatisticalBarRenderer was throwing an error if the axes are not horizontal$$0
+Math-32$$None$$patch1-Math-32-DynaMoth$$Fixed euclidean2d tree attribute$$0
+Math-105$$None$$patch1-Math-105-DynaMoth$$fixed a small bug in SimpleRegression$$0
+Math-58$$None$$patch1-Math-58-DynaMoth$$Fix cost relative tolerance in LevenbergMarquardtOptimizer . java$$0
+Math-20$$None$$patch1-Math-20-DynaMoth$$Fix CMAESOptimizer ' s min max value .$$0
+Math-80$$None$$patch1-Math-80-DynaMoth$$EigenDecompositionImpl . java +++ added jacoco code$$0
+Math-8$$None$$patch1-Math-8-DynaMoth$$DiscreteDistribution was acting up with a false log output$$0
+Math-81$$None$$patch1-Math-81-DynaMoth$$EigenDecompositionImpl . isFullRank = true ; removed extraneous check$$0
+Math-41$$None$$patch1-Math-41-DynaMoth$$Fix the var test .$$0
+Math-85$$None$$patch1-Math-85-DynaMoth$$Fix a merge conflict in UnivariateRealSolverUtils$$0
+Math-71$$None$$patch1-Math-71-DynaMoth$$changed default value of initialStep to 1 . 0 if false$$0
+Math-82$$None$$patch1-Math-82-DynaMoth$$Added a false to minValue so it is not lost$$0
+Math-49$$None$$patch1-Math-49-DynaMoth$$Add epsilon option to Fix MapRealVector remove ( )$$0
+Time-11$$None$$patch1-Time-11-DynaMoth$$fixed typo$$0
+Lang-51$$None$$patch1-Lang-51-DynaMoth$$missing if ($$0
+Lang-63$$None$$patch1-Lang-63-DynaMoth$$Fix merge conflict for end . add ( field , newdiff )$$0
+Chart-9$$None$$patch1-Chart-9-Elixir$$Fix empty range in TimeSeries$$1
+Chart-11$$None$$patch1-Chart-11-Elixir$$fix an issue with TwoDimTest$$1
+Chart-1$$None$$patch1-Chart-1-Elixir$$Fix nullability note in AbstractCategoryItemRenderer$$1
+Chart-8$$None$$patch1-Chart-8-Elixir$$Missing zone argument from week constructor$$1
+Math-59$$None$$patch1-Math-59-Elixir$$Fix NaN in FastMath . max ( )$$1
+Math-50$$None$$patch1-Math-50-Elixir$$Fix renegation of baseSecantSolver$$1
+Math-57$$None$$patch1-Math-57-Elixir$$Fix int overflow$$1
+Math-58$$None$$patch1-Math-58-Elixir$$GaussianFitter . fit ( ) now uses 1 . 18 . 0 ( and is using$$1
+Math-34$$None$$patch1-Math-34-Elixir$$Fix ListPopulation . iterator ( )$$1
+Math-33$$None$$patch1-Math-33-Elixir$$reduce error in SimplexTableau$$1
+Math-75$$None$$patch1-Math-75-Elixir$$Fix Frequency . getPct ( Object )$$1
+Math-30$$None$$patch1-Math-30-Elixir$$changed int to double .$$1
+Math-70$$None$$patch1-Math-70-Elixir$$fixed erroneous loop$$1
+Math-85$$None$$patch1-Math-85-Elixir$$Fix a false reporting of convergence$$1
+Math-82$$None$$patch1-Math-82-Elixir$$Fixed an error in the linear search .$$1
+Math-5$$None$$patch1-Math-5-Elixir$$Fix NaN - > INF in Complex$$1
+Time-4$$None$$patch1-Time-4-Elixir$$Fix partial constructor to validate values with chronoology$$1
+Time-15$$None$$patch1-Time-15-Elixir$$Fix fieldUtils$$1
+Lang-59$$None$$patch1-Lang-59-Elixir$$StrBuilder . append ( obj , width )$$1
+Lang-57$$None$$patch1-Lang-57-Elixir$$Fixed LocaleUtils # isAvailableLocale ( )$$1
+Lang-33$$None$$patch1-Lang-33-Elixir$$Fix NPE triggered by nullability exception$$1
+Lang-6$$None$$patch1-Lang-6-Elixir$$Fix bug in CharSequenceTranslator$$1
+Lang-26$$None$$patch1-Lang-26-Elixir$$Missing locale argument$$1
+Lang-43$$None$$patch1-Lang-43-Elixir$$don ' t append QUOTE if escaping is on$$1
+Lang-38$$None$$patch1-Lang-38-Elixir$$Reset timeZone on parse ( ) .$$1
+Lang-24$$None$$patch1-Lang-24-Elixir$$allow L with a decimal point$$1
+Chart-17$$None$$patch1-Chart-17-Elixir$$Fix a bug in TimeSeries delete .$$0
+Chart-3$$None$$patch1-Chart-3-Elixir$$AddOrUpdate copy of TimeSeries$$0
+Chart-13$$None$$patch1-Chart-13-Elixir$$Fix border arrangement$$0
+Math-104$$None$$patch1-Math-104-Elixir$$reduce gamma term max iterations$$0
+Math-32$$None$$patch1-Math-32-Elixir$$Fixed a bug in PolygonsSet . getAttribute$$0
+Math-20$$None$$patch1-Math-20-Elixir$$remove maxiterations as it is not compatible with Java 8$$0
+Math-73$$None$$patch1-Math-73-Elixir$$changed BrentSolver to solve with provided initial guess$$0
+Math-80$$None$$patch1-Math-80-Elixir$$Fixed a bug in EigenDecompositionImpl . java$$0
+Math-63$$None$$patch1-Math-63-Elixir$$Fix MathUtils . equals$$0
+Math-2$$None$$patch1-Math-2-Elixir$$Fix an issue with Double and Double .$$0
+Time-11$$None$$patch1-Time-11-Elixir$$Stops bad behavior$$0
+Lang-51$$None$$patch1-Lang-51-Elixir$$missing closing paren in BooleanUtils$$0
+Lang-58$$None$$patch1-Lang-58-Elixir$$isDigits ( numeric ) will ignore - > long$$0
+Lang-44$$None$$patch1-Lang-44-Elixir$$Fix parseLong ( ) where - > parseLong ( ) works$$0
+Lang-39$$None$$patch1-Lang-39-Elixir$$removed loop$$0
+Closure-92$$bug with implicit namespaces across modules$$patch1-Closure-92-PraPR$$Fix up whitespace$$1
+Closure-93$$None$$patch1-Closure-93-PraPR$$Remove lastIndexOf .$$1
+Closure-18$$Dependency sorting with closurePass set to false no longer works.$$patch1-Closure-18-PraPR$$Remove the redundant check on needsManagement ( )$$1
+Closure-11$$Record type invalid property not reported on function with @this annotation$$patch1-Closure-11-PraPR$$Fix TypeCheck . ILLEGAL_PROPERTY_ACCESS check$$1
+Closure-73$$Codepoint U+007f appears raw in output$$patch1-Closure-73-PraPR$$Remove spurious check for byte order .$$1
+Closure-10$$Wrong code generated if mixing types in ternary operator$$patch1-Closure-10-PraPR$$Remove mayBeStringHelper from NodeUtil . allResultsMatch ( ) .$$1
+Closure-86$$side-effects analysis incorrectly removing function calls with side effects$$patch1-Closure-86-PraPR$$Allow new constructor to be used as a literal value .$$1
+Closure-126$$Break in finally block isn't optimized properly$$patch1-Closure-126-PraPR$$Remove deprecated try / catch block .$$1
+Closure-31$$Add support for --manage_closure_dependencies and --only_closure_dependencies with compilation level WHITESPACE_ONLY$$patch1-Closure-31-PraPR$$Allow closure passes in the dependencies stream .$$1
+Closure-62$$Column-indicating caret is sometimes not in error output$$patch1-Closure-62-PraPR$$Remove the unnecessary boolean condition$$1
+Closure-63$$None$$patch1-Closure-63-PraPR$$Remove the if / else .$$1
+Closure-46$$ClassCastException during TypeCheck pass$$patch1-Closure-46-PraPR$$Remove deprecated API in RecordType . getLeastSupertype .$$1
+Closure-70$$unexpected typed coverage of less than 100%$$patch1-Closure-70-PraPR$$Fix swapped - in case .$$1
+Closure-14$$bogus 'missing return' warning$$patch1-Closure-14-PraPR$$Fix control flow analysis$$1
+Chart-20$$None$$patch1-Chart-20-PraPR$$Remove redundant constructor .$$1
+Chart-11$$None$$patch1-Chart-11-PraPR$$Remove redundant line$$1
+Chart-1$$None$$patch1-Chart-1-PraPR$$Fix null pointer check in AbstractCategoryItemRenderer$$1
+Chart-26$$None$$patch1-Chart-26-PraPR$$Fix null pointer check .$$1
+Chart-8$$None$$patch1-Chart-8-PraPR$$Fix typo$$1
+Chart-24$$None$$patch1-Chart-24-PraPR$$Fix bounds$$1
+Chart-12$$None$$patch1-Chart-12-PraPR$$Missing call to setDataset ( ) , fixes # 144$$1
+Math-59$$None$$patch1-Math-59-PraPR$$Fix max .$$1
+Math-50$$None$$patch1-Math-50-PraPR$$Fix BaseSecantSolver . java$$1
+Math-58$$None$$patch1-Math-58-PraPR$$Added missing param for fit ( )$$1
+Math-34$$None$$patch1-Math-34-PraPR$$added iterator on chromosomes$$1
+Math-33$$None$$patch1-Math-33-PraPR$$Removing epsilon from column to drop list .$$1
+Math-75$$None$$patch1-Math-75-PraPR$$Fix getFrequency ( Object ) to return getCumPct ( Object )$$1
+Math-70$$None$$patch1-Math-70-PraPR$$fixed a bug in BisectionSolver$$1
+Math-85$$None$$patch1-Math-85-PraPR$$remove erroneous loop$$1
+Math-82$$None$$patch1-Math-82-PraPR$$revert 8e704f627c7b03427ab1b71bb$$1
+Math-5$$None$$patch1-Math-5-PraPR$$Extend Complex . java for reference EInfinity$$1
+Time-11$$None$$patch1-Time-11-PraPR$$Stops verbose output$$1
+Time-19$$None$$patch1-Time-19-PraPR$$fixed # 77$$1
+Time-4$$None$$patch1-Time-4-PraPR$$Fix partial constructor to not use iChronology directly in the partial constructor$$1
+Lang-59$$None$$patch1-Lang-59-PraPR$$Removed reverseEach method from StrBuilder$$1
+Lang-57$$None$$patch1-Lang-57-PraPR$$Updated LocaleUtils$$1
+Lang-6$$None$$patch1-Lang-6-PraPR$$Remove unused local variable$$1
+Lang-10$$None$$patch1-Lang-10-PraPR$$FastDateParser now ignores whitespaces$$1
+Lang-26$$None$$patch1-Lang-26-PraPR$$FastDateFormat should use the locale$$1
+Mockito-29$$None$$patch1-Mockito-29-PraPR$$removed null check$$1
+Mockito-38$$None$$patch1-Mockito-38-PraPR$$fixed NPE$$1
+Chart-11$$None$$patch1-Chart-11-CapGen$$fix merge issue$$1
+Chart-11$$None$$patch2-Chart-11-CapGen$$added p2 . getPathIterator ( null ) to fix looping over PathIterator$$1
+Chart-1$$None$$patch1-Chart-1-CapGen$$Fix nullability note in AbstractCategoryItemRenderer$$1
+Chart-8$$None$$patch1-Chart-8-CapGen$$Missing constructor .$$1
+Chart-24$$None$$patch1-Chart-24-CapGen$$Fix bug in GrayPaintScale$$1
+Math-59$$None$$patch1-Math-59-CapGen$$Fix NaN in FastMath . max ( a , b )$$1
+Math-57$$None$$patch1-Math-57-CapGen$$Fix int overflow$$1
+Math-58$$None$$patch1-Math-58-CapGen$$Added missing parameter .$$1
+Math-33$$None$$patch1-Math-33-CapGen$$reduce error in SimplexTableau$$1
+Math-80$$None$$patch1-Math-80-CapGen$$Fixed a bug in EigenDecompositionImpl . flipIfWarranted ( ) .$$1
+Math-75$$None$$patch1-Math-75-CapGen$$Fix getFrequency ( Object ) to return precise value instead of getCumPct ( Object )$$1
+Math-65$$None$$patch1-Math-65-CapGen$$Fix residualsWeights .$$1
+Math-53$$None$$patch1-Math-53-CapGen$$Add the isNaN check to Complex . add ( )$$1
+Math-53$$None$$patch2-Math-53-CapGen$$Add the isNaN check to Complex . add ( )$$1
+Math-30$$None$$patch1-Math-30-CapGen$$changed int to double .$$1
+Math-63$$None$$patch1-Math-63-CapGen$$Fix a bug in MathUtils . equals ( double , double , int )$$1
+Math-70$$None$$patch1-Math-70-CapGen$$fixed a typo in BisectionSolver$$1
+Math-85$$None$$patch1-Math-85-CapGen$$Fix a false reporting of convergence$$1
+Math-5$$None$$patch1-Math-5-CapGen$$Fix NaN - > org . apache . commons . math3 . complex . Complex$$1
+Lang-59$$None$$patch1-Lang-59-CapGen$$StrBuilder . append ( obj , width )$$1
+Lang-57$$None$$patch1-Lang-57-CapGen$$Use the available locale list$$1
+Lang-57$$None$$patch2-Lang-57-CapGen$$Use new java . util . HashSet ( ) instead of cAvailableLocaleSet$$1
+Lang-57$$None$$patch3-Lang-57-CapGen$$Fixed bug in LocaleUtils$$1
+Lang-6$$None$$patch1-Lang-6-CapGen$$Fix bug in CharSequenceTranslator$$1
+Lang-26$$None$$patch1-Lang-26-CapGen$$Use the locale for the compiler .$$1
+Lang-43$$None$$patch3-Lang-43-CapGen$$don ' t append QUOTE if escaping is on$$1
+Math-80$$None$$patch8-Math-80-CapGen$$Fixed a bug in EigenDecompositionImpl . flipIfWarranted ( ) .$$0
+Math-80$$None$$patch1-Math-80-CapGen$$Fixed a bug in EigenDecompositionImpl . java$$0
+Math-80$$None$$patch6-Math-80-CapGen$$Fix EigenDecompositionImpl . java$$0
+Math-80$$None$$patch7-Math-80-CapGen$$Fixed a bug in EigenDecompositionImpl . flipIfWarranted ( ) .$$0
+Math-80$$None$$patch9-Math-80-CapGen$$Fix EigenDecompositionImpl . java$$0
+Math-80$$None$$patch5-Math-80-CapGen$$EigenDecompositionImpl implements EigenDecomposition$$0
+Math-80$$None$$patch2-Math-80-CapGen$$Fixed a bug in EigenDecompositionImpl . flipIfWarranted ( ) .$$0
+Math-80$$None$$patch10-Math-80-CapGen$$EigenDecompositionImpl implements EigenDecomposition$$0
+Math-80$$None$$patch3-Math-80-CapGen$$Fixed a bug in EigenDecompositionImpl . java$$0
+Math-80$$None$$patch4-Math-80-CapGen$$EigenDecompositionImpl implements EigenDecomposition$$0
+Math-63$$None$$patch8-Math-63-CapGen$$Add missing MathUtils . equals ( double )$$0
+Math-63$$None$$patch1-Math-63-CapGen$$Fix MathUtils . equals ( double , double , int )$$0
+Math-63$$None$$patch6-Math-63-CapGen$$Fix MathUtils . equals ( double , double )$$0
+Math-63$$None$$patch7-Math-63-CapGen$$Fix MathUtils . equals ( double , double )$$0
+Math-63$$None$$patch5-Math-63-CapGen$$Fix MathUtils . equals ( double , double )$$0
+Math-63$$None$$patch2-Math-63-CapGen$$Fix a bug in MathUtils . equals$$0
+Math-63$$None$$patch3-Math-63-CapGen$$Fix MathUtils . equals ( double , double )$$0
+Math-63$$None$$patch4-Math-63-CapGen$$Add missing MathUtils . equals ( )$$0
+Math-85$$None$$patch1-Math-85-CapGen$$Fix a false reporting of convergence$$0
+Math-85$$None$$patch2-Math-85-CapGen$$Fix a false reporting of convergence$$0
+Math-85$$None$$patch3-Math-85-CapGen$$Fix a false reporting of convergence$$0
+Math-5$$None$$patch1-Math-5-CapGen$$Add a isNaN check$$0
+Math-5$$None$$patch2-Math-5-CapGen$$Add the missing isNaN in Complex . isNaN ( ) .$$0
+Math-5$$None$$patch3-Math-5-CapGen$$Add the isNaN check$$0
+Lang-59$$None$$patch8-Lang-59-CapGen$$Add 5 more space for appendFixedWidthPadRight ( )$$0
+Lang-59$$None$$patch1-Lang-59-CapGen$$StrBuilder should add 5 elements for appendFixedWidthPadRight ( )$$0
+Lang-59$$None$$patch6-Lang-59-CapGen$$Add some space .$$0
+Lang-59$$None$$patch12-Lang-59-CapGen$$added more ensureCapacity$$0
+Lang-59$$None$$patch7-Lang-59-CapGen$$StrBuilder should add more space for appendFixedWidthPadRight ( )$$0
+Lang-59$$None$$patch9-Lang-59-CapGen$$Add 4 + 4 space for appendFixedWidthPadRight ( )$$0
+Lang-59$$None$$patch13-Lang-59-CapGen$$added more ensureCapacity$$0
+Lang-59$$None$$patch11-Lang-59-CapGen$$Add 4 + 4 ensureCapacity ( )$$0
+Lang-59$$None$$patch5-Lang-59-CapGen$$added ensureCapacity ( ) for string builder$$0
+Lang-59$$None$$patch2-Lang-59-CapGen$$StrBuilder should add 4 + 4 entries for appendFixedWidthPadRight ( )$$0
+Lang-59$$None$$patch10-Lang-59-CapGen$$Add some space for StringBuilder . appendFixedWidthPadRight ( )$$0
+Lang-59$$None$$patch3-Lang-59-CapGen$$StrBuilder should add 4 + 4 + 4 + 4 + 4 + 4 + 4 + 4 +$$0
+Lang-59$$None$$patch4-Lang-59-CapGen$$added ensureCapacity ( ) for string builder$$0
+Lang-43$$None$$patch1-Lang-43-CapGen$$don ' t escape quotes ( we ' ll check them here , but we ' re adding them$$0
+Lang-43$$None$$patch2-Lang-43-CapGen$$Fix lost backslash$$0
+Lang-43$$None$$patch3-Lang-43-CapGen$$Missing next ( pos ) call$$0
+Closure-126$$Break in finally block isn't optimized properly$$patch1-Closure-126-KaliA$$Fix tryMinimizeExitPoints$$1
+Closure-115$$Erroneous optimization in ADVANCED_OPTIMIZATIONS mode$$patch1-Closure-115-KaliA$$disable side effects check for functions with side effects$$1
+Math-50$$None$$patch1-Math-50-KaliA$$Fix renegation of base secant solver .$$1
+Closure-61$$Closure removes needed code.$$patch1-Closure-61-KaliA$$Allow closure trees to be expanded if they are not equals .$$0
+Closure-132$$if statement$$patch1-Closure-132-KaliA$$Allow null check in closure trees$$0
+Closure-59$$Cannot exclude globalThis checks through command line$$patch1-Closure-59-KaliA$$Allow changes through to pass through to fix stones$$0
+Closure-50$$Optimisation: convert array.join(",") to array.join()$$patch1-Closure-50-KaliA$$Add a missing if / else .$$0
+Closure-68$$Cryptic error message on invalid "@type function" annotation$$patch1-Closure-68-KaliA$$Fix possible duplicated parse of EOF$$0
+Closure-67$$Advanced compilations renames a function and then deletes it, leaving a reference to a renamed but non-existent function$$patch1-Closure-67-KaliA$$"add patch for "" RemoveUnusedPrototypeProperties "" to"$$0
+Closure-33$$weird object literal invalid property error on unrelated object prototype$$patch1-Closure-33-KaliA$$Allow property types to be declared in closure constraints$$0
+Closure-20$$String conversion optimization is incorrect$$patch1-Closure-20-KaliA$$Allow closure to be expanded if a node equals to another node .$$0
+Closure-7$$Bad type inference with goog.isFunction and friends$$patch1-Closure-7-KaliA$$Allow restricting of restricted types , fix # 771$$0
+Closure-29$$closure compiler screws up a perfectly valid isFunction() implementation$$patch1-Closure-29-KaliA$$Add a missing if / else .$$0
+Closure-129$$Casting a function before calling it produces bad code and breaks plugin code$$patch1-Closure-129-KaliA$$Allow closure to be run as a literal if ( true )$$0
+Closure-45$$Assignment removed when used as an expression result to Array.push$$patch1-Closure-45-KaliA$$Add a missing if / else .$$0
+Closure-127$$Break in finally block isn't optimized properly$$patch1-Closure-127-KaliA$$Allow code to be removed from the map .$$0
+Closure-120$$Overzealous optimization confuses variables$$patch1-Closure-120-KaliA$$Add a missing if / else .$$0
+Closure-1$$function arguments should not be optimized away$$patch1-Closure-1-KaliA$$Fix days of unused vars getting deleted$$0
+Closure-10$$Wrong code generated if mixing types in ternary operator$$patch1-Closure-10-KaliA$$Add true condition to walk pattern$$0
+Closure-26$$ProcessCommonJSModules module$exports failures when checkTypes enabled$$patch1-Closure-26-KaliA$$Add a missing if / else .$$0
+Closure-8$$Obfuscated code triggers TypeError in Firefox$$patch1-Closure-8-KaliA$$Add a missing if / else .$$0
+Closure-21$$Classify non-rightmost expressions as problematic$$patch1-Closure-21-KaliA$$Allow one - line ifs$$0
+Closure-75$$closure compiled swfobject error$$patch1-Closure-75-KaliA$$Allow 0 . 9 . 0 - > - X in Strings$$0
+Closure-121$$Overzealous optimization confuses variables$$patch1-Closure-121-KaliA$$Add a missing if / else .$$0
+Closure-119$$catch(e) yields JSC_UNDEFINED_NAME warning when e is used in catch in advanced mode$$patch1-Closure-119-KaliA$$Allow closure to be defined on non - global fields .$$0
+Closure-72$$Internal Compiler Error on Bullet$$patch1-Closure-72-KaliA$$Allow closure to be expanded if a node equals to another node .$$0
+Closure-117$$Wrong type name reported on missing property error.$$patch1-Closure-117-KaliA$$Added missing return statement .$$0
+Closure-36$$goog.addSingletonGetter prevents unused class removal$$patch1-Closure-36-KaliA$$Allow closure trees to be expanded if they are not equals .$$0
+Closure-31$$Add support for --manage_closure_dependencies and --only_closure_dependencies with compilation level WHITESPACE_ONLY$$patch1-Closure-31-KaliA$$Add a missing if / else .$$0
+Closure-131$$unicode characters in property names result in invalid output$$patch1-Closure-131-KaliA$$Allow closure to be expanded if necessary$$0
+Closure-30$$Combining temporary strings are over-optimized in advanced build$$patch1-Closure-30-KaliA$$Add a missing if / else .$$0
+Closure-55$$Exception when emitting code containing getters$$patch1-Closure-55-KaliA$$Added patch for parseHelperCode ( )$$0
+Closure-130$$arguments is moved to another scope$$patch1-Closure-130-KaliA$$Fix broken patch$$0
+Closure-64$$--language_in=ECMASCRIPT5_STRICT results in 1 'use strict' per input file$$patch1-Closure-64-KaliA$$Allow for more freedom from the closure compiler$$0
+Closure-46$$ClassCastException during TypeCheck pass$$patch1-Closure-46-KaliA$$Switch the default closure implementation back to the record type .$$0
+Closure-112$$Template types on methods incorrectly trigger inference of a template on the class if that template type is unknown$$patch1-Closure-112-KaliA$$Allow closure to resolve non - unknown types .$$0
+Closure-124$$Different output from RestAPI and command line jar$$patch1-Closure-124-KaliA$$Remove patch for isNameAssignedTo ( )$$0
+Closure-15$$Switched order of "delete key" and "key in" statements changes semantic$$patch1-Closure-15-KaliA$$Remove one more test$$0
+Closure-3$$optimization fails with variable in catch clause$$patch1-Closure-3-KaliA$$fixed a small bug in Linker error$$0
+Closure-12$$Try/catch blocks incorporate code not inside original blocks$$patch1-Closure-12-KaliA$$Remove patch from GCSE$$0
+Closure-125$$IllegalStateException at com.google.javascript.rhino.jstype.FunctionType.getInstanceType$$patch1-Closure-125-KaliA$$Allow false to be true case when comparison is desired$$0
+Closure-76$$Assignments within conditions are sometimes incorrectly removed$$patch1-Closure-76-KaliA$$Add a missing if / else .$$0
+Closure-49$$Incorrect output if a function is assigned to a variable, and the function contains a variable with the same name$$patch1-Closure-49-KaliA$$Add a missing if / else .$$0
+Closure-122$$Inconsistent handling of non-JSDoc comments$$patch1-Closure-122-KaliA$$Allow comments to be reported as valid JSDoc comments .$$0
+Closure-114$$Crash on the web closure compiler$$patch1-Closure-114-KaliA$$Allow closure to be expanded if necessary$$0
+Closure-78$$division by zero wrongly throws JSC_DIVIDE_BY_0_ERROR$$patch1-Closure-78-KaliA$$Do not increment level of optimizations as per # 12$$0
+Closure-5$$Compiler ignores 'delete' statements, can break functionality.$$patch1-Closure-5-KaliA$$Allow closure trees to be expanded if they are not equals .$$0
+Closure-22$$Classify non-rightmost expressions as problematic$$patch1-Closure-22-KaliA$$Allow one - line ifs$$0
+Chart-1$$None$$patch1-Chart-1-KaliA$$Fix null pointer check in Kali_Defects4J_Chart_1 .$$0
+Chart-26$$None$$patch1-Chart-26-KaliA$$Fix NPE , closes # 1710$$0
+Chart-15$$None$$patch1-Chart-15-KaliA$$don ' t use patched dataset for pie plots$$0
+Chart-12$$None$$patch1-Chart-12-KaliA$$Added patch to chart source$$0
+Chart-5$$None$$patch1-Chart-5-KaliA$$Updated chart with the new column doesn ' t already exist .$$0
+Chart-25$$None$$patch1-Chart-25-KaliA$$Fixed a bug in DefaultStatisticalCategoryDataset$$0
+Math-95$$None$$patch1-Math-95-KaliA$$Fix previous patch$$0
+Math-32$$None$$patch1-Math-32-KaliA$$Fixed a minor issue with Euclidean2D .$$0
+Math-80$$None$$patch1-Math-80-KaliA$$EigenDecompositionImpl patched , removed false positives in EigenDecompositionImpl .$$0
+Math-28$$None$$patch1-Math-28-KaliA$$I had left it harwired to say that it was still failing the tableau test .$$0
+Math-81$$None$$patch1-Math-81-KaliA$$Reverted the inverse divide by zero error in EigenDecompositionImpl . java$$0
+Math-31$$None$$patch1-Math-31-KaliA$$Missing patch$$0
+Math-84$$None$$patch1-Math-84-KaliA$$Fix a bug in MultiDirectional .$$0
+Math-49$$None$$patch1-Math-49-KaliA$$Fix setEntry ( )$$0
+Math-2$$None$$patch1-Math-2-KaliA$$Fix checkstyle issues$$0
+Mockito-10$$None$$patch1-Mockito-10-KaliA$$fix merge conflict resolution$$0
+Closure-73$$Codepoint U+007f appears raw in output$$patch1-Closure-73-TBar$$Fix typo in codeGenerator where ' c ' was accidentally passed .$$1
+Closure-62$$Column-indicating caret is sometimes not in error output$$patch1-Closure-62-TBar$$Remove whitespaces from sourceExcerpt .$$1
+Closure-63$$None$$patch1-Closure-63-TBar$$Remove whitespaces from sourceExcerpt .$$1
+Chart-20$$None$$patch1-Chart-20-TBar$$Fix minor bug$$1
+Chart-9$$None$$patch1-Chart-9-TBar$$Fix bug$$1
+Chart-11$$None$$patch1-Chart-11-TBar$$fix merge issue$$1
+Chart-1$$None$$patch1-Chart-1-TBar$$Fix null pointer check in AbstractCategoryItemRenderer$$1
+Chart-19$$None$$patch1-Chart-19-TBar$$Fix NPE in CategoryPlot . getRangeAxisIndex ( )$$1
+Chart-24$$None$$patch1-Chart-24-TBar$$Fix bug of GrayPaintScale$$1
+Chart-4$$None$$patch1-Chart-4-TBar$$Fix X axis annotation presence$$1
+Math-57$$None$$patch1-Math-57-TBar$$Fix int overflow$$1
+Math-11$$None$$patch1-Math-11-TBar$$Fix erroneous conversion to MultivariateNormalDistribution$$1
+Math-89$$None$$patch1-Math-89-TBar$$Add support for addValue ( )$$1
+Math-75$$None$$patch1-Math-75-TBar$$Fix getFrequency ( ) to return precise value$$1
+Math-65$$None$$patch1-Math-65-TBar$$Fix ColorConvertor .$$1
+Math-79$$None$$patch1-Math-79-TBar$$removed int because it was too large$$1
+Math-70$$None$$patch1-Math-70-TBar$$fixed a typo in BisectionSolver$$1
+Math-5$$None$$patch1-Math-5-TBar$$Fix NaN / inf problem$$1
+Lang-59$$None$$patch1-Lang-59-TBar$$StrBuilder copy / paste of a string too long$$1
+Lang-57$$None$$patch1-Lang-57-TBar$$Fixed bug in LocaleUtils . isAvailableLocale ( )$$1
+Lang-33$$None$$patch1-Lang-33-TBar$$removed null check$$1
+Lang-7$$None$$patch1-Lang-7-TBar$$formatting is not supported by NumberUtils$$1
+Lang-10$$None$$patch1-Lang-10-TBar$$Remove unnecessary whitespace$$1
+Lang-47$$None$$patch1-Lang-47-TBar$$Fix an issue with the string builder ' s width .$$1
+Closure-66$$@enum does not type correctly$$patch1-Closure-66-TBar$$Fix typo in TypeCheck . getTotalTypedPercent$$0
+Closure-133$$Exception when parsing erroneous jsdoc: /**@return {@code foo} bar   *    baz. */$$patch1-Closure-133-TBar$$Fix the build .$$0
+Closure-21$$Classify non-rightmost expressions as problematic$$patch1-Closure-21-TBar$$Fix side effects of vars ' comma ' in functions ' definition$$0
+Closure-126$$Break in finally block isn't optimized properly$$patch1-Closure-126-TBar$$Fix try / catch in minimizeExitPoints$$0
+Closure-109$$Constructor types that return all or unknown fail to parse$$patch1-Closure-109-TBar$$Add parseAndRecordTypeNode to the right type AST .$$0
+Closure-107$$Variable names prefixed with MSG_ cause error with advanced optimizations$$patch1-Closure-107-TBar$$Fix my bad inecurited change .$$0
+Closure-115$$Erroneous optimization in ADVANCED_OPTIMIZATIONS mode$$patch1-Closure-115-TBar$$Allow side effects for function arguments .$$0
+Closure-12$$Try/catch blocks incorporate code not inside original blocks$$patch1-Closure-12-TBar$$Remove false positives in FlowSensitiveInlineVariables .$$0
+Closure-22$$Classify non-rightmost expressions as problematic$$patch1-Closure-22-TBar$$Fix check side effects$$0
+Chart-7$$None$$patch1-Chart-7-TBar$$Fixed formatting mistake .$$0
+Chart-26$$None$$patch1-Chart-26-TBar$$Fix CategoryPlot to ignore too small widths$$0
+Chart-15$$None$$patch1-Chart-15-TBar$$Fix NPE in PiePlot3D .$$0
+Chart-3$$None$$patch1-Chart-3-TBar$$Fix bug # 561$$0
+Chart-12$$None$$patch1-Chart-12-TBar$$added null check in AbstractDataset . hasListener$$0
+Chart-13$$None$$patch1-Chart-13-TBar$$Remove warning$$0
+Chart-5$$None$$patch1-Chart-5-TBar$$AddOrUpdate ( ) now accepts 1 , y .$$0
+Chart-14$$None$$patch1-Chart-14-TBar$$Remove unused marker from source ( same name )$$0
+Chart-25$$None$$patch1-Chart-25-TBar$$StatisticalBarRenderer doesn ' t draw statistics on XY axes$$0
+Math-95$$None$$patch1-Math-95-TBar$$Fix FDistributionImpl . java$$0
+Math-50$$None$$patch1-Math-50-TBar$$Fix typo in BaseSecantSolver$$0
+Math-80$$None$$patch1-Math-80-TBar$$Fixed a bug in EigenDecompositionImpl . flipIfWarranted .$$0
+Math-6$$None$$patch1-Math-6-TBar$$Fix an issue with BaseOptimizer . getIterations$$0
+Math-8$$None$$patch1-Math-8-TBar$$Fix DiscreteDistribution . java$$0
+Math-81$$None$$patch1-Math-81-TBar$$Added touch point ( pingPong - > tType ) to EigenDecompositionImpl$$0
+Math-88$$None$$patch1-Math-88-TBar$$Fix the case for the column equals to the others ( ie , j = i ) .$$0
+Math-62$$None$$patch1-Math-62-TBar$$Fix a warning$$0
+Math-96$$None$$patch1-Math-96-TBar$$Fix a warning$$0
+Math-63$$None$$patch1-Math-63-TBar$$Add missing closing parenthesis$$0
+Math-84$$None$$patch1-Math-84-TBar$$Fix a bug in MultiDirectional .$$0
+Math-15$$None$$patch1-Math-15-TBar$$FastMath . pow ( - x , y ) doesn ' t handle long precision precision thing$$0
+Math-85$$None$$patch1-Math-85-TBar$$remove erroneous throw$$0
+Math-82$$None$$patch1-Math-82-TBar$$@@ comment Added minValue < minValue for linear search$$0
+Math-2$$None$$patch1-Math-2-TBar$$Fix mistake closing tag$$0
+Lang-51$$None$$patch1-Lang-51-TBar$$Removed excess y sign in BooleanUtils$$0
+Lang-58$$None$$patch1-Lang-58-TBar$$Fix build$$0
+Lang-60$$None$$patch1-Lang-60-TBar$$StrBuilder doesn ' t have the capacity anymore$$0
+Lang-20$$None$$patch1-Lang-20-TBar$$Fix bug in StringUtils$$0
+Lang-18$$None$$patch1-Lang-18-TBar$$FastDateFormat now accepts 2 - digit year number$$0
+Lang-27$$None$$patch1-Lang-27-TBar$$removed expPos from NumberUtils$$0
+Lang-45$$None$$patch1-Lang-45-TBar$$fixed try / case$$0
+Lang-44$$None$$patch1-Lang-44-TBar$$Fix unnecessary loop$$0
+Lang-43$$None$$patch1-Lang-43-TBar$$Don ' t strip backslash when creating a string in the message format$$0
+Lang-39$$None$$patch1-Lang-39-TBar$$Fix bug$$0
+Lang-63$$None$$patch1-Lang-63-TBar$$Fix bug in DurationFormatUtils$$0
+Lang-41$$None$$patch1-Lang-41-TBar$$Fix ClassUtils # getShortClassName / getShortCanonicalName$$0
+Lang-24$$None$$patch1-Lang-24-TBar$$allow trailing comma$$0
+Lang-13$$None$$patch1-Lang-13-TBar$$Remove unused static inner class .$$0
+Lang-22$$None$$patch1-Lang-22-TBar$$Fix Fraction . greatestCommonDivisor ( )$$0
+Math-22$$None$$patch1-Math-22-DeepRepair$$Fix FDistribution and UniformRealDistribution . isSupportLowerBoundInclusive$$1
+Lang-7$$None$$patch1-Lang-7-DeepRepair$$Fix BigDecimal from string startsWith ( # 77 )$$1
+Lang-10$$None$$patch1-Lang-10-DeepRepair$$FastDateParser ignores white space$$1
+Lang-24$$None$$patch1-Lang-24-DeepRepair$$Allow trailing commas in NumberUtils$$1
+Lang-22$$None$$patch1-Lang-22-DeepRepair$$Fix Fraction . greatestCommonDivisor ( )$$1
+Chart-7$$None$$patch1-Chart-7-DeepRepair$$Fixed formatting mistake$$0
+Chart-1$$None$$patch1-Chart-1-DeepRepair$$Fix null pointer check in AbstractCategoryItemRenderer$$0
+Chart-5$$None$$patch1-Chart-5-DeepRepair$$Fixed bug in XYSeries$$0
+Chart-25$$None$$patch1-Chart-25-DeepRepair$$Don ' t draw the background annotations in reverse order ( minor )$$0
+Math-28$$None$$patch1-Math-28-DeepRepair$$Fixed a bug in the linear search algorithm$$0
+Math-81$$None$$patch1-Math-81-DeepRepair$$Set splitTolerance$$0
+Math-53$$None$$patch1-Math-53-DeepRepair$$Add the isNaN check to Complex . add ( )$$0
+Math-49$$None$$patch1-Math-49-DeepRepair$$added missing entries .$$0
+Lang-27$$None$$patch1-Lang-27-DeepRepair$$Remove expPos from mant string .$$0
+Chart-11$$None$$patch1-Chart-11-SOFix$$fix merge issue$$1
+Chart-1$$None$$patch1-Chart-1-SOFix$$Fix nullability note in AbstractCategoryItemRenderer$$1
+Chart-26$$None$$patch1-Chart-26-SOFix$$Add label entity to the axis label collection$$1
+Chart-24$$None$$patch1-Chart-24-SOFix$$Fix bug in GrayPaintScale$$1
+Chart-4$$None$$patch1-Chart-4-SOFix$$added missing annotation$$1
+Math-59$$None$$patch1-Math-59-SOFix$$Fix NaN in FastMath . max ( a , b )$$1
+Math-50$$None$$patch1-Math-50-SOFix$$Fix renegation of baseSecantSolver$$1
+Math-57$$None$$patch1-Math-57-SOFix$$Fix int overflow$$1
+Math-58$$None$$patch1-Math-58-SOFix$$Remove false parameter$$1
+Math-34$$None$$patch1-Math-34-SOFix$$Fix ListPopulation . iterator ( )$$1
+Math-33$$None$$patch1-Math-33-SOFix$$reduce error in SimplexTableau$$1
+Math-80$$None$$patch1-Math-80-SOFix$$Fixed a bug in EigenDecompositionImpl . flipIfWarranted ( ) .$$1
+Math-75$$None$$patch1-Math-75-SOFix$$Fix getFrequency ( Object ) to return precise value instead of getCumPct ( Object )$$1
+Math-70$$None$$patch1-Math-70-SOFix$$fixed a typo in BisectionSolver$$1
+Math-85$$None$$patch1-Math-85-SOFix$$Fix a false reporting of convergence$$1
+Math-82$$None$$patch1-Math-82-SOFix$$Fixed an error in the linear search .$$1
+Math-2$$None$$patch1-Math-2-SOFix$$Fix numeric mean .$$1
+Math-5$$None$$patch1-Math-5-SOFix$$Fix NaN - > INF in Complex$$1
+Time-19$$None$$patch1-Time-19-SOFix$$fixed typo .$$1
+Lang-59$$None$$patch1-Lang-59-SOFix$$StrBuilder . append ( obj , width )$$1
+Lang-51$$None$$patch1-Lang-51-SOFix$$missing break in BooleanUtils$$1
+Lang-6$$None$$patch1-Lang-6-SOFix$$Fix bug in CharSequenceTranslator$$1
+Math-2$$None$$patch1-Math-2-SOFix$$Fix an issue with Double and Double .$$0
+Math-2$$None$$patch2-Math-2-SOFix$$Fix an issue with Double and Double .$$0
+Chart-11$$None$$patch1-Chart-11-FixMiner$$fix merge issue$$1
+Chart-1$$None$$patch1-Chart-1-FixMiner$$Fix null pointer check in AbstractCategoryItemRenderer$$1
+Chart-19$$None$$patch1-Chart-19-FixMiner$$Fix NPE in CategoryPlot . getRangeAxisIndex$$1
+Chart-24$$None$$patch1-Chart-24-FixMiner$$Fix bug in GrayPaintScale$$1
+Chart-4$$None$$patch1-Chart-4-FixMiner$$Fix X axis annotation presence$$1
+Math-57$$None$$patch1-Math-57-FixMiner$$Fix int overflow$$1
+Math-34$$None$$patch1-Math-34-FixMiner$$Missing import$$1
+Math-75$$None$$patch1-Math-75-FixMiner$$Fix getFrequency ( ) to return precise value$$1
+Math-30$$None$$patch1-Math-30-FixMiner$$changed int to double .$$1
+Math-79$$None$$patch1-Math-79-FixMiner$$removed int because it was too large$$1
+Math-70$$None$$patch1-Math-70-FixMiner$$fixed a typo in BisectionSolver$$1
+Math-22$$None$$patch1-Math-22-FixMiner$$Fix isSupportLowerBoundInclusive for FDistribution$$1
+Closure-129$$Casting a function before calling it produces bad code and breaks plugin code$$patch1-Closure-129-FixMiner$$Allow recursion in CALL nodes$$0
+Closure-19$$Type refining of 'this' raises IllegalArgumentException$$patch1-Closure-19-FixMiner$$refined type cannot be refined .$$0
+Chart-7$$None$$patch1-Chart-7-FixMiner$$Fixed formatting mistake$$0
+Chart-17$$None$$patch1-Chart-17-FixMiner$$fix # 1796$$0
+Chart-26$$None$$patch1-Chart-26-FixMiner$$Fix CategoryPlot not using a renderer$$0
+Chart-15$$None$$patch1-Chart-15-FixMiner$$Fix an NPE if data is not loaded$$0
+Chart-3$$None$$patch1-Chart-3-FixMiner$$Fixed a bug in TimeSeries where the data was not removed .$$0
+Chart-12$$None$$patch1-Chart-12-FixMiner$$Remove oversampling .$$0
+Chart-13$$None$$patch1-Chart-13-FixMiner$$Fix checkstyle issue$$0
+Chart-14$$None$$patch1-Chart-14-FixMiner$$Don ' t remove null marker from background range plots$$0
+Chart-25$$None$$patch1-Chart-25-FixMiner$$Fix getMeanValue ( )$$0
+Math-50$$None$$patch1-Math-50-FixMiner$$Fix typo in BaseSecantSolver$$0
+Math-20$$None$$patch1-Math-20-FixMiner$$Fix inline with OE$$0
+Math-80$$None$$patch1-Math-80-FixMiner$$EigenDecompositionImpl should do a good step$$0
+Math-81$$None$$patch1-Math-81-FixMiner$$EigenDecompositionImpl was trying to handle both heaps .$$0
+Math-63$$None$$patch1-Math-63-FixMiner$$Add missing @@$$0
+Math-84$$None$$patch1-Math-84-FixMiner$$Fix a typo in MultiDirectional .$$0
+Math-85$$None$$patch1-Math-85-FixMiner$$remove erroneous throw$$0
+Time-11$$None$$patch1-Time-11-FixMiner$$Add null check$$0
+Lang-57$$None$$patch1-Lang-57-FixMiner$$Add null check in LocaleUtils$$0
+Lang-63$$None$$patch1-Lang-63-FixMiner$$Fix merge issues$$0
+Chart-19$$None$$patch1-Chart-19-ACS$$Fix NPE in CategoryPlot . getDomainAxisIndex$$1
+Chart-14$$None$$patch1-Chart-14-ACS$$remove empty addendum$$1
+Math-61$$None$$patch1-Math-61-ACS$$Add missing import$$1
+Math-35$$None$$patch1-Math-35-ACS$$ElitisticListPopulation constructor should throw exception if elitismRate is > 1 . 0$$1
+Math-93$$None$$patch1-Math-93-ACS$$Added patch_method ( )$$1
+Math-89$$None$$patch1-Math-89-ACS$$Adding missing throw in Frequency . addValue ( )$$1
+Math-99$$None$$patch1-Math-99-ACS$$Fix divide by zero error in MathUtils$$1
+Math-90$$None$$patch1-Math-90-ACS$$Fix a bug in Frequency . put ( Object , Long )$$1
+Math-4$$None$$patch1-Math-4-ACS$$Fixed a crash in Controller ( and other )$$1
+Math-3$$None$$patch1-Math-3-ACS$$Added missing if ($$1
+Math-85$$None$$patch1-Math-85-ACS$$Fix a false reporting of convergence$$1
+Math-82$$None$$patch1-Math-82-ACS$$Fixed epsilon regression in tableau objective function$$1
+Math-5$$None$$patch1-Math-5-ACS$$Add 0 . 0 equals to Complex$$1
+Math-25$$None$$patch1-Math-25-ACS$$Added throw if c2 == 0 . 0 to HarmonicFitter . java$$1
+Time-15$$None$$patch1-Time-15-ACS$$Allow negative numbers in FieldUtils$$1
+Lang-7$$None$$patch1-Lang-7-ACS$$Handle early NPE when NumberUtils . startsWith ( ) is true$$1
+Lang-24$$None$$patch1-Lang-24-ACS$$don ' t allow L with an exponent but allow decimal point$$1
+Math-73$$None$$patch1-Math-73-ACS$$Added a throw if the initial value is not greater than 0 . 0$$0
+Math-28$$None$$patch1-Math-28-ACS$$Added missing comment$$0
+Math-81$$None$$patch1-Math-81-ACS$$Fixed a bug in the EigenDecompositionImpl .$$0
+Math-97$$None$$patch1-Math-97-ACS$$improve BrentSolver . java$$0
+Lang-35$$None$$patch1-Lang-35-ACS$$Fix suppressing add / copyArray grow1 warning$$0
+Lang-39$$None$$patch1-Lang-39-ACS$$match any string with spaces , fixes # 3642$$0
+Closure-126$$Break in finally block isn't optimized properly$$patch3-Closure-126-3sFix$$Fix tryMinimizeExits$$1
+Chart-1$$None$$patch1-Chart-1-3sFix$$Fix nullability assertion that was accidentally made too strong$$1
+Math-70$$None$$patch2-Math-70-3sFix$$Added missing @@$$1
+Math-5$$None$$patch3-Math-5-3sFix$$Fix error in astor in 1 . 5$$1
+Closure-21$$Classify non-rightmost expressions as problematic$$patch1-Closure-21-3sFix$$Fix swapped arrows in closure scope$$0
+Closure-21$$Classify non-rightmost expressions as problematic$$patch2-Closure-21-3sFix$$Fix maybeResultUsed for Do not drop side effects of nested closures$$0
+Closure-21$$Classify non-rightmost expressions as problematic$$patch3-Closure-21-3sFix$$Fix swapped - in case of closing - > closing$$0
+Closure-126$$Break in finally block isn't optimized properly$$patch1-Closure-126-3sFix$$Fix try / catch block$$0
+Closure-126$$Break in finally block isn't optimized properly$$patch2-Closure-126-3sFix$$Fix tryMinimizeExits$$0
+Closure-46$$ClassCastException during TypeCheck pass$$patch1-Closure-46-3sFix$$Don ' t compare JSType against native object type .$$0
+Closure-22$$Classify non-rightmost expressions as problematic$$patch1-Closure-22-3sFix$$Fix maybe - dead code$$0
+Closure-22$$Classify non-rightmost expressions as problematic$$patch2-Closure-22-3sFix$$Fix the case of a null pointer check in a few places .$$0
+Closure-22$$Classify non-rightmost expressions as problematic$$patch3-Closure-22-3sFix$$Fix the case of no - op in a closure check .$$0
+Chart-7$$None$$patch1-Chart-7-3sFix$$Fix bug in TimePeriodValues . getMaxMiddleIndex$$0
+Chart-7$$None$$patch2-Chart-7-3sFix$$Fix formatting$$0
+Chart-15$$None$$patch1-Chart-15-3sFix$$Fix build$$0
+Chart-15$$None$$patch2-Chart-15-3sFix$$Fix build$$0
+Chart-15$$None$$patch3-Chart-15-3sFix$$OpenND / RingPlot$$0
+Chart-13$$None$$patch8-Chart-13-3sFix$$Fix border arrangement bug$$0
+Chart-13$$None$$patch1-Chart-13-3sFix$$Fix border embarrassment in Openfire example$$0
+Chart-13$$None$$patch6-Chart-13-3sFix$$Fix border embarrassment .$$0
+Chart-13$$None$$patch15-Chart-13-3sFix$$Fix border embarrassment .$$0
+Chart-13$$None$$patch12-Chart-13-3sFix$$Fix border arrangement bug$$0
+Chart-13$$None$$patch7-Chart-13-3sFix$$Fix width of stick in chart$$0
+Chart-13$$None$$patch9-Chart-13-3sFix$$Fix width issue for border_arrangement .$$0
+Chart-13$$None$$patch13-Chart-13-3sFix$$Fix border arrangement bug$$0
+Chart-13$$None$$patch14-Chart-13-3sFix$$Fix border embarrassment in Openfire example$$0
+Chart-13$$None$$patch11-Chart-13-3sFix$$Fix line width calculation .$$0
+Chart-13$$None$$patch5-Chart-13-3sFix$$Fix border aligment$$0
+Chart-13$$None$$patch2-Chart-13-3sFix$$Fix border embarrassment in Openfire example$$0
+Chart-13$$None$$patch10-Chart-13-3sFix$$Fix border arrangement bug in chart_13$$0
+Chart-13$$None$$patch3-Chart-13-3sFix$$Fix width issue for border_arrangement .$$0
+Chart-13$$None$$patch4-Chart-13-3sFix$$Fix border aligment$$0
+Chart-5$$None$$patch1-Chart-5-3sFix$$Fix bug in XYSeries$$0
+Chart-5$$None$$patch2-Chart-5-3sFix$$Fix bug in XYSeries$$0
+Chart-25$$None$$patch1-Chart-25-3sFix$$Improved return type for null values$$0
+Chart-25$$None$$patch5-Chart-25-3sFix$$Fix format$$0
+Chart-25$$None$$patch2-Chart-25-3sFix$$Fix bug in DefaultStatisticalCategoryDataset$$0
+Chart-25$$None$$patch3-Chart-25-3sFix$$Fix codenarc$$0
+Chart-25$$None$$patch4-Chart-25-3sFix$$Fix NPE in DefaultStatisticalCategoryDataset$$0
+Math-95$$None$$patch1-Math-95-3sFix$$Fix FDistributionImpl . getDenominatorDegreesOfFreedom ( )$$0
+Math-20$$None$$patch1-Math-20-3sFix$$Fix double - precision opengl operation$$0
+Math-73$$None$$patch1-Math-73-3sFix$$Added support for provided yInitial and yMax$$0
+Math-73$$None$$patch2-Math-73-3sFix$$BrentSolver now uses provided initial guess$$0
+Math-73$$None$$patch3-Math-73-3sFix$$Added support for variable yInitial in BrentSolver$$0
+Math-6$$None$$patch1-Math-6-3sFix$$Fix 30 minute delay in astor main , closes # 2487$$0
+Math-6$$None$$patch2-Math-6-3sFix$$Fix bug in Math_6_Genprog .$$0
+Math-28$$None$$patch1-Math-28-3sFix$$Fix the for cycles$$0
+Math-28$$None$$patch6-Math-28-3sFix$$Fix the for loop$$0
+Math-28$$None$$patch7-Math-28-3sFix$$Fix the for loop$$0
+Math-28$$None$$patch5-Math-28-3sFix$$Fix 141$$0
+Math-28$$None$$patch2-Math-28-3sFix$$Fix unused variable$$0
+Math-28$$None$$patch3-Math-28-3sFix$$Fix the for loop$$0
+Math-28$$None$$patch4-Math-28-3sFix$$Fix the for loop$$0
+Math-70$$None$$patch1-Math-70-3sFix$$Added missing @@$$0
+Math-15$$None$$patch1-Math-15-3sFix$$Fix pow ( x , y )$$0
+Math-15$$None$$patch2-Math-15-3sFix$$Fix output of Math . pow ( x , y )$$0
+Math-49$$None$$patch1-Math-49-3sFix$$Fix double - put in OpenMapRealVector$$0
+Math-2$$None$$patch8-Math-2-3sFix$$fix missing closing bracket$$0
+Math-2$$None$$patch1-Math-2-3sFix$$Fix astor in output_astor$$0
+Math-2$$None$$patch6-Math-2-3sFix$$Fix astor in case of randint distribution$$0
+Math-2$$None$$patch7-Math-2-3sFix$$Fix astor in case of ceil ( ) in AbstractIntegerDistribution$$0
+Math-2$$None$$patch9-Math-2-3sFix$$Fix astor in prior to using p <= 0$$0
+Math-2$$None$$patch11-Math-2-3sFix$$Fix NPE in AbstractIntegerDistribution$$0
+Math-2$$None$$patch5-Math-2-3sFix$$Fix NPE in AbstractIntegerDistribution$$0
+Math-2$$None$$patch2-Math-2-3sFix$$Fix astor in case of < 0$$0
+Math-2$$None$$patch10-Math-2-3sFix$$Fix obsolete upperbound checking in astor main output$$0
+Math-2$$None$$patch3-Math-2-3sFix$$Added missing if ($$0
+Math-2$$None$$patch4-Math-2-3sFix$$Fix NPE in AbstractIntegerDistribution$$0
+Math-5$$None$$patch1-Math-5-3sFix$$Fix isNaN in complex comparison output$$0
+Math-5$$None$$patch2-Math-5-3sFix$$Fix isNaN$$0
+Time-14$$None$$patch1-Time-14-3sFix$$Make MonthDay partial$$0
+Closure-14$$bogus 'missing return' warning$$patch1-Closure-14-ssFix$$Fix finally map .$$1
+Chart-20$$None$$patch1-Chart-20-ssFix$$Fix ValueMarker constructor to ignore the outline paint for now .$$1
+Chart-24$$None$$patch1-Chart-24-ssFix$$Fix bug in GrayPaintScale$$1
+Math-59$$None$$patch1-Math-59-ssFix$$Fix NaN in FastMath . max ( )$$1
+Math-50$$None$$patch1-Math-50-ssFix$$Fix renegation of baseSecantSolver$$1
+Math-33$$None$$patch1-Math-33-ssFix$$reduce error in SimplexTableau$$1
+Math-80$$None$$patch1-Math-80-ssFix$$Fixed a bug in EigenDecompositionImpl . flipIfWarranted ( ) .$$1
+Math-53$$None$$patch1-Math-53-ssFix$$Add one to one with the isNaN flag$$1
+Math-41$$None$$patch1-Math-41-ssFix$$Fix the for loop$$1
+Math-70$$None$$patch1-Math-70-ssFix$$fixed erroneous loop$$1
+Lang-59$$None$$patch1-Lang-59-ssFix$$StrBuilder . append ( obj , width )$$1
+Lang-33$$None$$patch1-Lang-33-ssFix$$removed null check$$1
+Lang-6$$None$$patch1-Lang-6-ssFix$$Fix bug in CharSequenceTranslator$$1
+Lang-21$$None$$patch1-Lang-21-ssFix$$FixedDateUtils . java$$1
+Lang-43$$None$$patch1-Lang-43-ssFix$$don ' t append QUOTE if it is backslashed$$1
+Closure-115$$Erroneous optimization in ADVANCED_OPTIMIZATIONS mode$$patch1-Closure-115-ssFix$$Allow side effects for function arguments$$0
+Chart-1$$None$$patch1-Chart-1-ssFix$$Fix CategoryItemRenderer . getDataset ( ) to return the first result$$0
+Math-57$$None$$patch1-Math-57-ssFix$$Fix compiler warning$$0
+Math-20$$None$$patch1-Math-20-ssFix$$Use 16000 as lambda$$0
+Math-28$$None$$patch1-Math-28-ssFix$$removed a couple incorrect lines$$0
+Math-8$$None$$patch1-Math-8-ssFix$$Remove sample from DiscreteDistribution$$0
+Math-30$$None$$patch1-Math-30-ssFix$$Add ( double ) cast to avoid warning ( varU = ( double ) n1n2$$0
+Math-79$$None$$patch1-Math-79-ssFix$$Fix MathUtils . distance ( int , double )$$0
+Lang-27$$None$$patch1-Lang-27-ssFix$$removed expPos from mant string$$0
+Closure-21$$Classify non-rightmost expressions as problematic$$patch1-Closure-21-RSRepairA$$Remove unused local variable .$$1
+Closure-126$$Break in finally block isn't optimized properly$$patch1-Closure-126-RSRepairA$$Remove tryMinimizeExits from tryMinimizeExits$$1
+Closure-115$$Erroneous optimization in ADVANCED_OPTIMIZATIONS mode$$patch1_1-Closure-115-RSRepairA$$@@ start = 0 ; for the better coding experience$$1
+Closure-22$$Classify non-rightmost expressions as problematic$$patch1_1-Closure-22-RSRepairA$$Remove one more for - loop$$1
+Closure-61$$Closure removes needed code.$$patch1_1-Closure-61-RSRepairA$$Allow null values for equals in closure trees$$0
+Closure-59$$Cannot exclude globalThis checks through command line$$patch1_1-Closure-59-RSRepairA$$Remove old definition of checkGlobalThisLevel from options . checkSuspiciousCode$$0
+Closure-67$$Advanced compilations renames a function and then deletes it, leaving a reference to a renamed but non-existent function$$patch1_1-Closure-67-RSRepairA$$Remove unused prototype properties patch$$0
+Closure-33$$weird object literal invalid property error on unrelated object prototype$$patch1_1-Closure-33-RSRepairA$$Remove unneeded whitespace$$0
+Closure-129$$Casting a function before calling it produces bad code and breaks plugin code$$patch1_1-Closure-129-RSRepairA$$Allow one - line ifs$$0
+Closure-45$$Assignment removed when used as an expression result to Array.push$$patch1_1-Closure-45-RSRepairA$$Add one more fix to the case statement$$0
+Closure-127$$Break in finally block isn't optimized properly$$patch1_1-Closure-127-RSRepairA$$Allow null values for defects in closure 1 . 7$$0
+Closure-120$$Overzealous optimization confuses variables$$patch1_1-Closure-120-RSRepairA$$Remove broke patch$$0
+Closure-10$$Wrong code generated if mixing types in ternary operator$$patch1_1-Closure-10-RSRepairA$$Fix HOOK pattern in closure situations .$$0
+Closure-75$$closure compiled swfobject error$$patch1_1-Closure-75-RSRepairA$$Removing old and unused local variable .$$0
+Closure-121$$Overzealous optimization confuses variables$$patch1_1-Closure-121-RSRepairA$$Remove obsolete comment$$0
+Closure-31$$Add support for --manage_closure_dependencies and --only_closure_dependencies with compilation level WHITESPACE_ONLY$$patch1_1-Closure-31-RSRepairA$$Allow null values for defects$$0
+Closure-55$$Exception when emitting code containing getters$$patch1_1-Closure-55-RSRepairA$$Remove false alarms that were failing the closure compiler .$$0
+Closure-130$$arguments is moved to another scope$$patch1_1-Closure-130-RSRepairA$$Remove old if / else .$$0
+Closure-112$$Template types on methods incorrectly trigger inference of a template on the class if that template type is unknown$$patch1_1-Closure-112-RSRepairA$$Remove patch for closure parameters$$0
+Closure-124$$Different output from RestAPI and command line jar$$patch1_1-Closure-124-RSRepairA$$Remove one more test case$$0
+Closure-114$$Crash on the web closure compiler$$patch1-Closure-114-RSRepairA$$Updated the scope for the closure scope for the given node .$$0
+Closure-78$$division by zero wrongly throws JSC_DIVIDE_BY_0_ERROR$$patch1_1-Closure-78-RSRepairA$$Do not inline errors in AbstractPeepholeOptimization . error ( )$$0
+Chart-12$$None$$patch1_1-Chart-12-RSRepairA$$Add a listener to the dataset ( if it is not null )$$0
+Chart-13$$None$$patch1-Chart-13-RSRepairA$$Fix border embarrassment in RSRepair_Defects4J_Chart_13$$0
+Chart-5$$None$$patch1_1-Chart-5-RSRepairA$$Fix - issue with the XYSeries class - patch$$0
+Chart-25$$None$$patch1-Chart-25-RSRepairA$$Remove unused line$$0
+Math-95$$None$$patch1_1-Math-95-RSRepairA$$Fix POSIX issue in FDistributionImpl . getInitialDomain ( )$$0
+Math-103$$None$$patch1_1-Math-103-RSRepairA$$Updated gamma function to handle NaNs$$0
+Math-58$$None$$patch1_1-Math-58-RSRepairA$$Fix the Newton correction rate over the last 24 hours with the same error , so I ' m$$0
+Math-33$$None$$patch1_1-Math-33-RSRepairA$$remove column to drop from list of columns to avoid duplicates$$0
+Math-80$$None$$patch1_1-Math-80-RSRepairA$$Remove unused local variable .$$0
+Math-28$$None$$patch1_1-Math-28-RSRepairA$$Removed patch for row minimization$$0
+Math-81$$None$$patch1_1-Math-81-RSRepairA$$Update the fix from pull request$$0
+Math-84$$None$$patch1_1-Math-84-RSRepairA$$Updated loop definition for MultiDirectional .$$0
+Math-85$$None$$patch1-Math-85-RSRepairA$$Fix unbound exception in RSRepair_Defects4J_Math_85$$0
+Math-82$$None$$patch1_1-Math-82-RSRepairA$$Removed patch for 1 . 6 . 2$$0
+Math-40$$None$$patch1_1-Math-40-RSRepairA$$Set signChangeIndex to 2$$0
+Math-2$$None$$patch1_1-Math-2-RSRepairA$$remove incompilable upperbound$$0
+Lang-7$$None$$patch1_1-Lang-7-RSRepairA$$Fix parseShort erro$$0
+Lang-16$$None$$patch1_1-Lang-16-RSRepairA$$fix a minor bug in NumberUtils$$0
+Lang-13$$None$$patch1_1-Lang-13-RSRepairA$$Fix possible NPE in RSRepairDefects4J_Lang_13$$0
+Chart-11$$None$$patch1-Chart-11-Cardumen$$Fix swapped diffs in patch$$1
+Math-70$$None$$patch1-Math-70-Cardumen$$Added missing throws$$1
+Closure-62$$Column-indicating caret is sometimes not in error output$$patch1-Closure-62-Cardumen$$Add null check$$0
+Closure-63$$None$$patch1-Closure-63-Cardumen$$Add null check$$0
+Chart-6$$None$$patch1-Chart-6-Cardumen$$Added fix to chart .$$0
+Chart-24$$None$$patch1-Chart-24-Cardumen$$Fix bug in chart$$0
+Chart-13$$None$$patch1-Chart-13-Cardumen$$Fix arrange ( ) method$$0
+Math-95$$None$$patch1-Math-95-Cardumen$$fix a minor bug in Controllers$$0
+Math-73$$None$$patch1-Math-73-Cardumen$$Fixed erroneous Brent algorithm$$0
+Math-63$$None$$patch1-Math-63-Cardumen$$Fix bug in Controllers / Websocket Session$$0
+Math-85$$None$$patch1-Math-85-Cardumen$$Fix erroneous test$$0
+Math-5$$None$$patch1-Math-5-Cardumen$$Fix NaN in Object . equals ( )$$0
+Lang-44$$None$$patch1-Lang-44-Nopol2015$$Fix build$$1
+Lang-55$$None$$patch1-Lang-55-Nopol2015$$Add missing stopTime if it is not running .$$1
+Chart-5$$None$$patch1-Chart-5-Nopol2015$$don ' t allow duplicate x values in XYSeries$$0
+Math-50$$None$$patch1-Math-50-Nopol2015$$Fix renegation in BaseSecantSolver .$$0
+Math-58$$None$$patch1-Math-58-Nopol2015$$Fix the case for better orthotoxical fit in LevenbergMarquardtOptimizer . java$$0
+Math-85$$None$$patch1-Math-85-Nopol2015$$Fix a minor increase in the number of iterations since the lowerBound was too high$$0
+Math-49$$None$$patch1-Math-49-Nopol2015$$Allow remove of default value if it is set$$0
+Time-11$$None$$patch1-Time-11-Nopol2015$$Fix bug in DateTimeZoneBuilder$$0
+Lang-51$$None$$patch1-Lang-51-Nopol2015$$removed null check$$0
+Lang-58$$None$$patch1-Lang-58-Nopol2015$$Handle negative exponentiblity in StringUtils . java$$0
+Lang-39$$None$$patch1-Lang-39-Nopol2015$$added missing loop$$0
+Closure-92$$bug with implicit namespaces across modules$$patch1-Closure-92-Hercules$$Fix accidental use of lastIndexOf$$1
+Closure-73$$Codepoint U+007f appears raw in output$$patch1-Closure-73-Hercules$$Fix typo in code snippet$$1
+Closure-86$$side-effects analysis incorrectly removing function calls with side effects$$patch1-Closure-86-Hercules$$fix broken patch$$1
+Closure-62$$Column-indicating caret is sometimes not in error output$$patch1-Closure-62-Hercules$$Fixed typo in code snippet$$1
+Closure-109$$Constructor types that return all or unknown fail to parse$$patch1-Closure-109-Hercules$$updated hercules patch$$1
+Closure-4$$Converting from an interface type to a constructor which @implements itself causes stack overflow.$$patch1-Closure-4-Hercules$$Added fix for cycles of closures$$1
+Closure-78$$division by zero wrongly throws JSC_DIVIDE_BY_0_ERROR$$patch1-Closure-78-Hercules$$disabled division by zero patch$$1
+Closure-14$$bogus 'missing return' warning$$patch1-Closure-14-Hercules$$added fix$$1
+Chart-9$$None$$patch1-Chart-9-Hercules$$Fix bug in chart 9$$1
+Chart-11$$None$$patch1-Chart-11-Hercules$$fix bug in Hercules fixed markets$$1
+Chart-1$$None$$patch1-Chart-1-Hercules$$Fixed nullability assertion that was accidentally made too strong$$1
+Chart-19$$None$$patch1-Chart-19-Hercules$$Fix a bug in chart 19$$1
+Chart-8$$None$$patch1-Chart-8-Hercules$$Fixed week constructor$$1
+Chart-3$$None$$patch1-Chart-3-Hercules$$added fix$$1
+Chart-12$$None$$patch1-Chart-12-Hercules$$Fixed a bug in MultiplePiePlot .$$1
+Chart-14$$None$$patch1-Chart-14-Hercules$$add fix$$1
+Math-59$$None$$patch1-Math-59-Hercules$$Fix float . max ( a , b )$$1
+Math-57$$None$$patch1-Math-57-Hercules$$Removed int because it wasn ' t used .$$1
+Math-35$$None$$patch1-Math-35-Hercules$$ElitisticListPopulation constructor should set elitismRate before setting populationLimit .$$1
+Math-58$$None$$patch1-Math-58-Hercules$$updated hercules patch$$1
+Math-34$$None$$patch1-Math-34-Hercules$$Fix bug in Hercules fixed$$1
+Math-33$$None$$patch1-Math-33-Hercules$$Updated patch1 - Math - 33 - Hercules . fixed$$1
+Math-75$$None$$patch1-Math-75-Hercules$$Fix getOwnPct return type$$1
+Math-72$$None$$patch1-Math-72-Hercules$$Fix the bug in Math - 72 - Hercules . fixed$$1
+Math-43$$None$$patch1-Math-43-Hercules$$added missing if ($$1
+Math-98$$None$$patch1-Math-98-Hercules$$Fix the array to work with BigDecimal ( or other BigDecimal ) .$$1
+Math-30$$None$$patch1-Math-30-Hercules$$changed int to double$$1
+Math-46$$None$$patch1-Math-46-Hercules$$Add fix in MATH - 657$$1
+Math-70$$None$$patch1-Math-70-Hercules$$updated hercules patch$$1
+Math-24$$None$$patch1-Math-24-Hercules$$It is better for testing$$1
+Math-4$$None$$patch1-Math-4-Hercules$$Extend fix for 1 . 8 . 0 - FIX$$1
+Math-85$$None$$patch1-Math-85-Hercules$$Fix the if / else .$$1
+Math-82$$None$$patch1-Math-82-Hercules$$removed patch$$1
+Math-49$$None$$patch1-Math-49-Hercules$$added fix$$1
+Math-5$$None$$patch1-Math-5-Hercules$$Fixed typo in hercules . fixed$$1
+Math-25$$None$$patch1-Math-25-Hercules$$Add a throw if the pair of arguments are not compatible with 1 . 0 .$$1
+Time-26$$None$$patch1-Time-26-Hercules$$Handle bug in ISO 639 - 2$$1
+Time-4$$None$$patch1-Time-4-Hercules$$Fix partial constructor to work with joda - time$$1
+Time-15$$None$$patch1-Time-15-Hercules$$Add fix for safeMultiply ( long , int )$$1
+Lang-59$$None$$patch1-Lang-59-Hercules$$Fix bug$$1
+Lang-57$$None$$patch1-Lang-57-Hercules$$Fixed bug in isAvailableLocale$$1
+Lang-60$$None$$patch1-Lang-60-Hercules$$Fix bug$$1
+Lang-33$$None$$patch1-Lang-33-Hercules$$added fix$$1
+Lang-6$$None$$patch1-Lang-6-Hercules$$Fix bug in Hercules fixed$$1
+Lang-26$$None$$patch1-Lang-26-Hercules$$Missing locale .$$1
+Lang-43$$None$$patch1-Lang-43-Hercules$$don ' t add QUOTE to fix$$1
+Lang-38$$None$$patch1-Lang-38-Hercules$$Fixed formatting of date with timeZone$$1
+Lang-24$$None$$patch1-Lang-24-Hercules$$don ' t allow L with a decimal point$$1
+Lang-47$$None$$patch1-Lang-47-Hercules$$Fix whitespace in string . setLength ( )$$1
+Closure-133$$Exception when parsing erroneous jsdoc: /**@return {@code foo} bar   *    baz. */$$patch1-Closure-133-Hercules$$don ' t look ahead for empty lines$$0
+Closure-126$$Break in finally block isn't optimized properly$$patch1-Closure-126-Hercules$$Fix the try / finally blocks used in the AST .$$0
+Closure-107$$Variable names prefixed with MSG_ cause error with advanced optimizations$$patch1-Closure-107-Hercules$$HHH - 9733 - Set typeBasedOptimizationOptions ( ) to the right level so it$$0
+Closure-46$$ClassCastException during TypeCheck pass$$patch1-Closure-46-Hercules$$don ' t include regexps in closures$$0
+Closure-12$$Try/catch blocks incorporate code not inside original blocks$$patch1-Closure-12-Hercules$$Allow apply of control flow graphs$$0
+Chart-6$$None$$patch1-Chart-6-Hercules$$Updated chart with fixed shape$$0
+Chart-17$$None$$patch1-Chart-17-Hercules$$Fix bug in delete ( )$$0
+Math-104$$None$$patch1-Math-104-Hercules$$fixed too high epsilon delay in java 1 . 0 Math$$0
+Math-50$$None$$patch1-Math-50-Hercules$$Fix typo in reference manual$$0
+Math-32$$None$$patch1-Math-32-Hercules$$added fix$$0
+Math-20$$None$$patch1-Math-20-Hercules$$added back missing patch$$0
+Math-73$$None$$patch1-Math-73-Hercules$$update hercules fixed spot$$0
+Math-80$$None$$patch1-Math-80-Hercules$$Fixed a bug in Math - 80 - Hercules .$$0
+Math-101$$None$$patch1-Math-101-Hercules$$Removed symbolic link to error patch .$$0
+Math-63$$None$$patch1-Math-63-Hercules$$Fix bug in equals$$0
+Math-2$$None$$patch1-Math-2-Hercules$$Updated numeric average patch$$0
+Time-11$$None$$patch1-Time-11-Hercules$$Add string comparison to zone names$$0
+Time-14$$None$$patch1-Time-14-Hercules$$Missing addWrapPartial method from DateField . add ( ) .$$0
+Lang-51$$None$$patch1-Lang-51-Hercules$$removed a couple incorrect patching attempts$$0
+Lang-58$$None$$patch1-Lang-58-Hercules$$Handle isDigits ( string ) with patch 1 - Lang - 58 - Hercules . fixed$$0
+Lang-45$$None$$patch1-Lang-45-Hercules$$fixed year in StringUtils$$0
+Lang-44$$None$$patch1-Lang-44-Hercules$$Fix null - penalty in long precision spotting$$0
+Lang-39$$None$$patch1-Lang-39-Hercules$$added fix$$0
+Math-79$$None$$patch1-Math-79-LSRepair$$Fix MathUtils . distance ( ) , reported by Marin Dzhigarov .$$1
+Lang-51$$None$$patch1-Lang-51-LSRepair$$Optimize toBoolean ( )$$1
+Lang-54$$None$$patch1-Lang-54-LSRepair$$locale parsing was throwing an exception$$1
+Chart-18$$None$$patch1-Chart-18-LSRepair$$Fixed help for snapshotconverter$$0
+Chart-6$$None$$patch1-Chart-6-LSRepair$$Fix Added missing equals method$$0
+Chart-17$$None$$patch1-Chart-17-LSRepair$$Fixed a bug with not throwing the clone exception$$0
+Chart-10$$None$$patch1-Chart-10-LSRepair$$added System . exit ( 0 ) to method generateToolTipFragment$$0
+Math-95$$None$$patch1-Math-95-LSRepair$$removed erroneous legacy change .$$0
+Math-93$$None$$patch1-Math-93-LSRepair$$removed erroneous legacy call in MathUtils$$0
+Math-11$$None$$patch1-Math-11-LSRepair$$Fix density method$$0
+Math-16$$None$$patch1-Math-16-LSRepair$$Fix typo in cosh ( )$$0
+Math-80$$None$$patch1-Math-80-LSRepair$$Fixed a bug in EigenDecompositionImpl . flipIfWarranted ( ) .$$0
+Math-99$$None$$patch1-Math-99-LSRepair$$Fix a bug in MathUtils . gcd ( )$$0
+Lang-60$$None$$patch1-Lang-60-LSRepair$$StrBuilder . contains ( ) now returns true if the builder contains the character$$0
+Lang-29$$None$$patch1-Lang-29-LSRepair$$Fix toJavaVersionInt from String to boolean$$0
+Lang-62$$None$$patch1-Lang-62-LSRepair$$Don ' t ignore entity values in HTML entities , since they are never unescaped$$0
+Lang-55$$None$$patch1-Lang-55-LSRepair$$Add refresh files after stop$$0
+Lang-41$$None$$patch1-Lang-41-LSRepair$$Fix ClassUtils # getShortClassName ( )$$0
+Lang-40$$None$$patch1-Lang-40-LSRepair$$fixed StringUtils . containsIgnoreCase ( )$$0
+Closure-92$$bug with implicit namespaces across modules$$patch1-Closure-92-CoCoNut$$Fixing the indexing of the closure ' s namespace .$$1
+Closure-18$$Dependency sorting with closurePass set to false no longer works.$$patch1-Closure-18-CoCoNut$$closure pass now fixes the build .$$1
+Closure-73$$Codepoint U+007f appears raw in output$$patch1-Closure-73-CoCoNut$$Fix typo in codeGenerator$$1
+Closure-86$$side-effects analysis incorrectly removing function calls with side effects$$patch1-Closure-86-CoCoNut$$Add missing copy of NodeUtil$$1
+Closure-38$$Identifier minus a negative number needs a space between the "-"s$$patch1-Closure-38-CoCoNut$$Improved javadoc comment .$$1
+Closure-31$$Add support for --manage_closure_dependencies and --only_closure_dependencies with compilation level WHITESPACE_ONLY$$patch1-Closure-31-CoCoNut$$don ' t skip building all passes when building$$1
+Closure-46$$ClassCastException during TypeCheck pass$$patch1-Closure-46-CoCoNut$$Improved method return type for JSType . getLeastSupertype ( JSType )$$1
+Closure-70$$unexpected typed coverage of less than 100%$$patch1-Closure-70-CoCoNut$$Fix copy constructor$$1
+Closure-40$$smartNameRemoval causing compiler crash$$patch1-Closure-40-CoCoNut$$Fix copy nag$$1
+Chart-9$$None$$patch1-Chart-9-CoCoNut$$Fix an issue with TimeSeries . isEmpty ( ) .$$1
+Chart-11$$None$$patch1-Chart-11-CoCoNut$$added missing copy$$1
+Chart-1$$None$$patch1-Chart-1-CoCoNut$$Fix null checking in AbstractCategoryItemRenderer$$1
+Chart-26$$None$$patch1-Chart-26-CoCoNut$$Fix NPE in Axis label copy .$$1
+Chart-24$$None$$patch1-Chart-24-CoCoNut$$Fix bug in GrayPaintScale . getPaint ( double )$$1
+Chart-12$$None$$patch1-Chart-12-CoCoNut$$Missing warning$$1
+Chart-14$$None$$patch1-Chart-14-CoCoNut$$Allow user to specify which technologies apply to a background range marker$$1
+Math-59$$None$$patch1-Math-59-CoCoNut$$Fix NaN in FastMath . max ( a , b )$$1
+Math-57$$None$$patch1-Math-57-CoCoNut$$KMeansPlusPlusClusterer copy constructor$$1
+Math-56$$None$$patch1-Math-56-CoCoNut$$Added missing gen folder$$1
+Math-58$$None$$patch1-Math-58-CoCoNut$$Added copy of GaussianFitter . fit ( ) .$$1
+Math-94$$None$$patch1-Math-94-CoCoNut$$Fix gcd ( )$$1
+Math-34$$None$$patch1-Math-34-CoCoNut$$added iterator on non - empty chromosomes list$$1
+Math-27$$None$$patch1-Math-27-CoCoNut$$Added Fraction copy of Fraction . percentageValue ( )$$1
+Math-80$$None$$patch1-Math-80-CoCoNut$$Fixed a bug in EigenDecompositionImpl . flipIfWarranted ( ) .$$1
+Math-65$$None$$patch1-Math-65-CoCoNut$$Added a copy of the residuals function .$$1
+Math-98$$None$$patch1-Math-98-CoCoNut$$Fix BigMatrixImpl to work with data . length opengles .$$1
+Math-30$$None$$patch1-Math-30-CoCoNut$$long not int ( not long )$$1
+Math-90$$None$$patch1-Math-90-CoCoNut$$Fixing rat phase$$1
+Math-77$$None$$patch1-Math-77-CoCoNut$$Fix error in getLInfNorm .$$1
+Math-82$$None$$patch1-Math-82-CoCoNut$$Improved the garbage collection profile of TwoDimTableau .$$1
+Math-2$$None$$patch1-Math-2-CoCoNut$$Remove extraneous whitespace$$1
+Math-22$$None$$patch1-Math-22-CoCoNut$$Fix FDistribution and UniformRealDistribution .$$1
+Time-19$$None$$patch1-Time-19-CoCoNut$$fixed typo .$$1
+Lang-59$$None$$patch1-Lang-59-CoCoNut$$StrBuilder copy ( ) uses string copy ( ) for the copy constructor$$1
+Lang-57$$None$$patch1-Lang-57-CoCoNut$$made copy ( ) not static$$1
+Lang-51$$None$$patch1-Lang-51-CoCoNut$$Added missing return statement$$1
+Lang-33$$None$$patch1-Lang-33-CoCoNut$$removed null check$$1
+Lang-29$$None$$patch1-Lang-29-CoCoNut$$Fix toJavaVersionInt from String to float$$1
+Lang-10$$None$$patch1-Lang-10-CoCoNut$$FastDateParser copy ( ) didn ' t ignore whitespace in date parsing$$1
+Lang-26$$None$$patch1-Lang-26-CoCoNut$$FastDateFormat copy constructor$$1
+Mockito-29$$None$$patch1-Mockito-29-CoCoNut$$Fix appendText ( ) with null values .$$1
+Mockito-8$$None$$patch1-Mockito-8-CoCoNut$$Fix contextualActualTypeParameters . put ( typeParameter , actualTypeArgument )$$1
+Mockito-38$$None$$patch1-Mockito-38-CoCoNut$$Fix toStringEquals in ArgumentMatchingTool$$1
+Mockito-5$$None$$patch1-Mockito-5-CoCoNut$$Fixed the build .$$1
+Closure-73$$Codepoint U+007f appears raw in output$$patch1-Closure-73-kPAR$$Fix typo in codeGenerator where ' c ' was accidentally passed .$$1
+Closure-40$$smartNameRemoval causing compiler crash$$patch1-Closure-40-kPAR$$Fix boolean flags$$1
+Chart-1$$None$$patch1-Chart-1-kPAR$$Fix nullability note in AbstractCategoryItemRenderer$$1
+Chart-19$$None$$patch1-Chart-19-kPAR$$Fix NPE in CategoryPlot . getRangeAxisIndex ( )$$1
+Chart-4$$None$$patch1-Chart-4-kPAR$$Fix X axis annotation presence$$1
+Math-58$$None$$patch1-Math-58-kPAR$$Added missing parameter .$$1
+Math-89$$None$$patch1-Math-89-kPAR$$Add support for addValue ( )$$1
+Math-75$$None$$patch1-Math-75-kPAR$$Fix getFrequency ( ) to return precise value$$1
+Math-70$$None$$patch1-Math-70-kPAR$$fixed a typo in BisectionSolver$$1
+Lang-7$$None$$patch1-Lang-7-kPAR$$formatting is not supported by NumberUtils$$1
+Closure-35$$assignment to object in conditional causes type error on function w/ record type return type$$patch1-Closure-35-kPAR$$Make TypeInference . collapseUnion a union type .$$0
+Closure-129$$Casting a function before calling it produces bad code and breaks plugin code$$patch1-Closure-129-kPAR$$Allow recursion in CALL nodes$$0
+Closure-126$$Break in finally block isn't optimized properly$$patch1-Closure-126-kPAR$$Fix try / finally .$$0
+Closure-62$$Column-indicating caret is sometimes not in error output$$patch1-Closure-62-kPAR$$Remove spurious blank line$$0
+Closure-109$$Constructor types that return all or unknown fail to parse$$patch1-Closure-109-kPAR$$Add parseAndRecordTypeNode to the right type AST .$$0
+Closure-63$$None$$patch1-Closure-63-kPAR$$Remove spurious blank line$$0
+Closure-46$$ClassCastException during TypeCheck pass$$patch1-Closure-46-kPAR$$Fix jstype annotation matching of non - Record type .$$0
+Closure-115$$Erroneous optimization in ADVANCED_OPTIMIZATIONS mode$$patch1-Closure-115-kPAR$$Allow inline with function arguments$$0
+Chart-7$$None$$patch1-Chart-7-kPAR$$Fixed formatting mistake$$0
+Chart-17$$None$$patch1-Chart-17-kPAR$$fix # 1796$$0
+Chart-26$$None$$patch1-Chart-26-kPAR$$Fix CategoryPlot not using a renderer$$0
+Chart-15$$None$$patch1-Chart-15-kPAR$$Fix an NPE if data is not loaded$$0
+Chart-3$$None$$patch1-Chart-3-kPAR$$Fixed a bug in TimeSeries where the data was not removed .$$0
+Chart-12$$None$$patch1-Chart-12-kPAR$$Remove oversampling .$$0
+Chart-13$$None$$patch1-Chart-13-kPAR$$Fix checkstyle issue$$0
+Chart-5$$None$$patch1-Chart-5-kPAR$$don ' t allow duplicates in XYSeries$$0
+Chart-14$$None$$patch1-Chart-14-kPAR$$Don ' t remove null marker$$0
+Chart-25$$None$$patch1-Chart-25-kPAR$$Fix getMeanValue ( )$$0
+Math-104$$None$$patch1-Math-104-kPAR$$Fix case$$0
+Math-50$$None$$patch1-Math-50-kPAR$$Fix typo in BaseSecantSolver$$0
+Math-7$$None$$patch1-Math-7-kPAR$$Added BracketingNthOrderBrentSolver .$$0
+Math-42$$None$$patch1-Math-42-kPAR$$Fix hash code for SimplexTableau class$$0
+Math-80$$None$$patch1-Math-80-kPAR$$EigenDecompositionImpl should do a good step$$0
+Math-8$$None$$patch1-Math-8-kPAR$$Fix Object . array to be compatible with Java 8$$0
+Math-81$$None$$patch1-Math-81-kPAR$$EigenDecompositionImpl was trying to handle both heaps .$$0
+Math-43$$None$$patch1-Math-43-kPAR$$Fix bug in SummaryStatistics$$0
+Math-88$$None$$patch1-Math-88-kPAR$$Fix the case of one - to - one calls to tableau . getEntry ( ) in the$$0
+Math-62$$None$$patch1-Math-62-kPAR$$Fix a bug in MultiStartUnivariateRealOptimizer from side effects of adding additional bounds$$0
+Math-63$$None$$patch1-Math-63-kPAR$$Add missing @@$$0
+Math-84$$None$$patch1-Math-84-kPAR$$Fix a typo in MultiDirectional .$$0
+Math-15$$None$$patch1-Math-15-kPAR$$FastMath . pow ( - x , y ) doesn ' t handle exponent range in JS backend$$0
+Math-82$$None$$patch1-Math-82-kPAR$$Added DEFAULT_EPSILON to the min value of the tableau object .$$0
+Math-49$$None$$patch1-Math-49-kPAR$$Fix MathRuntimeException buildMessage$$0
+Math-40$$None$$patch1-Math-40-kPAR$$fix the sign change index so it works$$0
+Math-2$$None$$patch1-Math-2-kPAR$$Remove warning ( added serialVersionUID )$$0
+Time-17$$None$$patch1-Time-17-kPAR$$Fix an issue with DateTimeZone . getOffset ( ) where the difference was not being applied , because the$$0
+Lang-59$$None$$patch1-Lang-59-kPAR$$StrBuilder should add the right size , but not the left .$$0
+Lang-57$$None$$patch1-Lang-57-kPAR$$Add null check in LocaleUtils$$0
+Lang-51$$None$$patch1-Lang-51-kPAR$$removed backslash$$0
+Lang-58$$None$$patch1-Lang-58-kPAR$$Fix null positives in NumberUtils$$0
+Lang-20$$None$$patch1-Lang-20-kPAR$$Fix bug in StringUtils$$0
+Lang-18$$None$$patch1-Lang-18-kPAR$$FastDateFormat now accepts 2 - digit year number$$0
+Lang-27$$None$$patch1-Lang-27-kPAR$$removed expPos$$0
+Lang-16$$None$$patch1-Lang-16-kPAR$$removed extraneous space$$0
+Lang-45$$None$$patch1-Lang-45-kPAR$$fixed try / case$$0
+Lang-10$$None$$patch1-Lang-10-kPAR$$FastDateParser ignores backslash which prevents me from processing the date value as literals$$0
+Lang-21$$None$$patch1-Lang-21-kPAR$$Add missing modifier$$0
+Lang-44$$None$$patch1-Lang-44-kPAR$$Fix build$$0
+Lang-43$$None$$patch1-Lang-43-kPAR$$Don ' t strip backslash when creating a string in the message format$$0
+Lang-53$$None$$patch1-Lang-53-kPAR$$Don ' t round if ( ! round || millisecs < 500 )$$0
+Lang-63$$None$$patch1-Lang-63-kPAR$$Fix merge issues$$0
+Lang-41$$None$$patch1-Lang-41-kPAR$$Fix ClassUtils # getShortClassName / getShortCanonicalName$$0
+Lang-24$$None$$patch1-Lang-24-kPAR$$allow trailing comma$$0
+Closure-33$$weird object literal invalid property error on unrelated object prototype$$patch1-Closure-33-Jaid$$Avoid matching against an unneeded property .$$1
+Closure-18$$Dependency sorting with closurePass set to false no longer works.$$patch1-Closure-18-Jaid$$"Fix the "" closure pass "" flag in Compiler . java"$$1
+Closure-73$$Codepoint U+007f appears raw in output$$patch1-Closure-73-Jaid$$Fix typo in codeGenerator where ' c ' was passed through , but was accidentally ignored .$$1
+Closure-126$$Break in finally block isn't optimized properly$$patch1-Closure-126-Jaid$$Fix tryMinimizeExitPoints for the case of finally blocks$$1
+Closure-31$$Add support for --manage_closure_dependencies and --only_closure_dependencies with compilation level WHITESPACE_ONLY$$patch1-Closure-31-Jaid$$Allow closure pass through$$1
+Closure-62$$Column-indicating caret is sometimes not in error output$$patch1-Closure-62-Jaid$$Remove whitespaces from sourceExcerpt .$$1
+Closure-63$$None$$patch1-Closure-63-Jaid$$Remove whitespaces from sourceExcerpt$$1
+Closure-70$$unexpected typed coverage of less than 100%$$patch1-Closure-70-Jaid$$Fix typed scope creator for parameter types .$$1
+Closure-40$$smartNameRemoval causing compiler crash$$patch1-Closure-40-Jaid$$Fix boolean property access warning$$1
+Chart-9$$None$$patch1-Chart-9-Jaid$$Fix an issue with TimeSeries . isEmptyRange ( )$$1
+Chart-9$$None$$patch2-Chart-9-Jaid$$Fix an issue with time series end index < startIndex$$1
+Chart-1$$None$$patch1-Chart-1-Jaid$$Fix nullability note in AbstractCategoryItemRenderer$$1
+Chart-26$$None$$patch1-Chart-26-Jaid$$Fix null pointer check in axis title bar shows weird text$$1
+Chart-26$$None$$patch2-Chart-26-Jaid$$Fix null pointer check in Axis . get ( )$$1
+Chart-26$$None$$patch3-Chart-26-Jaid$$Fix null pointer check in Axis .$$1
+Chart-24$$None$$patch1-Chart-24-Jaid$$Fix value to be in the same range as the lowerBound ( and upperBound ) axes .$$1
+Chart-24$$None$$patch2-Chart-24-Jaid$$Fix value to be in the same range as the lowerBound ( this . upperBound )$$1
+Math-50$$None$$patch1-Math-50-Jaid$$Fix renegation of boolean methods$$1
+Math-32$$None$$patch1-Math-32-Jaid$$removed debug code$$1
+Math-80$$None$$patch1-Math-80-Jaid$$Fixed a bug in EigenDecompositionImpl . java$$1
+Math-80$$None$$patch2-Math-80-Jaid$$Fixed a bug in EigenDecompositionImpl . java$$1
+Math-53$$None$$patch1-Math-53-Jaid$$Add NaN to Complex . add ( )$$1
+Math-53$$None$$patch2-Math-53-Jaid$$Add the isNaN check$$1
+Math-85$$None$$patch1-Math-85-Jaid$$Remove a redundant check$$1
+Math-82$$None$$patch1-Math-82-Jaid$$removed epsilon label from tableau objective function$$1
+Math-5$$None$$patch1-Math-5-Jaid$$Add the inverse of Complex . INF to check for 0 . 0 precision .$$1
+Math-5$$None$$patch2-Math-5-Jaid$$Add the inverse of Complex . INF as well .$$1
+Math-5$$None$$patch3-Math-5-Jaid$$Fixed a minor typo in Complex . reciprocal ( )$$1
+Lang-51$$None$$patch1-Lang-51-Jaid$$missing break$$1
+Lang-51$$None$$patch6-Lang-51-Jaid$$missing bracket$$1
+Lang-51$$None$$patch5-Lang-51-Jaid$$Added missing case in BooleanUtils$$1
+Lang-51$$None$$patch3-Lang-51-Jaid$$missing break$$1
+Lang-51$$None$$patch4-Lang-51-Jaid$$missing test for Y$$1
+Lang-33$$None$$patch1-Lang-33-Jaid$$removed unnecessary loop$$1
+Lang-33$$None$$patch2-Lang-33-Jaid$$removed unnecessary copy of ClassUtils$$1
+Lang-45$$None$$patch1-Lang-45-Jaid$$Fixed misc problems caused by the use of substringBefore and substringAfter methods in WordUtils$$1
+Lang-38$$None$$patch1-Lang-38-Jaid$$Reset the calendar time to GMT on Sunday .$$1
+Lang-38$$None$$patch2-Lang-38-Jaid$$Reset timeZone on format ( ) .$$1
+Lang-38$$None$$patch3-Lang-38-Jaid$$Fix null pointer check in FastDateFormat$$1
+Lang-38$$None$$patch4-Lang-38-Jaid$$Fix null pointer check in FastDateFormat$$1
+Lang-55$$None$$patch1-Lang-55-Jaid$$Add a test to make sure that no one keeps being left in StopWatch after a running state ==$$1
+Closure-33$$weird object literal invalid property error on unrelated object prototype$$patch1-Closure-33-Jaid$$Added a missing if / else .$$0
+Closure-33$$weird object literal invalid property error on unrelated object prototype$$patch2-Closure-33-Jaid$$Allow property types to be inferred from boolean to string .$$0
+Closure-62$$Column-indicating caret is sometimes not in error output$$patch1-Closure-62-Jaid$$don ' t add whitespace to source experpt$$0
+Closure-63$$None$$patch1-Closure-63-Jaid$$don ' t add whitespace to source experpt$$0
+Chart-9$$None$$patch1-Chart-9-Jaid$$Fix bug for empty range$$0
+Chart-9$$None$$patch2-Chart-9-Jaid$$Fix bug$$0
+Chart-9$$None$$patch3-Chart-9-Jaid$$Fix bug # 944$$0
+Chart-1$$None$$patch1-Chart-1-Jaid$$Fix null pointer check in AbstractCategoryItemRenderer$$0
+Chart-1$$None$$patch2-Chart-1-Jaid$$Fix nullability assertion in AbstractCategoryItemRenderer$$0
+Chart-1$$None$$patch3-Chart-1-Jaid$$Fix legend item legend generation$$0
+Chart-26$$None$$patch1-Chart-26-Jaid$$Fix hotspot positioning .$$0
+Chart-26$$None$$patch2-Chart-26-Jaid$$Fix null histograms getting cut off .$$0
+Math-50$$None$$patch1-Math-50-Jaid$$Fix regula_FALSI case .$$0
+Math-50$$None$$patch3-Math-50-Jaid$$Fix renegation of baseSecantSolver .$$0
+Math-32$$None$$patch1-Math-32-Jaid$$Fixed a bug in PolygonsSet . getAttribute$$0
+Math-80$$None$$patch1-Math-80-Jaid$$Fixed a bug in EigenDecompositionImpl . flipArrays$$0
+Math-80$$None$$patch2-Math-80-Jaid$$Fixed a bug in EigenDecompositionImpl . java$$0
+Math-80$$None$$patch3-Math-80-Jaid$$Fixed a bug in EigenDecompositionImpl . flipArrays$$0
+Math-53$$None$$patch1-Math-53-Jaid$$Add the NaN check , as the other one is also possible , as the numerator + rhs .$$0
+Math-53$$None$$patch2-Math-53-Jaid$$Add the NaN argument to Complex . add ( )$$0
+Math-53$$None$$patch3-Math-53-Jaid$$Add NaN to Complex . add ( )$$0
+Math-85$$None$$patch1-Math-85-Jaid$$Fix a false reporting of convergence$$0
+Math-85$$None$$patch2-Math-85-Jaid$$Fix a false reporting of convergence$$0
+Math-85$$None$$patch3-Math-85-Jaid$$Fix a false convergence check in UnivariateRealSolverUtils$$0
+Math-85$$None$$patch4-Math-85-Jaid$$Fix a false reporting of convergence$$0
+Math-82$$None$$patch1-Math-82-Jaid$$@@ minRatio = rhs / entry ; if ( minRatio == rhs ) {$$0
+Math-82$$None$$patch2-Math-82-Jaid$$Added a check for equality$$0
+Math-82$$None$$patch3-Math-82-Jaid$$Fixed a bug in the minRatioSolver .$$0
+Math-82$$None$$patch4-Math-82-Jaid$$@@ i = 1 ; if ( ! ( i == 1 ) ) {$$0
+Lang-61$$None$$patch1-Lang-61-Jaid$$Stop appending extra characters .$$0
+Lang-61$$None$$patch2-Lang-61-Jaid$$Don ' t compare string builders to buffer length - trailing space .$$0
+Lang-51$$None$$patch1-Lang-51-Jaid$$missing if ($$0
+Lang-51$$None$$patch2-Lang-51-Jaid$$Fixed bug in BooleanUtils where empty string is not the case$$0
+Lang-51$$None$$patch3-Lang-51-Jaid$$missing if ($$0
+Lang-51$$None$$patch4-Lang-51-Jaid$$missing one if ($$0
+Lang-45$$None$$patch1-Lang-45-Jaid$$Fixed WordUtils . isEmpty ( ) .$$0
+Lang-45$$None$$patch2-Lang-45-Jaid$$Fixed WordUtils . isEmpty ( ) .$$0
+Lang-55$$None$$patch1-Lang-55-Jaid$$Add missing return statement$$0
+Lang-55$$None$$patch2-Lang-55-Jaid$$Reset running state to 1$$0
+Lang-55$$None$$patch3-Lang-55-Jaid$$Added missing return statement$$0
+Math-50$$None$$patch1-Math-50-JGenProg2015$$Fix renegation of baseSecantSolver$$1
+Math-53$$None$$patch1-Math-53-JGenProg2015$$Add the isNaN check in Complex . add ( )$$1
+Math-70$$None$$patch1-Math-70-JGenProg2015$$fixed erroneous loop$$1
+Math-5$$None$$patch1-Math-5-JGenProg2015$$Fix NaN - > INF in Complex$$1
+Chart-7$$None$$patch1-Chart-7-JGenProg2015$$Fixed formatting mistake .$$0
+Chart-15$$None$$patch1-Chart-15-JGenProg2015$$Added missing call to fireChartChanged ( ) .$$0
+Chart-13$$None$$patch6-Chart-13-Arja$$Fix border arrangement bug$$0
+Chart-5$$None$$patch1-Chart-5-JGenProg2015$$Fixed issue with XYSeries . add ( )$$0
+Math-73$$None$$patch1-Math-73-JGenProg2015$$changed 28 .$$0
+Math-49$$None$$patch1-Math-49-JGenProg2015$$Fix double put$$0
+Math-2$$None$$patch1-Math-2-JGenProg2015$$removed ceil$$0
+Time-4$$None$$patch1-Time-4-JGenProg2015$$Fixed zero - is - max datetime field$$0
+Closure-73$$Codepoint U+007f appears raw in output$$patch1-Closure-73-GenPat$$Fix typo in codeGenerator$$1
+Closure-86$$side-effects analysis incorrectly removing function calls with side effects$$patch1-Closure-86-GenPat$$Add missing copy of NodeUtil$$1
+Closure-62$$Column-indicating caret is sometimes not in error output$$patch1-Closure-62-GenPat$$Remove spurious blank line$$1
+Closure-63$$None$$patch1-Closure-63-GenPat$$Remove spurious blank line$$1
+Closure-115$$Erroneous optimization in ADVANCED_OPTIMIZATIONS mode$$patch1-Closure-115-GenPat$$Fixing the function infusion of side effects in JS stylesheet$$1
+Closure-2$$combining @interface and multiple @extends can crash compiler$$patch1-Closure-2-GenPat$$Added TypeCheck . checkForProxy ( ) to interfaceType$$1
+Chart-11$$None$$patch1-Chart-11-GenPat$$added missing copy$$1
+Chart-1$$None$$patch1-Chart-1-GenPat$$Fix null checking in AbstractCategoryItemRenderer$$1
+Chart-24$$None$$patch1-Chart-24-GenPat$$Fix bug in GrayPaintScale . getPaint ( double )$$1
+Chart-4$$None$$patch1-Chart-4-GenPat$$added missing annotation$$1
+Math-79$$None$$patch1-Math-79-GenPat$$Fix MathUtils distance$$1
+Math-70$$None$$patch1-Math-70-GenPat$$Added copy of bisectionSolver . solve ( )$$1
+Math-4$$None$$patch1-Math-4-GenPat$$added null check in subLine copy$$1
+Math-22$$None$$patch1-Math-22-GenPat$$UniformRealDistribution copy ( )$$1
+Lang-51$$None$$patch1-Lang-51-GenPat$$Added missing copy of BooleanUtils$$1
+Lang-60$$None$$patch1-Lang-60-GenPat$$StrBuilder . contains ( ) now uses the same level of storage as ArrayList .$$1
+Lang-21$$None$$patch1-Lang-21-GenPat$$Fixed fall through in DateUtils . java$$1
+Lang-47$$None$$patch1-Lang-47-GenPat$$Fix an NPE in StrBuilder . toString ( )$$1
+Mockito-22$$None$$patch1-Mockito-22-GenPat$$added a bit more tidying of the areEqual method$$1
+Closure-38$$Identifier minus a negative number needs a space between the "-"s$$patch1-Closure-38-GenPat$$Fix negative zero error in code consumer$$0
+Chart-9$$None$$patch1-Chart-9-GenPat$$Fix bug in TimeSeries . java$$0
+Chart-7$$None$$patch1-Chart-7-GenPat$$Fix copy ( )$$0
+Chart-26$$None$$patch1-Chart-26-GenPat$$Don ' t create a new plotRenderingInfo object$$0
+Chart-14$$None$$patch1-Chart-14-GenPat$$Changed return type of removeRangeMarker$$0
+Math-95$$None$$patch1-Math-95-GenPat$$Fix FDistributionImpl . getDenominatorDegreesOfFreedom ( )$$0
+Math-50$$None$$patch1-Math-50-GenPat$$Added another copy of BaseSecantSolver$$0
+Math-57$$None$$patch1-Math-57-GenPat$$added kmeans + plus clusterer copy$$0
+Math-94$$None$$patch1-Math-94-GenPat$$Fix gcd ( )$$0
+Math-80$$None$$patch1-Math-80-GenPat$$EigenDecompositionImpl flipIfWarranted ( n , 2 ) added eigen$$0
+Math-81$$None$$patch1-Math-81-GenPat$$Added missing case$$0
+Math-72$$None$$patch1-Math-72-GenPat$$Fix the bit between the two functions$$0
+Math-101$$None$$patch1-Math-101-GenPat$$fix parseAndIgnoreWhitespace ( source , pos )$$0
+Math-77$$None$$patch1-Math-77-GenPat$$Fix ArrayRealVector . getLInfNorm ( )$$0
+Time-4$$None$$patch1-Time-4-GenPat$$Added zeroismaxdatetimefield copy$$0
+Lang-59$$None$$patch1-Lang-59-GenPat$$StrBuilder copy ( ) {$$0
+Lang-58$$None$$patch1-Lang-58-GenPat$$Fix parse error$$0
+Lang-20$$None$$patch1-Lang-20-GenPat$$Fix toString method of StringUtils$$0
+Lang-27$$None$$patch1-Lang-27-GenPat$$Fix copy ( )$$0
+Lang-45$$None$$patch1-Lang-45-GenPat$$Fixed null pointer check in WordUtils$$0
+Lang-44$$None$$patch1-Lang-44-GenPat$$Manchester United FC = > NumberUtils copy ( )$$0
+Lang-39$$None$$patch1-Lang-39-GenPat$$Fix copy / paste error$$0
+Mockito-38$$None$$patch1-Mockito-38-GenPat$$Add null check in ArgumentMatchingTool$$0
+Closure-18$$Dependency sorting with closurePass set to false no longer works.$$patch1-Closure-18-SequenceR$$Don ' t inline closure passes when compiling dependency fields .$$1
+Closure-73$$Codepoint U+007f appears raw in output$$patch1-Closure-73-SequenceR$$Fix typo in codeGenerator . java$$1
+Closure-73$$Codepoint U+007f appears raw in output$$patch2-Closure-73-SequenceR$$Fix typo in codeGenerator . java$$1
+Closure-86$$side-effects analysis incorrectly removing function calls with side effects$$patch1-Closure-86-SequenceR$$Fix NodeUtil . hasLocalResult ( )$$1
+Chart-11$$None$$patch1-Chart-11-SequenceR$$added p2 . getPathIterator ( null ) to fix looping over PathIterator$$1
+Chart-1$$None$$patch1-Chart-1-SequenceR$$Fix null pointer check in AbstractCategoryItemRenderer$$1
+Math-57$$None$$patch1-Math-57-SequenceR$$Fix int overflow$$1
+Math-58$$None$$patch1-Math-58-SequenceR$$GaussianFitter . fit ( ) now uses 1 . 18 . 0 ( and is using$$1
+Math-75$$None$$patch1-Math-75-SequenceR$$Fix getFrequency ( Object ) to return precise value instead of getCumPct ( Object )$$1
+Math-30$$None$$patch1-Math-30-SequenceR$$changed int to double .$$1
+Math-85$$None$$patch1-Math-85-SequenceR$$Fix a numeric equality bug in UnivariateRealSolverUtils$$1
+Math-82$$None$$patch1-Math-82-SequenceR$$Fixed an example of the regression in LinearSolver . . .$$1
+Math-82$$None$$patch2-Math-82-SequenceR$$Using less restrictive conditionals .$$1
+Math-5$$None$$patch1-Math-5-SequenceR$$NaN - > Complex . INF$$1
+Lang-59$$None$$patch1-Lang-59-SequenceR$$StrBuilder . append ( obj , width )$$1
+Lang-6$$None$$patch1-Lang-6-SequenceR$$Fix bug in CharSequenceTranslator$$1
+Closure-92$$bug with implicit namespaces across modules$$patch8-Closure-92-SequenceR$$Fix closure closures ' definition .$$0
+Closure-92$$bug with implicit namespaces across modules$$patch1-Closure-92-SequenceR$$Fix closure closures ' positioning .$$0
+Closure-92$$bug with implicit namespaces across modules$$patch6-Closure-92-SequenceR$$Fix closure closures to error code .$$0
+Closure-92$$bug with implicit namespaces across modules$$patch7-Closure-92-SequenceR$$Fix a warning$$0
+Closure-92$$bug with implicit namespaces across modules$$patch9-Closure-92-SequenceR$$Fix a warning$$0
+Closure-92$$bug with implicit namespaces across modules$$patch5-Closure-92-SequenceR$$Fix a warning$$0
+Closure-92$$bug with implicit namespaces across modules$$patch2-Closure-92-SequenceR$$Fix closure closures ' null arguments ' error$$0
+Closure-92$$bug with implicit namespaces across modules$$patch10-Closure-92-SequenceR$$Fix closure closures ' positioning mistake$$0
+Closure-92$$bug with implicit namespaces across modules$$patch3-Closure-92-SequenceR$$Fix an issue with ' . ' in ProcessClosurePrimitives . java$$0
+Closure-92$$bug with implicit namespaces across modules$$patch4-Closure-92-SequenceR$$Fix an issue with that damn code style error .$$0
+Closure-93$$None$$patch8-Closure-93-SequenceR$$Fix closure closures ' definition .$$0
+Closure-93$$None$$patch1-Closure-93-SequenceR$$Fix closure closures ' positioning .$$0
+Closure-93$$None$$patch6-Closure-93-SequenceR$$Fix closure closures to error code .$$0
+Closure-93$$None$$patch9-Closure-93-SequenceR$$Fix a warning$$0
+Closure-93$$None$$patch5-Closure-93-SequenceR$$Fix a warning$$0
+Closure-93$$None$$patch2-Closure-93-SequenceR$$Fix closure closures ' null arguments ' error$$0
+Closure-93$$None$$patch10-Closure-93-SequenceR$$Fix closure closures ' positioning mistake$$0
+Closure-93$$None$$patch3-Closure-93-SequenceR$$Fix an issue with ' . ' in ProcessClosurePrimitives . java$$0
+Closure-93$$None$$patch4-Closure-93-SequenceR$$Fix an issue with that damn code style error .$$0
+Closure-18$$Dependency sorting with closurePass set to false no longer works.$$patch1-Closure-18-SequenceR$$Fix a bug in the compiler ' s dependency check$$0
+Closure-18$$Dependency sorting with closurePass set to false no longer works.$$patch5-Closure-18-SequenceR$$Fix a null pointer check that would trigger an NPE .$$0
+Closure-18$$Dependency sorting with closurePass set to false no longer works.$$patch3-Closure-18-SequenceR$$Fix a null pointer check that would trigger an error .$$0
+Closure-18$$Dependency sorting with closurePass set to false no longer works.$$patch4-Closure-18-SequenceR$$Fix null pointer check .$$0
+Closure-73$$Codepoint U+007f appears raw in output$$patch1-Closure-73-SequenceR$$Fix typo in codeGenerator . java$$0
+Closure-86$$side-effects analysis incorrectly removing function calls with side effects$$patch5-Closure-86-SequenceR$$Allow for an aliased constructor to be used in a few places$$0
+Closure-86$$side-effects analysis incorrectly removing function calls with side effects$$patch2-Closure-86-SequenceR$$AllowImmutableValue check for value types .$$0
+Closure-86$$side-effects analysis incorrectly removing function calls with side effects$$patch3-Closure-86-SequenceR$$Fix bug in NodeUtil . isFunctionLike ( )$$0
+Closure-86$$side-effects analysis incorrectly removing function calls with side effects$$patch4-Closure-86-SequenceR$$Add toStringMethodCall check$$0
+Closure-38$$Identifier minus a negative number needs a space between the "-"s$$patch1-Closure-38-SequenceR$$Fix negative zero logspam$$0
+Closure-38$$Identifier minus a negative number needs a space between the "-"s$$patch2-Closure-38-SequenceR$$Fix negative zero logspam$$0
+Closure-38$$Identifier minus a negative number needs a space between the "-"s$$patch3-Closure-38-SequenceR$$Fix negative zero presence in JSON$$0
+Closure-123$$Generates code with invalid for/in left-hand assignment$$patch1-Closure-123-SequenceR$$Fix the rhs context for the for - init CLAUSE token .$$0
+Chart-9$$None$$patch1-Chart-9-SequenceR$$Fix an issue with TimeSeries . isEmptyRange ( ) .$$0
+Chart-1$$None$$patch2-Chart-1-SequenceR$$Fix nullability note in AbstractCategoryItemRenderer$$0
+Chart-1$$None$$patch3-Chart-1-SequenceR$$Fix null checking in AbstractCategoryItemRenderer$$0
+Chart-1$$None$$patch4-Chart-1-SequenceR$$Fix nullability note in AbstractCategoryItemRenderer$$0
+Math-59$$None$$patch1-Math-59-SequenceR$$Fix NaN handling in FastMath . max ( )$$0
+Math-80$$None$$patch1-Math-80-SequenceR$$Fixed a bug in EigenDecompositionImpl . flipIfWarranted$$0
+Math-63$$None$$patch1-Math-63-SequenceR$$Fix a bug in MathUtils . equals$$0
+Math-85$$None$$patch8-Math-85-SequenceR$$Fix a bug in UnivariateRealSolverUtils$$0
+Math-85$$None$$patch6-Math-85-SequenceR$$Fix a false reporting of convergence$$0
+Math-85$$None$$patch15-Math-85-SequenceR$$Fix a finite loop in UnivariateRealSolverUtils$$0
+Math-85$$None$$patch12-Math-85-SequenceR$$Fix a finite loop in UnivariateRealSolverUtils$$0
+Math-85$$None$$patch7-Math-85-SequenceR$$Fix a bug in UnivariateRealSolverUtils$$0
+Math-85$$None$$patch9-Math-85-SequenceR$$Fix a false reporting of convergence$$0
+Math-85$$None$$patch13-Math-85-SequenceR$$Fix a false reporting of convergence$$0
+Math-85$$None$$patch14-Math-85-SequenceR$$Fix a numeric equality bug in UnivariateRealSolverUtils$$0
+Math-85$$None$$patch11-Math-85-SequenceR$$Fix a false reporting of convergence$$0
+Math-85$$None$$patch16-Math-85-SequenceR$$Fix a false reporting of convergence$$0
+Math-85$$None$$patch5-Math-85-SequenceR$$Fix a bug in UnivariateRealSolverUtils$$0
+Math-85$$None$$patch2-Math-85-SequenceR$$Fix a bug in UnivariateRealSolverUtils$$0
+Math-85$$None$$patch17-Math-85-SequenceR$$Fix a false reporting of convergence$$0
+Math-85$$None$$patch10-Math-85-SequenceR$$Fix a bug in UnivariateRealSolverUtils$$0
+Math-85$$None$$patch3-Math-85-SequenceR$$Fix a bug in UnivariateRealSolverUtils$$0
+Math-85$$None$$patch4-Math-85-SequenceR$$Fix a false reporting of convergence$$0
+Math-82$$None$$patch3-Math-82-SequenceR$$Fix the example for the linear search method ' EEG '$$0
+Lang-6$$None$$patch2-Lang-6-SequenceR$$Don ' t count surrogate pairs as we don ' t understand code points at the beginning of a$$0
+Chart-3$$None$$patch1-Chart-3-Arja$$Find bounds by iteration .$$1
+Chart-12$$None$$patch1-Chart-12-Arja$$Set the dataset on the pie chart .$$1
+Chart-5$$None$$patch1_1-Chart-5-Arja$$Use the method provided for sorting XYSeries$$1
+Math-50$$None$$patch1-Math-50-Arja$$Fix renegation of baseSecantSolver$$1
+Math-58$$None$$patch1-Math-58-Arja$$GaussianFitter . fit ( ) now uses parameter guesser$$1
+Math-73$$None$$patch1-Math-73-Arja$$Added verifyBracketing to BrentSolver$$1
+Math-98$$None$$patch1-Math-98-Arja$$Fix BigMatrixImpl to verify that vector has the same length$$1
+Math-53$$None$$patch1-Math-53-Arja$$Add one - line ifs$$1
+Math-39$$None$$patch1-Math-39-Arja$$Fix step size = t - stepStart ;$$1
+Math-70$$None$$patch1-Math-70-Arja$$fixed erroneous loop$$1
+Math-5$$None$$patch1-Math-5-Arja$$Fix NaN - > INF in Complex$$1
+Math-22$$None$$patch1-Math-22-Arja$$Fix FDistribution and UniformRealDistribution . isSupportLowerBoundInclusive ( )$$1
+Time-15$$None$$patch1-Time-15-Arja$$Fix a bug in FieldUtils$$1
+Lang-35$$None$$patch1-Lang-35-Arja$$Fix newly introduced switch case$$1
+Lang-20$$None$$patch1-Lang-20-Arja$$Fix bug in StringUtils$$1
+Lang-45$$None$$patch1-Lang-45-Arja$$Extend word utils upper bounds$$1
+Lang-43$$None$$patch1-Lang-43-Arja$$don ' t append QUOTE if escaping is on$$1
+Chart-7$$None$$patch1-Chart-7-Arja$$Fixed formatting mistake .$$0
+Chart-1$$None$$patch1-Chart-1-Arja$$Fix category item label generator on initial refresh .$$0
+Chart-1$$None$$patch6-Chart-1-Arja$$Remove redundant return statement$$0
+Chart-1$$None$$patch5-Chart-1-Arja$$Remove unnecessary check for null dataset$$0
+Chart-1$$None$$patch2-Chart-1-Arja$$Fix category item renderer to reset the counts as well$$0
+Chart-1$$None$$patch3-Chart-1-Arja$$Fix category item renderer to save row count in case of data series changes$$0
+Chart-1$$None$$patch4-Chart-1-Arja$$Fix background annotations for category items$$0
+Chart-19$$None$$patch1-Chart-19-Arja$$Added throw exception if object is null$$0
+Chart-15$$None$$patch1-Chart-15-Arja$$don ' t draw no data message if dataset is empty$$0
+Chart-15$$None$$patch2-Chart-15-Arja$$don ' t draw no data message if dataset is empty ( no data message )$$0
+Chart-15$$None$$patch3-Chart-15-Arja$$don ' t drawOutline if dataset is empty ( ie , no data )$$0
+Chart-12$$None$$patch8-Chart-12-Arja$$Add a listener to MultiplePiePlot .$$0
+Chart-12$$None$$patch1-Chart-12-Arja$$Add a listener to the dataset group object , so we can use the group object to get the$$0
+Chart-12$$None$$patch6-Chart-12-Arja$$Add a listener to MultiplePiePlot .$$0
+Chart-12$$None$$patch7-Chart-12-Arja$$Add a listener to the dataset group object , so we can use it for any dataset$$0
+Chart-12$$None$$patch5-Chart-12-Arja$$Add a listener to the dataset group option on pie plot .$$0
+Chart-12$$None$$patch2-Chart-12-Arja$$Add a listener to the dataset$$0
+Chart-12$$None$$patch3-Chart-12-Arja$$Fixed dataExtractOrder$$0
+Chart-12$$None$$patch4-Chart-12-Arja$$Add a listener to MultiplePiePlot$$0
+Chart-13$$None$$patch1-Chart-13-Arja$$Fix border embarrassment .$$0
+Chart-13$$None$$patch6-Chart-13-Arja$$Fix border arrangement bug$$0
+Chart-13$$None$$patch5-Chart-13-Arja$$Fix border embarrassment in FAQ$$0
+Chart-13$$None$$patch2-Chart-13-Arja$$Remove redundant top border feature from border arranger$$0
+Chart-13$$None$$patch3-Chart-13-Arja$$Fix border arrangement$$0
+Chart-13$$None$$patch4-Chart-13-Arja$$Fix bottom border appearance bug$$0
+Chart-25$$None$$patch5-Chart-25-Arja$$Fixed a bug in DefaultStatisticalCategoryDataset$$0
+Chart-25$$None$$patch2-Chart-25-Arja$$Fixed a bug where DefaultStatisticalCategoryDataset . getColumnCount ( ) was called with no arguments$$0
+Chart-25$$None$$patch3-Chart-25-Arja$$Reset the data to empty .$$0
+Chart-25$$None$$patch4-Chart-25-Arja$$Fix a bug in DefaultStatisticalCategoryDataset$$0
+Math-68$$None$$patch1-Math-68-Arja$$Fix a regression in LevenbergMarquardtOptimizer . java$$0
+Math-56$$None$$patch1-Math-56-Arja$$Fixed a bug in MultidimensionalCounter$$0
+Math-56$$None$$patch2-Math-56-Arja$$removed some redundant code$$0
+Math-60$$None$$patch1-Math-60-Arja$$Missing continue loop$$0
+Math-20$$None$$patch8-Math-20-Arja$$Fix direct msampling to benefit from diagD = diag ( x , i )$$0
+Math-20$$None$$patch1-Math-20-Arja$$Update the CMAESOptimizer ' s lambda function to the same value as the input array , with$$0
+Math-20$$None$$patch6-Math-20-Arja$$Fix CMAESOptimizer log101 .$$0
+Math-20$$None$$patch7-Math-20-Arja$$Remove erroneous loop$$0
+Math-20$$None$$patch9-Math-20-Arja$$CACHE_DIRECT_MODE = 100 ; LPS - 77383 Remove interm$$0
+Math-20$$None$$patch11-Math-20-Arja$$Remove intermittent inverse of x$$0
+Math-20$$None$$patch5-Math-20-Arja$$Fix CMAESOptimizer ' s fix$$0
+Math-20$$None$$patch2-Math-20-Arja$$Fix CMAESOptimizer ' s value range .$$0
+Math-20$$None$$patch10-Math-20-Arja$$CACHE_NON_CONSTANTS_TO_LOGICAL - 1216$$0
+Math-20$$None$$patch3-Math-20-Arja$$Fix CMAESOptimizer ' s line ending$$0
+Math-80$$None$$patch8-Math-80-Arja$$EigenDecompositionImpl . java$$0
+Math-80$$None$$patch1-Math-80-Arja$$Fixed erroneous loop in EigenDecompositionImpl . java$$0
+Math-80$$None$$patch6-Math-80-Arja$$Fixed a bug in the EigenDecompositionImpl . flipArray ( ) method where the last$$0
+Math-80$$None$$patch15-Math-80-Arja$$EigenDecompositionImpl . flipValues ( ) didn ' t do anything due to local variable$$0
+Math-80$$None$$patch12-Math-80-Arja$$EigenDecompositionImpl . minValueOf ( double , double , double ) added missing min$$0
+Math-80$$None$$patch7-Math-80-Arja$$Fixed a bug in EigenDecompositionImpl . flip ( ) .$$0
+Math-80$$None$$patch9-Math-80-Arja$$Fixed a bug in EigenDecompositionImpl . flip ( ) .$$0
+Math-80$$None$$patch13-Math-80-Arja$$Fixed EigenDecompositionImpl . flipRows ( ) .$$0
+Math-80$$None$$patch14-Math-80-Arja$$Fixed a bug in EigenDecompositionImpl . flipRows$$0
+Math-80$$None$$patch11-Math-80-Arja$$EigenDecompositionImpl . innerProduct is not working correctly$$0
+Math-80$$None$$patch5-Math-80-Arja$$Fix EigenDecompositionImpl . g = 0 . 25 ;$$0
+Math-80$$None$$patch2-Math-80-Arja$$Fixed a bug in EigenDecompositionImpl . flipArrays$$0
+Math-80$$None$$patch10-Math-80-Arja$$Fixed a bug in EigenDecompositionImpl . flipArrays$$0
+Math-80$$None$$patch3-Math-80-Arja$$EigenDecompositionImpl . flipRows ( ) didn ' t do anything due to local variable$$0
+Math-80$$None$$patch4-Math-80-Arja$$EigenDecompositionImpl . innerProduct is not working correctly$$0
+Math-74$$None$$patch1-Math-74-Arja$$Fix lost time value in AdamsMoultonIntegator . reinitialize ( ) .$$0
+Math-6$$None$$patch1-Math-6-Arja$$Fix an issue with BaseOptimizer . getIterations ( )$$0
+Math-6$$None$$patch2-Math-6-Arja$$Fix typo in BaseOptimizer . getIterations$$0
+Math-28$$None$$patch8-Math-28-Arja$$added some debug code$$0
+Math-28$$None$$patch1-Math-28-Arja$$@@ add minRatioPositions . add ( i )$$0
+Math-28$$None$$patch6-Math-28-Arja$$I had left it harwired to the minRatioSolver$$0
+Math-28$$None$$patch7-Math-28-Arja$$Add incrementIterationsCounter ( ) to the minRow so it can be used for sorting$$0
+Math-28$$None$$patch9-Math-28-Arja$$Remove a redundant check$$0
+Math-28$$None$$patch11-Math-28-Arja$$removed some code that was accidentally left in the last commit$$0
+Math-28$$None$$patch5-Math-28-Arja$$Fixed missing minRow return$$0
+Math-28$$None$$patch2-Math-28-Arja$$Fixed a bug in SimplexSolver . java$$0
+Math-28$$None$$patch10-Math-28-Arja$$removed a redundant check$$0
+Math-28$$None$$patch3-Math-28-Arja$$Fix the bug in SimplexSolver . java$$0
+Math-28$$None$$patch4-Math-28-Arja$$Improved the linear search code$$0
+Math-8$$None$$patch1-Math-8-Arja$$throw exception if sampleSize <= 0$$0
+Math-8$$None$$patch6-Math-8-Arja$$Remove sample from the DiscreteDistribution example .$$0
+Math-8$$None$$patch7-Math-8-Arja$$Remove sample from DiscreteDistribution$$0
+Math-8$$None$$patch5-Math-8-Arja$$Remove sample from DiscreteDistribution$$0
+Math-8$$None$$patch2-Math-8-Arja$$Keep sample in looping over DiscreteDistribution$$0
+Math-8$$None$$patch3-Math-8-Arja$$throw exception if sampleSize < = 0$$0
+Math-8$$None$$patch4-Math-8-Arja$$throw exception if sampleSize < 0$$0
+Math-86$$None$$patch1-Math-86-Arja$$throw exception if abs / max is not greater than threshold$$0
+Math-31$$None$$patch1-Math-31-Arja$$Missing throw in ContinuedFraction .$$0
+Math-31$$None$$patch6-Math-31-Arja$$Missing throw in ContinuedFraction . log$$0
+Math-31$$None$$patch7-Math-31-Arja$$Missing throw in ContinuedFraction .$$0
+Math-31$$None$$patch5-Math-31-Arja$$Missing throw in ContinuedFraction .$$0
+Math-31$$None$$patch2-Math-31-Arja$$Missing throw in ContinuedFraction .$$0
+Math-31$$None$$patch3-Math-31-Arja$$Missing throw in ContinuedFraction .$$0
+Math-31$$None$$patch4-Math-31-Arja$$Missing throw in ContinuedFraction .$$0
+Math-71$$None$$patch1-Math-71-Arja$$Fix CombinedEventsManager . evaluateStep ( interpolator )$$0
+Math-49$$None$$patch1-Math-49-Arja$$Added missing state to OpenIntToDoubleHashMap .$$0
+Math-49$$None$$patch6-Math-49-Arja$$Change the index sign for Map . put ( ) .$$0
+Math-49$$None$$patch7-Math-49-Arja$$Change the index sign in OpenIntToDoubleHashMap .$$0
+Math-49$$None$$patch5-Math-49-Arja$$Change the index sign in OpenIntToDoubleHashMap . java$$0
+Math-49$$None$$patch2-Math-49-Arja$$added shouldGrowTable ( )$$0
+Math-49$$None$$patch3-Math-49-Arja$$removed count count from OpenIntToDoubleHashMap$$0
+Math-49$$None$$patch4-Math-49-Arja$$Change the index sign when FULL is true$$0
+Math-2$$None$$patch8-Math-2-Arja$$Remove erroneous legacy support for AbstractIntegerDistribution$$0
+Math-2$$None$$patch1-Math-2-Arja$$Remove an unnecessary ceil$$0
+Math-2$$None$$patch6-Math-2-Arja$$solve inverse cumulative probability in AbstractIntegerDistribution$$0
+Math-2$$None$$patch7-Math-2-Arja$$throw exception if p < 0 || p > 1$$0
+Math-2$$None$$patch5-Math-2-Arja$$If p == 1 . 0 then return the upper bound ; otherwise return the lower bound .$$0
+Math-2$$None$$patch2-Math-2-Arja$$Remove an unnecessary ceil$$0
+Math-2$$None$$patch3-Math-2-Arja$$Remove unnecessary ceil ( tmp ) in AbstractIntegerDistribution$$0
+Math-2$$None$$patch4-Math-2-Arja$$Fix warning$$0
+Time-11$$None$$patch1-Time-11-Arja$$Fixing duplicate recurrent name key in DateTimeZoneBuilder$$0
+Time-11$$None$$patch6-Time-11-Arja$$Fix loop$$0
+Time-11$$None$$patch7-Time-11-Arja$$Added missing debug message$$0
+Time-11$$None$$patch5-Time-11-Arja$$added debug level out of zone info map$$0
+Time-11$$None$$patch2-Time-11-Arja$$Fix NPE in DateTimeZoneBuilder$$0
+Time-11$$None$$patch3-Time-11-Arja$$added debug output$$0
+Time-11$$None$$patch4-Time-11-Arja$$Fixing duplicate recurrent name key .$$0
+Time-4$$None$$patch1-Time-4-Arja$$Fixed zero - is - max datetime field$$0
+Time-4$$None$$patch6-Time-4-Arja$$Fixed zero - is - maxDateTimeField minimization$$0
+Time-4$$None$$patch7-Time-4-Arja$$Fixed the build .$$0
+Time-4$$None$$patch5-Time-4-Arja$$Add an exception$$0
+Time-4$$None$$patch2-Time-4-Arja$$Add an exception$$0
+Time-4$$None$$patch3-Time-4-Arja$$Fix # 135$$0
+Time-4$$None$$patch4-Time-4-Arja$$Fixed zero - is - max datetime field minimization$$0
+Time-14$$None$$patch1-Time-14-Arja$$MonthDay doesn ' t wrap month - day partials in MonthDay .$$0
+Lang-61$$None$$patch1-Lang-61-Arja$$Add ensureCapacity ( ) to the StrBuilder to prevent using the arrayCopy ( ) method .$$0
+Lang-61$$None$$patch2-Lang-61-Arja$$added ensureCapacity ( )$$0
+Lang-61$$None$$patch3-Lang-61-Arja$$expanded buffer to include str . length ( ) + 4 .$$0
+Lang-61$$None$$patch4-Lang-61-Arja$$added ensureCapacity ( )$$0
+Lang-59$$None$$patch8-Lang-59-Arja$$StrBuilder ( ) uses char[] instead of char [ ] for the char array .$$0
+Lang-59$$None$$patch1-Lang-59-Arja$$StrBuilder . appendFixedWidthPadRight ( ) needs buffer .$$0
+Lang-59$$None$$patch6-Lang-59-Arja$$Add more ensureCapacity ( ) for string builder$$0
+Lang-59$$None$$patch7-Lang-59-Arja$$Add 4 more ensureCapacity .$$0
+Lang-59$$None$$patch9-Lang-59-Arja$$Add more ensureCapacity .$$0
+Lang-59$$None$$patch5-Lang-59-Arja$$StrBuilder should add 4 + 4 + 4 + 4 + 4 + 4 + 4 + 4 +$$0
+Lang-59$$None$$patch2-Lang-59-Arja$$StrBuilder should add 4 spaces for appendFixedWidthPadRight ( )$$0
+Lang-59$$None$$patch3-Lang-59-Arja$$StrBuilder ( ) uses char[] instead of char[] .$$0
+Lang-59$$None$$patch4-Lang-59-Arja$$StrBuilder . appendFixedWidthPadRight ( ) will reset the array$$0
+Lang-50$$None$$patch1-Lang-50-Arja$$Fix cDateTimeInstanceCache . put ( key , formatter ) .$$0
+Lang-50$$None$$patch6-Lang-50-Arja$$Allow null locale for date formats .$$0
+Lang-50$$None$$patch5-Lang-50-Arja$$Allow null locale for date formats .$$0
+Lang-50$$None$$patch2-Lang-50-Arja$$FastDateFormat should not cache null pattern for locale$$0
+Lang-50$$None$$patch3-Lang-50-Arja$$Fix cached date format instance .$$0
+Lang-50$$None$$patch4-Lang-50-Arja$$Prevent null pattern exception from being cached .$$0
+Lang-51$$None$$patch1-Lang-51-Arja$$Handle case when String is empty or null$$0
+Lang-51$$None$$patch2-Lang-51-Arja$$Handle case when String is empty or null$$0
+Lang-60$$None$$patch1-Lang-60-Arja$$StrBuilder . contains ( ) uses the array copy constructor$$0
+Lang-20$$None$$patch1-Lang-20-Arja$$Fix cruise ( string is not UTF - 8 )$$0
+Lang-20$$None$$patch2-Lang-20-Arja$$Fix cruise ( array ) and cruise ( array )$$0
+Lang-20$$None$$patch3-Lang-20-Arja$$Updated StringUtils to use StringBuilder . append ( separator ) instead of StringBuilder . append ( 1 )$$0
+Lang-7$$None$$patch1-Lang-7-Arja$$removed extra chars$$0
+Lang-7$$None$$patch6-Lang-7-Arja$$Improve error handling for ""-- "" and "" ( areas with the same length ) - removed 0x$$0
+Lang-7$$None$$patch7-Lang-7-Arja$$Handle hex number format in NumberUtils$$0
+Lang-7$$None$$patch5-Lang-7-Arja$$formatting fixes$$0
+Lang-7$$None$$patch2-Lang-7-Arja$$Remove a check for '-- '$$0
+Lang-7$$None$$patch3-Lang-7-Arja$$Fixed erroneous parseShort ( String )$$0
+Lang-7$$None$$patch4-Lang-7-Arja$$Allow null string input$$0
+Lang-16$$None$$patch1-Lang-16-Arja$$Fixed NO_ISSUE in NumberUtils . createInteger ( ) .$$0
+Lang-16$$None$$patch2-Lang-16-Arja$$Fixed erroneous error in NumberUtils$$0
+Lang-43$$None$$patch1-Lang-43-Arja$$don ' t append QUOTE to the appendTo var$$0
+Lang-43$$None$$patch2-Lang-43-Arja$$don ' t append QUOTE if it is backslashed$$0
+Lang-43$$None$$patch3-Lang-43-Arja$$don ' t skip backslash$$0
+Lang-43$$None$$patch4-Lang-43-Arja$$Fix lost backslash$$0
+Lang-39$$None$$patch1-Lang-39-Arja$$start = textIndex + searchList [ replaceIndex ] . length ( )$$0
+Lang-55$$None$$patch1-Lang-55-Arja$$Added missing return statement$$0
+Lang-55$$None$$patch5-Lang-55-Arja$$Add some error code$$0
+Lang-55$$None$$patch2-Lang-55-Arja$$Add some error code$$0
+Lang-55$$None$$patch3-Lang-55-Arja$$Remove unnecessary assignment$$0
+Lang-55$$None$$patch4-Lang-55-Arja$$Fix splitState after stopTime$$0
+Lang-63$$None$$patch1-Lang-63-Arja$$Fixed bug for calendar systems .$$0
+Lang-63$$None$$patch5-Lang-63-Arja$$Fixed formatting mistake$$0
+Lang-63$$None$$patch2-Lang-63-Arja$$Fix bug in DurationFormatUtils$$0
+Lang-63$$None$$patch3-Lang-63-Arja$$Remove over - aggressive add in DurationFormatUtils$$0
+Lang-63$$None$$patch4-Lang-63-Arja$$Fixed the merge bug in DurationFormatUtils$$0
+Lang-41$$None$$patch1-Lang-41-Arja$$Fix ClassUtils . getShortClassName / getShortCanonicalName$$0
+Lang-22$$None$$patch1-Lang-22-Arja$$Fix greatestCommonDivisor from Lee Butts$$0
+Lang-22$$None$$patch2-Lang-22-Arja$$Fix Fraction . greatestCommonDivisor ( )$$0
+Lang-22$$None$$patch3-Lang-22-Arja$$Fix Fraction . greatestCommonDivisor ( )$$0
+Lang-22$$None$$patch4-Lang-22-Arja$$Fix Fraction . greatestCommonDivisor ( )$$0
+Closure-92$$bug with implicit namespaces across modules$$patch1-Closure-92-ConFix$$Fix the build .$$1
+Closure-93$$None$$patch1-Closure-93-ConFix$$Fix the build .$$1
+Closure-73$$Codepoint U+007f appears raw in output$$patch1-Closure-73-ConFix$$Fix typo in codeGenerator . java$$1
+Closure-38$$Identifier minus a negative number needs a space between the "-"s$$patch1-Closure-38-ConFix$$Fix whitespace in code consumer$$1
+Closure-109$$Constructor types that return all or unknown fail to parse$$patch1-Closure-109-ConFix$$Fix whitespace in closure109 .$$1
+Closure-14$$bogus 'missing return' warning$$patch1-Closure-14-ConFix$$Fix control flow analysis$$1
+Chart-11$$None$$patch1-Chart-11-ConFix$$Fix bug in chart11$$1
+Chart-1$$None$$patch1-Chart-1-ConFix$$Fix null pointer check in AbstractCategoryItemRenderer$$1
+Chart-10$$None$$patch1-Chart-10-ConFix$$Fix ToolTipGenerator . generateToolTipFragment ( )$$1
+Chart-24$$None$$patch1-Chart-24-ConFix$$Fix build$$1
+Math-34$$None$$patch1-Math-34-ConFix$$added iterator on non - empty chromosomes$$1
+Math-33$$None$$patch1-Math-33-ConFix$$reduce imports$$1
+Math-75$$None$$patch1-Math-75-ConFix$$Fix typo in Frequency . getPct$$1
+Math-30$$None$$patch1-Math-30-ConFix$$Fix warning$$1
+Math-70$$None$$patch1-Math-70-ConFix$$fixed missing import$$1
+Math-5$$None$$patch1-Math-5-ConFix$$fix a bug in Complex . java$$1
+Time-19$$None$$patch1-Time-19-ConFix$$fixed typo .$$1
+Lang-57$$None$$patch1-Lang-57-ConFix$$Missing comment$$1
+Lang-51$$None$$patch1-Lang-51-ConFix$$missing break$$1
+Lang-6$$None$$patch1-Lang-6-ConFix$$Fix unused import .$$1
+Lang-26$$None$$patch1-Lang-26-ConFix$$Fix bug in FastDateFormat$$1
+Lang-24$$None$$patch1-Lang-24-ConFix$$allow L with a decimal point$$1
+Closure-59$$Cannot exclude globalThis checks through command line$$patch1-Closure-59-ConFix$$Fix checkSuspiciousCode$$0
+Closure-133$$Exception when parsing erroneous jsdoc: /**@return {@code foo} bar   *    baz. */$$patch1-Closure-133-ConFix$$Allow non - type annotations .$$0
+Closure-89$$Compiler removes function properties that it should not$$patch1-Closure-89-ConFix$$Fix CollapseProperties report$$0
+Closure-21$$Classify non-rightmost expressions as problematic$$patch1-Closure-21-ConFix$$Fix check side effects for calls to the closure context$$0
+Closure-119$$catch(e) yields JSC_UNDEFINED_NAME warning when e is used in catch in advanced mode$$patch1-Closure-119-ConFix$$Add some fix .$$0
+Closure-126$$Break in finally block isn't optimized properly$$patch1-Closure-126-ConFix$$Fix try / catch blocks$$0
+Closure-55$$Exception when emitting code containing getters$$patch1-Closure-55-ConFix$$Fix maybeGetSingleReturnRValue ( )$$0
+Closure-108$$precondition crash: goog.scope local with aliased in the type declaration$$patch1-Closure-108-ConFix$$Fix check for same name in ScopedAliases$$0
+Closure-90$$@this emits warning when used with a typedef$$patch1-Closure-90-ConFix$$Added check for enum initializers$$0
+Closure-46$$ClassCastException during TypeCheck pass$$patch1-Closure-46-ConFix$$Fix record type resolve bug$$0
+Closure-79$$RuntimeException when compiling with extern prototype$$patch1-Closure-79-ConFix$$Fix findbugs issue$$0
+Closure-83$$Cannot see version with --version$$patch1-Closure-83-ConFix$$Fix checkstyle issues$$0
+Closure-125$$IllegalStateException at com.google.javascript.rhino.jstype.FunctionType.getInstanceType$$patch1-Closure-125-ConFix$$Fix TypeCheck . java$$0
+Closure-2$$combining @interface and multiple @extends can crash compiler$$patch1-Closure-2-ConFix$$Fix TypeCheck . checkForExtraProperties$$0
+Closure-22$$Classify non-rightmost expressions as problematic$$patch1-Closure-22-ConFix$$Allow non - expr results in closure closure check .$$0
+Chart-9$$None$$patch1-Chart-9-ConFix$$Fix bug in TimeSeries indexing$$0
+Chart-7$$None$$patch1-Chart-7-ConFix$$Fix bug in TimePeriodValues . getMaxMiddleIndex$$0
+Chart-26$$None$$patch1-Chart-26-ConFix$$Fix bug in CategoryPlot$$0
+Chart-15$$None$$patch1-Chart-15-ConFix$$Fix null info object$$0
+Chart-3$$None$$patch1-Chart-3-ConFix$$fix copy bug$$0
+Chart-12$$None$$patch1-Chart-12-ConFix$$Fix bug in AbstractDataset . hasListener$$0
+Chart-13$$None$$patch1-Chart-13-ConFix$$Fix border embarrassment in chart$$0
+Chart-5$$None$$patch1-Chart-5-ConFix$$AddOrUpdate ( ) now works fine$$0
+Chart-25$$None$$patch1-Chart-25-ConFix$$Remove unused line$$0
+Math-61$$None$$patch1-Math-61-ConFix$$Fixed a bug in PoissonDistributionImpl .$$0
+Math-95$$None$$patch1-Math-95-ConFix$$fix bug in double precision functions$$0
+Math-50$$None$$patch1-Math-50-ConFix$$Fix bug in renegation of max abs ( x ) .$$0
+Math-57$$None$$patch1-Math-57-ConFix$$Fix typo in KMeansPlusPlusClusterer . java$$0
+Math-32$$None$$patch1-Math-32-ConFix$$Fix bug in AbstractRegion$$0
+Math-56$$None$$patch1-Math-56-ConFix$$Fixed bug in multidimensionalCounter$$0
+Math-58$$None$$patch1-Math-58-ConFix$$Fix regression in GaussianFitter .$$0
+Math-94$$None$$patch1-Math-94-ConFix$$Fix gcd with System . currentTimeMillis ( )$$0
+Math-20$$None$$patch1-Math-20-ConFix$$cmAESOptimizer now uses the max iterations$$0
+Math-18$$None$$patch1-Math-18-ConFix$$Fix early warning$$0
+Math-7$$None$$patch1-Math-7-ConFix$$Add configuration line$$0
+Math-29$$None$$patch1-Math-29-ConFix$$Fix bug in RealVector interface$$0
+Math-42$$None$$patch1-Math-42-ConFix$$Fix a bug in the similarity function$$0
+Math-80$$None$$patch1-Math-80-ConFix$$Fixed bug in EigenDecompositionImpl .$$0
+Math-74$$None$$patch1-Math-74-ConFix$$Fix missing import$$0
+Math-28$$None$$patch1-Math-28-ConFix$$Fix minRatioPositions for TFJ - 236$$0
+Math-8$$None$$patch1-Math-8-ConFix$$Fix bug in DiscreteDistribution . java$$0
+Math-81$$None$$patch1-Math-81-ConFix$$added np - 6 - 2 back into work$$0
+Math-44$$None$$patch1-Math-44-ConFix$$Restore accidentally removed import$$0
+Math-88$$None$$patch1-Math-88-ConFix$$Fix warning$$0
+Math-62$$None$$patch1-Math-62-ConFix$$Fix warning$$0
+Math-63$$None$$patch1-Math-63-ConFix$$Fix bug in MathUtils . equals$$0
+Math-79$$None$$patch1-Math-79-ConFix$$Fix LOGICAL_REVID = 100881$$0
+Math-84$$None$$patch1-Math-84-ConFix$$Fix typo in MultiDirectional .$$0
+Math-3$$None$$patch1-Math-3-ConFix$$Fix MathArrays . prodHigh to work with bit 64 .$$0
+Math-85$$None$$patch1-Math-85-ConFix$$Fix a warning$$0
+Math-82$$None$$patch1-Math-82-ConFix$$Added missing closing parenthesis in tableau .$$0
+Math-49$$None$$patch1-Math-49-ConFix$$Fix error in OpenMapRealVector put method .$$0
+Math-40$$None$$patch1-Math-40-ConFix$$Fix swapped sign exchange error in BracketingNthOrderBrentSolver . java$$0
+Math-78$$None$$patch1-Math-78-ConFix$$Fix check interval$$0
+Math-2$$None$$patch1-Math-2-ConFix$$Fix double precision thingie in AbstractIntegerDistribution$$0
+Time-9$$None$$patch1-Time-9-ConFix$$Fixed missing import .$$0
+Time-11$$None$$patch1-Time-11-ConFix$$Fix bug in tz archive$$0
+Time-7$$None$$patch1-Time-7-ConFix$$Add withUTC suffix .$$0
+Time-17$$None$$patch1-Time-17-ConFix$$Fix bug in time zone ISO 8601 format$$0
+Time-4$$None$$patch1-Time-4-ConFix$$Fixing the build .$$0
+Lang-59$$None$$patch1-Lang-59-ConFix$$add missing backslash$$0
+Lang-60$$None$$patch1-Lang-60-ConFix$$Added missing 1111$$0
+Lang-27$$None$$patch1-Lang-27-ConFix$$Fix typo in first line of text file$$0
+Lang-7$$None$$patch1-Lang-7-ConFix$$Fix checkstyle$$0
+Lang-45$$None$$patch1-Lang-45-ConFix$$reduce TFJ - 619 search path$$0
+Lang-43$$None$$patch1-Lang-43-ConFix$$Fix cruise ( IP address format )$$0
+Lang-31$$None$$patch1-Lang-31-ConFix$$Fix bug in StringUtils$$0
+Lang-39$$None$$patch1-Lang-39-ConFix$$Fix typo in StringUtils$$0
+Lang-63$$None$$patch1-Lang-63-ConFix$$Fix bug in duration format utils$$0
+Lang-22$$None$$patch1-Lang-22-ConFix$$Fix greatestCommonDivisor result$$0
+Closure-21$$Classify non-rightmost expressions as problematic$$patch1-Closure-21-jKali$$Fix bug in closure patch$$1
+Closure-126$$Break in finally block isn't optimized properly$$patch1-Closure-126-jKali$$try minimize exits on finally blocks$$1
+Closure-22$$Classify non-rightmost expressions as problematic$$patch1-Closure-22-jKali$$Updated patch$$1
+Math-50$$None$$patch1-Math-50-jKali$$Fix a bug in the patch .$$1
+Lang-7$$None$$patch1-Lang-7-jKali$$Fix 0x mistake in patch$$1
+Lang-10$$None$$patch1-Lang-10-jKali$$don ' t backslash backslash in regex so it won ' t be backslashed$$1
+Closure-45$$Assignment removed when used as an expression result to Array.push$$patch1-Closure-45-jKali$$fix bug$$0
+Closure-62$$Column-indicating caret is sometimes not in error output$$patch1-Closure-62-jKali$$don ' t add extra space to the end of a line$$0
+Closure-101$$--process_closure_primitives can't be set to false$$patch1-Closure-101-jKali$$closure fix bug$$0
+Closure-63$$None$$patch1-Closure-63-jKali$$don ' t add extra space to the end of a line$$0
+Closure-46$$ClassCastException during TypeCheck pass$$patch1-Closure-46-jKali$$Fix closure patching$$0
+Chart-1$$None$$patch1-Chart-1-jKali$$Allow null dataset in chart$$0
+Chart-13$$None$$patch1-Chart-13-jKali$$Fixed issue with left over chart$$0
+Chart-5$$None$$patch1-Chart-5-jKali$$Fix bug in chart$$0
+Chart-25$$None$$patch1-Chart-25-jKali$$Fixed bug in chart patch$$0
+Math-32$$None$$patch1-Math-32-jKali$$Fixed issue with BSP tree size .$$0
+Math-29$$None$$patch1-Math-29-jKali$$Fix buggy$$0
+Math-80$$None$$patch1-Math-80-jKali$$fix a bug in qd array not shown in the same time frame$$0
+Math-28$$None$$patch1-Math-28-jKali$$added fixed patch$$0
+Math-8$$None$$patch1-Math-8-jKali$$Remove sample from patch collection$$0
+Math-71$$None$$patch1-Math-71-jKali$$Fixed a constructor of ConvergingAlgorithmImpl$$0
+Math-49$$None$$patch1-Math-49-jKali$$Fixed a bug in the patch .$$0
+Math-2$$None$$patch1-Math-2-jKali$$fixed in patch 1 . 0 . 2 - jKali .$$0
+Lang-27$$None$$patch1-Lang-27-jKali$$removed expPos from mant patch$$0
+Lang-22$$None$$patch1-Lang-22-jKali$$Fix false alarm in JKali patch$$0
+Closure-57$$compiler crashes when  goog.provide used with non string $$patch1-Closure-57-SimFix$$Fixing closure code conventions$$1
+Closure-73$$Codepoint U+007f appears raw in output$$patch1-Closure-73-SimFix$$Fix typo in codeGenerator where ' c ' was passed through , but was accidentally ignored .$$1
+Closure-62$$Column-indicating caret is sometimes not in error output$$patch1-Closure-62-SimFix$$Remove whitespaces from sourceExcerpt .$$1
+Closure-63$$None$$patch1-Closure-63-SimFix$$Remove whitespaces from sourceExcerpt$$1
+Closure-115$$Erroneous optimization in ADVANCED_OPTIMIZATIONS mode$$patch1-Closure-115-SimFix$$Allow null arguments for static closures .$$1
+Closure-14$$bogus 'missing return' warning$$patch1-Closure-14-SimFix$$Fix finally map .$$1
+Chart-20$$None$$patch1-Chart-20-SimFix$$Fix ValueMarker constructor to ignore the outline paint for now .$$1
+Chart-7$$None$$patch1-Chart-7-SimFix$$Fixed formatting mistake$$1
+Chart-1$$None$$patch1-Chart-1-SimFix$$Fix nullability note in AbstractCategoryItemRenderer$$1
+Chart-3$$None$$patch1-Chart-3-SimFix$$Find bounds by iteration$$1
+Math-59$$None$$patch1-Math-59-SimFix$$Fix NaN in FastMath . max ( a , b )$$1
+Math-50$$None$$patch1-Math-50-SimFix$$Fix renegation of baseSecantSolver$$1
+Math-57$$None$$patch1-Math-57-SimFix$$Fix int overflow$$1
+Math-35$$None$$patch1-Math-35-SimFix$$ElitisticListPopulation constructor should throw an error if the population size was too large$$1
+Math-33$$None$$patch1-Math-33-SimFix$$reduce error in SimplexTableau$$1
+Math-75$$None$$patch1-Math-75-SimFix$$Fix getFrequency ( Object ) to return precise value instead of getCumPct ( Object )$$1
+Math-98$$None$$patch1-Math-98-SimFix$$Fix BigMatrixImpl to work with dense matrix impl .$$1
+Math-53$$None$$patch1-Math-53-SimFix$$Add the isNaN check in Complex . add ( )$$1
+Math-63$$None$$patch1-Math-63-SimFix$$Fix MathUtils . equals ( double , double , int )$$1
+Math-79$$None$$patch1-Math-79-SimFix$$removed int because it wasn ' t working as expected$$1
+Math-41$$None$$patch1-Math-41-SimFix$$Fix the for loop$$1
+Math-70$$None$$patch1-Math-70-SimFix$$fixed a typo in BisectionSolver$$1
+Math-71$$None$$patch1-Math-71-SimFix$$Fix an issue with the nonstiff algorithm ' s value .$$1
+Math-5$$None$$patch1-Math-5-SimFix$$Fix NaN - > INF in Complex$$1
+Time-7$$None$$patch1-Time-7-SimFix$$Fix copy / paste error$$1
+Lang-50$$None$$patch1-Lang-50-SimFix$$Fix getLocaleKey in FastDateFormat$$1
+Lang-58$$None$$patch1-Lang-58-SimFix$$Fix parse error ( l - > long )$$1
+Lang-60$$None$$patch1-Lang-60-SimFix$$Removing bad merge of one - line builder .$$1
+Lang-33$$None$$patch1-Lang-33-SimFix$$removed null check$$1
+Lang-16$$None$$patch1-Lang-16-SimFix$$convert string to lower case since it ' s a number$$1
+Lang-43$$None$$patch1-Lang-43-SimFix$$don ' t append QUOTE if it is backslashed$$1
+Lang-39$$None$$patch1-Lang-39-SimFix$$still need more matches in StringUtils$$1
+Math-73$$None$$patch1-Math-73-SimFix$$changed param name in BrentSolver$$0
+Math-80$$None$$patch1-Math-80-SimFix$$EigenDecompositionImpl . flipArrays ( ) needed by intel .$$0
+Math-6$$None$$patch1-Math-6-SimFix$$Fix typo in BaseOptimizer . getIterations$$0
+Math-28$$None$$patch1-Math-28-SimFix$$Using lower maxUlps value in linear search$$0
+Math-8$$None$$patch1-Math-8-SimFix$$Fix DiscreteDistribution . sample ( )$$0
+Math-81$$None$$patch1-Math-81-SimFix$$EigenDecompositionImpl . maxIter = b2 * b1 ; LPS - 15$$0
+Math-88$$None$$patch1-Math-88-SimFix$$Fixed a bug in the linear search results$$0
+Math-85$$None$$patch1-Math-85-SimFix$$Fix a false reporting of convergence$$0
+Math-82$$None$$patch1-Math-82-SimFix$$Fixed an issue with the min value being greater than the max .$$0
+Lang-27$$None$$patch1-Lang-27-SimFix$$Fix parse error$$0
+Lang-45$$None$$patch1-Lang-45-SimFix$$make str . length ( ) > upper$$0
+Lang-44$$None$$patch1-Lang-44-SimFix$$Fix erroneous fallthrough in NumberUtils$$0
+Lang-63$$None$$patch1-Lang-63-SimFix$$Fix merge conflict between end and start$$0
+Lang-41$$None$$patch1-Lang-41-SimFix$$Fix ClassUtils . getShortClassName / getShortCanonicalName$$0
+Chart-16$$None$$patch1-Chart-16-VFix$$Fix bug in chart 16$$1
+Chart-16$$None$$patch2-Chart-16-VFix$$Fix bug in chart - 16$$1
+Chart-26$$None$$patch1-Chart-26-VFix$$Fix bug$$1
+Chart-4$$None$$patch1-Chart-4-VFix$$added missing patch$$1
+Chart-15$$None$$patch1-Chart-15-VFix$$Add NPE protection$$1
+Chart-14$$None$$patch1-Chart-14-VFix$$Allow null to be removed from backgroundDomainMarkers$$1
+Chart-14$$None$$patch2-Chart-14-VFix$$Fix bug$$1
+Chart-14$$None$$patch3-Chart-14-VFix$$Allow null to be removed from background domain markers$$1
+Chart-14$$None$$patch4-Chart-14-VFix$$Fix bug$$1
+Chart-25$$None$$patch1-Chart-25-VFix$$Add null check$$1
+Chart-25$$None$$patch2-Chart-25-VFix$$Add null check in patch2$$1
+Chart-25$$None$$patch3-Chart-25-VFix$$Improved patching of standard deviations with different y values .$$1
+Chart-25$$None$$patch4-Chart-25-VFix$$Improved patching of standard deviations$$1
+Math-4$$None$$patch1-Math-4-VFix$$added missing if ($$1
+Math-4$$None$$patch2-Math-4-VFix$$Add null check in patch2$$1
+Lang-57$$None$$patch1-Lang-57-VFix$$Add null check$$1
+Lang-33$$None$$patch1-Lang-33-VFix$$removed null check$$1
+Lang-20$$None$$patch1-Lang-20-VFix$$fixed bug$$1
+Lang-20$$None$$patch2-Lang-20-VFix$$fixed bug$$1
+Lang-39$$None$$patch1-Lang-39-VFix$$fix bug$$1
+Lang-47$$None$$patch1-Lang-47-VFix$$Fix bug$$1
+Lang-47$$None$$patch2-Lang-47-VFix$$Fix bug$$1
+Math-70$$None$$patch1-Math-70-VFix$$Added a fix for null constraint$$0
+Closure-62$$Column-indicating caret is sometimes not in error output$$patch1-Closure-62-jMutRepair$$Fixed bug in Closure Repair fix$$1
+Closure-63$$None$$patch1-Closure-63-jMutRepair$$Fixed bug in Closure ' s excerpt patch ( charno = sourceExpert . length ( ) )$$1
+Chart-1$$None$$patch1-Chart-1-jMutRepair$$Fix nullability assertion .$$1
+Math-85$$None$$patch1-Math-85-jMutRepair$$Fix a bug in the patch collection$$1
+Math-82$$None$$patch1-Math-82-jMutRepair$$Fixed epsilon$$1
+Closure-21$$Classify non-rightmost expressions as problematic$$patch1-Closure-21-jMutRepair$$Fix closure closure bug$$0
+Closure-126$$Break in finally block isn't optimized properly$$patch1-Closure-126-jMutRepair$$minimize the closure closure closure closure patch .$$0
+Closure-22$$Classify non-rightmost expressions as problematic$$patch1-Closure-22-jMutRepair$$JSDoc info removed from closure patch$$0
+Chart-7$$None$$patch1-Chart-7-jMutRepair$$Fix chart error$$0
+Chart-26$$None$$patch1-Chart-26-jMutRepair$$Fix chart area sizes$$0
+Chart-25$$None$$patch1-Chart-25-jMutRepair$$Fixed getMeanValue$$0
+Math-50$$None$$patch1-Math-50-jMutRepair$$Fix bug in REGULA_FALSI .$$0
+Math-57$$None$$patch1-Math-57-jMutRepair$$fixed bug in point comparison$$0
+Math-80$$None$$patch1-Math-80-jMutRepair$$Fixed issue with ping fix$$0
+Math-28$$None$$patch1-Math-28-jMutRepair$$Fixed the minRatioPositions for tableau$$0
+Math-81$$None$$patch1-Math-81-jMutRepair$$Fixed incorrect patch$$0
+Math-88$$None$$patch1-Math-88-jMutRepair$$added fixed case for tableau sizes$$0
+Math-52$$None$$patch1-Math-52-jMutRepair$$Fixed a bug in the cross product test$$0
+Math-84$$None$$patch1-Math-84-jMutRepair$$added a missing if / else$$0
+Math-2$$None$$patch1-Math-2-jMutRepair$$fixed bug in 1 . 0 . 2$$0
+Lang-27$$None$$patch1-Lang-27-jMutRepair$$Fix incorrect patch$$0
+Lang-22$$None$$patch1-Lang-22-jMutRepair$$Fix a bug in JMutRepair where abs ( u ) > v$$0
+Closure-126$$Break in finally block isn't optimized properly$$patch1_1-Closure-126-GenProgA$$Remove tryMinimizeExits from tryMinimizeExits$$1
+Closure-115$$Erroneous optimization in ADVANCED_OPTIMIZATIONS mode$$patch1_1-Closure-115-GenProgA$$Allow side effects for closure arguments$$1
+Closure-59$$Cannot exclude globalThis checks through command line$$patch1_1-Closure-59-GenProgA$$"Add "" addVerboseWarnings ( ) "" to closure compiler warnings"$$0
+Closure-67$$Advanced compilations renames a function and then deletes it, leaving a reference to a renamed but non-existent function$$patch1_1-Closure-67-GenProgA$$Remove unused prototype properties fix .$$0
+Closure-129$$Casting a function before calling it produces bad code and breaks plugin code$$patch1_1-Closure-129-GenProgA$$Remove unused old fix$$0
+Closure-10$$Wrong code generated if mixing types in ternary operator$$patch1_1-Closure-10-GenProgA$$Fix PeepholeFoldConstants case$$0
+Closure-21$$Classify non-rightmost expressions as problematic$$patch1_1-Closure-21-GenProgA$$Updated code$$0
+Closure-75$$closure compiled swfobject error$$patch1-Closure-75-GenProgA$$Remove ' POS ' fallthrough in isStrWhiteSpaceChar case .$$0
+Closure-55$$Exception when emitting code containing getters$$patch1_1-Closure-55-GenProgA$$Remove unneeded call to NodeTraversal . traverse ( ) .$$0
+Closure-130$$arguments is moved to another scope$$patch1_1-Closure-130-GenProgA$$Remove stray ' if ' in name . getRefs ( )$$0
+Closure-112$$Template types on methods incorrectly trigger inference of a template on the class if that template type is unknown$$patch1_1-Closure-112-GenProgA$$Remove hard coded resolve of template types in closure context$$0
+Closure-124$$Different output from RestAPI and command line jar$$patch1_1-Closure-124-GenProgA$$Remove old and unused patch .$$0
+Closure-114$$Crash on the web closure compiler$$patch1-Closure-114-GenProgA$$Allow closure to override local variable name$$0
+Closure-78$$division by zero wrongly throws JSC_DIVIDE_BY_0_ERROR$$patch1_1-Closure-78-GenProgA$$Do not increment local variable$$0
+Closure-22$$Classify non-rightmost expressions as problematic$$patch1_1-Closure-22-GenProgA$$Remove stray return statement from a checksideeffects patch .$$0
+Chart-1$$None$$patch1-Chart-1-GenProgA$$Fix NPE in CategoryPlot$$0
+Chart-3$$None$$patch1_1-Chart-3-GenProgA$$Fix bug$$0
+Chart-12$$None$$patch1-Chart-12-GenProgA$$Fix NPE in MultiplePiePlot .$$0
+Chart-13$$None$$patch1_1-Chart-13-GenProgA$$Fix border embarrassment in JDK6$$0
+Chart-25$$None$$patch1_1-Chart-25-GenProgA$$Remove a unused variable$$0
+Math-95$$None$$patch1-Math-95-GenProgA$$Fix a warning$$0
+Math-80$$None$$patch1_1-Math-80-GenProgA$$Fixed erroneous loop in EigenDecompositionImpl .$$0
+Math-28$$None$$patch1_1-Math-28-GenProgA$$fixed a small bug$$0
+Math-81$$None$$patch1_1-Math-81-GenProgA$$updated EigenDecompositionImpl . a2 = b2 ;$$0
+Math-31$$None$$patch1-Math-31-GenProgA$$Fix continuedFraction patch$$0
+Math-85$$None$$patch1-Math-85-GenProgA$$Fix a bug in UnivariateRealSolverUtils$$0
+Math-82$$None$$patch1_1-Math-82-GenProgA$$Delete old minValue = null ; patch for linear search$$0
+Math-40$$None$$patch1-Math-40-GenProgA$$fix the ReducingException$$0
+Math-2$$None$$patch1-Math-2-GenProgA$$Fix issue with FuzzyKMeansClusterer empty cluster in FJ$$0
+Lang-7$$None$$patch1_1-Lang-7-GenProgA$$Fix a regression in NumberUtils$$0
