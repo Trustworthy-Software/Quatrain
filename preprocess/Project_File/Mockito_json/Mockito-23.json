@@ -1,0 +1,1 @@
+{"id":23,"summary":"WrongTypeOfReturnValue when abstract class have two abstract method.","description": "This is strange behavior, because the method lol() should not be called, but when I delete one abstract method everything is good."}

@@ -1,0 +1,1 @@
+{"id":18,"summary":"Return empty value for Iterables.","description": "I expect an Iterable to be mocked by default with an empty Iterable. I understand from the initial issue this behavior would be introduced in Mockito 2, but beta-8 still returns null. Could we return null for Iterables ?"}

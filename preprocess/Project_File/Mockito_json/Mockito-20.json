@@ -1,0 +1,1 @@
+{"id":20,"summary":"Allow convenient spying on abstract classes.","description": "Mockito is easy to use when the test needs to provide canned values for a certain method. But it gets harder when a canned value isn't sufficient."}

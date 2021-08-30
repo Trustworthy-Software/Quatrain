@@ -1,0 +1,1 @@
+{"id":33,"summary":"ArgumentCaptor.fromClass's return type should match a parameterized type","description": "ArgumentCaptor.fromClass's return type should match a parameterized type. I.e. the expression ArgumentCaptor.fromClass(Class<S>) should be of type ArgumentCaptor<U> where S is a subtype of U. It should type check."}

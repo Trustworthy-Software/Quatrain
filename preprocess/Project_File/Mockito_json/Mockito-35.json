@@ -1,0 +1,1 @@
+{"id":35,"summary":"possible NPE exception when class cannot be mocked via PowerMockito","description": "In version 1.10.5, the catch block needs to guard against a null proxyInstance."}

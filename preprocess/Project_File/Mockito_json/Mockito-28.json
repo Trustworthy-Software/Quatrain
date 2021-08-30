@@ -1,0 +1,1 @@
+{"id":28,"summary":"nicer textual printing of typed parameters","description": "When matchers fail but yield the same toString(), Mockito prints extra type information. However, the type information is awkwardly printed for Strings. I've encountered this issue while working on removing hard dependency to hamcrest."}

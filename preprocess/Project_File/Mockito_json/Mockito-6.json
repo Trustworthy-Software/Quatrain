@@ -1,0 +1,1 @@
+{"id":6,"summary":"Argument matcher anyXxx() (i.e. anyString(), anyList()) should not match nulls","description": "Note that the function is called with an integer (not a string), and still the mocked function return the value which it should return only when a string is passed. The same works when using anyBoolean() or any other methof from any* family."}

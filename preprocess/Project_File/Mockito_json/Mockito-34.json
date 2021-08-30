@@ -1,0 +1,1 @@
+{"id":34,"summary":"Source files should not be put in binary JAR","description": "Source files (*.java) should not be put into binary mockito-core.jar. It stupefies Idea to show decompiled file even when source jar is available."}

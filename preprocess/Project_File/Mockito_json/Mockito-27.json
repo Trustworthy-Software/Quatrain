@@ -1,0 +1,1 @@
+{"id":27,"summary":"Exception when stubbing more than once with when...thenThrow","description": "If I create a mock and stub a method so it throws an exception and do that twice the first exception will be thrown upon invoking the second stub instruction."}

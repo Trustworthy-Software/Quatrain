@@ -1,0 +1,1 @@
+{"id":10,"summary":"RETURNS_DEEP_STUBS automatically tries to create serializable mocks","description": "You are using the setting 'withSettings().serializable()' however the type you are trying to mock 'NotSerializableReturnValue'\ndo not implement Serializable AND do not have a no-arg constructor."}

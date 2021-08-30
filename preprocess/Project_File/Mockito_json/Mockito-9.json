@@ -1,0 +1,1 @@
+{"id":9,"summary":"Problem spying on abstract classes","description": "There's a problem with spying on abstract classes when the real implementation calls out to the abstract method."}
