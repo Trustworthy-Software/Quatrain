@@ -55,12 +55,12 @@ class Experiment:
         pickle.dump(dict_b, open(file_name, 'wb'))
 
     def save_bugreport(self,):
-        file_name = '../data/bugreport_dict_all.pickle'
+        file_name = '../data/bugreport_dict.pickle'
         if os.path.exists(file_name):
             return
         # w = Word2vector(embedding_method)
         dict_b = {}
-        path = '../preprocess/Project_BugReport'
+        path = '../data/BugReport'
         files = os.listdir(path)
         for file in files:
             if not file.endswith('bugreport.txt'):
@@ -75,11 +75,12 @@ class Experiment:
         pickle.dump(dict_b, open(file_name, 'wb'))
 
     def save_bugreport_commit(self, path_patch, ):
-        dataset_text = ''
-        file_name = '../data/bugreport_commit_all.txt'
+        # dataset_text = ''
+        dataset_text_with_description = ''
+        file_name = '../data/bugreport_patch.txt'
         if os.path.exists(file_name):
             return
-        with open('../data/bugreport_dict_all.pickle', 'rb') as f:
+        with open('../data/bugreport_dict.pickle', 'rb') as f:
             self.bugReportText = pickle.load(f)
         for root, dirs, files in os.walk(path_patch):
             for file in files:
@@ -101,39 +102,43 @@ class Experiment:
                         commit_content = ''
                     if project_id in self.bugReportText.keys():
                         bug_report_text = self.bugReportText[project_id]
-                        bug_report_summary = bug_report_text[0]
-                        bug_report_description = bug_report_text[1]
+                        bug_report_summary = bug_report_text[0].strip()
+                        bug_report_description = bug_report_text[1].strip()
                     else:
                         bug_report_summary = 'None'
                         bug_report_description = 'None'
                     # TODO: use description info of bug report
-                    dataset_text += '$$'.join([project_id, bug_report_summary, name, commit_content, str(label)]) + '\n'
+                    # dataset_text += '$$'.join([project_id, bug_report_summary, name, commit_content, str(label)]) + '\n'
+                    dataset_text_with_description += '$$'.join([project_id, bug_report_summary, bug_report_description, name, commit_content, str(label)]) + '\n'
         with open(file_name, 'w+') as f:
-            f.write(dataset_text)
+            f.write(dataset_text_with_description)
 
-    def save_bugreport_commit_vector(self, embedding_method):
+
+    def save_bugreport_patch_vector(self, embedding_method):
         labels, y_preds = [], []
-        file_name = '../data/bugreport_commit_'+embedding_method+'.pickle'
+        file_name = '../data/bugreport_patch_'+embedding_method+'.pickle'
         if os.path.exists(file_name):
             return
         bugreport_vectors, commit_vectors = [], []
-
+        bugreport_v2_vectors = []
         cnt = 0
         signal.signal(signal.SIGALRM, self.handler)
-        with open('../data/bugreport_commit_all.txt', 'r+') as f:
+        with open('../data/bugreport_patch.txt', 'r+') as f:
             for line in f:
                     project_id = line.split('$$')[0].strip()
-                    bugreport_text = line.split('$$')[1].strip()
-                    patch_id = line.split('$$')[2].strip()
-                    commit_content = line.split('$$')[3].strip()
-                    label = int(float(line.split('$$')[4].strip()))
-                    if bugreport_text == 'None' or commit_content == 'None':
+                    bugreport_summary = line.split('$$')[1].strip()
+                    bugreport_description = line.split('$$')[2].strip()
+                    patch_id = line.split('$$')[3].strip()
+                    commit_content = line.split('$$')[4].strip()
+                    label = int(float(line.split('$$')[5].strip()))
+                    if bugreport_summary == 'None' or commit_content == 'None':
                         continue
                     w = Word2vector(embedding_method)
 
                     signal.alarm(300)
                     try:
-                        bugreport_vector = w.embedding(bugreport_text)
+                        bugreport_vector = w.embedding(bugreport_summary)
+                        bugreport_v2_vector = w.embedding(bugreport_summary+'.'+bugreport_description)
                         commit_vector = w.embedding(commit_content)
                     except Exception as e:
                         print(e)
@@ -141,6 +146,7 @@ class Experiment:
                     signal.alarm(0)
 
                     bugreport_vectors.append(bugreport_vector)
+                    bugreport_v2_vectors.append(bugreport_v2_vector)
                     commit_vectors.append(commit_vector)
                     labels.append(label)
 
@@ -157,11 +163,12 @@ class Experiment:
                     # y_preds.append(y_pred)
 
 
-        pickle.dump([bugreport_vectors, commit_vectors, labels], open('../data/bugreport_commit_'+embedding_method+'.pickle', 'wb'))
+        pickle.dump([bugreport_vectors, commit_vectors, labels], open('../data/bugreport_patch_'+embedding_method+'.pickle', 'wb'))
+        pickle.dump([bugreport_v2_vectors, commit_vectors, labels], open('../data/bugreport_patch_'+embedding_method+'(description).pickle', 'wb'))
         # self.evaluation_metrics(labels, y_preds)
 
     def predict(self, embedding_method):
-        dataset = pickle.load(open('../data/bugreport_commit_'+embedding_method+'.pickle', 'rb'))
+        dataset = pickle.load(open('../data/bugreport_patch_'+embedding_method+'.pickle', 'rb'))
         bugreport_vector = np.array(dataset[0]).reshape((len(dataset[0]),-1))
         commit_vector = np.array(dataset[1]).reshape((len(dataset[1]),-1))
         labels = np.array(dataset[2])
@@ -179,5 +186,5 @@ if __name__ == '__main__':
     e = Experiment()
     e.save_bugreport()
     e.save_bugreport_commit(e.cf.path_patch,)
-    e.save_bugreport_commit_vector(embedding_method=embedding)
+    e.save_bugreport_patch_vector(embedding_method=embedding)
     e.predict(embedding)
