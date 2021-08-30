@@ -1,5 +1,5 @@
 import json, os
-import urllib
+import urllib.request
 import bs4 as bs
 import pickle
 
@@ -16,9 +16,9 @@ def get_json_by_url(folder_path, names, lists):
         else:
             try:
                 print("Try downloading file: {}".format(url))
-                urllib.urlretrieve(url, filename=filepath)
+                urllib.request.urlretrieve(url, filename=filepath)
             except Exception as e:
-                print("Error occurred when downloading file, error message:")
+                print("{}: Error occurred when downloading file, error message:{}".format(filename, e))
                 print(e)
 
 def get_json(file_json):
@@ -53,8 +53,8 @@ def save_bug_report(path_folder):
         f.write(result)
 
 
-def get_bug_report_closure(file_json):
-    get_json(file_json)
+def get_bug_report_closure(file_url):
+    get_json(file_url)
     save_bug_report(path_folder='Project_File/Closure_json')
 
 def get_bug_report(project):
@@ -101,7 +101,7 @@ def get_bug_report_chartTime(project):
 if __name__ == '__main__':
     # '''
     # 1. extract bug report of Closure
-    get_bug_report_closure(file_json='Project_URL/Closure_url.txt')
+    get_bug_report_closure(file_url='Project_URL/Closure_url.txt')
 
     # 2. extract bug report of  Lang
     get_bug_report(project='Lang')
