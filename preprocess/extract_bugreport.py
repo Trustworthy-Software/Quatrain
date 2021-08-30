@@ -49,7 +49,7 @@ def save_bug_report(path_folder):
 
             result += name + '$$' + summary + '$$' + description + '\n'
     print (result)
-    with open('Project_BugReport/Closure_bugreport.txt', 'w+') as f:
+    with open('../data/BugReport/Closure_bugreport.txt', 'w+') as f:
         f.write(result)
 
 
@@ -78,7 +78,7 @@ def get_bug_report(project):
         description = soup.find('div', {'id': 'description-val'}).text.strip().replace('\n',' ')
         result += project_id + '$$' + summary + '$$' + description + '\n'
     print (result)
-    with open('Project_BugReport/'+project+'_bugreport.txt', 'w+') as f:
+    with open('../data/BugReport/'+project+'_bugreport.txt', 'w+') as f:
         f.write(result)
 
 def get_bug_report_chartTime(project):
@@ -95,7 +95,7 @@ def get_bug_report_chartTime(project):
             description = dict['description'].strip().replace('\n',' ')
         result += project_id + '$$' + summary + '$$' + description + '\n'
     print (result)
-    with open('Project_BugReport/'+project+'_bugreport.txt', 'w+') as f:
+    with open('../data/BugReport/'+project+'_bugreport.txt', 'w+') as f:
         f.write(result)
 
 if __name__ == '__main__':
