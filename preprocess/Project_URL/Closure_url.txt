@@ -60,6 +60,7 @@
 60,504,https://storage.googleapis.com/google-code-archive/v2/code.google.com/closure-compiler/issues/issue-504.json
 61,501,https://storage.googleapis.com/google-code-archive/v2/code.google.com/closure-compiler/issues/issue-501.json
 62,487,https://storage.googleapis.com/google-code-archive/v2/code.google.com/closure-compiler/issues/issue-487.json
+63,487,https://storage.googleapis.com/google-code-archive/v2/code.google.com/closure-compiler/issues/issue-487.json
 64,489,https://storage.googleapis.com/google-code-archive/v2/code.google.com/closure-compiler/issues/issue-489.json
 65,486,https://storage.googleapis.com/google-code-archive/v2/code.google.com/closure-compiler/issues/issue-486.json
 66,482,https://storage.googleapis.com/google-code-archive/v2/code.google.com/closure-compiler/issues/issue-482.json
@@ -89,6 +90,7 @@
 90,274,https://storage.googleapis.com/google-code-archive/v2/code.google.com/closure-compiler/issues/issue-274.json
 91,248,https://storage.googleapis.com/google-code-archive/v2/code.google.com/closure-compiler/issues/issue-248.json
 92,261,https://storage.googleapis.com/google-code-archive/v2/code.google.com/closure-compiler/issues/issue-261.json
+93,261,https://storage.googleapis.com/google-code-archive/v2/code.google.com/closure-compiler/issues/issue-261.json
 94,255,https://storage.googleapis.com/google-code-archive/v2/code.google.com/closure-compiler/issues/issue-255.json
 95,66,https://storage.googleapis.com/google-code-archive/v2/code.google.com/closure-compiler/issues/issue-66.json
 96,229,https://storage.googleapis.com/google-code-archive/v2/code.google.com/closure-compiler/issues/issue-229.json
