@@ -1,0 +1,1 @@
+{"id":7,"summary":"DateTimeFormat.parseInto sometimes miscalculates year (2.2)","description": "The following code (which can be added to org.joda.time.format.TestDateTimeFormatter) breaks, because the input mutable date time's millis appear to be mishandled and the year for the parse is changed to 1999."}

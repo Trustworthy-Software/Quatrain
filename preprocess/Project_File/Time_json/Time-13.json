@@ -1,0 +1,1 @@
+{"id":13,"summary":"Negative millis display incorrectly in Period.toString","description": "The last line should produce \"PT-0.100S\" instead of \"PT0.100S\"."}

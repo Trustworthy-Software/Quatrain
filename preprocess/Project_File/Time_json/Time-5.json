@@ -1,0 +1,1 @@
+{"id":5,"summary":"none standard PeriodType without year throws exception","description": "I tried to get a Period only for months and weeks with following code:\n This throws following exception:\n Even removing the year component with .withYearsRemoved() throws the same exception:\n"}

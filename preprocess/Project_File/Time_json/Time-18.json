@@ -1,0 +1,1 @@
+{"id":18,"summary":"GJChronology rejects valid Julian dates","description": "The 2nd statement fails with \"org.joda.time.IllegalFieldValueException: Value 29 for dayOfMonth must be in the range [1,28]\".\n\nGiven that I left the cutover date at the default (October 15, 1582), isn't 1500/02/29 a valid date in the GJChronology?"}

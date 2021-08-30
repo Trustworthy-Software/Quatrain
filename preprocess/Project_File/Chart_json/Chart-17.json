@@ -1,0 +1,1 @@
+{"id":17,"summary":"cloning of TimeSeries","description": "It's just a minor bug!\n\nWhen I clone a TimeSeries which has no items, I get an IllegalArgumentException (\"Requires start <= end\").\nBut I don't think the user should be responsible for checking whether the TimeSeries has any items or not."}

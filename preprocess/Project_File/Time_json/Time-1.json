@@ -1,0 +1,1 @@
+{"id":1,"summary":"Partial.with fails with NPE","description": "Fails with yearOfCentury, year and yearOfEra. Probably because weekyear has a null range duration type.\n"}

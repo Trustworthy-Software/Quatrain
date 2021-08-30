@@ -1,0 +1,1 @@
+{"id":19,"summary":"Inconsistent interpretation of ambiguous time during DST","description": "The inconsistency appears for timezone Europe/London.\n These three DateTime objects should all represent the same moment in time even if they are ambiguous. Now, it always returns the earlier instant (summer time) during an overlap."}

@@ -1,0 +1,1 @@
+{"id":11,"summary":"JCommon 1.0.12 ShapeUtilities.equal(path1,path2)","description": "The comparison of two GeneralPath objects uses the same PathIterator for both objects. equal(GeneralPath path1, GeneralPath path2) will thus return true for any pair of non-null GeneralPath instances having the same windingRule."}

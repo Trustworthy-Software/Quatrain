@@ -1,0 +1,1 @@
+{"id":17,"summary":"Bug on withLaterOffsetAtOverlap method","description": "On the last two brackets we can see that withLaterOffsetAtOverlap is not undoing withEarlierOffsetAtOverlap as it should ( and not even working at all )."}

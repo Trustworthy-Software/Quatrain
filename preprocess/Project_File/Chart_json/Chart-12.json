@@ -1,0 +1,1 @@
+{"id":12,"summary":"Fix for MultiplePiePlot","description": "When dataset is passed into constructor for MultiplePiePlot, the dataset is not wired to a listener, as it would be if setDataset is called."}
