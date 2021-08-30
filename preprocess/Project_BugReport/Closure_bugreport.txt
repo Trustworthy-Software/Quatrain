@@ -1,92 +1,22 @@
 Closure-1$$function arguments should not be optimized away$$None
+Closure-2$$combining @interface and multiple @extends can crash compiler$$None
+Closure-3$$optimization fails with variable in catch clause$$None
+Closure-4$$Converting from an interface type to a constructor which @implements itself causes stack overflow.$$None
+Closure-5$$Compiler ignores 'delete' statements, can break functionality.$$None
+Closure-6$$better 'this' type checking$$None
+Closure-7$$Bad type inference with goog.isFunction and friends$$None
+Closure-8$$Obfuscated code triggers TypeError in Firefox$$None
+Closure-9$$Compiler fails to find amd module in a subdirectory$$None
 Closure-10$$Wrong code generated if mixing types in ternary operator$$None
-Closure-100$$Only assignment to "this" issues a "dangerous use of the global this object" warning.$$None
-Closure-101$$--process_closure_primitives can't be set to false$$None
-Closure-102$$compiler assumes that 'arguments' can be shadowed$$None
-Closure-103$$Compiler gives false error with respect to unreachable code$$None
-Closure-104$$Typos in externs/html5.js$$None
-Closure-105$$Array Join Munged Incorrectly$$None
-Closure-106$$Exception thrown from com.google.javascript.jscomp.CollapseProperties.addStubsForUndeclaredProperties$$None
-Closure-107$$Variable names prefixed with MSG_ cause error with advanced optimizations$$None
-Closure-108$$precondition crash: goog.scope local with aliased in the type declaration$$None
-Closure-109$$Constructor types that return all or unknown fail to parse$$None
 Closure-11$$Record type invalid property not reported on function with @this annotation$$None
-Closure-110$$Allow @private top-level functions in goog.scope$$None
-Closure-111$$goog.isArray doesn't hint compiler$$None
-Closure-112$$Template types on methods incorrectly trigger inference of a template on the class if that template type is unknown$$None
-Closure-113$$Bug in require calls processing$$None
-Closure-114$$Crash on the web closure compiler$$None
-Closure-115$$Erroneous optimization in ADVANCED_OPTIMIZATIONS mode$$None
-Closure-116$$Erroneous optimization in ADVANCED_OPTIMIZATIONS mode$$None
-Closure-117$$Wrong type name reported on missing property error.$$None
-Closure-118$$Prototype method incorrectly removed$$None
-Closure-119$$catch(e) yields JSC_UNDEFINED_NAME warning when e is used in catch in advanced mode$$None
 Closure-12$$Try/catch blocks incorporate code not inside original blocks$$None
-Closure-120$$Overzealous optimization confuses variables$$None
-Closure-121$$Overzealous optimization confuses variables$$None
-Closure-122$$Inconsistent handling of non-JSDoc comments$$None
-Closure-123$$Generates code with invalid for/in left-hand assignment$$None
-Closure-124$$Different output from RestAPI and command line jar$$None
-Closure-125$$IllegalStateException at com.google.javascript.rhino.jstype.FunctionType.getInstanceType$$None
-Closure-126$$Break in finally block isn't optimized properly$$None
-Closure-127$$Break in finally block isn't optimized properly$$None
-Closure-128$$The compiler quotes the "0" keys in object literals$$None
-Closure-129$$Casting a function before calling it produces bad code and breaks plugin code$$None
 Closure-13$$true/false are not always replaced for !0/!1$$None
-Closure-130$$arguments is moved to another scope$$None
-Closure-131$$unicode characters in property names result in invalid output$$None
-Closure-132$$if statement$$None
-Closure-133$$Exception when parsing erroneous jsdoc: /**@return {@code foo} bar   *    baz. */$$None
-Closure-134$$@inheritDoc doesn't play well with interfaces$$None
-Closure-135$$Inheritance not detected when prototype directly assigned$$None
-Closure-136$$$super is replaced when it should not be replaced$$None
-Closure-137$$Invalid JSC_DETERMINISTIC_TEST$$None
-Closure-138$$Invalid JSC_DETERMINISTIC_TEST$$None
-Closure-139$$Redefinition of a function in third party code can be miscompiled$$None
 Closure-14$$bogus 'missing return' warning$$None
-Closure-140$$Google Common Loader Extern$$None
-Closure-141$$The side effects of function1||function2 are not calculated$$None
-Closure-142$$Internet Explorer runtime error after compilation.$$None
-Closure-143$$@define does not support strings$$None
-Closure-144$$Auto-identify void functions$$None
-Closure-145$$Bug with labeled loops and breaks$$None
-Closure-146$$bad type inference for != undefined$$None
-Closure-147$$Lost a JSC_USED_GLOBAL_THIS warning in 0616 release vs 0514$$None
-Closure-148$$CSS3 'writingMode' not recognised in advanced mode$$None
-Closure-149$$Add option to turn off string escaping$$None
 Closure-15$$Switched order of "delete key" and "key in" statements changes semantic$$None
-Closure-150$$Type checker misses annotations on functions defined within functions$$None
-Closure-151$$Add a --version option for the compiler.$$None
-Closure-152$$resolveTypes: jstype.UnionType cannot be cast to jstype.ObjectType$$None
-Closure-153$$Namespace definition in Prototype is broken$$None
-Closure-154$$Add support for data members on interfaces$$None
-Closure-155$$Overzealous arguments optimisation$$None
-Closure-156$$Compiler crashes on assign statement$$None
-Closure-157$$Numbers and quoted property names reject for get and set properties.$$None
-Closure-158$$Order of jscomp_error, jscomp_warning, jscomp_off flags are not preserved$$None
-Closure-159$$Closure Compiler failed to translate all instances of a function name$$None
 Closure-16$$JSCompiler does not recursively resolve typedefs$$None
-Closure-160$$checkVars / undefinedVars diagnostics not working from command line$$None
-Closure-161$$peephole constants folding pass is trying to fold [][11] as if it were a property lookup instead of a property assignment$$None
-Closure-162$$Type aliases cannot be used in type annotations before their definitions$$None
-Closure-163$$VarCheck Crash When Using Modules$$None
-Closure-164$${function(number, string)} should not be assignable to {function(number)}$$None
-Closure-165$$Properties defined on any record type applying to unrelated record types$$None
-Closure-166$$anonymous object type inference inconsistency when used in union$$None
-Closure-167$$invalid property not erroring in for loop in prototype function$$None
-Closure-168$$Wrong argument count error not reported on this aliasing (on function with @this annotation)$$None
-Closure-169$$Strange "wrong parameter" warning for callback function$$None
 Closure-17$$@const dumps type cast information$$None
-Closure-170$$Overly aggressive comma removal$$None
-Closure-171$$Assigning object literals to obj.prototype in a immediately executed function not recognized.$$None
-Closure-172$$Type of prototype property incorrectly inferred to string$$None
-Closure-173$$Operator precedence breaks with certain combinations of *, / and %.$$None
-Closure-174$$compiler crash on goog.scope locals$$None
-Closure-175$$Erroneous optimization in ADVANCED_OPTIMIZATIONS mode$$None
-Closure-176$$initial type of variable wrong when initialize in a "var" statement with type declaration.$$None
 Closure-18$$Dependency sorting with closurePass set to false no longer works.$$None
 Closure-19$$Type refining of 'this' raises IllegalArgumentException$$None
-Closure-2$$combining @interface and multiple @extends can crash compiler$$None
 Closure-20$$String conversion optimization is incorrect$$None
 Closure-21$$Classify non-rightmost expressions as problematic$$None
 Closure-22$$Classify non-rightmost expressions as problematic$$None
@@ -97,7 +27,6 @@ Closure-26$$ProcessCommonJSModules module$exports failures when checkTypes enabl
 Closure-27$$Error trying to build try-catch block (AST)$$None
 Closure-28$$constant functions not inlined aggressively enough$$None
 Closure-29$$closure compiler screws up a perfectly valid isFunction() implementation$$None
-Closure-3$$optimization fails with variable in catch clause$$None
 Closure-30$$Combining temporary strings are over-optimized in advanced build$$None
 Closure-31$$Add support for --manage_closure_dependencies and --only_closure_dependencies with compilation level WHITESPACE_ONLY$$None
 Closure-32$$Preserve doesn't preserve whitespace at start of line$$None
@@ -108,7 +37,6 @@ Closure-36$$goog.addSingletonGetter prevents unused class removal$$None
 Closure-37$$incomplete function definition crashes the compiler when ideMode is enabled$$None
 Closure-38$$Identifier minus a negative number needs a space between the "-"s$$None
 Closure-39$$externExport with @typedef can generate invalid externs$$None
-Closure-4$$Converting from an interface type to a constructor which @implements itself causes stack overflow.$$None
 Closure-40$$smartNameRemoval causing compiler crash$$None
 Closure-41$$In ADVANCED mode, Compiler fails to warn about overridden methods with different signatures.$$None
 Closure-42$$Simple "Whitespace only" compression removing "each" keyword from "for each (var x in arr)" loop$$None
@@ -119,7 +47,6 @@ Closure-46$$ClassCastException during TypeCheck pass$$None
 Closure-47$$Original source line numbers are one-based in source maps.$$None
 Closure-48$$Type checking error when replacing a function with a stub after calling.$$None
 Closure-49$$Incorrect output if a function is assigned to a variable, and the function contains a variable with the same name$$None
-Closure-5$$Compiler ignores 'delete' statements, can break functionality.$$None
 Closure-50$$Optimisation: convert array.join(",") to array.join()$$None
 Closure-51$$-0.0 becomes 0 even in whitespace mode$$None
 Closure-52$$Converts string properties into numbers in literal object definitions$$None
@@ -130,7 +57,6 @@ Closure-56$$Last warning or error in output is truncated$$None
 Closure-57$$compiler crashes when  goog.provide used with non string $$None
 Closure-58$$Online CC bug: report java error.$$None
 Closure-59$$Cannot exclude globalThis checks through command line$$None
-Closure-6$$better 'this' type checking$$None
 Closure-60$$void function () {}(); wrongly identified as having no side effects$$None
 Closure-61$$Closure removes needed code.$$None
 Closure-62$$Column-indicating caret is sometimes not in error output$$None
@@ -140,7 +66,6 @@ Closure-66$$@enum does not type correctly$$None
 Closure-67$$Advanced compilations renames a function and then deletes it, leaving a reference to a renamed but non-existent function$$None
 Closure-68$$Cryptic error message on invalid "@type function" annotation$$None
 Closure-69$$Compiler should warn/error when instance methods are operated on$$None
-Closure-7$$Bad type inference with goog.isFunction and friends$$None
 Closure-70$$unexpected typed coverage of less than 100%$$None
 Closure-71$$no warnings when @private prop is redeclared on subclass$$None
 Closure-72$$Internal Compiler Error on Bullet$$None
@@ -151,7 +76,6 @@ Closure-76$$Assignments within conditions are sometimes incorrectly removed$$Non
 Closure-77$$\0 \x00 and \u0000 are translated to null character$$None
 Closure-78$$division by zero wrongly throws JSC_DIVIDE_BY_0_ERROR$$None
 Closure-79$$RuntimeException when compiling with extern prototype$$None
-Closure-8$$Obfuscated code triggers TypeError in Firefox$$None
 Closure-80$$Unexpected expression nodeDELPROP 1$$None
 Closure-81$$An unnamed function statement statements should generate a parse error$$None
 Closure-82$$.indexOf fails to produce missing property warning$$None
@@ -162,7 +86,6 @@ Closure-86$$side-effects analysis incorrectly removing function calls with side 
 Closure-87$$IE8 error: Object doesn't support this action$$None
 Closure-88$$Incorrect assignment removal from expression in simple mode.$$None
 Closure-89$$Compiler removes function properties that it should not$$None
-Closure-9$$Compiler fails to find amd module in a subdirectory$$None
 Closure-90$$@this emits warning when used with a typedef$$None
 Closure-91$$support @lends annotation$$None
 Closure-92$$bug with implicit namespaces across modules$$None
@@ -172,3 +95,80 @@ Closure-96$$Missing type-checks for var_args notation$$None
 Closure-97$$Unsigned Shift Right (>>>) bug operating on negative numbers$$None
 Closure-98$$bad variable inlining in closure$$None
 Closure-99$$Prototypes declared with quotes produce a JSC_USED_GLOBAL_THIS warning.$$None
+Closure-100$$Only assignment to "this" issues a "dangerous use of the global this object" warning.$$None
+Closure-101$$--process_closure_primitives can't be set to false$$None
+Closure-102$$compiler assumes that 'arguments' can be shadowed$$None
+Closure-103$$Compiler gives false error with respect to unreachable code$$None
+Closure-104$$Typos in externs/html5.js$$None
+Closure-105$$Array Join Munged Incorrectly$$None
+Closure-106$$Exception thrown from com.google.javascript.jscomp.CollapseProperties.addStubsForUndeclaredProperties$$None
+Closure-107$$Variable names prefixed with MSG_ cause error with advanced optimizations$$None
+Closure-108$$precondition crash: goog.scope local with aliased in the type declaration$$None
+Closure-109$$Constructor types that return all or unknown fail to parse$$None
+Closure-110$$Allow @private top-level functions in goog.scope$$None
+Closure-111$$goog.isArray doesn't hint compiler$$None
+Closure-112$$Template types on methods incorrectly trigger inference of a template on the class if that template type is unknown$$None
+Closure-113$$Bug in require calls processing$$None
+Closure-114$$Crash on the web closure compiler$$None
+Closure-115$$Erroneous optimization in ADVANCED_OPTIMIZATIONS mode$$None
+Closure-116$$Erroneous optimization in ADVANCED_OPTIMIZATIONS mode$$None
+Closure-117$$Wrong type name reported on missing property error.$$None
+Closure-118$$Prototype method incorrectly removed$$None
+Closure-119$$catch(e) yields JSC_UNDEFINED_NAME warning when e is used in catch in advanced mode$$None
+Closure-120$$Overzealous optimization confuses variables$$None
+Closure-121$$Overzealous optimization confuses variables$$None
+Closure-122$$Inconsistent handling of non-JSDoc comments$$None
+Closure-123$$Generates code with invalid for/in left-hand assignment$$None
+Closure-124$$Different output from RestAPI and command line jar$$None
+Closure-125$$IllegalStateException at com.google.javascript.rhino.jstype.FunctionType.getInstanceType$$None
+Closure-126$$Break in finally block isn't optimized properly$$None
+Closure-127$$Break in finally block isn't optimized properly$$None
+Closure-128$$The compiler quotes the "0" keys in object literals$$None
+Closure-129$$Casting a function before calling it produces bad code and breaks plugin code$$None
+Closure-130$$arguments is moved to another scope$$None
+Closure-131$$unicode characters in property names result in invalid output$$None
+Closure-132$$if statement$$None
+Closure-133$$Exception when parsing erroneous jsdoc: /**@return {@code foo} bar   *    baz. */$$None
+Closure-134$$@inheritDoc doesn't play well with interfaces$$None
+Closure-135$$Inheritance not detected when prototype directly assigned$$None
+Closure-136$$$super is replaced when it should not be replaced$$None
+Closure-137$$Invalid JSC_DETERMINISTIC_TEST$$None
+Closure-138$$Invalid JSC_DETERMINISTIC_TEST$$None
+Closure-139$$Redefinition of a function in third party code can be miscompiled$$None
+Closure-140$$Google Common Loader Extern$$None
+Closure-141$$The side effects of function1||function2 are not calculated$$None
+Closure-142$$Internet Explorer runtime error after compilation.$$None
+Closure-143$$@define does not support strings$$None
+Closure-144$$Auto-identify void functions$$None
+Closure-145$$Bug with labeled loops and breaks$$None
+Closure-146$$bad type inference for != undefined$$None
+Closure-147$$Lost a JSC_USED_GLOBAL_THIS warning in 0616 release vs 0514$$None
+Closure-148$$CSS3 'writingMode' not recognised in advanced mode$$None
+Closure-149$$Add option to turn off string escaping$$None
+Closure-150$$Type checker misses annotations on functions defined within functions$$None
+Closure-151$$Add a --version option for the compiler.$$None
+Closure-152$$resolveTypes: jstype.UnionType cannot be cast to jstype.ObjectType$$None
+Closure-153$$Namespace definition in Prototype is broken$$None
+Closure-154$$Add support for data members on interfaces$$None
+Closure-155$$Overzealous arguments optimisation$$None
+Closure-156$$Compiler crashes on assign statement$$None
+Closure-157$$Numbers and quoted property names reject for get and set properties.$$None
+Closure-158$$Order of jscomp_error, jscomp_warning, jscomp_off flags are not preserved$$None
+Closure-159$$Closure Compiler failed to translate all instances of a function name$$None
+Closure-160$$checkVars / undefinedVars diagnostics not working from command line$$None
+Closure-161$$peephole constants folding pass is trying to fold [][11] as if it were a property lookup instead of a property assignment$$None
+Closure-162$$Type aliases cannot be used in type annotations before their definitions$$None
+Closure-163$$VarCheck Crash When Using Modules$$None
+Closure-164$${function(number, string)} should not be assignable to {function(number)}$$None
+Closure-165$$Properties defined on any record type applying to unrelated record types$$None
+Closure-166$$anonymous object type inference inconsistency when used in union$$None
+Closure-167$$invalid property not erroring in for loop in prototype function$$None
+Closure-168$$Wrong argument count error not reported on this aliasing (on function with @this annotation)$$None
+Closure-169$$Strange "wrong parameter" warning for callback function$$None
+Closure-170$$Overly aggressive comma removal$$None
+Closure-171$$Assigning object literals to obj.prototype in a immediately executed function not recognized.$$None
+Closure-172$$Type of prototype property incorrectly inferred to string$$None
+Closure-173$$Operator precedence breaks with certain combinations of *, / and %.$$None
+Closure-174$$compiler crash on goog.scope locals$$None
+Closure-175$$Erroneous optimization in ADVANCED_OPTIMIZATIONS mode$$None
+Closure-176$$initial type of variable wrong when initialize in a "var" statement with type declaration.$$None
