@@ -112,5 +112,8 @@ if __name__ == '__main__':
     # 4. extract bug report of Chart
     get_bug_report_chartTime(project='Chart')
     # '''
-    # 3. extract bug report of Math
+    # 5. extract bug report of Time
     get_bug_report_chartTime(project='Time')
+
+    # 6. extract bug report of Mockito
+    get_bug_report_chartTime(project='Mockito')
