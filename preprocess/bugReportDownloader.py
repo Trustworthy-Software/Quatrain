@@ -41,8 +41,11 @@ def webRequest(x, project, id):
     url = x
     # bugID = url.split('/')[-1:]
     url = url + '?redirect=false'
-
-    brLocation = os.path.join('Project_File/', project+'_xml/', '-'.join([project, id]) + '.pickle.xml')
+    folder = 'Project_File/' +  project+'_xml/'
+    if not os.path.exists(folder):
+        os.makedirs(folder)
+    file = '-'.join([project, id]) + '.pickle.xml'
+    brLocation = os.path.join(folder, file)
     if os.path.exists(brLocation):
         print('existed...')
         # with open(brLocation, 'rb') as f:
@@ -62,3 +65,4 @@ def webRequest(x, project, id):
 if __name__ == '__main__':
     downloadAll('Lang')
     downloadAll('Math')
+    downloadAll('Time')
