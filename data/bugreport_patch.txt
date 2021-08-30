@@ -28,7 +28,7 @@ Closure-51$$-0.0 becomes 0 even in whitespace mode$$None$$patch1-Closure-51-Deve
 Closure-58$$Online CC bug: report java error.$$None$$patch1-Closure-58-Developer$$Fix closure bit .$$1
 Closure-133$$Exception when parsing erroneous jsdoc: /**@return {@code foo} bar   *    baz. */$$None$$patch1-Closure-133-Developer$$Reset unread token on getRemainingJSDocLine ( )$$1
 Closure-67$$Advanced compilations renames a function and then deletes it, leaving a reference to a renamed but non-existent function$$None$$patch1-Closure-67-Developer$$Add an empty line$$1
-Closure-93$$None$$None$$patch1-Closure-93-Developer$$Fixing the build .$$1
+Closure-93$$bug with implicit namespaces across modules$$None$$patch1-Closure-93-Developer$$Fixing the build .$$1
 Closure-94$$closure-compiler @define annotation does not allow line to be split on 80 characters.$$None$$patch1-Closure-94-Developer$$Added some known valid characters .$$1
 Closure-60$$void function () {}(); wrongly identified as having no side effects$$None$$patch1-Closure-60-Developer$$fixing side - effects in boolean - literals$$1
 Closure-34$$StackOverflowError exception when running closure compiler (javascript attached)$$None$$patch1-Closure-34-Developer$$Fix unrolling of operators in Closure_34$$1
@@ -100,7 +100,7 @@ Closure-101$$--process_closure_primitives can't be set to false$$None$$patch1-Cl
 Closure-55$$Exception when emitting code containing getters$$None$$patch1-Closure-55-Developer$$Allow closure nodes to be reduced by properties$$1
 Closure-97$$Unsigned Shift Right (>>>) bug operating on negative numbers$$None$$patch1-Closure-97-Developer$$Fix 64 - bit long shift operator in Closure_97$$1
 Closure-108$$precondition crash: goog.scope local with aliased in the type declaration$$None$$patch1-Closure-108-Developer$$Do not remove injectedDecls as we process the same kind of code when creating the alias .$$1
-Closure-63$$None$$None$$patch1-Closure-63-Developer$$add whitespace to sourceExcerpt$$1
+Closure-63$$Column-indicating caret is sometimes not in error output$$None$$patch1-Closure-63-Developer$$add whitespace to sourceExcerpt$$1
 Closure-130$$arguments is moved to another scope$$None$$patch1-Closure-130-Developer$$don ' t inline if in externs$$1
 Closure-64$$--language_in=ECMASCRIPT5_STRICT results in 1 'use strict' per input file$$None$$patch1-Closure-64-Developer$$Fix toSource ( ) method$$1
 Closure-90$$@this emits warning when used with a typedef$$None$$patch1-Closure-90-Developer$$Allow null values for closure types$$1
@@ -452,7 +452,7 @@ Lang-58$$NumberUtils.createNumber throws NumberFormatException for one digit lon
 Lang-44$$NumberUtils createNumber thows a StringIndexOutOfBoundsException when only an "l" is passed in.$$Seems to be similar to LANG-300, except that if you don't place a digit in front of the "l" or "L" it throws a StringIndexOutOfBoundsException instead.$$patch1-Lang-44-Elixir$$Fix parseLong ( ) where - > parseLong ( ) works$$0
 Lang-39$$StringUtils replaceEach - Bug or Missing Documentation$$The following Test Case for replaceEach fails with a null pointer exception. I have expected that all StringUtils methods are "null-friendly" The use case is that i will stuff Values into the replacementList of which I do not want to check whether they are null. I admit the use case is not perfect, because it is unclear what happens on the replace. I outlined three expectations in the test case, of course only one should be met. If it is decided that none of them should be possible, I propose to update the documentation with what happens when null is passed as replacement string  import static org.junit.Assert.assertEquals;  import org.apache.commons.lang.StringUtils; import org.junit.Test;   public class StringUtilsTest {  	@Test 	public void replaceEach(){ 		String original = "Hello World!"; 		String[] searchList = {"Hello", "World"}; 		String[] replacementList = {"Greetings", null}; 		String result = StringUtils.replaceEach(original, searchList, replacementList); 		assertEquals("Greetings !", result); 		//perhaps this is ok as well                 //assertEquals("Greetings World!", result);                 //or even 		//assertEquals("Greetings null!", result); 	}  	 }$$patch1-Lang-39-Elixir$$removed loop$$0
 Closure-92$$bug with implicit namespaces across modules$$None$$patch1-Closure-92-PraPR$$Fix up whitespace$$1
-Closure-93$$None$$None$$patch1-Closure-93-PraPR$$Remove lastIndexOf .$$1
+Closure-93$$bug with implicit namespaces across modules$$None$$patch1-Closure-93-PraPR$$Remove lastIndexOf .$$1
 Closure-18$$Dependency sorting with closurePass set to false no longer works.$$None$$patch1-Closure-18-PraPR$$Remove the redundant check on needsManagement ( )$$1
 Closure-11$$Record type invalid property not reported on function with @this annotation$$None$$patch1-Closure-11-PraPR$$Fix TypeCheck . ILLEGAL_PROPERTY_ACCESS check$$1
 Closure-73$$Codepoint U+007f appears raw in output$$None$$patch1-Closure-73-PraPR$$Remove spurious check for byte order .$$1
@@ -461,7 +461,7 @@ Closure-86$$side-effects analysis incorrectly removing function calls with side 
 Closure-126$$Break in finally block isn't optimized properly$$None$$patch1-Closure-126-PraPR$$Remove deprecated try / catch block .$$1
 Closure-31$$Add support for --manage_closure_dependencies and --only_closure_dependencies with compilation level WHITESPACE_ONLY$$None$$patch1-Closure-31-PraPR$$Allow closure passes in the dependencies stream .$$1
 Closure-62$$Column-indicating caret is sometimes not in error output$$None$$patch1-Closure-62-PraPR$$Remove the unnecessary boolean condition$$1
-Closure-63$$None$$None$$patch1-Closure-63-PraPR$$Remove the if / else .$$1
+Closure-63$$Column-indicating caret is sometimes not in error output$$None$$patch1-Closure-63-PraPR$$Remove the if / else .$$1
 Closure-46$$ClassCastException during TypeCheck pass$$None$$patch1-Closure-46-PraPR$$Remove deprecated API in RecordType . getLeastSupertype .$$1
 Closure-70$$unexpected typed coverage of less than 100%$$None$$patch1-Closure-70-PraPR$$Fix swapped - in case .$$1
 Closure-14$$bogus 'missing return' warning$$None$$patch1-Closure-14-PraPR$$Fix control flow analysis$$1
@@ -624,7 +624,7 @@ Math-2$$HypergeometricDistribution.sample suffers from integer overflow$$Hi, I h
 Mockito-10$$RETURNS_DEEP_STUBS automatically tries to create serializable mocks$$You are using the setting 'withSettings().serializable()' however the type you are trying to mock 'NotSerializableReturnValue' do not implement Serializable AND do not have a no-arg constructor.$$patch1-Mockito-10-KaliA$$fix merge conflict resolution$$0
 Closure-73$$Codepoint U+007f appears raw in output$$None$$patch1-Closure-73-TBar$$Fix typo in codeGenerator where ' c ' was accidentally passed .$$1
 Closure-62$$Column-indicating caret is sometimes not in error output$$None$$patch1-Closure-62-TBar$$Remove whitespaces from sourceExcerpt .$$1
-Closure-63$$None$$None$$patch1-Closure-63-TBar$$Remove whitespaces from sourceExcerpt .$$1
+Closure-63$$Column-indicating caret is sometimes not in error output$$None$$patch1-Closure-63-TBar$$Remove whitespaces from sourceExcerpt .$$1
 Chart-20$$None$$None$$patch1-Chart-20-TBar$$Fix minor bug$$1
 Chart-9$$Error on TimeSeries createCopy() method$$The test case at the end fails with :  java.lang.IllegalArgumentException: Requires start <= end.  The problem is in that the int start and end indexes corresponding to given timePeriod are computed incorectly. Here I would expect an empty serie to be returned, not an exception. This is with jfreechart 1.0.7$$patch1-Chart-9-TBar$$Fix bug$$1
 Chart-11$$JCommon 1.0.12 ShapeUtilities.equal(path1,path2)$$The comparison of two GeneralPath objects uses the same PathIterator for both objects. equal(GeneralPath path1, GeneralPath path2) will thus return true for any pair of non-null GeneralPath instances having the same windingRule.$$patch1-Chart-11-TBar$$fix merge issue$$1
@@ -928,7 +928,7 @@ Lang-13$$SerializationUtils throws ClassNotFoundException when cloning primitive
 Chart-11$$JCommon 1.0.12 ShapeUtilities.equal(path1,path2)$$The comparison of two GeneralPath objects uses the same PathIterator for both objects. equal(GeneralPath path1, GeneralPath path2) will thus return true for any pair of non-null GeneralPath instances having the same windingRule.$$patch1-Chart-11-Cardumen$$Fix swapped diffs in patch$$1
 Math-70$$BisectionSolver.solve(final UnivariateRealFunction f, double min, double max, double initial) throws NullPointerException$$Method      BisectionSolver.solve(final UnivariateRealFunction f, double min, double max, double initial)   invokes      BisectionSolver.solve(double min, double max)  which throws NullPointerException, as member variable     UnivariateRealSolverImpl.f  is null. Instead the method:     BisectionSolver.solve(final UnivariateRealFunction f, double min, double max) should be called. Steps to reproduce: invoke:      new BisectionSolver().solve(someUnivariateFunctionImpl, 0.0, 1.0, 0.5); NullPointerException will be thrown.$$patch1-Math-70-Cardumen$$Added missing throws$$1
 Closure-62$$Column-indicating caret is sometimes not in error output$$None$$patch1-Closure-62-Cardumen$$Add null check$$0
-Closure-63$$None$$None$$patch1-Closure-63-Cardumen$$Add null check$$0
+Closure-63$$Column-indicating caret is sometimes not in error output$$None$$patch1-Closure-63-Cardumen$$Add null check$$0
 Chart-6$$None$$None$$patch1-Chart-6-Cardumen$$Added fix to chart .$$0
 Chart-24$$None$$None$$patch1-Chart-24-Cardumen$$Fix bug in chart$$0
 Chart-13$$None$$None$$patch1-Chart-13-Cardumen$$Fix arrange ( ) method$$0
@@ -1098,7 +1098,7 @@ Closure-129$$Casting a function before calling it produces bad code and breaks p
 Closure-126$$Break in finally block isn't optimized properly$$None$$patch1-Closure-126-kPAR$$Fix try / finally .$$0
 Closure-62$$Column-indicating caret is sometimes not in error output$$None$$patch1-Closure-62-kPAR$$Remove spurious blank line$$0
 Closure-109$$Constructor types that return all or unknown fail to parse$$None$$patch1-Closure-109-kPAR$$Add parseAndRecordTypeNode to the right type AST .$$0
-Closure-63$$None$$None$$patch1-Closure-63-kPAR$$Remove spurious blank line$$0
+Closure-63$$Column-indicating caret is sometimes not in error output$$None$$patch1-Closure-63-kPAR$$Remove spurious blank line$$0
 Closure-46$$ClassCastException during TypeCheck pass$$None$$patch1-Closure-46-kPAR$$Fix jstype annotation matching of non - Record type .$$0
 Closure-115$$Erroneous optimization in ADVANCED_OPTIMIZATIONS mode$$None$$patch1-Closure-115-kPAR$$Allow inline with function arguments$$0
 Chart-7$$None$$None$$patch1-Chart-7-kPAR$$Fixed formatting mistake$$0
@@ -1152,7 +1152,7 @@ Closure-73$$Codepoint U+007f appears raw in output$$None$$patch1-Closure-73-Jaid
 Closure-126$$Break in finally block isn't optimized properly$$None$$patch1-Closure-126-Jaid$$Fix tryMinimizeExitPoints for the case of finally blocks$$1
 Closure-31$$Add support for --manage_closure_dependencies and --only_closure_dependencies with compilation level WHITESPACE_ONLY$$None$$patch1-Closure-31-Jaid$$Allow closure pass through$$1
 Closure-62$$Column-indicating caret is sometimes not in error output$$None$$patch1-Closure-62-Jaid$$Remove whitespaces from sourceExcerpt .$$1
-Closure-63$$None$$None$$patch1-Closure-63-Jaid$$Remove whitespaces from sourceExcerpt$$1
+Closure-63$$Column-indicating caret is sometimes not in error output$$None$$patch1-Closure-63-Jaid$$Remove whitespaces from sourceExcerpt$$1
 Closure-70$$unexpected typed coverage of less than 100%$$None$$patch1-Closure-70-Jaid$$Fix typed scope creator for parameter types .$$1
 Closure-40$$smartNameRemoval causing compiler crash$$None$$patch1-Closure-40-Jaid$$Fix boolean property access warning$$1
 Chart-9$$Error on TimeSeries createCopy() method$$The test case at the end fails with :  java.lang.IllegalArgumentException: Requires start <= end.  The problem is in that the int start and end indexes corresponding to given timePeriod are computed incorectly. Here I would expect an empty serie to be returned, not an exception. This is with jfreechart 1.0.7$$patch1-Chart-9-Jaid$$Fix an issue with TimeSeries . isEmptyRange ( )$$1
@@ -1190,7 +1190,7 @@ Lang-55$$StopWatch: suspend() acts as split(), if followed by stop()$$In my opin
 Closure-33$$weird object literal invalid property error on unrelated object prototype$$None$$patch1-Closure-33-Jaid$$Added a missing if / else .$$0
 Closure-33$$weird object literal invalid property error on unrelated object prototype$$None$$patch2-Closure-33-Jaid$$Allow property types to be inferred from boolean to string .$$0
 Closure-62$$Column-indicating caret is sometimes not in error output$$None$$patch1-Closure-62-Jaid$$don ' t add whitespace to source experpt$$0
-Closure-63$$None$$None$$patch1-Closure-63-Jaid$$don ' t add whitespace to source experpt$$0
+Closure-63$$Column-indicating caret is sometimes not in error output$$None$$patch1-Closure-63-Jaid$$don ' t add whitespace to source experpt$$0
 Chart-9$$Error on TimeSeries createCopy() method$$The test case at the end fails with :  java.lang.IllegalArgumentException: Requires start <= end.  The problem is in that the int start and end indexes corresponding to given timePeriod are computed incorectly. Here I would expect an empty serie to be returned, not an exception. This is with jfreechart 1.0.7$$patch1-Chart-9-Jaid$$Fix bug for empty range$$0
 Chart-9$$Error on TimeSeries createCopy() method$$The test case at the end fails with :  java.lang.IllegalArgumentException: Requires start <= end.  The problem is in that the int start and end indexes corresponding to given timePeriod are computed incorectly. Here I would expect an empty serie to be returned, not an exception. This is with jfreechart 1.0.7$$patch2-Chart-9-Jaid$$Fix bug$$0
 Chart-9$$Error on TimeSeries createCopy() method$$The test case at the end fails with :  java.lang.IllegalArgumentException: Requires start <= end.  The problem is in that the int start and end indexes corresponding to given timePeriod are computed incorectly. Here I would expect an empty serie to be returned, not an exception. This is with jfreechart 1.0.7$$patch3-Chart-9-Jaid$$Fix bug # 944$$0
@@ -1242,7 +1242,7 @@ Time-4$$Constructing invalid Partials$$Partials can be constructed by invoking a
 Closure-73$$Codepoint U+007f appears raw in output$$None$$patch1-Closure-73-GenPat$$Fix typo in codeGenerator$$1
 Closure-86$$side-effects analysis incorrectly removing function calls with side effects$$None$$patch1-Closure-86-GenPat$$Add missing copy of NodeUtil$$1
 Closure-62$$Column-indicating caret is sometimes not in error output$$None$$patch1-Closure-62-GenPat$$Remove spurious blank line$$1
-Closure-63$$None$$None$$patch1-Closure-63-GenPat$$Remove spurious blank line$$1
+Closure-63$$Column-indicating caret is sometimes not in error output$$None$$patch1-Closure-63-GenPat$$Remove spurious blank line$$1
 Closure-115$$Erroneous optimization in ADVANCED_OPTIMIZATIONS mode$$None$$patch1-Closure-115-GenPat$$Fixing the function infusion of side effects in JS stylesheet$$1
 Closure-2$$combining @interface and multiple @extends can crash compiler$$None$$patch1-Closure-2-GenPat$$Added TypeCheck . checkForProxy ( ) to interfaceType$$1
 Chart-11$$JCommon 1.0.12 ShapeUtilities.equal(path1,path2)$$The comparison of two GeneralPath objects uses the same PathIterator for both objects. equal(GeneralPath path1, GeneralPath path2) will thus return true for any pair of non-null GeneralPath instances having the same windingRule.$$patch1-Chart-11-GenPat$$added missing copy$$1
@@ -1307,15 +1307,15 @@ Closure-92$$bug with implicit namespaces across modules$$None$$patch2-Closure-92
 Closure-92$$bug with implicit namespaces across modules$$None$$patch10-Closure-92-SequenceR$$Fix closure closures ' positioning mistake$$0
 Closure-92$$bug with implicit namespaces across modules$$None$$patch3-Closure-92-SequenceR$$Fix an issue with ' . ' in ProcessClosurePrimitives . java$$0
 Closure-92$$bug with implicit namespaces across modules$$None$$patch4-Closure-92-SequenceR$$Fix an issue with that damn code style error .$$0
-Closure-93$$None$$None$$patch8-Closure-93-SequenceR$$Fix closure closures ' definition .$$0
-Closure-93$$None$$None$$patch1-Closure-93-SequenceR$$Fix closure closures ' positioning .$$0
-Closure-93$$None$$None$$patch6-Closure-93-SequenceR$$Fix closure closures to error code .$$0
-Closure-93$$None$$None$$patch9-Closure-93-SequenceR$$Fix a warning$$0
-Closure-93$$None$$None$$patch5-Closure-93-SequenceR$$Fix a warning$$0
-Closure-93$$None$$None$$patch2-Closure-93-SequenceR$$Fix closure closures ' null arguments ' error$$0
-Closure-93$$None$$None$$patch10-Closure-93-SequenceR$$Fix closure closures ' positioning mistake$$0
-Closure-93$$None$$None$$patch3-Closure-93-SequenceR$$Fix an issue with ' . ' in ProcessClosurePrimitives . java$$0
-Closure-93$$None$$None$$patch4-Closure-93-SequenceR$$Fix an issue with that damn code style error .$$0
+Closure-93$$bug with implicit namespaces across modules$$None$$patch8-Closure-93-SequenceR$$Fix closure closures ' definition .$$0
+Closure-93$$bug with implicit namespaces across modules$$None$$patch1-Closure-93-SequenceR$$Fix closure closures ' positioning .$$0
+Closure-93$$bug with implicit namespaces across modules$$None$$patch6-Closure-93-SequenceR$$Fix closure closures to error code .$$0
+Closure-93$$bug with implicit namespaces across modules$$None$$patch9-Closure-93-SequenceR$$Fix a warning$$0
+Closure-93$$bug with implicit namespaces across modules$$None$$patch5-Closure-93-SequenceR$$Fix a warning$$0
+Closure-93$$bug with implicit namespaces across modules$$None$$patch2-Closure-93-SequenceR$$Fix closure closures ' null arguments ' error$$0
+Closure-93$$bug with implicit namespaces across modules$$None$$patch10-Closure-93-SequenceR$$Fix closure closures ' positioning mistake$$0
+Closure-93$$bug with implicit namespaces across modules$$None$$patch3-Closure-93-SequenceR$$Fix an issue with ' . ' in ProcessClosurePrimitives . java$$0
+Closure-93$$bug with implicit namespaces across modules$$None$$patch4-Closure-93-SequenceR$$Fix an issue with that damn code style error .$$0
 Closure-18$$Dependency sorting with closurePass set to false no longer works.$$None$$patch1-Closure-18-SequenceR$$Fix a bug in the compiler ' s dependency check$$0
 Closure-18$$Dependency sorting with closurePass set to false no longer works.$$None$$patch5-Closure-18-SequenceR$$Fix a null pointer check that would trigger an NPE .$$0
 Closure-18$$Dependency sorting with closurePass set to false no longer works.$$None$$patch3-Closure-18-SequenceR$$Fix a null pointer check that would trigger an error .$$0
@@ -1544,7 +1544,7 @@ Lang-22$$org.apache.commons.lang3.math.Fraction does not reduce (Integer.MIN_VAL
 Lang-22$$org.apache.commons.lang3.math.Fraction does not reduce (Integer.MIN_VALUE, 2^k)$$The greatestCommonDivisor method in class Fraction does not find the gcd of Integer.MIN_VALUE and 2^k, and this case can be triggered by taking Integer.MIN_VALUE as the numerator. Note that the case of taking Integer.MIN_VALUE as the denominator is handled explicitly in the getReducedFraction factory method. FractionTest.java 	// additional test cases 	public void testReducedFactory_int_int() { 		// ... 		f = Fraction.getReducedFraction(Integer.MIN_VALUE, 2); 		assertEquals(Integer.MIN_VALUE / 2, f.getNumerator()); 		assertEquals(1, f.getDenominator());  	public void testReduce() { 		// ... 		f = Fraction.getFraction(Integer.MIN_VALUE, 2); 		result = f.reduce(); 		assertEquals(Integer.MIN_VALUE / 2, result.getNumerator()); 		assertEquals(1, result.getDenominator());$$patch3-Lang-22-Arja$$Fix Fraction . greatestCommonDivisor ( )$$0
 Lang-22$$org.apache.commons.lang3.math.Fraction does not reduce (Integer.MIN_VALUE, 2^k)$$The greatestCommonDivisor method in class Fraction does not find the gcd of Integer.MIN_VALUE and 2^k, and this case can be triggered by taking Integer.MIN_VALUE as the numerator. Note that the case of taking Integer.MIN_VALUE as the denominator is handled explicitly in the getReducedFraction factory method. FractionTest.java 	// additional test cases 	public void testReducedFactory_int_int() { 		// ... 		f = Fraction.getReducedFraction(Integer.MIN_VALUE, 2); 		assertEquals(Integer.MIN_VALUE / 2, f.getNumerator()); 		assertEquals(1, f.getDenominator());  	public void testReduce() { 		// ... 		f = Fraction.getFraction(Integer.MIN_VALUE, 2); 		result = f.reduce(); 		assertEquals(Integer.MIN_VALUE / 2, result.getNumerator()); 		assertEquals(1, result.getDenominator());$$patch4-Lang-22-Arja$$Fix Fraction . greatestCommonDivisor ( )$$0
 Closure-92$$bug with implicit namespaces across modules$$None$$patch1-Closure-92-ConFix$$Fix the build .$$1
-Closure-93$$None$$None$$patch1-Closure-93-ConFix$$Fix the build .$$1
+Closure-93$$bug with implicit namespaces across modules$$None$$patch1-Closure-93-ConFix$$Fix the build .$$1
 Closure-73$$Codepoint U+007f appears raw in output$$None$$patch1-Closure-73-ConFix$$Fix typo in codeGenerator . java$$1
 Closure-38$$Identifier minus a negative number needs a space between the "-"s$$None$$patch1-Closure-38-ConFix$$Fix whitespace in code consumer$$1
 Closure-109$$Constructor types that return all or unknown fail to parse$$None$$patch1-Closure-109-ConFix$$Fix whitespace in closure109 .$$1
@@ -1644,7 +1644,7 @@ Lang-10$$FastDateParser does not handle white-space properly$$The SimpleDateForm
 Closure-45$$Assignment removed when used as an expression result to Array.push$$None$$patch1-Closure-45-jKali$$fix bug$$0
 Closure-62$$Column-indicating caret is sometimes not in error output$$None$$patch1-Closure-62-jKali$$don ' t add extra space to the end of a line$$0
 Closure-101$$--process_closure_primitives can't be set to false$$None$$patch1-Closure-101-jKali$$closure fix bug$$0
-Closure-63$$None$$None$$patch1-Closure-63-jKali$$don ' t add extra space to the end of a line$$0
+Closure-63$$Column-indicating caret is sometimes not in error output$$None$$patch1-Closure-63-jKali$$don ' t add extra space to the end of a line$$0
 Closure-46$$ClassCastException during TypeCheck pass$$None$$patch1-Closure-46-jKali$$Fix closure patching$$0
 Chart-1$$Potential NPE in AbstractCategoryItemRender.getLegendItems()$$Setting up a working copy of the current JFreeChart trunk in Eclipse I got a warning about a null pointer access in this bit of code from AbstractCategoryItemRender.java. The warning is in the last code line where seriesCount is assigned. The variable dataset is guaranteed to be null in this location, I suppose that the check before that should actually read "if (dataset == null)", not "if (dataset != null)".$$patch1-Chart-1-jKali$$Allow null dataset in chart$$0
 Chart-13$$None$$None$$patch1-Chart-13-jKali$$Fixed issue with left over chart$$0
@@ -1663,7 +1663,7 @@ Lang-22$$org.apache.commons.lang3.math.Fraction does not reduce (Integer.MIN_VAL
 Closure-57$$compiler crashes when  goog.provide used with non string$$None$$patch1-Closure-57-SimFix$$Fixing closure code conventions$$1
 Closure-73$$Codepoint U+007f appears raw in output$$None$$patch1-Closure-73-SimFix$$Fix typo in codeGenerator where ' c ' was passed through , but was accidentally ignored .$$1
 Closure-62$$Column-indicating caret is sometimes not in error output$$None$$patch1-Closure-62-SimFix$$Remove whitespaces from sourceExcerpt .$$1
-Closure-63$$None$$None$$patch1-Closure-63-SimFix$$Remove whitespaces from sourceExcerpt$$1
+Closure-63$$Column-indicating caret is sometimes not in error output$$None$$patch1-Closure-63-SimFix$$Remove whitespaces from sourceExcerpt$$1
 Closure-115$$Erroneous optimization in ADVANCED_OPTIMIZATIONS mode$$None$$patch1-Closure-115-SimFix$$Allow null arguments for static closures .$$1
 Closure-14$$bogus 'missing return' warning$$None$$patch1-Closure-14-SimFix$$Fix finally map .$$1
 Chart-20$$None$$None$$patch1-Chart-20-SimFix$$Fix ValueMarker constructor to ignore the outline paint for now .$$1
@@ -1730,7 +1730,7 @@ Lang-47$$StrBuilder appendFixedWidth does not handle nulls$$Appending a null val
 Lang-47$$StrBuilder appendFixedWidth does not handle nulls$$Appending a null value with fixed width causes a null pointer exception if getNullText() has not been set.$$patch2-Lang-47-VFix$$Fix bug$$1
 Math-70$$BisectionSolver.solve(final UnivariateRealFunction f, double min, double max, double initial) throws NullPointerException$$Method      BisectionSolver.solve(final UnivariateRealFunction f, double min, double max, double initial)   invokes      BisectionSolver.solve(double min, double max)  which throws NullPointerException, as member variable     UnivariateRealSolverImpl.f  is null. Instead the method:     BisectionSolver.solve(final UnivariateRealFunction f, double min, double max) should be called. Steps to reproduce: invoke:      new BisectionSolver().solve(someUnivariateFunctionImpl, 0.0, 1.0, 0.5); NullPointerException will be thrown.$$patch1-Math-70-VFix$$Added a fix for null constraint$$0
 Closure-62$$Column-indicating caret is sometimes not in error output$$None$$patch1-Closure-62-jMutRepair$$Fixed bug in Closure Repair fix$$1
-Closure-63$$None$$None$$patch1-Closure-63-jMutRepair$$Fixed bug in Closure ' s excerpt patch ( charno = sourceExpert . length ( ) )$$1
+Closure-63$$Column-indicating caret is sometimes not in error output$$None$$patch1-Closure-63-jMutRepair$$Fixed bug in Closure ' s excerpt patch ( charno = sourceExpert . length ( ) )$$1
 Chart-1$$Potential NPE in AbstractCategoryItemRender.getLegendItems()$$Setting up a working copy of the current JFreeChart trunk in Eclipse I got a warning about a null pointer access in this bit of code from AbstractCategoryItemRender.java. The warning is in the last code line where seriesCount is assigned. The variable dataset is guaranteed to be null in this location, I suppose that the check before that should actually read "if (dataset == null)", not "if (dataset != null)".$$patch1-Chart-1-jMutRepair$$Fix nullability assertion .$$1
 Math-85$$bug in inverseCumulativeProbability() for Normal Distribution$$@version $Revision: 617953 $ $Date: 2008-02-02 22:54:00 -0700 (Sat, 02 Feb 2008) $  */ public class NormalDistributionImpl extends AbstractContinuousDistribution    @version $Revision: 506600 $ $Date: 2007-02-12 12:35:59 -0700 (Mon, 12 Feb 2007) $  */ public abstract class AbstractContinuousDistribution  This code:         	DistributionFactory factory = app.getDistributionFactory();         	NormalDistribution normal = factory.createNormalDistribution(0,1);         	double result = normal.inverseCumulativeProbability(0.9772498680518209); gives the exception below. It should return (approx) 2.0000... normal.inverseCumulativeProbability(0.977249868051820); works fine These also give errors: 0.9986501019683698 (should return 3.0000...) 0.9999683287581673 (should return 4.0000...) org.apache.commons.math.MathException: Number of iterations=1, maximum iterations=2,147,483,647, initial=1, lower bound=0, upper bound=179,769,313,486,231,570,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000, final a value=0, final b value=2, f(a)=-0.477, f(b)=0 	at org.apache.commons.math.distribution.AbstractContinuousDistribution.inverseCumulativeProbability(AbstractContinuousDistribution.java:103) 	at org.apache.commons.math.distribution.NormalDistributionImpl.inverseCumulativeProbability(NormalDistributionImpl.java:145)$$patch1-Math-85-jMutRepair$$Fix a bug in the patch collection$$1
 Math-82$$SimplexSolver not working as expected 2$$SimplexSolver didn't find the optimal solution. Program for Lpsolve: ===================== /* Objective function */ max: 7 a 3 b; /* Constraints */ R1: +3 a -5 c <= 0; R2: +2 a -5 d <= 0; R3: +2 b -5 c <= 0; R4: +3 b -5 d <= 0; R5: +3 a +2 b <= 5; R6: +2 a +3 b <= 5; /* Variable bounds */ a <= 1; b <= 1; ===================== Results(correct): a = 1, b = 1, value = 10 Program for SimplexSolve: ===================== LinearObjectiveFunction kritFcia = new LinearObjectiveFunction(new double[] {7, 3, 0, 0} , 0); Collection<LinearConstraint> podmienky = new ArrayList<LinearConstraint>(); podmienky.add(new LinearConstraint(new double[] {1, 0, 0, 0} , Relationship.LEQ, 1)); podmienky.add(new LinearConstraint(new double[] {0, 1, 0, 0} , Relationship.LEQ, 1)); podmienky.add(new LinearConstraint(new double[] {3, 0, -5, 0} , Relationship.LEQ, 0)); podmienky.add(new LinearConstraint(new double[] {2, 0, 0, -5} , Relationship.LEQ, 0)); podmienky.add(new LinearConstraint(new double[] {0, 2, -5, 0} , Relationship.LEQ, 0)); podmienky.add(new LinearConstraint(new double[] {0, 3, 0, -5} , Relationship.LEQ, 0)); podmienky.add(new LinearConstraint(new double[] {3, 2, 0, 0} , Relationship.LEQ, 5)); podmienky.add(new LinearConstraint(new double[] {2, 3, 0, 0} , Relationship.LEQ, 5)); SimplexSolver solver = new SimplexSolver(); RealPointValuePair result = solver.optimize(kritFcia, podmienky, GoalType.MAXIMIZE, true); ===================== Results(incorrect): a = 1, b = 0.5, value = 8.5 P.S. I used the latest software from the repository (including MATH-286 fix).$$patch1-Math-82-jMutRepair$$Fixed epsilon$$1

@@ -60,6 +60,7 @@ Closure-59$$Cannot exclude globalThis checks through command line$$None
 Closure-60$$void function () {}(); wrongly identified as having no side effects$$None
 Closure-61$$Closure removes needed code.$$None
 Closure-62$$Column-indicating caret is sometimes not in error output$$None
+Closure-63$$Column-indicating caret is sometimes not in error output$$None
 Closure-64$$--language_in=ECMASCRIPT5_STRICT results in 1 'use strict' per input file$$None
 Closure-65$$String escaping mishandles null byte$$None
 Closure-66$$@enum does not type correctly$$None
@@ -89,6 +90,7 @@ Closure-89$$Compiler removes function properties that it should not$$None
 Closure-90$$@this emits warning when used with a typedef$$None
 Closure-91$$support @lends annotation$$None
 Closure-92$$bug with implicit namespaces across modules$$None
+Closure-93$$bug with implicit namespaces across modules$$None
 Closure-94$$closure-compiler @define annotation does not allow line to be split on 80 characters.$$None
 Closure-95$$Use @public tag to prevent compression of symbol names$$None
 Closure-96$$Missing type-checks for var_args notation$$None
