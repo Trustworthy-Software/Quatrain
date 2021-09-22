@@ -23,7 +23,7 @@ Closure-22$$Classify non-rightmost expressions as problematic$$None
 Closure-23$$tryFoldArrayAccess does not check for side effects$$None
 Closure-24$$goog.scope doesn't properly check declared functions$$None
 Closure-25$$anonymous object type inference behavior is different when calling constructors$$None
-Closure-26$$ProcessCommonJSModules module$exports failures when checkTypes enabled$$None
+Closure-26$$ProcessCommonJSModules module exports failures when checkTypes enabled$$None
 Closure-27$$Error trying to build try-catch block (AST)$$None
 Closure-28$$constant functions not inlined aggressively enough$$None
 Closure-29$$closure compiler screws up a perfectly valid isFunction() implementation$$None
@@ -133,7 +133,7 @@ Closure-132$$if statement$$None
 Closure-133$$Exception when parsing erroneous jsdoc: /**@return {@code foo} bar   *    baz. */$$None
 Closure-134$$@inheritDoc doesn't play well with interfaces$$None
 Closure-135$$Inheritance not detected when prototype directly assigned$$None
-Closure-136$$$super is replaced when it should not be replaced$$None
+Closure-136$$ super is replaced when it should not be replaced$$None
 Closure-137$$Invalid JSC_DETERMINISTIC_TEST$$None
 Closure-138$$Invalid JSC_DETERMINISTIC_TEST$$None
 Closure-139$$Redefinition of a function in third party code can be miscompiled$$None
