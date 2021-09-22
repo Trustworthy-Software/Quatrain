@@ -44,7 +44,7 @@ def save_bug_report(path_folder):
         with open(os.path.join(path_folder,j), 'r+') as f:
             name = j.split('.')[0]
             json_dict = json.load(f)
-            summary = str(json_dict['summary'])
+            summary = str(json_dict['summary']).replace('$',' ')
             description = 'None'
 
             result += name + '$$' + summary + '$$' + description + '\n'
@@ -74,8 +74,8 @@ def get_bug_report(project):
         #     summary = soup.find('span', {'data-snek-id': 'issue-title'}).text.strip().replace('\n',' ')
         #     description = 'None'
         # else:
-        summary = soup.find('h1', {'id': 'summary-val'}).text.strip().replace('\n',' ')
-        description = soup.find('div', {'id': 'description-val'}).text.strip().replace('\n',' ')
+        summary = soup.find('h1', {'id': 'summary-val'}).text.strip().replace('\n',' ').replace('$',' ')
+        description = soup.find('div', {'id': 'description-val'}).text.strip().replace('\n',' ').replace('$',' ')
         result += project_id + '$$' + summary + '$$' + description + '\n'
     print (result)
     with open('../data/BugReport/'+project+'_bugreport.txt', 'w+') as f:
@@ -91,8 +91,8 @@ def get_bug_report_chartTime(project):
         project_id = json_name.split('.')[0]
         with open(path_file, 'r+') as f:
             dict = json.load(f)
-            summary = dict['summary'].strip()
-            description = dict['description'].strip().replace('\n',' ')
+            summary = dict['summary'].strip().replace('$',' ')
+            description = dict['description'].strip().replace('\n',' ').replace('$',' ')
         result += project_id + '$$' + summary + '$$' + description + '\n'
     print (result)
     with open('../data/BugReport/'+project+'_bugreport.txt', 'w+') as f:
