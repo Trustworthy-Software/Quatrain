@@ -18,7 +18,7 @@ class Classifier:
 
         print('All data size: {}, Incorrect: {}, Correct: {}'.format(len(self.labels), list(self.labels).count(0), list(self.labels).count(1)))
         print('Algorithm: {}'.format(self.algorithm))
-        print('---------------')
+        print('#####')
     def evaluation_metrics(self, y_true, y_pred_prob):
         fpr, tpr, thresholds = roc_curve(y_true=y_true, y_score=y_pred_prob, pos_label=1)
         auc_ = auc(fpr, tpr)
@@ -87,3 +87,4 @@ class Classifier:
         print('{}-fold cross validation mean: '.format(self.kfold))
         print('Accuracy: {:.1f} -- Precision: {:.1f} -- +Recall: {:.1f} -- F1: {:.1f} -- AUC: {:.3f}'.format(np.array(accs).mean()*100, np.array(prcs).mean()*100, np.array(rcs).mean()*100, np.array(f1s).mean()*100, np.array(aucs).mean()))
         print('AUC: {:.3f}, +Recall: {:.3f}, -Recall: {:.3f}'.format(np.array(aucs).mean(), np.array(rcs_p).mean(), np.array(rcs_n).mean()))
+        print('---------------')
