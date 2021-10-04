@@ -8,11 +8,15 @@ from sklearn.metrics import confusion_matrix, average_precision_score
 import numpy as np
 import ML4Prediciton
 import signal
+import json
 
 class Experiment:
     def __init__(self):
         self.cf = config.Config()
         self.path_patch = self.cf.path_patch
+        if 'Unique' in self.path_patch:
+            raise ('please deduplicate it!')
+        self.path_patch_sliced = self.cf.path_patch + '_sliced'
         # self.dict_b = {}
         self.bugReportText = None
     def evaluation_metrics(self, y_trues, y_pred_probs):
@@ -74,7 +78,7 @@ class Experiment:
                     dict_b[project_id] = [bugReportSummary, bugReportDescription]
         pickle.dump(dict_b, open(file_name, 'wb'))
 
-    def save_bugreport_commit(self, path_patch, ):
+    def save_bugreport_patch(self, path_patch, ):
         # dataset_text = ''
         dataset_text_with_description = ''
         file_name = '../data/bugreport_patch.txt'
@@ -116,6 +120,7 @@ class Experiment:
 
     def save_bugreport_patch_vector(self, embedding_method):
         labels, y_preds = [], []
+        deduplicated_patchids = pickle.load(open('../utils/deduplicated_name.pickle', 'rb'))
         file_name = '../data/bugreport_patch_'+embedding_method+'.pickle'
         if os.path.exists(file_name):
             return
@@ -131,7 +136,8 @@ class Experiment:
                     patch_id = line.split('$$')[3].strip()
                     commit_content = line.split('$$')[4].strip()
                     label = int(float(line.split('$$')[5].strip()))
-                    if bugreport_summary == 'None' or commit_content == 'None':
+                    # skip none and duplicated cases
+                    if bugreport_summary == 'None' or commit_content == 'None' or (patch_id not in deduplicated_patchids):
                         continue
                     w = Word2vector(embedding_method)
 
@@ -178,13 +184,79 @@ class Experiment:
         cl = ML4Prediciton.Classifier(features, labels, 'rf', 10)
         cl.cross_validation()
 
+    def predictASE(self, path_patch_sliced):
+        cnt = 0
+        available_patchids = []
+        deduplicated_patchids = pickle.load(open('../utils/deduplicated_name.pickle', 'rb'))
+        with open('../data/bugreport_patch.txt', 'r+') as f:
+            for line in f:
+                    # project_id = line.split('$$')[0].strip()
+                    bugreport_summary = line.split('$$')[1].strip()
+                    # bugreport_description = line.split('$$')[2].strip()
+                    patch_id = line.split('$$')[3].strip()
+                    commit_content = line.split('$$')[4].strip()
+                    # label = int(float(line.split('$$')[5].strip()))
+                    # skip none and duplicated cases
+                    if bugreport_summary != 'None' and commit_content != 'None' and patch_id in deduplicated_patchids:
+                        available_patchids.append(patch_id)
+        print('available patch number: {}'.format(len(available_patchids)))
+        features_ASE, labels = [], []
+        cnt = 0
+        for root, dirs, files in os.walk(path_patch_sliced):
+            for file in files:
+                if file.endswith('$cross.json'):
+                    cnt += 1
+                    # # file: patch1-Closure-9-Developer-1.patch
+                    # name_part = file.split('.')[0]
+                    # name = '-'.join(name_part.split('-')[:-1])
+                    # label = 1 if root.split('/')[-4] == 'Correct' else 0
+                    # project = name.split('-')[1]
+                    # id = name.split('-')[2]
+                    # project_id = project + '-' + id
+                    # feature_json = root + '_cross.json'
+
+                    # file: patch1$.json
+                    name = file.split('$cross')[0]
+                    id = root.split('/')[-1]
+                    project = root.split('/')[-2]
+                    label = 1 if root.split('/')[-3] == 'Correct' else 0
+                    tool = root.split('/')[-4]
+                    patch_id_test = '-'.join([name, project, id, tool])
+                    patch_id_tmp = '-'.join([name+'_1', project, id, tool])
+                    # only consider the patches that have associated bug report
+                    if patch_id_test not in available_patchids and patch_id_tmp not in available_patchids:
+                        # print('name: {}'.format(patch_id_test))
+                        continue
+                    feature_json = os.path.join(root, file)
+                    try:
+                        with open(feature_json, 'r+') as f:
+                            vector_str = json.load(f)
+                            vector_ML = np.array(list(map(float, vector_str)))
+                    except Exception as e:
+                        print(e)
+                        continue
+                    features_ASE.append(vector_ML)
+                    labels.append(label)
+                    # print('collecting {}'.format(project_id))
+        # print('cnt js: {}'.format(cnt))
+        features_ASE = np.array(features_ASE)
+        labels = np.array(labels)
+        cl = ML4Prediciton.Classifier(features_ASE, labels, 'lr', 10)
+        cl.cross_validation()
+
+
     def handler(signum, frame):
         raise Exception("end of time")
 
 if __name__ == '__main__':
     embedding = 'bert'
     e = Experiment()
+
     e.save_bugreport()
-    e.save_bugreport_commit(e.cf.path_patch,)
+    e.save_bugreport_patch(e.path_patch,)
     e.save_bugreport_patch_vector(embedding_method=embedding)
-    e.predict(embedding)
+
+    # e.predict(embedding)
+    e.predict(embedding+'(description)')
+
+    e.predictASE(e.path_patch_sliced)
