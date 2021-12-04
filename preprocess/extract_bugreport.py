@@ -2,6 +2,8 @@ import json, os
 import urllib.request
 import bs4 as bs
 import pickle
+from lxml import etree
+from  github import Github
 
 def get_json_by_url(folder_path, names, lists):
     if not os.path.exists(folder_path):
@@ -98,8 +100,72 @@ def get_bug_report_chartTime(project):
     with open('../data/BugReport/'+project+'_bugreport.txt', 'w+') as f:
         f.write(result)
 
+def get_bug_report_bears(project):
+    with open('../data/bears_url_dict.json', 'r+') as f:
+        bears_url_dict = json.load(f)
+    path_xml = 'Project_File/' + project + '_xml'
+    xml_names = os.listdir(path_xml)
+    xml_names = sorted(xml_names, key=lambda x: int(x.split('.')[0].split('-')[1]),)
+    result = ''
+    token = os.getenv('GITHUB_TOKEN', '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')
+    g = Github(token)
+    for xml_name in xml_names:
+        path_file = path_xml + '/' + xml_name
+        project_id = xml_name.split('.')[0]
+        url_bug_report = bears_url_dict[project_id]
+        short_link = url_bug_report.replace('https://github.com/', '')
+        repo = g.get_repo(short_link)
+
+        with open(path_file, 'rb') as f:
+            the_page = pickle.load(f)
+
+        et_html = etree.HTML(the_page)
+        summary, description = '', ''
+
+        summary_div = et_html.xpath('//*[@id="partial-discussion-header"]/div[1]/div/h1/span[1]')[0]
+        if summary_div.text != None:
+            summary += summary_div.text.strip() + ' '
+        if summary_div.tail != None:
+            summary += summary_div.tail.strip() + ' '
+        for summary_all in summary_div:
+            if summary_all.text != None:
+                summary += summary_all.text.strip() + ' '
+            if summary_all.tail != None:
+                summary += summary_all.tail.strip() + ' '
+            for summary in summary_all:
+                if summary.text != None:
+                    summary += summary.text.strip() + ' '
+                if summary.tail != None:
+                    summary += summary.tail.strip() + ' '
+
+        try:
+            issue_id = repo.id
+            description_div = et_html.xpath('//*[@id="issue-{}"]/div/div[2]/task-lists/table/tbody/tr[1]/td'.format(issue_id))[0]
+        except Exception as e:
+            print(e)
+            raise
+        if description_div.text != None:
+            description += description_div.text.strip() + ' '
+        if description_div.tail != None:
+            description += description_div.tail.strip() + ' '
+        for p_all in description_div:
+            if p_all.text != None:
+                description += p_all.text.strip() + ' '
+            if p_all.tail != None:
+                description += p_all.tail.strip() + ' '
+            for p in p_all:
+                if p.text != None:
+                    description += p.text.strip() + ' '
+                if p.tail != None:
+                    description += p.tail.strip() + ' '
+
+        result += project_id + '$$' + summary.strip() + '$$' + description.strip() + '\n'
+    print (result)
+    with open('../data/BugReport/'+project+'_bugreport.txt', 'w+') as f:
+        f.write(result)
+
 if __name__ == '__main__':
-    # '''
+    '''    
     # 1. extract bug report of Closure
     get_bug_report_closure(file_url='Project_URL/Closure_url.txt')
 
@@ -111,9 +177,12 @@ if __name__ == '__main__':
 
     # 4. extract bug report of Chart
     get_bug_report_chartTime(project='Chart')
-    # '''
+
     # 5. extract bug report of Time
     get_bug_report_chartTime(project='Time')
 
     # 6. extract bug report of Mockito
     get_bug_report_chartTime(project='Mockito')
+    
+    '''
+    get_bug_report_bears(project='Bears')
