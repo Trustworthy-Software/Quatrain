@@ -1,6 +1,7 @@
 import os
 from subprocess import *
 import yaml
+import re
 
 # git clone project from 'https://github.com/bugs-dot-jar/bugs-dot-jar'
 path_bugs_dot_jar = '/Users/haoye.tian/Documents/University/project/bugs-dot-jar'
@@ -49,10 +50,12 @@ def checkout(path_bugs_dot_jar):
                 bug_report = yaml.load(f, Loader=yaml.FullLoader)
 
             bug_id = bug_report['BugID']
-            summary = bug_report['Summary']
+            # summary = bug_report['Summary'].replace('$$', ' ')
+            summary = re.sub(r'\r|\n|\$', ' ', bug_report['Summary'])
             description = 'None'
             if bug_report['Description'] != None:
-                description = bug_report['Description'].replace('\n', ' ')
+                # description = bug_report['Description'].replace('\n || \r || $$', ' ').replace('$$', ' ')
+                description = re.sub(r'\r|\n|\$', ' ', bug_report['Description'])
 
             project_id = b.replace('bugs-dot-jar_', '')
             # make sure the link between bug id and corresponding bug report is correct
