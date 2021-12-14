@@ -1,7 +1,6 @@
 import os
 import shutil
 
-path_patch = '/Users/haoye.tian/Documents/PatchNaturalness/Defects4J'
 
 # create a middle folder for patch that changes multiple files. folder tree is like: Chart/1/patch1/patch1#1... and Chart/1/patch1/patch1#2.... folder "patch1" will be created in this script.
 def copy_file(path_patch):
@@ -39,5 +38,28 @@ def copy_file(path_patch):
                                 shutil.copy(old_file, new_file)
 
 
+def format_folder4ODS(path_patch):
+    old = path_patch.split('/')[-1]
+    new = old + '2'
+    for root, dirs, files in os.walk(path_patch):
+        for file in files:
+            if file.endswith('.patch'):
+                name = file.split('.')[0]
 
-copy_file(path_patch)
+                folder0 = name
+                folder1 = name.split('_')[0]
+                folder2 = name.split('_')[1]
+
+                new_root = root.replace(old, new)
+                new_folder = os.path.join(new_root, name, folder1, folder2)
+                if not os.path.exists(new_folder):
+                    os.makedirs(new_folder)
+
+                shutil.copy(os.path.join(root, file), os.path.join(new_folder, file))
+
+
+path_patch = '/Users/haoye.tian/Documents/PatchNaturalness/Defects4J'
+path_patch_ye = '/Users/haoye.tian/Documents/PatchNaturalnessYe'
+
+# copy_file(path_patch)
+format_folder4ODS(path_patch_ye)
