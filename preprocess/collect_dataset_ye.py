@@ -157,7 +157,43 @@ def download_bugsjar(path_patch):
                 shutil.copy(os.path.join(root, file), os.path.join(new_folder, new_file))
     print(cnt)
 
+def download_developer_patch(path_patch, benchmark):
+    for root, dirs, files in os.walk(path_patch):
+        for file in files:
+            if file.endswith('.diff'):
+                if benchmark == 'Bugsjar':
+                    id = root.split('/')[-1]
+                    project = root.split('/')[-2]
+                    if project not in ['Accumulo', 'Commons-Math', 'Flink', 'Jackrabbit-Oak', 'Maven', 'Wicket']:
+                        continue
+
+                    path_old_file = os.path.join(root, file)
+                    path_new_folder = os.path.join(new_root, benchmark, 'Developer', 'Correct', project, id, 'patch1')
+                    if not os.path.exists(path_new_folder):
+                        os.makedirs(path_new_folder)
+                    new_name = 'patch1-' + project + '-' + id + '_Developer.patch'
+                    path_new_file = os.path.join(path_new_folder, new_name)
+
+                    shutil.copy(path_old_file, path_new_file)
+
+                if benchmark == 'Bears':
+                    project = 'Bears'
+                    id = root.split('/')[-1].split('_')[1]
+
+                    path_old_file = os.path.join(root, file)
+                    path_new_folder = os.path.join(new_root, benchmark, 'Developer', 'Correct', project, id, 'patch1')
+                    if not os.path.exists(path_new_folder):
+                        os.makedirs(path_new_folder)
+                    new_name = 'patch1-' + project + '-' + id + '_Developer.patch'
+                    path_new_file = os.path.join(path_new_folder, new_name)
+
+                    shutil.copy(path_old_file, path_new_file)
 # all the generated patches are overfitting/incorrect.
 # download_defects4j(path_patch)
 # download_bears(path_patch)
-download_bugsjar(path_patch)
+# download_bugsjar(path_patch)
+
+# https://github.com/tdurieux/pattern-detector-experiment
+for benchmark in ['Bugsjar', 'Bears']:
+    path_patch = '/Users/haoye.tian/Documents/University/project/pattern-detector-experiment/benchmark/' + benchmark
+    download_developer_patch(path_patch, benchmark)
