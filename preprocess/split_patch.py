@@ -4,6 +4,7 @@ import shutil
 import os
 
 path = '/Users/haoye.tian/Documents/PatchNaturalnessYe'
+# path = '/Users/haoye.tian/Documents/PatchNaturalnessYe/Bears/Developer'
 
 # split patch into multiple single patches which change only one file respectively
 def split(path):
@@ -57,11 +58,12 @@ def check(path):
                             if line.startswith('---'):
                                 cnt += 1
                     if cnt > 1:
-                        raise
+                        raise ('not good')
                 except Exception as e:
+                    # raise
                     print(e)
-    print(len(unique_patch))
+    # print(len(unique_patch))
     print('good split, not missing patch')
 
-# split(path)
+split(path)
 check(path)

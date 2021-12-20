@@ -57,9 +57,10 @@ def format_folder4ODS(path_patch):
 
                 shutil.copy(os.path.join(root, file), os.path.join(new_folder, file))
 
-
-path_patch = '/Users/haoye.tian/Documents/PatchNaturalness/Defects4J'
-path_patch_ye = '/Users/haoye.tian/Documents/PatchNaturalnessYe'
-
+# no need to use anymore
+# path_patch = '/Users/haoye.tian/Documents/PatchNaturalness/Defects4J'
 # copy_file(path_patch)
-format_folder4ODS(path_patch_ye)
+
+for benchmark in ['Bugsjar', 'Bears']:
+    path_patch_ye = '/Users/haoye.tian/Documents/PatchNaturalnessYe/'+benchmark+'/Developer'
+    format_folder4ODS(path_patch_ye)

@@ -174,7 +174,18 @@ def download_developer_patch(path_patch, benchmark):
                     new_name = 'patch1-' + project + '-' + id + '_Developer.patch'
                     path_new_file = os.path.join(path_new_folder, new_name)
 
-                    shutil.copy(path_old_file, path_new_file)
+                    # shutil.copy(path_old_file, path_new_file)
+                    with open(path_old_file, 'r+') as f:
+                        new_line = ''
+                        for line in f:
+                            if line.startswith('new file mode'):
+                                continue
+                            elif line.startswith('diff ') or line.startswith('index'):
+                                new_line += '\n'
+                            else:
+                                new_line += line
+                    with open(path_new_file, 'w+') as f:
+                        f.write(new_line)
 
                 if benchmark == 'Bears':
                     project = 'Bears'
@@ -187,7 +198,18 @@ def download_developer_patch(path_patch, benchmark):
                     new_name = 'patch1-' + project + '-' + id + '_Developer.patch'
                     path_new_file = os.path.join(path_new_folder, new_name)
 
-                    shutil.copy(path_old_file, path_new_file)
+                    # shutil.copy(path_old_file, path_new_file)
+                    with open(path_old_file, 'r+') as f:
+                        new_line = ''
+                        for line in f:
+                            if line.startswith('new file mode'):
+                                continue
+                            elif line.startswith('diff ') or line.startswith('index'):
+                                new_line += '\n'
+                            else:
+                                new_line += line
+                    with open(path_new_file, 'w+') as f:
+                        f.write(new_line)
 # all the generated patches are overfitting/incorrect.
 # download_defects4j(path_patch)
 # download_bears(path_patch)

@@ -1,2 +1,5 @@
 # naturality
-learn the relation between natural language representations of bug report and associated patches to predict the patch correctness
+1, collect dataset
+2, split patch
+3, format folders
+4, get source target file
