@@ -101,7 +101,7 @@ def get_bug_report_chartTime(project):
         f.write(result)
 
 def get_bug_report_bears(project):
-    with open('../data/bears_url_dict.json', 'r+') as f:
+    with open('Project_URL/bears_url_dict.json', 'r+') as f:
         bears_url_dict = json.load(f)
     path_xml = 'Project_File/' + project + '_xml'
     xml_names = os.listdir(path_xml)
