@@ -46,7 +46,7 @@ def get_source_bugsjar(path_patch, benmark):
         for file in files:
             if file.endswith('.patch'):
                 cnt += 1
-                print(cnt)
+                print('{}: {}'.format(cnt, file))
                 name = file.split('.')[0]
                 tool = name.split('_')[1]
                 half_name = name.split('_')[0]
@@ -101,7 +101,7 @@ def get_source_bugsjar(path_patch, benmark):
                 # switch branch
                 project_branch = project_branch.strip().split('/')[-1]
 
-                cmd = 'cd {} && cd {} && git checkout {}'.format(github_repository_bugsjar, project, project_branch)
+                cmd = 'cd {} && cd {} && git checkout -f {}'.format(github_repository_bugsjar, project, project_branch)
                 try:
                     with Popen(cmd, stdout=PIPE, stderr=PIPE, shell=True, encoding='utf-8') as p:
                         result, errors = p.communicate(timeout=300)
@@ -115,7 +115,8 @@ def get_source_bugsjar(path_patch, benmark):
                 # get source file
                 path_file = os.path.join(github_repository_bugsjar, project, path_file_changed)
                 if os.path.exists(path_file):
-                    print('success')
+                    # print('success')
+                    pass
                     # found += 1
                 else:
                     nofound += 1
@@ -241,8 +242,7 @@ def apply_patch(path):
                     print('name: {}, exc: {}'.format(name, e))
                     continue
 
-path = '/Users/haoye.tian/Documents/PatchNaturalnessYe'
-path = '/Users/haoye.tian/Documents/PatchNaturalnessYe/Bears/Developer'
+path = '/Users/haoye.tian/Documents/PatchNaturalnessYeTemp'
 
 if __name__ == '__main__':
     print('start')
@@ -251,13 +251,13 @@ if __name__ == '__main__':
     github_repository_bugsjar = '/Users/haoye.tian/Documents/University/project/bugs-dot-jar'
 
     # 1.1 get source file for incorrect patches
-    # get_source_bugsjar(os.path.join(path, 'Bugsjar'), 'Bugsjar')
+    get_source_bugsjar(os.path.join(path, 'Bugsjar'), 'Bugsjar')
     # get_source_from_bug(os.path.join(path, 'Bears'), 'Bears', github_buggy_bears)
     # get_source_from_bug(os.path.join(path, 'Defects4J'), 'Defects4J', github_buggy_defects4j)
 
     # 1.2 get source file for developer/correct patches
     # get_source_from_bug(os.path.join(path, 'Bears/Developer'), 'Bears', github_buggy_bears)
-    # get_source_bugsjar(os.path.join(path, 'Bugsjar/Developer'), 'Bugsjar')
+    get_source_bugsjar(os.path.join(path, 'Bugsjar/Developer'), 'Bugsjar')
 
     # 2. apply to get target file
     apply_patch(path)
