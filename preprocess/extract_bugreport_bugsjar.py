@@ -61,7 +61,9 @@ def checkout(path_bugs_dot_jar):
             # make sure the link between bug id and corresponding bug report is correct
             if bug_id not in project_id:
                 raise ('mismatch bug id and bug report')
-            result += project_id + '$$' + summary.strip() + '$$' + description.strip() + '\n'
+            # use new project id
+            project_id_new = project_id.split('-')[0] + '-' + project_id.split('_')[1]
+            result += project_id_new + '$$' + summary.strip() + '$$' + description.strip() + '\n'
 
             cnt += 1
             print('{}: {}'.format(cnt, project_id))

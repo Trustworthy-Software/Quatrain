@@ -126,7 +126,7 @@ def download4bears():
         print('cnt: {}, cnt_error: {}, bug_url: {}, {}'.format(cnt, cnt_error, bug_url, er))
     print('cnt: {}, cnt_error: {}'.format(cnt, cnt_error))
     # save url for bears
-    with open('../data/bears_url_dict.json', 'w+') as f:
+    with open('Project_URL/bears_url_dict.json', 'w+') as f:
         json.dump(url_bug_report, f)
 
 
