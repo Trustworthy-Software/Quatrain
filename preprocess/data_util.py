@@ -4,9 +4,12 @@ import sys
 import time
 from constants import Output_DATA_DIR, Origin_DATA_DIR
 
+<<<<<<< HEAD
 import nltk
 from nltk.corpus import stopwords
 
+=======
+>>>>>>> 45fdc9b5e77fd91508f00a1412fc0e9b4c6aaadd
 #PyTorch-packages
 import torch
 import torch.nn as nn
@@ -34,6 +37,7 @@ def numbr(string):
 # remove punctuation
 def filter_punc(sentence):
     sentence = re.sub("[\s+\.\!\/_,$%^*(+\"\'“”《》?“]+|[+——！，。？、~@#￥%……&*（）)：]+", " ", sentence)  
+<<<<<<< HEAD
     sentence = sentence.replace('=',' ')
     sentence = sentence.replace('{',' ')
     sentence = sentence.replace(']',' ')
@@ -51,6 +55,10 @@ def filter_sw(text, sw_nltk):
     new_text = " ".join(words)
     return new_text
 
+=======
+    return(sentence)
+
+>>>>>>> 45fdc9b5e77fd91508f00a1412fc0e9b4c6aaadd
 class ShowProcess():
     """
     显示处理进度的类
@@ -167,17 +175,28 @@ def writetxt2csv(inputfile, outfilename):
         line2list[0] = numbr(line2list[0])
         
         #for bug report text
+<<<<<<< HEAD
         
         line2list[1] = filter_sw( filter_punc(line2list[1]), stopwords.words('english'))
         
         #for bug report description
         line2list[2] = filter_sw( filter_punc(line2list[2]), stopwords.words('english'))
+=======
+        line2list[1] = filter_punc(line2list[1])
+        
+        #for bug report description
+        line2list[2] = filter_punc(line2list[2])
+>>>>>>> 45fdc9b5e77fd91508f00a1412fc0e9b4c6aaadd
         
         #for generated patch id
         line2list[3] = numbr(line2list[2])    
         
         #for patch text
+<<<<<<< HEAD
         line2list[4] = filter_sw( filter_punc(line2list[3]), stopwords.words('english'))
+=======
+        line2list[4] = filter_punc(line2list[3])
+>>>>>>> 45fdc9b5e77fd91508f00a1412fc0e9b4c6aaadd
         
         # add data into df file
         df_toadd = pd.DataFrame([line2list], columns = column_names)
@@ -196,7 +215,10 @@ def writetxt2csv(inputfile, outfilename):
     incorrectfile = '%s/incorrect.csv' % Origin_DATA_DIR
     df_0.to_csv(correctfile)
     df_1.to_csv(incorrectfile)
+<<<<<<< HEAD
     print(df_0.columns.values.tolist())
+=======
+>>>>>>> 45fdc9b5e77fd91508f00a1412fc0e9b4c6aaadd
 
 def splitdata(correct_file, incorrect_file):
     # split data into correct & incorrect text // build dictionary
