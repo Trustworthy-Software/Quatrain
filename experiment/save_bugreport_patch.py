@@ -14,8 +14,8 @@ def save_bugreport_patch(path_patch, ):
     # dataset_text = ''
     dataset_text_with_description = ''
     file_name = '../data/bugreport_patch.txt'
-    if os.path.exists(file_name):
-        return
+    # if os.path.exists(file_name):
+    #     return
     with open('../data/BugReport/Bug_Report_All.json', 'rb') as f:
         bugReportText = json.load(f)
 
@@ -41,11 +41,10 @@ def save_bugreport_patch(path_patch, ):
                             patches = os.listdir(path_id)
                             for patch in patches:
                                 cnt_patch += 1
-                                if benchmark == 'Bugsjar':
-                                    if '+' in project:
-                                        project = project.split('+')[1]
-                                        project = project.upper()
-                                        project_id = project + '-' + id
+                                if benchmark == 'Bugsjar' and '+' in project:
+                                        project1 = project.split('+')[1]
+                                        project1 = project1.upper()
+                                        project_id = project1 + '-' + id
                                 else:
                                     project_id = project + '-' + id
                                 print('collecting {}'.format(project_id))
@@ -66,13 +65,14 @@ def save_bugreport_patch(path_patch, ):
                                 for root, dirs, files in os.walk(path_single_patch):
                                     for file in files:
                                         if file.endswith('.txt'):
-                                            patch_id = file.split('.')[0]
                                             try:
                                                 with open(os.path.join(root, file), 'r+') as f:
                                                     patch_text += f.readlines()[0].strip('\n')
                                             except Exception as e:
                                                 print(e)
                                                 continue
+
+                                patch_id = patch + '-' + project_id +'_' + tool
 
                                 if bug_report_summary == 'None' or patch_text == '':
                                     continue
