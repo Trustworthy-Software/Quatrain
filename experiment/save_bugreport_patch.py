@@ -72,7 +72,7 @@ def save_bugreport_patch(path_patch, ):
                                                 print(e)
                                                 continue
 
-                                patch_id = patch + '-' + project_id +'_' + tool
+                                patch_id = patch + '-' + project_id +'_' + tool + '_' + dataset
 
                                 if bug_report_summary == 'None' or patch_text == '':
                                     continue
