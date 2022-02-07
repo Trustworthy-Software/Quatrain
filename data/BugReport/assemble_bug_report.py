@@ -1,7 +1,7 @@
 import os
 import json
 
-path = '../data/BugReport'
+path = '../BugReport'
 
 def assemble(path):
     bug_reprot_dict = {}
@@ -15,7 +15,7 @@ def assemble(path):
                         description = line.split('$$')[2]
                         bug_reprot_dict[bugid] = [summary, description]
 
-    with open('../data/BugReport/Bug_Report_All.json', 'w+') as f2:
+    with open('./Bug_Report_All.json', 'w+') as f2:
         json.dump(bug_reprot_dict, f2)
 
 
