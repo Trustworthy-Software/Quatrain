@@ -9,6 +9,10 @@ import numpy as np
 import ML4Prediciton
 import signal
 import json
+import random
+import math
+import pandas as pd
+import matplotlib.pyplot as plt
 
 class Experiment:
     def __init__(self):
@@ -79,8 +83,7 @@ class Experiment:
         pickle.dump(dict_b, open(file_name, 'wb'))
 
 
-
-    def predict_10fold(self, embedding_method):
+    def predict_10fold(self, embedding_method, algorithm):
         dataset = pickle.load(open('../data/bugreport_patch_'+embedding_method+'.pickle', 'rb'))
         bugreport_vector = np.array(dataset[0]).reshape((len(dataset[0]),-1))
         commit_vector = np.array(dataset[1]).reshape((len(dataset[1]),-1))
@@ -88,8 +91,198 @@ class Experiment:
 
         # combine bug report and commit message of patch
         features = np.concatenate((bugreport_vector, commit_vector), axis=1)
-        cl = ML4Prediciton.Classifier(features, labels, 'rf', 10)
+        cl = ML4Prediciton.Classifier(features, labels, algorithm, 10)
         cl.cross_validation()
+
+    def predict_leave1out(self, embedding_method, times, algorithm):
+        dataset_json = pickle.load(open('../data/bugreport_patch_json_' + embedding_method + '.pickle', 'rb'))
+        # leave one out
+        project_ids = list(dataset_json.keys())
+        number = len(project_ids)
+        accs, prcs, rcs, f1s, aucs = list(), list(), list(), list(), list()
+        rcs_p, rcs_n = list(), list()
+        for i in range(times):
+            random.shuffle(project_ids)
+            train_ids = project_ids[:int(0.9*number)]
+            test_ids = project_ids[int(0.9*number):]
+
+            train_features, train_labels = [], []
+            for train_id in train_ids:
+                value = dataset_json[train_id]
+                bugreport_vector = value[0]
+                for m in range(1, len(value)):
+                    commit_vector, label = value[m][0], value[m][1]
+                    features = np.concatenate((bugreport_vector, commit_vector), axis=1)
+
+                    train_features.append(features[0])
+                    train_labels.append(label)
+            train_features = np.array(train_features)
+
+            test_features, test_labels = [], []
+            for test_id in test_ids:
+                value = dataset_json[test_id]
+                bugreport_vector = value[0]
+                for n in range(1, len(value)):
+                    commit_vector, label = value[n][0], value[n][1]
+                    features = np.concatenate((bugreport_vector, commit_vector), axis=1)
+
+                    test_features.append(features[0])
+                    test_labels.append(label)
+            test_features = np.array(test_features)
+            # dataset = np.concatenate((train_features, test_features), axis=0)
+            labels = train_labels+test_labels
+
+            if i == 0:
+                print('All data size: {}, Incorrect: {}, Correct: {}'.format(len(labels), labels.count(0),
+                                                                             labels.count(1)))
+                print('Algorithm: {}'.format(algorithm))
+                print('#####')
+
+            cl = ML4Prediciton.Classifier(None, None, algorithm, None, train_features, train_labels, test_features, test_labels)
+            auc_, recall_p, recall_n, acc, prc, rc, f1 = cl.leave1out_validation()
+            accs.append(acc)
+            prcs.append(prc)
+            rcs.append(rc)
+            f1s.append(f1)
+
+            aucs.append(auc_)
+            rcs_p.append(recall_p)
+            rcs_n.append(recall_n)
+
+        print('')
+        print('{} leave one out mean: '.format('10-90'))
+        print('Accuracy: {:.1f} -- Precision: {:.1f} -- +Recall: {:.1f} -- F1: {:.1f} -- AUC: {:.3f}'.format(
+            np.array(accs).mean() * 100, np.array(prcs).mean() * 100, np.array(rcs).mean() * 100,
+            np.array(f1s).mean() * 100, np.array(aucs).mean()))
+        print('AUC: {:.3f}, +Recall: {:.3f}, -Recall: {:.3f}'.format(np.array(aucs).mean(), np.array(rcs_p).mean(),
+                                                                     np.array(rcs_n).mean()))
+        print('---------------')
+
+    def predict_leave1out_10fold(self, embedding_method, times, algorithm, ASE):
+        dataset_json = pickle.load(open('../data/bugreport_patch_json_' + embedding_method + '.pickle', 'rb'))
+        # ASE_features = pickle.load(open('../data/ASE_features_'+embedding_method+'.pickle', 'rb'))
+        ASE_features = pickle.load(open('../data/ASE_features_bert.pickle', 'rb'))
+        # leave one out
+        project_ids = list(dataset_json.keys())
+        n = len(project_ids)
+        accs, prcs, rcs, f1s, aucs = list(), list(), list(), list(), list()
+        a_accs, a_prcs, a_rcs, a_f1s, a_aucs = list(), list(), list(), list(), list()
+        rcs_p, rcs_n = list(), list()
+        a_rcs_p, a_rcs_n = list(), list()
+        random.shuffle(project_ids)
+        n = int(math.ceil(len(project_ids) / float(times)))
+        groups = [project_ids[i:i+n] for i in range(0, len(project_ids), n)]
+
+        for i in range(times):
+            test_group = groups[i]
+            train_group = groups[:i] + groups[i+1:]
+
+            test_ids = test_group
+            train_ids = []
+            for j in train_group:
+                train_ids += j
+
+            train_features, train_labels = [], []
+            ASE_train_features, ASE_train_labels = [], []
+            for train_id in train_ids:
+                value = dataset_json[train_id]
+                bugreport_vector = value[0]
+                for p in range(1, len(value)):
+                    commit_vector, label = value[p][0], value[p][1]
+                    features = np.concatenate((bugreport_vector, commit_vector), axis=1)
+
+                    train_features.append(features[0])
+                    train_labels.append(label)
+
+                if ASE:
+                    try:
+                        ASE_value = ASE_features[train_id]
+                        for p in range(len(ASE_value)):
+                            ASE_vector, ASE_label = ASE_value[p][0], ASE_value[p][1]
+
+                            ASE_train_features.append(np.array(ASE_vector))
+                            ASE_train_labels.append(ASE_label)
+                    except Exception as e:
+                        print(e)
+
+            train_features = np.array(train_features)
+            ASE_train_features = np.array(ASE_train_features)
+
+            test_features, test_labels = [], []
+            ASE_test_features, ASE_test_labels = [], []
+            for test_id in test_ids:
+                value = dataset_json[test_id]
+                bugreport_vector = value[0]
+                for v in range(1, len(value)):
+                    commit_vector, label = value[v][0], value[v][1]
+                    features = np.concatenate((bugreport_vector, commit_vector), axis=1)
+
+                    test_features.append(features[0])
+                    test_labels.append(label)
+
+                if ASE:
+                    try:
+                        ASE_value = ASE_features[test_id]
+                        for p in range(len(ASE_value)):
+                            ASE_vector, ASE_label = ASE_value[p][0], ASE_value[p][1]
+
+                            ASE_test_features.append(np.array(ASE_vector))
+                            ASE_test_labels.append(ASE_label)
+                    except Exception as e:
+                        print(e)
+            test_features = np.array(test_features)
+            ASE_test_features = np.array(ASE_test_features)
+            # dataset = np.concatenate((train_features, test_features), axis=0)
+            labels = train_labels+test_labels
+            # ASE_labels = ASE_train_labels+ASE_test_labels
+
+            if i == 0:
+                print('All data size: {}, Incorrect: {}, Correct: {}'.format(len(labels), labels.count(0),
+                                                                             labels.count(1)))
+                print('Algorithm: {}'.format(algorithm))
+                print('#####')
+
+            cl = ML4Prediciton.Classifier(None, None, algorithm, None, train_features, train_labels, test_features, test_labels)
+            auc_, recall_p, recall_n, acc, prc, rc, f1 = cl.leave1out_validation()
+            accs.append(acc)
+            prcs.append(prc)
+            rcs.append(rc)
+            f1s.append(f1)
+
+            aucs.append(auc_)
+            rcs_p.append(recall_p)
+            rcs_n.append(recall_n)
+
+            if ASE:
+                cl = ML4Prediciton.Classifier(None, None, algorithm, None, ASE_train_features, ASE_train_labels, ASE_test_features,
+                                              ASE_test_labels)
+                auc_, recall_p, recall_n, acc, prc, rc, f1 = cl.leave1out_validation()
+                a_accs.append(acc)
+                a_prcs.append(prc)
+                a_rcs.append(rc)
+                a_f1s.append(f1)
+
+                a_aucs.append(auc_)
+                a_rcs_p.append(recall_p)
+                a_rcs_n.append(recall_n)
+
+        print('')
+        print('{} leave one out mean: '.format('10-90'))
+        print('Accuracy: {:.1f} -- Precision: {:.1f} -- +Recall: {:.1f} -- F1: {:.1f} -- AUC: {:.3f}'.format(
+            np.array(accs).mean() * 100, np.array(prcs).mean() * 100, np.array(rcs).mean() * 100,
+            np.array(f1s).mean() * 100, np.array(aucs).mean()))
+        print('AUC: {:.3f}, +Recall: {:.3f}, -Recall: {:.3f}'.format(np.array(aucs).mean(), np.array(rcs_p).mean(),
+                                                                     np.array(rcs_n).mean()))
+        print('---------------')
+
+        print('')
+        print('{} ASE leave one out mean: '.format('10-90'))
+        print('Accuracy: {:.1f} -- Precision: {:.1f} -- +Recall: {:.1f} -- F1: {:.1f} -- AUC: {:.3f}'.format(
+            np.array(a_accs).mean() * 100, np.array(a_prcs).mean() * 100, np.array(a_rcs).mean() * 100,
+            np.array(a_f1s).mean() * 100, np.array(a_aucs).mean()))
+        print('AUC: {:.3f}, +Recall: {:.3f}, -Recall: {:.3f}'.format(np.array(a_aucs).mean(), np.array(a_rcs_p).mean(),
+                                                                     np.array(a_rcs_n).mean()))
+        print('---------------')
 
     def predictASE(self, path_patch_sliced):
         cnt = 0
@@ -151,13 +344,36 @@ class Experiment:
         cl = ML4Prediciton.Classifier(features_ASE, labels, 'lr', 10)
         cl.cross_validation()
 
+    def statistics(self, embedding_method,):
+        dataset_json = pickle.load(open('../data/bugreport_patch_json_' + embedding_method + '.pickle', 'rb'))
+        project_ids = list(dataset_json.keys())
 
+        plt_data = []
+        index = []
+        for project_id in project_ids:
+            value = dataset_json[project_id]
+            correct, incorrect = 0, 0
+            for p in range(1, len(value)):
+                _, label = value[p][0], value[p][1]
+                if label == 1:
+                    correct +=1
+                elif label == 0:
+                    incorrect += 1
+            index.append(project_id)
+            plt_data.append([correct, incorrect])
 
+        print(len(index))
+        img_df = pd.DataFrame(np.array(plt_data), index, columns=['correct', 'incorrect'])
+        img_df.plot(kind='bar', rot=0)
+        plt.show()
 
 if __name__ == '__main__':
     embedding = 'bert'
     e = Experiment()
 
-    e.predict_10fold(embedding)
-    e.predict_10fold(embedding+'(description)')
-    # e.predictASE(e.path_patch_sliced)
+    # e.predict_10fold(embedding)
+    # e.statistics(embedding+'(description)')
+
+    # e.predict_10fold(embedding+'(description)', algorithm='lr')
+    # e.predict_leave1out(embedding+'(description)', times=30, algorithm='lr')
+    e.predict_leave1out_10fold(embedding+'(description)', times=10, algorithm='lr', ASE=True)
