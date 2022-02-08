@@ -107,7 +107,8 @@ def get_bug_report_bears(project):
     xml_names = os.listdir(path_xml)
     xml_names = sorted(xml_names, key=lambda x: int(x.split('.')[0].split('-')[1]),)
     result = ''
-    token = os.getenv('GITHUB_TOKEN', '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')
+    # get new token in github  Developer settings if this one is expired
+    token = os.getenv('GITHUB_TOKEN', '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')
     g = Github(token)
     for xml_name in xml_names:
         path_file = path_xml + '/' + xml_name
@@ -165,24 +166,23 @@ def get_bug_report_bears(project):
         f.write(result)
 
 if __name__ == '__main__':
-    '''    
-    # 1. extract bug report of Closure
-    get_bug_report_closure(file_url='Project_URL/Closure_url.txt')
 
-    # 2. extract bug report of  Lang
-    get_bug_report(project='Lang')
-
-    # 3. extract bug report of Math
-    get_bug_report(project='Math')
-
-    # 4. extract bug report of Chart
-    get_bug_report_chartTime(project='Chart')
-
-    # 5. extract bug report of Time
-    get_bug_report_chartTime(project='Time')
+    # # 1. extract bug report of Closure
+    # get_bug_report_closure(file_url='Project_URL/Closure_url.txt')
+    #
+    # # 2. extract bug report of  Lang
+    # get_bug_report(project='Lang')
+    #
+    # # 3. extract bug report of Math
+    # get_bug_report(project='Math')
+    #
+    # # 4. extract bug report of Chart
+    # get_bug_report_chartTime(project='Chart')
+    #
+    # # 5. extract bug report of Time
+    # get_bug_report_chartTime(project='Time')
 
     # 6. extract bug report of Mockito
-    get_bug_report_chartTime(project='Mockito')
-    
-    '''
+    # get_bug_report_chartTime(project='Mockito')
+
     get_bug_report_bears(project='Bears')

@@ -2,6 +2,7 @@ import os
 from subprocess import *
 import yaml
 import re
+import artifact_detection_model.transformer.ArtifactRemoverTransformer
 
 # git clone project from 'https://github.com/bugs-dot-jar/bugs-dot-jar'
 path_bugs_dot_jar = '/Users/haoye.tian/Documents/University/project/bugs-dot-jar'
@@ -55,7 +56,13 @@ def checkout(path_bugs_dot_jar):
             description = 'None'
             if bug_report['Description'] != None:
                 # description = bug_report['Description'].replace('\n || \r || $$', ' ').replace('$$', ' ')
+                # 1. original
                 description = re.sub(r'\r|\n|\$', ' ', bug_report['Description'])
+                # # 2. cleaned bug report with model
+                # model_pretrained = artifact_detection_model.transformer.ArtifactRemoverTransformer.ArtifactRemoverTransformer()
+                # original = bug_report['Description']
+                # cleaned = model_pretrained.transform2([original])[0]
+                # description = re.sub(r'\r|\n|\$', ' ', cleaned)
 
             project_id = b.replace('bugs-dot-jar_', '')
             # make sure the link between bug id and corresponding bug report is correct
