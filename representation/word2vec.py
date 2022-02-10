@@ -1,13 +1,17 @@
 import sys, os
 os.path.abspath(os.path.join('..', './representation'))
+import nltk
+# nltk.download('wordnet')
 import pickle
 from representation.CC2Vec import lmg_cc2ftr_interface
 import logging
 from bert_serving.client import BertClient
 from nltk.tokenize import word_tokenize
+from nltk.stem import WordNetLemmatizer
 import numpy as np
 import re
 from sklearn.metrics.pairwise import *
+import string
 
 MODEL_CC2Vec = '../representation/CC2Vec/'
 
@@ -41,8 +45,21 @@ class Word2vector:
         #                                                           dictionary=self.dictionary)
         #     learned_vector = list(learned_vector.flatten())
         if self.w2v == 'bert':
+            # initial
+            # lemmatizer = WordNetLemmatizer()
+
             # learned_vector = self.learned_feature(self.w2v)
+            # 1.
             token = word_tokenize(text)
+
+            # # 2. split function name
+            # translator = re.compile('[%s]' % re.escape(string.punctuation))
+            # text_without_punctuation = translator.sub(' ', text)
+            # text_without_tense = lemmatizer.lemmatize(text_without_punctuation)
+            # # text_split = re.split(pattern='(?=[A-Z.\s])', string=text_without_tense)
+            # # token = [i for i in text_split if (i != '' and i != ' ')]
+            # token = word_tokenize(text_without_tense)
+
             vec = self.output_vec(self.w2v, token)
             learned_vector = vec.reshape((1, -1))
 
