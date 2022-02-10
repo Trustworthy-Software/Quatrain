@@ -243,8 +243,13 @@ class Experiment:
                 print('Algorithm: {}'.format(algorithm))
                 print('#####')
 
+            # 1. machine learning classifier
             cl = ML4Prediciton.Classifier(None, None, algorithm, None, train_features, train_labels, test_features, test_labels)
             auc_, recall_p, recall_n, acc, prc, rc, f1 = cl.leave1out_validation()
+
+            # 2. question answer classifier
+            # auc_, recall_p, recall_n, acc, prc, rc, f1 = rq_classifier(train_features, train_labels, test_features, test_labels)
+
             accs.append(acc)
             prcs.append(prc)
             rcs.append(rc)
