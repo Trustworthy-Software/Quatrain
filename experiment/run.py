@@ -169,7 +169,8 @@ class Experiment:
         a_accs, a_prcs, a_rcs, a_f1s, a_aucs = list(), list(), list(), list(), list()
         rcs_p, rcs_n = list(), list()
         a_rcs_p, a_rcs_n = list(), list()
-        random.shuffle(project_ids)
+        random.seed(2)
+        random.shuffle(project_ids,)
         n = int(math.ceil(len(project_ids) / float(times)))
         groups = [project_ids[i:i+n] for i in range(0, len(project_ids), n)]
 
