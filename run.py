@@ -1,4 +1,4 @@
-import config
+import experiment.config as config
 import os
 from representation.word2vec import Word2vector
 import pickle
@@ -6,13 +6,14 @@ from scipy.spatial import distance
 from sklearn.metrics import roc_curve, auc, accuracy_score, recall_score, precision_score
 from sklearn.metrics import confusion_matrix, average_precision_score
 import numpy as np
-import ML4Prediciton
+import experiment.ML4Prediciton as ML4Prediciton
 import signal
 import json
 import random
 import math
 import pandas as pd
 import matplotlib.pyplot as plt
+import data
 
 class Experiment:
     def __init__(self):
@@ -68,7 +69,7 @@ class Experiment:
             return
         # w = Word2vector(embedding_method)
         dict_b = {}
-        path = '../data/BugReport'
+        path = 'data/BugReport'
         files = os.listdir(path)
         for file in files:
             if not file.endswith('bugreport.txt'):
@@ -159,9 +160,9 @@ class Experiment:
         print('---------------')
 
     def predict_leave1out_10fold(self, embedding_method, times, algorithm, ASE):
-        dataset_json = pickle.load(open('../data/bugreport_patch_json_' + embedding_method + '.pickle', 'rb'))
+        dataset_json = pickle.load(open('data/bugreport_patch_json_' + embedding_method + '.pickle', 'rb'))
         # ASE_features = pickle.load(open('../data/ASE_features_'+embedding_method+'.pickle', 'rb'))
-        ASE_features = pickle.load(open('../data/ASE_features_bert.pickle', 'rb'))
+        ASE_features = pickle.load(open('data/ASE_features_bert.pickle', 'rb'))
         # leave one out
         project_ids = list(dataset_json.keys())
         n = len(project_ids)
@@ -169,7 +170,7 @@ class Experiment:
         a_accs, a_prcs, a_rcs, a_f1s, a_aucs = list(), list(), list(), list(), list()
         rcs_p, rcs_n = list(), list()
         a_rcs_p, a_rcs_n = list(), list()
-        random.seed(2)
+        random.seed(1)
         random.shuffle(project_ids,)
         n = int(math.ceil(len(project_ids) / float(times)))
         groups = [project_ids[i:i+n] for i in range(0, len(project_ids), n)]
@@ -191,6 +192,7 @@ class Experiment:
                 for p in range(1, len(value)):
                     commit_vector, label = value[p][0], value[p][1]
                     features = np.concatenate((bugreport_vector, commit_vector), axis=1)
+                    # features = commit_vector
 
                     train_features.append(features[0])
                     train_labels.append(label)
@@ -217,6 +219,7 @@ class Experiment:
                 for v in range(1, len(value)):
                     commit_vector, label = value[v][0], value[v][1]
                     features = np.concatenate((bugreport_vector, commit_vector), axis=1)
+                    # features = commit_vector
 
                     test_features.append(features[0])
                     test_labels.append(label)
@@ -293,8 +296,8 @@ class Experiment:
     def predictASE(self, path_patch_sliced):
         cnt = 0
         available_patchids = []
-        deduplicated_patchids = pickle.load(open('../utils/deduplicated_name.pickle', 'rb'))
-        with open('../data/bugreport_patch.txt', 'r+') as f:
+        deduplicated_patchids = pickle.load(open('utils/deduplicated_name.pickle', 'rb'))
+        with open('data/bugreport_patch.txt', 'r+') as f:
             for line in f:
                     # project_id = line.split('$$')[0].strip()
                     bugreport_summary = line.split('$$')[1].strip()
