@@ -25,7 +25,7 @@ class Classifier:
         fpr, tpr, thresholds = roc_curve(y_true=y_true, y_score=y_pred_prob, pos_label=1)
         auc_ = auc(fpr, tpr)
 
-        y_pred = [1 if p >= 0.50 else 0 for p in y_pred_prob]
+        y_pred = [1 if p >= 0.5 else 0 for p in y_pred_prob]
         acc = accuracy_score(y_true=y_true, y_pred=y_pred)
         prc = precision_score(y_true=y_true, y_pred=y_pred)
         rc = recall_score(y_true=y_true, y_pred=y_pred)
@@ -38,6 +38,16 @@ class Classifier:
         print('AUC: {:.3f}, +Recall: {:.3f}, -Recall: {:.3f}'.format(auc_, recall_p, recall_n))
         # return , auc_
         return auc_, recall_p, recall_n, acc, prc, rc, f1
+
+    def confusion_matrix(self, y_pred, y_test):
+        for i in range(1, 100):
+            y_pred_tn = [1 if p >= i / 100.0 else 0 for p in y_pred]
+            tn, fp, fn, tp = confusion_matrix(y_test, y_pred_tn).ravel()
+            print('i:{}'.format(i / 100), end=' ')
+            # print('TP: %d -- TN: %d -- FP: %d -- FN: %d' % (tp, tn, fp, fn))
+            recall_p = tp / (tp + fn)
+            recall_n = tn / (tn + fp)
+            print('+Recall: {:.3f}, -Recall: {:.3f}'.format(recall_p, recall_n))
 
     def cross_validation(self,):
         print('All data size: {}, Incorrect: {}, Correct: {}'.format(len(self.labels), list(self.labels).count(0), list(self.labels).count(1)))
@@ -127,5 +137,7 @@ class Classifier:
 
         auc_, recall_p, recall_n, acc, prc, rc, f1 = self.evaluation_metrics(y_true=list(y_test),
                                                                              y_pred_prob=list(y_pred))
+        # self.confusion_matrix(y_pred, y_test)   
+
         print('---------------')
         return auc_, recall_p, recall_n, acc, prc, rc, f1

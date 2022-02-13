@@ -1,4 +1,6 @@
-import os
+import os, sys
+SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
+sys.path.append(os.path.dirname(SCRIPT_DIR))
 from representation.word2vec import Word2vector
 import pickle
 from scipy.spatial import distance
@@ -8,8 +10,10 @@ import numpy as np
 import signal
 import json
 import pickle
+dirname = os.path.dirname(__file__)
 
-path = '../data/bugreport_patch.txt'
+path = os.path.join(dirname, '../data/bugreport_patch.txt')
+print(path)
 
 def process(path, embedding_method):
     saved_dict = {}
@@ -30,8 +34,9 @@ def process(path, embedding_method):
 
             signal.alarm(300)
             try:
-                # bugreport_vector = w.embedding(bugreport_summary)
-                bugreport_v2_vector = w.embedding(bugreport_summary + '.' + bugreport_description)
+                bugreport_vector = w.embedding(bugreport_summary+ '.' +bugreport_description)
+                # bugreport_v2_vector_summary = w.embedding(bugreport_summary)
+                # bugreport_v2_vector_description = w.embedding(bugreport_description)
                 commit_vector = w.embedding(commit_content)
             except Exception as e:
                 print(e)
@@ -40,15 +45,15 @@ def process(path, embedding_method):
 
             # saved by project id as key
             if not project_id in saved_dict.keys():
-                saved_dict[project_id] = [bugreport_v2_vector, [commit_vector, label]]
+                saved_dict[project_id] = [bugreport_vector, [patch_id, commit_vector, label]]
             else:
-                saved_dict[project_id].append([commit_vector, label])
+                saved_dict[project_id].append([patch_id, commit_vector, label])
 
             cnt += 1
             print(cnt)
 
 
-    with open('../data/bugreport_patch_json_' + embedding_method + '(description).pickle', 'wb') as f:
+    with open(os.path.join(dirname, '../data/bugreport_patch_json_' + embedding_method + '.pickle'), 'wb') as f:
         pickle.dump(saved_dict, f)
 
 if __name__ == '__main__':

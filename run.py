@@ -13,7 +13,10 @@ import random
 import math
 import pandas as pd
 import matplotlib.pyplot as plt
-import data
+# os.getcwd('./Naturality')
+dirname = os.path.dirname(__file__)
+
+
 
 class Experiment:
     def __init__(self):
@@ -96,7 +99,7 @@ class Experiment:
         cl.cross_validation()
 
     def predict_leave1out(self, embedding_method, times, algorithm):
-        dataset_json = pickle.load(open('../data/bugreport_patch_json_' + embedding_method + '.pickle', 'rb'))
+        dataset_json = pickle.load(open(os.path.join(dirname, 'data/bugreport_patch_json_' + embedding_method + '.pickle'), 'rb'))
         # leave one out
         project_ids = list(dataset_json.keys())
         number = len(project_ids)
@@ -110,10 +113,12 @@ class Experiment:
             train_features, train_labels = [], []
             for train_id in train_ids:
                 value = dataset_json[train_id]
-                bugreport_vector = value[0]
+                bugreport_vector_summary = value[0][0]
+                bugreport_vector_description = value[0][1]
                 for m in range(1, len(value)):
                     commit_vector, label = value[m][0], value[m][1]
-                    features = np.concatenate((bugreport_vector, commit_vector), axis=1)
+                    features = np.concatenate((bugreport_vector_summary, bugreport_vector_description, commit_vector), axis=1)
+                    # features = commit_vector
 
                     train_features.append(features[0])
                     train_labels.append(label)
@@ -122,10 +127,12 @@ class Experiment:
             test_features, test_labels = [], []
             for test_id in test_ids:
                 value = dataset_json[test_id]
-                bugreport_vector = value[0]
+                bugreport_vector_summary = value[0][0]
+                bugreport_vector_description = value[0][1]
                 for n in range(1, len(value)):
                     commit_vector, label = value[n][0], value[n][1]
-                    features = np.concatenate((bugreport_vector, commit_vector), axis=1)
+                    features = np.concatenate((bugreport_vector_summary, bugreport_vector_description, commit_vector), axis=1)
+                    # features = commit_vector
 
                     test_features.append(features[0])
                     test_labels.append(label)
@@ -160,9 +167,10 @@ class Experiment:
         print('---------------')
 
     def predict_leave1out_10fold(self, embedding_method, times, algorithm, ASE):
-        dataset_json = pickle.load(open('data/bugreport_patch_json_' + embedding_method + '.pickle', 'rb'))
-        # ASE_features = pickle.load(open('../data/ASE_features_'+embedding_method+'.pickle', 'rb'))
-        ASE_features = pickle.load(open('data/ASE_features_bert.pickle', 'rb'))
+        dataset_json = pickle.load(open(os.path.join(dirname, 'data/bugreport_patch_json_' + embedding_method + '.pickle'), 'rb'))
+        if ASE:
+            # ASE_features = pickle.load(open('../data/ASE_features_'+embedding_method+'.pickle', 'rb'))
+            ASE_features = pickle.load(open(os.path.join(dirname, 'data/ASE_features_bert.pickle'), 'rb'))
         # leave one out
         project_ids = list(dataset_json.keys())
         n = len(project_ids)
@@ -188,10 +196,11 @@ class Experiment:
             ASE_train_features, ASE_train_labels = [], []
             for train_id in train_ids:
                 value = dataset_json[train_id]
-                bugreport_vector = value[0]
+                bugreport_vector_summary = value[0][0]
+                bugreport_vector_description = value[0][1]
                 for p in range(1, len(value)):
                     commit_vector, label = value[p][0], value[p][1]
-                    features = np.concatenate((bugreport_vector, commit_vector), axis=1)
+                    features = np.concatenate((bugreport_vector_summary, bugreport_vector_description, commit_vector), axis=1)
                     # features = commit_vector
 
                     train_features.append(features[0])
@@ -215,10 +224,11 @@ class Experiment:
             ASE_test_features, ASE_test_labels = [], []
             for test_id in test_ids:
                 value = dataset_json[test_id]
-                bugreport_vector = value[0]
+                bugreport_vector_summary = value[0][0]
+                bugreport_vector_description = value[0][1]
                 for v in range(1, len(value)):
                     commit_vector, label = value[v][0], value[v][1]
-                    features = np.concatenate((bugreport_vector, commit_vector), axis=1)
+                    features = np.concatenate((bugreport_vector_summary, bugreport_vector_description, commit_vector), axis=1)
                     # features = commit_vector
 
                     test_features.append(features[0])
@@ -284,14 +294,15 @@ class Experiment:
                                                                      np.array(rcs_n).mean()))
         print('---------------')
 
-        print('')
-        print('{} ASE leave one out mean: '.format('10-90'))
-        print('Accuracy: {:.1f} -- Precision: {:.1f} -- +Recall: {:.1f} -- F1: {:.1f} -- AUC: {:.3f}'.format(
-            np.array(a_accs).mean() * 100, np.array(a_prcs).mean() * 100, np.array(a_rcs).mean() * 100,
-            np.array(a_f1s).mean() * 100, np.array(a_aucs).mean()))
-        print('AUC: {:.3f}, +Recall: {:.3f}, -Recall: {:.3f}'.format(np.array(a_aucs).mean(), np.array(a_rcs_p).mean(),
-                                                                     np.array(a_rcs_n).mean()))
-        print('---------------')
+        if ASE:
+            print('')
+            print('{} ASE leave one out mean: '.format('10-90'))
+            print('Accuracy: {:.1f} -- Precision: {:.1f} -- +Recall: {:.1f} -- F1: {:.1f} -- AUC: {:.3f}'.format(
+                np.array(a_accs).mean() * 100, np.array(a_prcs).mean() * 100, np.array(a_rcs).mean() * 100,
+                np.array(a_f1s).mean() * 100, np.array(a_aucs).mean()))
+            print('AUC: {:.3f}, +Recall: {:.3f}, -Recall: {:.3f}'.format(np.array(a_aucs).mean(), np.array(a_rcs_p).mean(),
+                                                                        np.array(a_rcs_n).mean()))
+            print('---------------')
 
     def predictASE(self, path_patch_sliced):
         cnt = 0
@@ -384,5 +395,5 @@ if __name__ == '__main__':
     # e.statistics(embedding+'(description)')
 
     # e.predict_10fold(embedding+'(description)', algorithm='lr')
-    # e.predict_leave1out(embedding+'(description)', times=30, algorithm='lr')
-    e.predict_leave1out_10fold(embedding+'(description)', times=10, algorithm='lr', ASE=True)
+    e.predict_leave1out(embedding, times=30, algorithm='lr')
+    # e.predict_leave1out_10fold(embedding, times=10, algorithm='lr', ASE=False)

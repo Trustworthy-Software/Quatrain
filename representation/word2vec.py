@@ -1,5 +1,6 @@
 import sys, os
-os.path.abspath(os.path.join('..', './representation'))
+SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
+sys.path.append(os.path.dirname(SCRIPT_DIR))
 import nltk
 # nltk.download('wordnet')
 import pickle
@@ -37,7 +38,7 @@ class Word2vector:
             # nltk.download('punkt')
 
             logging.getLogger().info('Waiting for Bert server')
-            self.m = BertClient(check_length=False, check_version=False)
+            self.m = BertClient(check_length=False, check_version=False, port=8190)
 
     def embedding(self, text):
         # if self.w2v == 'cc2vec':
