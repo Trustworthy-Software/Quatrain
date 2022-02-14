@@ -262,7 +262,8 @@ class Experiment:
             auc_, recall_p, recall_n, acc, prc, rc, f1 = cl.leave1out_validation()
 
             # 2. question answer classifier
-            # auc_, recall_p, recall_n, acc, prc, rc, f1 = rq_classifier(train_features, train_labels, test_features, test_labels)
+            # auc_, recall_p, recall_n, acc, prc, rc, f1 = rq_classifier_bert(train_features, train_labels, test_features, test_labels)
+            # auc_, recall_p, recall_n, acc, prc, rc, f1 = rq_classifier_text(train_ids, test_ids)
 
             accs.append(acc)
             prcs.append(prc)
