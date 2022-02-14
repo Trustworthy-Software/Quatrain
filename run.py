@@ -196,11 +196,11 @@ class Experiment:
             ASE_train_features, ASE_train_labels = [], []
             for train_id in train_ids:
                 value = dataset_json[train_id]
-                bugreport_vector_summary = value[0][0]
-                bugreport_vector_description = value[0][1]
+                bugreport_vector = value[0]
                 for p in range(1, len(value)):
-                    commit_vector, label = value[p][0], value[p][1]
-                    features = np.concatenate((bugreport_vector_summary, bugreport_vector_description, commit_vector), axis=1)
+                    train_patch_id = value[p][0]
+                    commit_vector, label = value[p][1], value[p][2]
+                    features = np.concatenate((bugreport_vector, commit_vector), axis=1)
                     # features = commit_vector
 
                     train_features.append(features[0])
@@ -222,18 +222,19 @@ class Experiment:
 
             test_features, test_labels = [], []
             ASE_test_features, ASE_test_labels = [], []
+            test_info_for_patch = []
             for test_id in test_ids:
                 value = dataset_json[test_id]
-                bugreport_vector_summary = value[0][0]
-                bugreport_vector_description = value[0][1]
+                bugreport_vector = value[0]
                 for v in range(1, len(value)):
-                    commit_vector, label = value[v][0], value[v][1]
-                    features = np.concatenate((bugreport_vector_summary, bugreport_vector_description, commit_vector), axis=1)
+                    test_patch_id = value[v][0]
+                    commit_vector, label = value[v][1], value[v][2]
+                    features = np.concatenate((bugreport_vector, commit_vector), axis=1)
                     # features = commit_vector
 
                     test_features.append(features[0])
                     test_labels.append(label)
-
+                    test_info_for_patch.append([test_id, test_patch_id])
                 if ASE:
                     try:
                         ASE_value = ASE_features[test_id]
@@ -257,7 +258,7 @@ class Experiment:
                 print('#####')
 
             # 1. machine learning classifier
-            cl = ML4Prediciton.Classifier(None, None, algorithm, None, train_features, train_labels, test_features, test_labels)
+            cl = ML4Prediciton.Classifier(None, None, algorithm, None, train_features, train_labels, test_features, test_labels, test_ids=test_info_for_patch)
             auc_, recall_p, recall_n, acc, prc, rc, f1 = cl.leave1out_validation()
 
             # 2. question answer classifier
@@ -395,5 +396,5 @@ if __name__ == '__main__':
     # e.statistics(embedding+'(description)')
 
     # e.predict_10fold(embedding+'(description)', algorithm='lr')
-    e.predict_leave1out(embedding, times=30, algorithm='lr')
-    # e.predict_leave1out_10fold(embedding, times=10, algorithm='lr', ASE=False)
+    # e.predict_leave1out(embedding, times=30, algorithm='lr')
+    e.predict_leave1out_10fold(embedding, times=10, algorithm='lr', ASE=False)
