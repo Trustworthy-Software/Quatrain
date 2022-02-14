@@ -10,7 +10,7 @@ from sklearn.metrics import confusion_matrix
 import xgboost as xgb
 
 class Classifier:
-    def __init__(self, dataset, labels, algorithm, kfold, train_features=None, train_labels=None, test_features=None, test_labels=None):
+    def __init__(self, dataset, labels, algorithm, kfold, train_features=None, train_labels=None, test_features=None, test_labels=None, test_ids=None):
         self.dataset = dataset
         self.labels = labels
         self.algorithm = algorithm
@@ -20,8 +20,9 @@ class Classifier:
         self.train_labels = train_labels
         self.test_features = test_features
         self.test_labels = test_labels
+        self.test_ids=test_ids
 
-    def evaluation_metrics(self, y_true, y_pred_prob):
+    def evaluation_metrics(self, y_true, y_pred_prob, test_ids=None):
         fpr, tpr, thresholds = roc_curve(y_true=y_true, y_score=y_pred_prob, pos_label=1)
         auc_ = auc(fpr, tpr)
 
@@ -36,6 +37,11 @@ class Classifier:
         recall_p = tp / (tp + fn)
         recall_n = tn / (tn + fp)
         print('AUC: {:.3f}, +Recall: {:.3f}, -Recall: {:.3f}'.format(auc_, recall_p, recall_n))
+
+        # 
+        for i in range(len(y_pred)):
+            if y_pred[i] != y_true:
+                print('Incorrect prediction for {}'.format(test_ids[i]))
         # return , auc_
         return auc_, recall_p, recall_n, acc, prc, rc, f1
 
@@ -136,7 +142,7 @@ class Classifier:
             y_pred = clf.predict_proba(x_test)[:, 1]
 
         auc_, recall_p, recall_n, acc, prc, rc, f1 = self.evaluation_metrics(y_true=list(y_test),
-                                                                             y_pred_prob=list(y_pred))
+                                                                             y_pred_prob=list(y_pred), test_ids=self.test_ids)
         # self.confusion_matrix(y_pred, y_test)   
 
         print('---------------')
