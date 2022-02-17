@@ -1,3 +1,4 @@
+import imp
 from sklearn.preprocessing import StandardScaler, MinMaxScaler, Normalizer
 from sklearn.tree import DecisionTreeClassifier
 from sklearn.linear_model import LogisticRegression
@@ -8,6 +9,15 @@ import numpy as np
 from sklearn.metrics import roc_curve, auc, accuracy_score, recall_score, precision_score
 from sklearn.metrics import confusion_matrix
 import xgboost as xgb
+from tensorflow import keras
+from keras.layers import LSTM, Dense, Dropout, RNN
+from keras.models import Sequential
+import tensorflow as tf
+from keras.layers import Dense, Embedding, Dropout, Input, Concatenate
+from experiment.deep_learning import *
+import os
+os.environ["CUDA_VISIBLE_DEVICES"]="0,3"
+
 
 class Classifier:
     def __init__(self, dataset, labels, algorithm, kfold, train_features=None, train_labels=None, test_features=None, test_labels=None, test_ids=None):
@@ -38,10 +48,11 @@ class Classifier:
         recall_n = tn / (tn + fp)
         print('AUC: {:.3f}, +Recall: {:.3f}, -Recall: {:.3f}'.format(auc_, recall_p, recall_n))
 
-        # 
-        for i in range(len(y_pred)):
-            if y_pred[i] != y_true:
-                print('Incorrect prediction for {}'.format(test_ids[i]))
+        #
+        if test_ids:
+            for i in range(len(y_pred)):
+                if y_pred[i] != y_true:
+                    print('Incorrect prediction for {}'.format(test_ids[i]))
         # return , auc_
         return auc_, recall_p, recall_n, acc, prc, rc, f1
 
@@ -133,17 +144,74 @@ class Classifier:
             clf = xgb.train(params={'objective': 'binary:logistic', 'verbosity': 0}, dtrain=dtrain, num_boost_round=500)
         elif self.algorithm == 'nb':
             clf = GaussianNB().fit(X=x_train, y=y_train)
+        elif self.algorithm == 'lstm':
+            # reshape input to be [samples, time steps, features]
+            x_train = np.reshape(x_train, (x_train.shape[0], 1, x_train.shape[1]))
+            x_test = np.reshape(x_test, (x_test.shape[0], 1, x_test.shape[1]))
+            y_train = np.array(y_train)
 
+            clf = Sequential()
+            clf.add(LSTM(128, input_shape=(x_train.shape[1:]), return_sequences=True))
+            clf.add(Dropout(0.4))
+            clf.add(LSTM(128))
+            clf.add(Dense(64, activation='relu'))
+            clf.add(Dropout(0.2))
+            clf.add(Dense(2, activation='softmax'))
+            clf.compile(loss='sparse_categorical_crossentropy', optimizer='adam', metrics=['accuracy'])
+            clf.fit(x_train, y_train, epochs=50, batch_size=100, verbose=2)
+        elif self.algorithm == 'widedeep':
+            x_train_q = x_train[:, :1024]
+            x_train_a = x_train[:, 1024:]
+
+            y_train = np.array(y_train)
+
+            combine_qa_model = get_wide_deep(x_train_q.shape[1], x_train_a.shape[1])
+            callback = [keras.callbacks.EarlyStopping(monitor='val_auc', patience=2, mode="max", verbose=1), ]
+            combine_qa_model.fit([x_train_q, x_train_a], y_train, validation_split=0.1, batch_size=64,epochs=10,)
+        elif self.algorithm == 'rnn_qa':
+            x_train_q = x_train[:, :1024]
+            x_train_a = x_train[:, 1024:]
+            x_train_q = np.reshape(x_train_q, (x_train_q.shape[0], x_train_q.shape[1], 1))
+            x_train_a = np.reshape(x_train_a, (x_train_a.shape[0], x_train_a.shape[1], 1))
+
+            y_train = np.array(y_train)
+
+            combine_qa_model = get_rnn_qa(x_train_q.shape[1:], x_train_a.shape[1:])
+            callback = [keras.callbacks.EarlyStopping(monitor='auc', patience=3, mode="max", verbose=1), ]
+            combine_qa_model.fit([x_train_q, x_train_a], y_train, callbacks=callback, batch_size=64,epochs=10, )
+        elif self.algorithm == 'qa_attetion':
+            seq_maxlen = 64
+            y_train = np.array(y_train).astype(float)
+            x_train_q = x_train[:, :1024]
+            x_train_a = x_train[:, 1024:]
+            x_train_q = np.reshape(x_train_q, (x_train_q.shape[0], seq_maxlen, -1))
+            x_train_a = np.reshape(x_train_a, (x_train_a.shape[0], seq_maxlen, -1))
+            combine_qa_model = get_qa_attention(x_train_q.shape[1:], x_train_a.shape[1:])
+            callback = [keras.callbacks.EarlyStopping(monitor='val_auc', patience=1, mode="max", verbose=0), ]
+            combine_qa_model.fit([x_train_q, x_train_a], y_train, callbacks=callback, validation_split=0.2, batch_size=128,epochs=10,)
+
+        # predict
         if self.algorithm == 'xgb':
             x_test_xgb = x_test
             x_test_xgb_dmatrix = xgb.DMatrix(x_test_xgb, label=y_test)
             y_pred = clf.predict(x_test_xgb_dmatrix)
+        elif self.algorithm == 'widedeep':
+            x_test_q = x_test[:, :1024]
+            x_test_a = x_test[:, 1024:]
+            y_pred = combine_qa_model.predict([x_test_q, x_test_a])[:, 0]
+        elif self.algorithm == 'qa_attetion':
+            seq_maxlen = 64
+            x_test_q = x_test[:, :1024]
+            x_test_a = x_test[:, 1024:]
+            x_test_q = np.reshape(x_test_q, (x_test_q.shape[0], seq_maxlen, -1))
+            x_test_a = np.reshape(x_test_a, (x_test_a.shape[0], seq_maxlen, -1))
+            y_pred = combine_qa_model.predict([x_test_q, x_test_a])[:, 0]
         else:
             y_pred = clf.predict_proba(x_test)[:, 1]
 
         auc_, recall_p, recall_n, acc, prc, rc, f1 = self.evaluation_metrics(y_true=list(y_test),
                                                                              y_pred_prob=list(y_pred), test_ids=self.test_ids)
-        # self.confusion_matrix(y_pred, y_test)   
+        # self.confusion_matrix(y_pred, y_test)
 
         print('---------------')
         return auc_, recall_p, recall_n, acc, prc, rc, f1

@@ -203,8 +203,13 @@ class Experiment:
                     features = np.concatenate((bugreport_vector, commit_vector), axis=1)
                     # features = commit_vector
 
-                    train_features.append(features[0])
-                    train_labels.append(label)
+                    if label == 1:
+                        for _ in range(6):
+                            train_features.append(features[0])
+                            train_labels.append(label)
+                    else:
+                        train_features.append(features[0])
+                        train_labels.append(label)
 
                 if ASE:
                     try:
@@ -232,8 +237,13 @@ class Experiment:
                     features = np.concatenate((bugreport_vector, commit_vector), axis=1)
                     # features = commit_vector
 
-                    test_features.append(features[0])
-                    test_labels.append(label)
+                    if label == 1:
+                        for _ in range(6):
+                            test_features.append(features[0])
+                            test_labels.append(label)
+                    else:
+                            test_features.append(features[0])
+                            test_labels.append(label)
                     test_info_for_patch.append([test_id, test_patch_id])
                 if ASE:
                     try:
@@ -258,7 +268,7 @@ class Experiment:
                 print('#####')
 
             # 1. machine learning classifier
-            cl = ML4Prediciton.Classifier(None, None, algorithm, None, train_features, train_labels, test_features, test_labels, test_ids=test_info_for_patch)
+            cl = ML4Prediciton.Classifier(None, None, algorithm, None, train_features, train_labels, test_features, test_labels, test_ids=None)
             auc_, recall_p, recall_n, acc, prc, rc, f1 = cl.leave1out_validation()
 
             # 2. question answer classifier
@@ -397,4 +407,4 @@ if __name__ == '__main__':
 
     # e.predict_10fold(embedding+'(description)', algorithm='lr')
     # e.predict_leave1out(embedding, times=30, algorithm='lr')
-    e.predict_leave1out_10fold(embedding, times=10, algorithm='lr', ASE=False)
+    e.predict_leave1out_10fold(embedding, times=10, algorithm='qa_attetion', ASE=False)
