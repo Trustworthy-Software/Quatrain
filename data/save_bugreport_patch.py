@@ -13,10 +13,10 @@ import json
 def save_bugreport_patch(path_patch, ):
     # dataset_text = ''
     dataset_text_with_description = ''
-    file_name = '../data/bugreport_patch.txt'
+    file_name = 'bugreport_patch.txt'
     # if os.path.exists(file_name):
     #     return
-    with open('../data/BugReport/Bug_Report_All.json', 'rb') as f:
+    with open('BugReport/Bug_Report_All.json', 'rb') as f:
         bugReportText = json.load(f)
 
     cnt_patch, cnt_patch_with_bugreport = 0, 0
