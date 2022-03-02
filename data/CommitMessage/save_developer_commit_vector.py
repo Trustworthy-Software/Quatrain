@@ -1,6 +1,7 @@
 import os, sys
 SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
 sys.path.append(os.path.dirname(SCRIPT_DIR))
+sys.path.append(os.path.dirname(os.path.dirname(SCRIPT_DIR)))
 from representation.word2vec import Word2vector
 import pickle
 from scipy.spatial import distance
