@@ -60,6 +60,7 @@ def extract_defects4j(path_repo):
                         raise
 
                     project_id = project + '-' + id
+                    project_id = project_id.lower()
                     result_list = result.split(' ')
                     if project.lower() in result_list[0].lower():
                         developer_commit_message = ' '.join(result_list[1:])
@@ -111,7 +112,10 @@ def extract_bugsjar(path_bugs_dot_jar):
             except Exception as e:
                 print(e)
                 raise
+            if '-' in project:
+                project = project.split('-')[1]
             project_id = project + '-' + id
+            project_id = project_id.lower()
             result_list = result.split(' ')
             if project.lower() in result_list[0].lower():
                 developer_commit_message = ' '.join(result_list[1:])
@@ -150,17 +154,17 @@ def extract_bears():
         commit_content = commit_repo.commit.message
 
         commit_content = commit_content.replace('\r', ' ').replace('\n', ' ')
-        url_developer_commit['Bears-' + bugId] = commit_content
+        url_developer_commit['bears-' + bugId] = commit_content
 
     with open('../data/CommitMessage/Bears_developer_commit_message.json', 'w+') as f:
         json.dump(url_developer_commit, f)
 
 
 if __name__ == '__main__':
-    # path_repo = '/Users/haoye.tian/Documents/University/project/defects4j/project_repos'
-    # extract_defects4j(path_repo)
+    path_repo = '/Users/haoye.tian/Documents/University/project/defects4j/project_repos'
+    extract_defects4j(path_repo)
+
+    extract_bears()
 
     path_bugs_dot_jar = '/Users/haoye.tian/Documents/University/project/bugs-dot-jar'
     extract_bugsjar(path_bugs_dot_jar)
-
-    # extract_bears()

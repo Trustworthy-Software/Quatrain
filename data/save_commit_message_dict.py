@@ -19,7 +19,7 @@ def extract_commit_message(file):
 
             commit_message_dict[patch_id] = commit_content
 
-    with open('CommitMessage/Generated_commit_message_All.json', 'w+') as f2:
+    with open(os.path.join(dirname, 'CommitMessage/Generated_commit_message_All.json'), 'w+') as f2:
         json.dump(commit_message_dict, f2)
 
 
