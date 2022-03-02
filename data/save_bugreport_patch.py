@@ -1,4 +1,4 @@
-import config
+import experiment.config as config
 import os
 from representation.word2vec import Word2vector
 import pickle
@@ -6,7 +6,7 @@ from scipy.spatial import distance
 from sklearn.metrics import roc_curve, auc, accuracy_score, recall_score, precision_score
 from sklearn.metrics import confusion_matrix, average_precision_score
 import numpy as np
-import ML4Prediciton
+# import ML4Prediciton
 import signal
 import json
 
@@ -49,6 +49,7 @@ def save_bugreport_patch(path_patch, ):
                                     project_id = project + '-' + id
                                 print('collecting {}'.format(project_id))
                                 label_int = 1 if label == 'Correct' else 0
+                                project_id = project_id.lower()
 
                                 # extract bug report
                                 if project_id in bugReportText.keys():

@@ -10,7 +10,7 @@ def assemble(path):
             if file.endswith('.txt'):
                 with open(os.path.join(root, file), 'r+') as f:
                     for line in f:
-                        bugid = line.split('$$')[0]
+                        bugid = line.split('$$')[0].lower()
                         summary = line.split('$$')[1]
                         description = line.split('$$')[2]
                         bug_reprot_dict[bugid] = [summary, description]
