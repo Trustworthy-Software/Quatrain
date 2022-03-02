@@ -117,8 +117,7 @@ def get_qa_attention(dimension_bug_report, dimension_commit_message):
     # question
     qenc = Sequential()
     # qenc.add(Embedding(output_dim=WORD2VEC_EMBED_SIZE, input_dim=vocab_size,input_length=seq_maxlen,weights=[embedding_weights]))
-    qenc.add(Bidirectional(LSTM(QA_EMBED_SIZE, return_sequences=True),
-                           merge_mode="sum", input_shape=dimension_bug_report))
+    qenc.add(Bidirectional(LSTM(QA_EMBED_SIZE, return_sequences=True), merge_mode="sum", input_shape=dimension_bug_report))
     # qenc.add(Dropout(0.3))
     # qenc.add(Convolution1D(QA_EMBED_SIZE // 2, 5, padding="valid"))
     # qenc.add(MaxPooling1D(pool_size=2, padding="valid"))
@@ -132,6 +131,7 @@ def get_qa_attention(dimension_bug_report, dimension_commit_message):
     # aenc.add(MaxPooling1D(pool_size=2, padding="valid"))
     # aenc.add(Dropout(0.3))
 
+    # attention
     attOut = Dot(axes=1, normalize=True)([qenc.output, aenc.output])
     attOut = Flatten()(attOut)  # shape is now only (samples,)
     attOut = Dense((qenc.output_shape[1] * (dimension_bug_report[1] )))(attOut)
@@ -150,6 +150,9 @@ def get_qa_attention(dimension_bug_report, dimension_commit_message):
 
     model.compile(loss='binary_crossentropy', optimizer='adam', metrics=['AUC'])
     # model.compile(optimizer="adam", loss="categorical_crossentropy", metrics=["accuracy"])
+
+    tf.keras.utils.plot_model(model, to_file="my_model.png", show_shapes=True)
+
 
     # # attention model
     # attn = Sequential()

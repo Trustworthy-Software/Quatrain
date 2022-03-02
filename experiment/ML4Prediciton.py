@@ -1,4 +1,7 @@
 import imp
+import json
+from nltk.tokenize import word_tokenize
+
 from sklearn.preprocessing import StandardScaler, MinMaxScaler, Normalizer
 from sklearn.tree import DecisionTreeClassifier
 from sklearn.linear_model import LogisticRegression
@@ -20,7 +23,7 @@ os.environ["CUDA_VISIBLE_DEVICES"]="0,3"
 
 
 class Classifier:
-    def __init__(self, dataset, labels, algorithm, kfold, train_features=None, train_labels=None, test_features=None, test_labels=None, test_ids=None):
+    def __init__(self, dataset, labels, algorithm, kfold, train_features=None, train_labels=None, test_features=None, test_labels=None, test_info_for_patch=None):
         self.dataset = dataset
         self.labels = labels
         self.algorithm = algorithm
@@ -30,9 +33,9 @@ class Classifier:
         self.train_labels = train_labels
         self.test_features = test_features
         self.test_labels = test_labels
-        self.test_ids=test_ids
+        self.test_info_for_patch = test_info_for_patch
 
-    def evaluation_metrics(self, y_true, y_pred_prob, test_ids=None):
+    def evaluation_metrics(self, y_true, y_pred_prob):
         fpr, tpr, thresholds = roc_curve(y_true=y_true, y_score=y_pred_prob, pos_label=1)
         auc_ = auc(fpr, tpr)
 
@@ -48,13 +51,49 @@ class Classifier:
         recall_n = tn / (tn + fp)
         print('AUC: {:.3f}, +Recall: {:.3f}, -Recall: {:.3f}'.format(auc_, recall_p, recall_n))
 
-        #
-        if test_ids:
-            for i in range(len(y_pred)):
-                if y_pred[i] != y_true:
-                    print('Incorrect prediction for {}'.format(test_ids[i]))
+
         # return , auc_
         return auc_, recall_p, recall_n, acc, prc, rc, f1
+
+    def evaluate_message(self, y_true, y_pred_prob, test_info_for_patch=None):
+        y_pred = [1 if p >= 0.5 else 0 for p in y_pred_prob]
+        correct_length, incorrect_length = [], []
+        if test_info_for_patch:
+            with open('./data/CommitMessage/Generated_commit_message_All.json', 'r+') as f:
+                commit_message_dict = json.load(f)
+            with open('./data/CommitMessage/Developer_commit_message.json', 'r+') as f:
+                developer_commit_message_dict = json.load(f)
+            for i in range(len(y_pred)):
+                if y_pred[i] == y_true[i]:
+                    patch_id = test_info_for_patch[i][1]
+                    # print('Patch id: {}'.format(patch_id))
+                    # print('Commit message: {}'.format(commit_message_dict[patch_id]))
+                    generated_commit_message = commit_message_dict[patch_id]
+                    word_number = len(generated_commit_message.split(' '))
+                    correct_length.append(word_number)
+
+                    project_id = patch_id.split('_')[0].split('-')[1] + '-' + patch_id.split('_')[0].split('-')[2]
+                    # developer_commit_message = developer_commit_message_dict[project_id]
+
+                    # similarity of generated commit vs. developer commit
+
+                else:
+                    patch_id = test_info_for_patch[i][1]
+                    # print('Patch id: {}'.format(patch_id))
+                    # print('Commit message: {}'.format(commit_message_dict[patch_id]))
+                    generated_commit_message = commit_message_dict[patch_id]
+                    word_number = len(generated_commit_message.split(' '))
+                    incorrect_length.append(word_number)
+
+                    project_id = patch_id.split('_')[0].split('-')[1] + '-' + patch_id.split('_')[0].split('-')[2]
+                    # developer_commit_message = developer_commit_message_dict[project_id]
+
+        messageL_correctP = np.array(correct_length).mean()
+        messageL_incorrectP = np.array(incorrect_length).mean()
+        print('message length in correct prediction : {}'.format(messageL_correctP))
+        print('message length in incorrect prediction : {}'.format(messageL_incorrectP))
+
+        return messageL_correctP, messageL_incorrectP
 
     def confusion_matrix(self, y_pred, y_test):
         for i in range(1, 100):
@@ -209,9 +248,10 @@ class Classifier:
         else:
             y_pred = clf.predict_proba(x_test)[:, 1]
 
-        auc_, recall_p, recall_n, acc, prc, rc, f1 = self.evaluation_metrics(y_true=list(y_test),
-                                                                             y_pred_prob=list(y_pred), test_ids=self.test_ids)
+        auc_, recall_p, recall_n, acc, prc, rc, f1 = self.evaluation_metrics(y_true=list(y_test), y_pred_prob=list(y_pred),)
+        messageL_correctP, messageL_incorrectP = self.evaluate_message(y_true=list(y_test), y_pred_prob=list(y_pred), test_info_for_patch=self.test_info_for_patch)
+
         # self.confusion_matrix(y_pred, y_test)
 
         print('---------------')
-        return auc_, recall_p, recall_n, acc, prc, rc, f1
+        return auc_, recall_p, recall_n, acc, prc, rc, f1, messageL_correctP, messageL_incorrectP

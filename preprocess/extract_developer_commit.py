@@ -160,7 +160,7 @@ if __name__ == '__main__':
     # path_repo = '/Users/haoye.tian/Documents/University/project/defects4j/project_repos'
     # extract_defects4j(path_repo)
 
-    # path_bugs_dot_jar = '/Users/haoye.tian/Documents/University/project/bugs-dot-jar'
-    # extract_bugsjar(path_bugs_dot_jar)
+    path_bugs_dot_jar = '/Users/haoye.tian/Documents/University/project/bugs-dot-jar'
+    extract_bugsjar(path_bugs_dot_jar)
 
-    extract_bears()
+    # extract_bears()

@@ -1,3 +1,5 @@
+import pandas
+
 import experiment.config as config
 import os
 from representation.word2vec import Word2vector
@@ -168,6 +170,7 @@ class Experiment:
 
     def predict_leave1out_10fold(self, embedding_method, times, algorithm, ASE):
         dataset_json = pickle.load(open(os.path.join(dirname, 'data/bugreport_patch_json_' + embedding_method + '.pickle'), 'rb'))
+        ASE_features = None
         if ASE:
             # ASE_features = pickle.load(open('../data/ASE_features_'+embedding_method+'.pickle', 'rb'))
             ASE_features = pickle.load(open(os.path.join(dirname, 'data/ASE_features_bert.pickle'), 'rb'))
@@ -178,6 +181,7 @@ class Experiment:
         a_accs, a_prcs, a_rcs, a_f1s, a_aucs = list(), list(), list(), list(), list()
         rcs_p, rcs_n = list(), list()
         a_rcs_p, a_rcs_n = list(), list()
+        meesage_length_distribution = []
         random.seed(1)
         random.shuffle(project_ids,)
         n = int(math.ceil(len(project_ids) / float(times)))
@@ -192,88 +196,22 @@ class Experiment:
             for j in train_group:
                 train_ids += j
 
-            train_features, train_labels = [], []
-            ASE_train_features, ASE_train_labels = [], []
-            for train_id in train_ids:
-                value = dataset_json[train_id]
-                bugreport_vector = value[0]
-                for p in range(1, len(value)):
-                    train_patch_id = value[p][0]
-                    commit_vector, label = value[p][1], value[p][2]
-                    features = np.concatenate((bugreport_vector, commit_vector), axis=1)
-                    # features = commit_vector
-
-                    if label == 1:
-                        for _ in range(6):
-                            train_features.append(features[0])
-                            train_labels.append(label)
-                    else:
-                        train_features.append(features[0])
-                        train_labels.append(label)
-
-                if ASE:
-                    try:
-                        ASE_value = ASE_features[train_id]
-                        for p in range(len(ASE_value)):
-                            ASE_vector, ASE_label = ASE_value[p][0], ASE_value[p][1]
-
-                            ASE_train_features.append(np.array(ASE_vector))
-                            ASE_train_labels.append(ASE_label)
-                    except Exception as e:
-                        print(e)
-
-            train_features = np.array(train_features)
-            ASE_train_features = np.array(ASE_train_features)
-
-            test_features, test_labels = [], []
-            ASE_test_features, ASE_test_labels = [], []
-            test_info_for_patch = []
-            for test_id in test_ids:
-                value = dataset_json[test_id]
-                bugreport_vector = value[0]
-                for v in range(1, len(value)):
-                    test_patch_id = value[v][0]
-                    commit_vector, label = value[v][1], value[v][2]
-                    features = np.concatenate((bugreport_vector, commit_vector), axis=1)
-                    # features = commit_vector
-
-                    if label == 1:
-                        for _ in range(6):
-                            test_features.append(features[0])
-                            test_labels.append(label)
-                    else:
-                            test_features.append(features[0])
-                            test_labels.append(label)
-                    test_info_for_patch.append([test_id, test_patch_id])
-                if ASE:
-                    try:
-                        ASE_value = ASE_features[test_id]
-                        for p in range(len(ASE_value)):
-                            ASE_vector, ASE_label = ASE_value[p][0], ASE_value[p][1]
-
-                            ASE_test_features.append(np.array(ASE_vector))
-                            ASE_test_labels.append(ASE_label)
-                    except Exception as e:
-                        print(e)
-            test_features = np.array(test_features)
-            ASE_test_features = np.array(ASE_test_features)
-            # dataset = np.concatenate((train_features, test_features), axis=0)
-            labels = train_labels+test_labels
-            # ASE_labels = ASE_train_labels+ASE_test_labels
+            enhance = False
+            onlyCorrect = True
+            train_features, train_labels, ASE_train_features, ASE_train_labels = self.get_train_data(train_ids, dataset_json, ASE_features, ASE, enhance=enhance)
+            test_features, test_labels, ASE_test_features, ASE_test_labels, test_info_for_patch = self.get_test_data(test_ids, dataset_json, ASE_features, ASE, enhance=enhance, onlyCorrect=onlyCorrect)
 
             if i == 0:
-                print('All data size: {}, Incorrect: {}, Correct: {}'.format(len(labels), labels.count(0),
-                                                                             labels.count(1)))
+                labels = train_labels + test_labels
+                print('All data size: {}, Incorrect: {}, Correct: {}'.format(len(labels), labels.count(0), labels.count(1)))
                 print('Algorithm: {}'.format(algorithm))
                 print('#####')
 
             # 1. machine learning classifier
-            cl = ML4Prediciton.Classifier(None, None, algorithm, None, train_features, train_labels, test_features, test_labels, test_ids=None)
-            auc_, recall_p, recall_n, acc, prc, rc, f1 = cl.leave1out_validation()
+            cl = ML4Prediciton.Classifier(None, None, algorithm, None, train_features, train_labels, test_features, test_labels, test_info_for_patch=test_info_for_patch)
+            auc_, recall_p, recall_n, acc, prc, rc, f1, messageL_correctP, messageL_incorrectP = cl.leave1out_validation()
 
-            # 2. question answer classifier
-            # auc_, recall_p, recall_n, acc, prc, rc, f1 = rq_classifier_bert(train_features, train_labels, test_features, test_labels)
-            # auc_, recall_p, recall_n, acc, prc, rc, f1 = rq_classifier_text(train_ids, test_ids)
+            meesage_length_distribution.append([messageL_correctP, messageL_incorrectP])
 
             accs.append(acc)
             prcs.append(prc)
@@ -306,6 +244,8 @@ class Experiment:
                                                                      np.array(rcs_n).mean()))
         print('---------------')
 
+        self.message_length_distribution(meesage_length_distribution, aucs)
+
         if ASE:
             print('')
             print('{} ASE leave one out mean: '.format('10-90'))
@@ -315,6 +255,139 @@ class Experiment:
             print('AUC: {:.3f}, +Recall: {:.3f}, -Recall: {:.3f}'.format(np.array(a_aucs).mean(), np.array(a_rcs_p).mean(),
                                                                         np.array(a_rcs_n).mean()))
             print('---------------')
+
+    def get_train_data(self, train_ids, dataset_json, ASE_features=None, ASE=False, enhance=False):
+        train_features, train_labels = [], []
+        ASE_train_features, ASE_train_labels = [], []
+        for train_id in train_ids:
+            value = dataset_json[train_id]
+            bugreport_vector = value[0]
+            for p in range(1, len(value)):
+                train_patch_id = value[p][0]
+                commit_vector, label = value[p][1], value[p][2]
+                features = np.concatenate((bugreport_vector, commit_vector), axis=1)
+                # features = commit_vector
+
+                if enhance:
+                    if label == 1:
+                        # 6x increase in the number of correct patches
+                        for _ in range(6):
+                            train_features.append(features[0])
+                            train_labels.append(label)
+                    else:
+                        train_features.append(features[0])
+                        train_labels.append(label)
+                else:
+                    train_features.append(features[0])
+                    train_labels.append(label)
+
+            if ASE:
+                try:
+                    ASE_value = ASE_features[train_id]
+                    for p in range(len(ASE_value)):
+                        ASE_vector, ASE_label = ASE_value[p][0], ASE_value[p][1]
+
+                        ASE_train_features.append(np.array(ASE_vector))
+                        ASE_train_labels.append(ASE_label)
+                except Exception as e:
+                    print(e)
+
+        train_features = np.array(train_features)
+        ASE_train_features = np.array(ASE_train_features)
+
+        return train_features, train_labels, ASE_train_features, ASE_train_labels
+
+    def get_test_data(self, test_ids, dataset_json, ASE_features=None, ASE=False, enhance=False, onlyCorrect=False):
+        test_features, test_labels = [], []
+        ASE_test_features, ASE_test_labels = [], []
+        test_info_for_patch = []
+        bug_report_vector_list = [v[0] for k,v in dataset_json.items() if k not in test_ids]
+        for test_id in test_ids:
+            value = dataset_json[test_id]
+            bugreport_vector = value[0]
+            for v in range(1, len(value)):
+                test_patch_id = value[v][0]
+                commit_vector, label = value[v][1], value[v][2]
+                features = np.concatenate((bugreport_vector, commit_vector), axis=1)
+                # features = commit_vector
+
+                if enhance:
+                    if label == 1:
+                        for _ in range(6):
+                            test_features.append(features[0])
+                            test_labels.append(label)
+                            test_info_for_patch.append([test_id, test_patch_id])
+                    else:
+                        test_features.append(features[0])
+                        test_labels.append(label)
+                        test_info_for_patch.append([test_id, test_patch_id])
+                elif onlyCorrect:
+                    if label == 1:
+                        # random bug report or not:
+                        # ranindex = random.randint(0, len(bug_report_vector_list)-1)
+                        # random_bug_report = bug_report_vector_list[ranindex]
+                        random_bug_report = random.choice(bug_report_vector_list)
+                        features = np.concatenate((random_bug_report, commit_vector), axis=1)
+
+                        test_features.append(features[0])
+                        test_labels.append(label)
+                        test_info_for_patch.append([test_id, test_patch_id])
+                    else:
+                        pass
+                else:
+                    test_features.append(features[0])
+                    test_labels.append(label)
+                    test_info_for_patch.append([test_id, test_patch_id])
+            if ASE:
+                try:
+                    ASE_value = ASE_features[test_id]
+                    for p in range(len(ASE_value)):
+                        ASE_vector, ASE_label = ASE_value[p][0], ASE_value[p][1]
+
+                        ASE_test_features.append(np.array(ASE_vector))
+                        ASE_test_labels.append(ASE_label)
+                except Exception as e:
+                    print(e)
+        test_features = np.array(test_features)
+        ASE_test_features = np.array(ASE_test_features)
+
+        return test_features, test_labels, ASE_test_features, ASE_test_labels, test_info_for_patch
+
+
+    def message_length_distribution(self, meesage_length_distribution, aucs):
+        df_length = pd.DataFrame(np.array(meesage_length_distribution), index=['group-'+str(i+1) for i in range(10)], columns=['Correct prediction', 'Incorrect prediction'])
+        from sklearn.preprocessing import MinMaxScaler
+        df_AUC = pd.DataFrame(MinMaxScaler().fit_transform(np.array(aucs).reshape(-1,1)), index=['group-'+str(i+1) for i in range(10)], columns=['AUC'])
+
+        fig = plt.figure(figsize=(10, 5))
+        ax1 = fig.add_subplot(111)
+        # df_length['Correct prediction'].plot(ax=ax1, kind='bar', color='blue', label='Correct prediction')
+        # df_length['Incorrect prediction'].plot(ax=ax1, kind='bar', color='orange', label='Incorrect prediction')
+        df_length.plot(ax=ax1, kind='bar', )
+        plt.xlabel('Group', fontsize=22)
+        ax1.set_ylabel('The number of words in generated commit messages', fontsize=22)
+        plt.xticks(fontsize=20, rotation=0)
+        plt.yticks(fontsize=20, )
+        plt.legend(fontsize=18, loc=2)
+
+
+        ax2 = ax1.twinx()
+        df_AUC['AUC'].plot(ax=ax2, grid=False, label='AUC', style='go-.',)
+        ax2.set_ylabel('AUC', fontsize=22)
+
+        plt.xticks(fontsize=20, )
+        plt.yticks(fontsize=20, )
+        plt.legend(loc=1, fontsize=18,)
+
+        plt.show()
+
+        # img_df.plot(kind='bar', rot=0)
+        # plt.xticks(fontsize=20, )
+        # plt.yticks(fontsize=20, )
+        # plt.legend(fontsize=15, )
+        # plt.xlabel('Group', fontsize=22)
+        # plt.ylabel('The number of words in generated commit messages', fontsize=22)
+        # plt.show()
 
     def predictASE(self, path_patch_sliced):
         cnt = 0
@@ -403,9 +476,9 @@ if __name__ == '__main__':
     embedding = 'bert'
     e = Experiment()
 
-    # e.predict_10fold(embedding)
     # e.statistics(embedding+'(description)')
 
     # e.predict_10fold(embedding+'(description)', algorithm='lr')
     # e.predict_leave1out(embedding, times=30, algorithm='lr')
     e.predict_leave1out_10fold(embedding, times=10, algorithm='qa_attetion', ASE=False)
+    # e.predict_leave1out_10fold(embedding, times=10, algorithm='lr', ASE=False)
