@@ -46,7 +46,10 @@ class Classifier:
         f1 = 2 * prc * rc / (prc + rc)
 
         print('Accuracy: %f -- Precision: %f -- +Recall: %f -- F1: %f ' % (acc, prc, rc, f1))
-        tn, fp, fn, tp = confusion_matrix(y_true, y_pred).ravel()
+        if y_true == y_pred:
+            tn, fp, fn, tp = 1, 0, 0, 1
+        else:
+            tn, fp, fn, tp = confusion_matrix(y_true, y_pred).ravel()
         recall_p = tp / (tp + fn)
         recall_n = tn / (tn + fp)
         print('AUC: {:.3f}, +Recall: {:.3f}, -Recall: {:.3f}'.format(auc_, recall_p, recall_n))
@@ -57,43 +60,68 @@ class Classifier:
 
     def evaluate_message(self, y_true, y_pred_prob, test_info_for_patch=None):
         y_pred = [1 if p >= 0.5 else 0 for p in y_pred_prob]
-        correct_length, incorrect_length = [], []
+        correct_message_length, incorrect_message_length = [], []
+        correct_report_length, incorrect_report_length = [], []
         if test_info_for_patch:
             with open('./data/CommitMessage/Generated_commit_message_All.json', 'r+') as f:
                 commit_message_dict = json.load(f)
             with open('./data/CommitMessage/Developer_commit_message.json', 'r+') as f:
                 developer_commit_message_dict = json.load(f)
+            with open('./data/BugReport/Bug_Report_All.json', 'r+') as f:
+                bug_report_dict = json.load(f)
             for i in range(len(y_pred)):
                 if y_pred[i] == y_true[i]:
                     patch_id = test_info_for_patch[i][1]
+                    project_id = patch_id.split('_')[0].split('-')[1] + '-' + patch_id.split('_')[0].split('-')[2]
+
                     # print('Patch id: {}'.format(patch_id))
                     # print('Commit message: {}'.format(commit_message_dict[patch_id]))
                     generated_commit_message = commit_message_dict[patch_id]
                     word_number = len(generated_commit_message.split(' '))
-                    correct_length.append(word_number)
+                    correct_message_length.append(word_number)
 
-                    project_id = patch_id.split('_')[0].split('-')[1] + '-' + patch_id.split('_')[0].split('-')[2]
+                    bug_report = bug_report_dict[project_id]
+                    word_number2 = len(bug_report[0].split(' '))
+                    correct_report_length.append(word_number2)
+
                     # developer_commit_message = developer_commit_message_dict[project_id]
 
                     # similarity of generated commit vs. developer commit
 
                 else:
                     patch_id = test_info_for_patch[i][1]
+                    project_id = patch_id.split('_')[0].split('-')[1] + '-' + patch_id.split('_')[0].split('-')[2]
+
                     # print('Patch id: {}'.format(patch_id))
                     # print('Commit message: {}'.format(commit_message_dict[patch_id]))
                     generated_commit_message = commit_message_dict[patch_id]
                     word_number = len(generated_commit_message.split(' '))
-                    incorrect_length.append(word_number)
+                    incorrect_message_length.append(word_number)
 
-                    project_id = patch_id.split('_')[0].split('-')[1] + '-' + patch_id.split('_')[0].split('-')[2]
+                    bug_report = bug_report_dict[project_id]
+                    word_number2 = len(bug_report[0].split(' '))
+                    incorrect_report_length.append(word_number2)
+
+                    developer_commit_message = developer_commit_message_dict[project_id]
+
+                    print('Incorrect prediction: ')
+                    print('Bug report: {}'.format(bug_report_dict[project_id]))
+                    print('G Commit message: {}'.format(generated_commit_message))
+                    print('D Commit message: {}'.format(developer_commit_message))
+                    print('---------------------')
                     # developer_commit_message = developer_commit_message_dict[project_id]
 
-        messageL_correctP = np.array(correct_length).mean()
-        messageL_incorrectP = np.array(incorrect_length).mean()
+        messageL_correctP = np.array(correct_message_length).mean()
+        messageL_incorrectP = np.array(incorrect_message_length).mean()
         print('message length in correct prediction : {}'.format(messageL_correctP))
         print('message length in incorrect prediction : {}'.format(messageL_incorrectP))
 
-        return messageL_correctP, messageL_incorrectP
+        reportL_correctP = np.array(correct_report_length).mean()
+        reportL_incorrectP = np.array(incorrect_report_length).mean()
+        print('report length in correct prediction : {}'.format(reportL_correctP))
+        print('report length in incorrect prediction : {}'.format(reportL_incorrectP))
+
+        return messageL_correctP, messageL_incorrectP, reportL_correctP, reportL_incorrectP
 
     def confusion_matrix(self, y_pred, y_test):
         for i in range(1, 100):
@@ -249,9 +277,9 @@ class Classifier:
             y_pred = clf.predict_proba(x_test)[:, 1]
 
         auc_, recall_p, recall_n, acc, prc, rc, f1 = self.evaluation_metrics(y_true=list(y_test), y_pred_prob=list(y_pred),)
-        messageL_correctP, messageL_incorrectP = self.evaluate_message(y_true=list(y_test), y_pred_prob=list(y_pred), test_info_for_patch=self.test_info_for_patch)
+        messageL_correctP, messageL_incorrectP, reportL_correctP, reportL_incorrectP = self.evaluate_message(y_true=list(y_test), y_pred_prob=list(y_pred), test_info_for_patch=self.test_info_for_patch)
 
         # self.confusion_matrix(y_pred, y_test)
 
         print('---------------')
-        return auc_, recall_p, recall_n, acc, prc, rc, f1, messageL_correctP, messageL_incorrectP
+        return auc_, recall_p, recall_n, acc, prc, rc, f1, messageL_correctP, messageL_incorrectP, reportL_correctP, reportL_incorrectP

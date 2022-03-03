@@ -181,7 +181,7 @@ class Experiment:
         a_accs, a_prcs, a_rcs, a_f1s, a_aucs = list(), list(), list(), list(), list()
         rcs_p, rcs_n = list(), list()
         a_rcs_p, a_rcs_n = list(), list()
-        meesage_length_distribution = []
+        meesage_length_distribution, report_length_distribution = [], []
         random.seed(1)
         random.shuffle(project_ids,)
         n = int(math.ceil(len(project_ids) / float(times)))
@@ -196,9 +196,21 @@ class Experiment:
             for j in train_group:
                 train_ids += j
 
+            # with open('./data/CommitMessage/Developer_commit_message_bert.pickle', 'rb') as f:
+            #     Developer_commit_message_dict = pickle.load(f)
+            # for data_id in train_ids+test_ids:
+            #     value = dataset_json[data_id]
+            #     bugreport_vector = value[0]
+            #     patch_id = value[1][0]
+            #     project, id = patch_id.split('_')[0].split('-')[1], \
+            #                   patch_id.split('_')[0].split('-')[2]
+            #     project_id = project + '-' + id
+            #     developer_commit_message_vector = Developer_commit_message_dict[project_id]
+
             enhance = False
             onlyCorrect = True
-            train_features, train_labels, ASE_train_features, ASE_train_labels = self.get_train_data(train_ids, dataset_json, ASE_features, ASE, enhance=enhance)
+            # train_features, train_labels, ASE_train_features, ASE_train_labels = self.get_train_data(train_ids, dataset_json, ASE_features, ASE, enhance=enhance)
+            train_features, train_labels, ASE_train_features, ASE_train_labels = self.get_train_data_scheme2(train_ids, dataset_json, ASE_features, ASE, enhance=enhance)
             test_features, test_labels, ASE_test_features, ASE_test_labels, test_info_for_patch = self.get_test_data(test_ids, dataset_json, ASE_features, ASE, enhance=enhance, onlyCorrect=onlyCorrect)
 
             if i == 0:
@@ -207,11 +219,14 @@ class Experiment:
                 print('Algorithm: {}'.format(algorithm))
                 print('#####')
 
+            print('test number: {}'.format(len(test_labels)))
             # 1. machine learning classifier
             cl = ML4Prediciton.Classifier(None, None, algorithm, None, train_features, train_labels, test_features, test_labels, test_info_for_patch=test_info_for_patch)
-            auc_, recall_p, recall_n, acc, prc, rc, f1, messageL_correctP, messageL_incorrectP = cl.leave1out_validation()
+            auc_, recall_p, recall_n, acc, prc, rc, f1, messageL_correctP, messageL_incorrectP, reportL_correctP, reportL_incorrectP = cl.leave1out_validation()
+
 
             meesage_length_distribution.append([messageL_correctP, messageL_incorrectP])
+            report_length_distribution.append([reportL_correctP, reportL_incorrectP])
 
             accs.append(acc)
             prcs.append(prc)
@@ -244,7 +259,8 @@ class Experiment:
                                                                      np.array(rcs_n).mean()))
         print('---------------')
 
-        self.message_length_distribution(meesage_length_distribution, aucs)
+        self.length_distribution(meesage_length_distribution, aucs)
+        self.length_distribution(report_length_distribution, aucs)
 
         if ASE:
             print('')
@@ -297,7 +313,53 @@ class Experiment:
 
         return train_features, train_labels, ASE_train_features, ASE_train_labels
 
+    def get_train_data_scheme2(self, train_ids, dataset_json, ASE_features=None, ASE=False, enhance=False):
+        with open('./data/CommitMessage/Developer_commit_message_bert.pickle', 'rb') as f:
+            Developer_commit_message_dict = pickle.load(f)
+        train_features, train_labels = [], []
+        bug_report_vector_list = [v[0] for k,v in dataset_json.items()]
+        ASE_train_features, ASE_train_labels = [], []
+        for train_id in train_ids:
+            value = dataset_json[train_id]
+            bugreport_vector = value[0]
+            for p in range(1, len(value)):
+                train_patch_id = value[p][0]
+                project, id = train_patch_id.split('_')[0].split('-')[1], train_patch_id.split('_')[0].split('-')[2]
+                project_id = project + '-' + id
+                if '_Developer_' in train_patch_id:
+                    label = value[p][2]
+                    developer_commit_vector = Developer_commit_message_dict[project_id]
+                    features = np.concatenate((bugreport_vector, developer_commit_vector), axis=1)
+                    for _ in range(6):
+                        train_features.append(features[0])
+                        train_labels.append(label)
+                else:
+                    commit_vector, label = value[p][1], value[p][2]
+                    if label == 0:
+                        features = np.concatenate((bugreport_vector, commit_vector), axis=1)
+                        # features = np.concatenate((random.choice(bug_report_vector_list), commit_vector), axis=1)
+                        train_features.append(features[0])
+                        train_labels.append(label)
+
+            if ASE:
+                try:
+                    ASE_value = ASE_features[train_id]
+                    for p in range(len(ASE_value)):
+                        ASE_vector, ASE_label = ASE_value[p][0], ASE_value[p][1]
+
+                        ASE_train_features.append(np.array(ASE_vector))
+                        ASE_train_labels.append(ASE_label)
+                except Exception as e:
+                    print(e)
+
+        train_features = np.array(train_features)
+        ASE_train_features = np.array(ASE_train_features)
+
+        return train_features, train_labels, ASE_train_features, ASE_train_labels
+
     def get_test_data(self, test_ids, dataset_json, ASE_features=None, ASE=False, enhance=False, onlyCorrect=False):
+        with open('./data/CommitMessage/Developer_commit_message_bert.pickle', 'rb') as f:
+            Developer_commit_message_dict = pickle.load(f)
         test_features, test_labels = [], []
         ASE_test_features, ASE_test_labels = [], []
         test_info_for_patch = []
@@ -307,6 +369,8 @@ class Experiment:
             bugreport_vector = value[0]
             for v in range(1, len(value)):
                 test_patch_id = value[v][0]
+                project, id = test_patch_id.split('_')[0].split('-')[1], test_patch_id.split('_')[0].split('-')[2]
+                project_id = project + '-' + id
                 commit_vector, label = value[v][1], value[v][2]
                 features = np.concatenate((bugreport_vector, commit_vector), axis=1)
                 # features = commit_vector
@@ -324,14 +388,25 @@ class Experiment:
                 elif onlyCorrect:
                     if label == 1:
                         # random bug report or not:
-                        # ranindex = random.randint(0, len(bug_report_vector_list)-1)
-                        # random_bug_report = bug_report_vector_list[ranindex]
-                        random_bug_report = random.choice(bug_report_vector_list)
-                        features = np.concatenate((random_bug_report, commit_vector), axis=1)
+                        # random_bug_report = random.choice(bug_report_vector_list)
+                        # features = np.concatenate((random_bug_report, commit_vector), axis=1)
 
-                        test_features.append(features[0])
-                        test_labels.append(label)
-                        test_info_for_patch.append([test_id, test_patch_id])
+                        if '_Developer_' in test_patch_id:
+                            developer_commit_vector = Developer_commit_message_dict[project_id]
+
+                            # 1.
+                            # features = np.concatenate((bugreport_vector, developer_commit_vector), axis=1)
+                            # 2. random
+                            random_bug_report = random.choice(bug_report_vector_list)
+                            features = np.concatenate((random_bug_report, developer_commit_vector), axis=1)
+
+                            test_features.append(features[0])
+                            test_labels.append(label)
+                            test_info_for_patch.append([test_id, test_patch_id])
+
+                        # test_features.append(features[0])
+                        # test_labels.append(label)
+                        # test_info_for_patch.append([test_id, test_patch_id])
                     else:
                         pass
                 else:
@@ -354,8 +429,8 @@ class Experiment:
         return test_features, test_labels, ASE_test_features, ASE_test_labels, test_info_for_patch
 
 
-    def message_length_distribution(self, meesage_length_distribution, aucs):
-        df_length = pd.DataFrame(np.array(meesage_length_distribution), index=['group-'+str(i+1) for i in range(10)], columns=['Correct prediction', 'Incorrect prediction'])
+    def length_distribution(self, ength_distribution, aucs):
+        df_length = pd.DataFrame(np.array(ength_distribution), index=['group-'+str(i+1) for i in range(10)], columns=['Correct prediction', 'Incorrect prediction'])
         from sklearn.preprocessing import MinMaxScaler
         df_AUC = pd.DataFrame(MinMaxScaler().fit_transform(np.array(aucs).reshape(-1,1)), index=['group-'+str(i+1) for i in range(10)], columns=['AUC'])
 
