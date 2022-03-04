@@ -28,6 +28,7 @@ class Classifier:
         self.labels = labels
         self.algorithm = algorithm
         self.kfold = kfold
+        self.threshold = 0.4
 
         self.train_features = train_features
         self.train_labels = train_labels
@@ -39,7 +40,7 @@ class Classifier:
         fpr, tpr, thresholds = roc_curve(y_true=y_true, y_score=y_pred_prob, pos_label=1)
         auc_ = auc(fpr, tpr)
 
-        y_pred = [1 if p >= 0.5 else 0 for p in y_pred_prob]
+        y_pred = [1 if p >= self.threshold else 0 for p in y_pred_prob]
         acc = accuracy_score(y_true=y_true, y_pred=y_pred)
         prc = precision_score(y_true=y_true, y_pred=y_pred)
         rc = recall_score(y_true=y_true, y_pred=y_pred)
@@ -59,7 +60,7 @@ class Classifier:
         return auc_, recall_p, recall_n, acc, prc, rc, f1
 
     def evaluate_message(self, y_true, y_pred_prob, test_info_for_patch=None):
-        y_pred = [1 if p >= 0.5 else 0 for p in y_pred_prob]
+        y_pred = [1 if p >= self.threshold else 0 for p in y_pred_prob]
         correct_message_length, incorrect_message_length = [], []
         correct_report_length, incorrect_report_length = [], []
         if test_info_for_patch:
@@ -70,10 +71,16 @@ class Classifier:
             with open('./data/BugReport/Bug_Report_All.json', 'r+') as f:
                 bug_report_dict = json.load(f)
             for i in range(len(y_pred)):
-                if y_pred[i] == y_true[i]:
-                    patch_id = test_info_for_patch[i][1]
-                    project_id = patch_id.split('_')[0].split('-')[1] + '-' + patch_id.split('_')[0].split('-')[2]
+                patch_id = test_info_for_patch[i][1]
+                project_id = patch_id.split('_')[0].split('-')[1] + '-' + patch_id.split('_')[0].split('-')[2]
+                if project_id == 'closure-63':
+                    developer_commit_message = developer_commit_message_dict['closure-62']
+                elif project_id == 'closure-93':
+                    developer_commit_message = developer_commit_message_dict['closure-92']
+                else:
+                    developer_commit_message = developer_commit_message_dict[project_id]
 
+                if y_pred[i] == y_true[i]:
                     # print('Patch id: {}'.format(patch_id))
                     # print('Commit message: {}'.format(commit_message_dict[patch_id]))
                     generated_commit_message = commit_message_dict[patch_id]
@@ -88,10 +95,14 @@ class Classifier:
 
                     # similarity of generated commit vs. developer commit
 
-                else:
-                    patch_id = test_info_for_patch[i][1]
-                    project_id = patch_id.split('_')[0].split('-')[1] + '-' + patch_id.split('_')[0].split('-')[2]
+                    # print('Correct prediction: ')
+                    # print('Bug report: {}'.format(bug_report_dict[project_id]))
+                    # print('G Commit message: {}'.format(generated_commit_message))
+                    # print('D Commit message: {}'.format(developer_commit_message))
+                    # print('---------------------')
 
+
+                else:
                     # print('Patch id: {}'.format(patch_id))
                     # print('Commit message: {}'.format(commit_message_dict[patch_id]))
                     generated_commit_message = commit_message_dict[patch_id]
@@ -102,14 +113,12 @@ class Classifier:
                     word_number2 = len(bug_report[0].split(' '))
                     incorrect_report_length.append(word_number2)
 
-                    developer_commit_message = developer_commit_message_dict[project_id]
 
-                    print('Incorrect prediction: ')
-                    print('Bug report: {}'.format(bug_report_dict[project_id]))
-                    print('G Commit message: {}'.format(generated_commit_message))
-                    print('D Commit message: {}'.format(developer_commit_message))
-                    print('---------------------')
-                    # developer_commit_message = developer_commit_message_dict[project_id]
+                    # print('Incorrect prediction: ')
+                    # print('Bug report: {}'.format(bug_report_dict[project_id]))
+                    # print('G Commit message: {}'.format(generated_commit_message))
+                    # print('D Commit message: {}'.format(developer_commit_message))
+                    # print('---------------------')
 
         messageL_correctP = np.array(correct_message_length).mean()
         messageL_incorrectP = np.array(incorrect_message_length).mean()
