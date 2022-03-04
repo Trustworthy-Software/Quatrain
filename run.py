@@ -317,7 +317,6 @@ class Experiment:
         with open('./data/CommitMessage/Developer_commit_message_bert.pickle', 'rb') as f:
             Developer_commit_message_dict = pickle.load(f)
         train_features, train_labels = [], []
-        bug_report_vector_list = [v[0] for k,v in dataset_json.items()]
         ASE_train_features, ASE_train_labels = [], []
         for train_id in train_ids:
             value = dataset_json[train_id]
@@ -326,20 +325,42 @@ class Experiment:
                 train_patch_id = value[p][0]
                 project, id = train_patch_id.split('_')[0].split('-')[1], train_patch_id.split('_')[0].split('-')[2]
                 project_id = project + '-' + id
+                commit_vector, label = value[p][1], value[p][2]
+                if project_id == 'closure-63':
+                    developer_commit_message_vector = Developer_commit_message_dict['closure-62']
+                elif project_id == 'closure-93':
+                    developer_commit_message_vector = Developer_commit_message_dict['closure-92']
+                else:
+                    developer_commit_message_vector = Developer_commit_message_dict[project_id]
+
+                random_bug_report_vector_list = [v[0] for k, v in dataset_json.items() if (k in train_ids and k != train_id)]
+
                 if '_Developer_' in train_patch_id:
-                    label = value[p][2]
-                    developer_commit_vector = Developer_commit_message_dict[project_id]
-                    features = np.concatenate((bugreport_vector, developer_commit_vector), axis=1)
+
                     for _ in range(6):
+                        features = np.concatenate((bugreport_vector, developer_commit_message_vector), axis=1)
                         train_features.append(features[0])
                         train_labels.append(label)
+
+                        features_random = np.concatenate((random.choice(random_bug_report_vector_list), developer_commit_message_vector), axis=1)
+                        train_features.append(features_random[0])
+                        train_labels.append(0)
                 else:
-                    commit_vector, label = value[p][1], value[p][2]
                     if label == 0:
                         features = np.concatenate((bugreport_vector, commit_vector), axis=1)
                         # features = np.concatenate((random.choice(bug_report_vector_list), commit_vector), axis=1)
                         train_features.append(features[0])
                         train_labels.append(label)
+                    if label == 1:
+                        features = np.concatenate((bugreport_vector, commit_vector), axis=1)
+                        for _ in range(6):
+                            train_features.append(features[0])
+                            train_labels.append(label)
+
+                            # # random bug report, label=0
+                            # features_random = np.concatenate((random.choice(random_bug_report_vector_list), commit_vector), axis=1)
+                            # train_features.append(features_random[0])
+                            # train_labels.append(0)
 
             if ASE:
                 try:
@@ -363,7 +384,7 @@ class Experiment:
         test_features, test_labels = [], []
         ASE_test_features, ASE_test_labels = [], []
         test_info_for_patch = []
-        bug_report_vector_list = [v[0] for k,v in dataset_json.items() if k not in test_ids]
+
         for test_id in test_ids:
             value = dataset_json[test_id]
             bugreport_vector = value[0]
@@ -373,6 +394,13 @@ class Experiment:
                 project_id = project + '-' + id
                 commit_vector, label = value[v][1], value[v][2]
                 features = np.concatenate((bugreport_vector, commit_vector), axis=1)
+                if project_id == 'closure-63':
+                    developer_commit_message_vector = Developer_commit_message_dict['closure-62']
+                elif project_id == 'closure-93':
+                    developer_commit_message_vector = Developer_commit_message_dict['closure-92']
+                else:
+                    developer_commit_message_vector = Developer_commit_message_dict[project_id]
+
                 # features = commit_vector
 
                 if enhance:
@@ -386,23 +414,23 @@ class Experiment:
                         test_labels.append(label)
                         test_info_for_patch.append([test_id, test_patch_id])
                 elif onlyCorrect:
-                    if label == 1:
+                    if '_Developer_' in test_patch_id:
+                    # if label == 1:
                         # random bug report or not:
                         # random_bug_report = random.choice(bug_report_vector_list)
                         # features = np.concatenate((random_bug_report, commit_vector), axis=1)
 
-                        if '_Developer_' in test_patch_id:
-                            developer_commit_vector = Developer_commit_message_dict[project_id]
+                        # 1.
+                        # features = np.concatenate((bugreport_vector, developer_commit_message_vector), axis=1)
+                        features = np.concatenate((bugreport_vector, commit_vector), axis=1)
+                        # 2. random
+                        # bug_report_vector_list = [v[0] for k, v in dataset_json.items() if (k in test_ids and k != test_id)]
+                        # random_bug_report = random.choice(bug_report_vector_list)
+                        # features = np.concatenate((random_bug_report, developer_commit_message_vector), axis=1)
 
-                            # 1.
-                            # features = np.concatenate((bugreport_vector, developer_commit_vector), axis=1)
-                            # 2. random
-                            random_bug_report = random.choice(bug_report_vector_list)
-                            features = np.concatenate((random_bug_report, developer_commit_vector), axis=1)
-
-                            test_features.append(features[0])
-                            test_labels.append(label)
-                            test_info_for_patch.append([test_id, test_patch_id])
+                        test_features.append(features[0])
+                        test_labels.append(label)
+                        test_info_for_patch.append([test_id, test_patch_id])
 
                         # test_features.append(features[0])
                         # test_labels.append(label)
@@ -410,9 +438,21 @@ class Experiment:
                     else:
                         pass
                 else:
-                    test_features.append(features[0])
-                    test_labels.append(label)
+                    if label == 0:
+                        test_features.append(features[0])
+                        test_labels.append(label)
+                    else:
+                        if '_Developer_' in test_patch_id:
+                            features = np.concatenate((bugreport_vector, developer_commit_message_vector), axis=1)
+                            # features = np.concatenate((bugreport_vector, commit_vector), axis=1)
+
+                            test_features.append(features[0])
+                            test_labels.append(label)
+                        else:
+                            test_features.append(features[0])
+                            test_labels.append(label)
                     test_info_for_patch.append([test_id, test_patch_id])
+
             if ASE:
                 try:
                     ASE_value = ASE_features[test_id]
