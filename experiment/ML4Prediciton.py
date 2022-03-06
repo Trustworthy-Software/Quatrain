@@ -1,7 +1,7 @@
 import imp
 import json
 from nltk.tokenize import word_tokenize
-
+import pickle
 from sklearn.preprocessing import StandardScaler, MinMaxScaler, Normalizer
 from sklearn.tree import DecisionTreeClassifier
 from sklearn.linear_model import LogisticRegression
@@ -18,6 +18,8 @@ from keras.models import Sequential
 import tensorflow as tf
 from keras.layers import Dense, Embedding, Dropout, Input, Concatenate
 from experiment.deep_learning import *
+from scipy.spatial import distance as dis
+import distance._levenshtein
 import os
 os.environ["CUDA_VISIBLE_DEVICES"]="0,3"
 
@@ -28,13 +30,15 @@ class Classifier:
         self.labels = labels
         self.algorithm = algorithm
         self.kfold = kfold
-        self.threshold = 0.4
+        self.threshold = 0.3
 
         self.train_features = train_features
         self.train_labels = train_labels
         self.test_features = test_features
         self.test_labels = test_labels
         self.test_info_for_patch = test_info_for_patch
+        self.correct_similarity = []
+        self.incorrect_similarity = []
 
     def evaluation_metrics(self, y_true, y_pred_prob):
         fpr, tpr, thresholds = roc_curve(y_true=y_true, y_score=y_pred_prob, pos_label=1)
@@ -66,8 +70,12 @@ class Classifier:
         if test_info_for_patch:
             with open('./data/CommitMessage/Generated_commit_message_All.json', 'r+') as f:
                 commit_message_dict = json.load(f)
+            with open('./data/CommitMessage/Generated_commit_message_All_bert.pickle', 'rb') as f:
+                commit_message_vector_dict = pickle.load(f)
             with open('./data/CommitMessage/Developer_commit_message.json', 'r+') as f:
                 developer_commit_message_dict = json.load(f)
+            with open('./data/CommitMessage/Developer_commit_message_bert.pickle', 'rb') as f:
+                developer_commit_message_vector_dict = pickle.load(f)
             with open('./data/BugReport/Bug_Report_All.json', 'r+') as f:
                 bug_report_dict = json.load(f)
             for i in range(len(y_pred)):
@@ -75,25 +83,32 @@ class Classifier:
                 project_id = patch_id.split('_')[0].split('-')[1] + '-' + patch_id.split('_')[0].split('-')[2]
                 if project_id == 'closure-63':
                     developer_commit_message = developer_commit_message_dict['closure-62']
+                    developer_commit_message_vector = developer_commit_message_vector_dict['closure-62']
                 elif project_id == 'closure-93':
                     developer_commit_message = developer_commit_message_dict['closure-92']
+                    developer_commit_message_vector = developer_commit_message_vector_dict['closure-92']
                 else:
                     developer_commit_message = developer_commit_message_dict[project_id]
+                    developer_commit_message_vector = developer_commit_message_vector_dict[project_id]
+                generated_commit_message = commit_message_dict[patch_id]
+                generated_commit_message_vector = commit_message_vector_dict[patch_id]
+                word_number = len(generated_commit_message.split(' '))
+                bug_report = bug_report_dict[project_id]
+                word_number2 = len(bug_report[0].split(' '))
 
+                if generated_commit_message == '' or developer_commit_message == '':
+                    print('null message')
+                    continue
                 if y_pred[i] == y_true[i]:
                     # print('Patch id: {}'.format(patch_id))
                     # print('Commit message: {}'.format(commit_message_dict[patch_id]))
-                    generated_commit_message = commit_message_dict[patch_id]
-                    word_number = len(generated_commit_message.split(' '))
                     correct_message_length.append(word_number)
-
-                    bug_report = bug_report_dict[project_id]
-                    word_number2 = len(bug_report[0].split(' '))
                     correct_report_length.append(word_number2)
 
-                    # developer_commit_message = developer_commit_message_dict[project_id]
-
                     # similarity of generated commit vs. developer commit
+                    correct_distance_lev = distance.levenshtein(generated_commit_message, developer_commit_message)
+                    correct_similarity = 1-dis.euclidean(generated_commit_message_vector, developer_commit_message_vector)/(1+dis.euclidean(generated_commit_message_vector, developer_commit_message_vector))
+                    self.correct_similarity.append(correct_similarity)
 
                     # print('Correct prediction: ')
                     # print('Bug report: {}'.format(bug_report_dict[project_id]))
@@ -101,18 +116,15 @@ class Classifier:
                     # print('D Commit message: {}'.format(developer_commit_message))
                     # print('---------------------')
 
-
                 else:
                     # print('Patch id: {}'.format(patch_id))
                     # print('Commit message: {}'.format(commit_message_dict[patch_id]))
-                    generated_commit_message = commit_message_dict[patch_id]
-                    word_number = len(generated_commit_message.split(' '))
                     incorrect_message_length.append(word_number)
-
-                    bug_report = bug_report_dict[project_id]
-                    word_number2 = len(bug_report[0].split(' '))
                     incorrect_report_length.append(word_number2)
 
+                    incorrect_distance_lev = distance.levenshtein(generated_commit_message, developer_commit_message)
+                    incorrect_similarity = 1-dis.euclidean(generated_commit_message_vector, developer_commit_message_vector)/(1+dis.euclidean(generated_commit_message_vector, developer_commit_message_vector))
+                    self.incorrect_similarity.append(incorrect_similarity)
 
                     # print('Incorrect prediction: ')
                     # print('Bug report: {}'.format(bug_report_dict[project_id]))
@@ -244,17 +256,6 @@ class Classifier:
             combine_qa_model = get_wide_deep(x_train_q.shape[1], x_train_a.shape[1])
             callback = [keras.callbacks.EarlyStopping(monitor='val_auc', patience=2, mode="max", verbose=1), ]
             combine_qa_model.fit([x_train_q, x_train_a], y_train, validation_split=0.1, batch_size=64,epochs=10,)
-        elif self.algorithm == 'rnn_qa':
-            x_train_q = x_train[:, :1024]
-            x_train_a = x_train[:, 1024:]
-            x_train_q = np.reshape(x_train_q, (x_train_q.shape[0], x_train_q.shape[1], 1))
-            x_train_a = np.reshape(x_train_a, (x_train_a.shape[0], x_train_a.shape[1], 1))
-
-            y_train = np.array(y_train)
-
-            combine_qa_model = get_rnn_qa(x_train_q.shape[1:], x_train_a.shape[1:])
-            callback = [keras.callbacks.EarlyStopping(monitor='auc', patience=3, mode="max", verbose=1), ]
-            combine_qa_model.fit([x_train_q, x_train_a], y_train, callbacks=callback, batch_size=64,epochs=10, )
         elif self.algorithm == 'qa_attetion':
             seq_maxlen = 64
             y_train = np.array(y_train).astype(float)
@@ -264,7 +265,7 @@ class Classifier:
             x_train_a = np.reshape(x_train_a, (x_train_a.shape[0], seq_maxlen, -1))
             combine_qa_model = get_qa_attention(x_train_q.shape[1:], x_train_a.shape[1:])
             callback = [keras.callbacks.EarlyStopping(monitor='val_auc', patience=1, mode="max", verbose=0), ]
-            combine_qa_model.fit([x_train_q, x_train_a], y_train, callbacks=callback, validation_split=0.2, batch_size=128,epochs=10,)
+            combine_qa_model.fit([x_train_q, x_train_a], y_train, callbacks=callback, validation_split=0.2, batch_size=128, epochs=10,)
 
         # predict
         if self.algorithm == 'xgb':

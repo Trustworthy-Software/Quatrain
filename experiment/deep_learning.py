@@ -9,12 +9,13 @@ from sklearn.metrics import confusion_matrix
 from keras.models import load_model
 from gensim.models import Word2Vec
 from keras.callbacks import ModelCheckpoint
-from keras.layers import Dense, Dot, Dropout, Reshape, Flatten, Convolution1D, MaxPooling1D
+from keras.layers import Dense, Dot, Dropout, Reshape, Flatten, Convolution1D, MaxPooling1D, MaxPooling2D
 from keras.layers.embeddings import Embedding
 from keras.layers.recurrent import LSTM
 from keras.layers.wrappers import Bidirectional
 from keras.models import Sequential
 import tensorflow as tf
+from keras import backend as K
 
 
 from sklearn import preprocessing
@@ -93,24 +94,6 @@ def get_wide_deep(dimension_learned, dimension_engineered):
 
     return model
 
-def get_rnn_qa(dimension_bug_report, dimension_commit_message):
-    seq_maxlen = 360
-    vocab_size = dimension_bug_report
-    inputs = Input(shape=(seq_maxlen, vocab_size))
-    encoded = LSTM(EMBED_SIZE)(inputs)
-    decoded = RepeatVector(seq_maxlen)(encoded)
-    decoded = LSTM(vocab_size, return_sequences=True)(decoded)
-    autoencoder = Model(inputs, decoded)
-
-    autoencoder.compile("adadelta", loss="binary_crossentropy")
-
-    autoencoder.fit(Xstrain, Xstrain, nb_epoch=NBR_EPOCHS, batch_size=BATCH_SIZE,
-                    shuffle=True, validation_data=(Xstest, Xstest))
-
-    # plot_model(model, to_file='../model/wide_deep.png', show_shapes=True)
-
-    return model
-
 def get_qa_attention(dimension_bug_report, dimension_commit_message):
     seq_maxlen = dimension_bug_report[0]
     QA_EMBED_SIZE = dimension_bug_report[1]
@@ -141,16 +124,17 @@ def get_qa_attention(dimension_bug_report, dimension_commit_message):
     flatQencOut = Flatten()(qenc.output)
 
     similarity = Dot(axes=1, normalize=True)([flatQencOut, flatAttOut])
-    concat_tensor = Concatenate()([Flatten()(qenc.output), Flatten()(aenc.output), similarity])
-    # concat_tensor = Concatenate()([similarity])
+    # concat_tensor = Concatenate()([Flatten()(qenc.output), Flatten()(aenc.output), similarity])
+    concat_tensor = Concatenate()([Flatten()(qenc.output), similarity])
 
-    output_tensor = Dense(1, activation='sigmoid')(concat_tensor)
-
+    output_tensor = Dense(1, activation='sigmoid')(similarity)
+    # concat_tensor = Dense(1)(concat_tensor)
+    # output_tensor = keras.layers.ReLU(threshold=0, negative_slope=0.2, max_value=1,)(concat_tensor)
 
     model = models.Model([qenc.input, aenc.input], output_tensor)
 
     model.compile(loss='binary_crossentropy', optimizer='adam', metrics=['AUC'])
-    # model.compile(optimizer="adam", loss="categorical_crossentropy", metrics=["accuracy"])
+    # model.compile(optimizer="adam", loss=tf.keras.losses.CategoricalCrossentropy(from_logits=True, label_smoothing=0.1,),  metrics=["AUC"])
 
     tf.keras.utils.plot_model(model, to_file="my_model.png", show_shapes=True)
 
@@ -172,6 +156,13 @@ def get_qa_attention(dimension_bug_report, dimension_commit_message):
     #
     # print("Training...")
     return model
+
+def recall(y_true, y_pred):
+    # Calculates the recall
+    true_positives = K.sum(K.round(K.clip(y_true * y_pred, 0, 1)))
+    possible_positives = K.sum(K.round(K.clip(y_true, 0, 1)))
+    recall = true_positives / (possible_positives + K.epsilon())
+    return recall
 
 def balanceLoss(yTrue,yPred):
     import keras.backend as K
