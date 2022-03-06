@@ -43,7 +43,7 @@ def save_bugreport_patch(path_patch, ):
                                 cnt_patch += 1
                                 if benchmark == 'Bugsjar' and '+' in project:
                                         project1 = project.split('+')[1]
-                                        project1 = project1.upper()
+                                        project1 = project1.lower()
                                         project_id = project1 + '-' + id
                                 else:
                                     project_id = project + '-' + id
