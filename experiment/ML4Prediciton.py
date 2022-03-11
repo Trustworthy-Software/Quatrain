@@ -25,20 +25,52 @@ os.environ["CUDA_VISIBLE_DEVICES"]="0,3"
 
 
 class Classifier:
-    def __init__(self, dataset, labels, algorithm, kfold, train_features=None, train_labels=None, test_features=None, test_labels=None, test_info_for_patch=None):
+    def __init__(self, dataset, labels, algorithm, kfold, train_features=None, train_labels=None, test_features=None, test_labels=None, random_test_features=None, test_info_for_patch=None):
         self.dataset = dataset
         self.labels = labels
         self.algorithm = algorithm
         self.kfold = kfold
-        self.threshold = 0.3
+        self.threshold = 0.5
 
         self.train_features = train_features
         self.train_labels = train_labels
         self.test_features = test_features
         self.test_labels = test_labels
+        self.random_test_features = random_test_features
         self.test_info_for_patch = test_info_for_patch
-        self.correct_similarity = []
-        self.incorrect_similarity = []
+
+        self.matrix = []
+        self.correct = 0
+        self.predict_correct = 0
+        self.random_correct = 0
+
+        self.messageL = []
+        self.reportL = []
+        self.similarity_message = []
+
+        with open('./data/CommitMessage/Generated_commit_message_All.json', 'r+') as f:
+            self.commit_message_dict = json.load(f)
+        with open('./data/CommitMessage/Generated_commit_message_All_bert.pickle', 'rb') as f:
+            self.commit_message_vector_dict = pickle.load(f)
+        with open('./data/CommitMessage/Developer_commit_message.json', 'r+') as f:
+            self.developer_commit_message_dict = json.load(f)
+        with open('./data/CommitMessage/Developer_commit_message_bert.pickle', 'rb') as f:
+            self.developer_commit_message_vector_dict = pickle.load(f)
+        with open('./data/BugReport/Bug_Report_All.json', 'r+') as f:
+            self.bug_report_dict = json.load(f)
+        # normalize
+        scaler = Normalizer()
+        scaler = MinMaxScaler()
+        assemble = []
+        for k,v in self.commit_message_vector_dict.items():
+            assemble.append(v.flatten())
+        self.scaler_message1 = scaler.fit(np.array(assemble))
+
+        scaler = MinMaxScaler()
+        assemble = []
+        for k,v in self.developer_commit_message_vector_dict.items():
+            assemble.append(v.flatten())
+        self.scaler_message2 = scaler.fit(np.array(assemble))
 
     def evaluation_metrics(self, y_true, y_pred_prob):
         fpr, tpr, thresholds = roc_curve(y_true=y_true, y_score=y_pred_prob, pos_label=1)
@@ -59,42 +91,34 @@ class Classifier:
         recall_n = tn / (tn + fp)
         print('AUC: {:.3f}, +Recall: {:.3f}, -Recall: {:.3f}'.format(auc_, recall_p, recall_n))
 
-
         # return , auc_
         return auc_, recall_p, recall_n, acc, prc, rc, f1
 
     def evaluate_message(self, y_true, y_pred_prob, test_info_for_patch=None):
         y_pred = [1 if p >= self.threshold else 0 for p in y_pred_prob]
-        correct_message_length, incorrect_message_length = [], []
-        correct_report_length, incorrect_report_length = [], []
+        message_length = []
+        report_length = []
         if test_info_for_patch:
-            with open('./data/CommitMessage/Generated_commit_message_All.json', 'r+') as f:
-                commit_message_dict = json.load(f)
-            with open('./data/CommitMessage/Generated_commit_message_All_bert.pickle', 'rb') as f:
-                commit_message_vector_dict = pickle.load(f)
-            with open('./data/CommitMessage/Developer_commit_message.json', 'r+') as f:
-                developer_commit_message_dict = json.load(f)
-            with open('./data/CommitMessage/Developer_commit_message_bert.pickle', 'rb') as f:
-                developer_commit_message_vector_dict = pickle.load(f)
-            with open('./data/BugReport/Bug_Report_All.json', 'r+') as f:
-                bug_report_dict = json.load(f)
             for i in range(len(y_pred)):
                 patch_id = test_info_for_patch[i][1]
                 project_id = patch_id.split('_')[0].split('-')[1] + '-' + patch_id.split('_')[0].split('-')[2]
                 if project_id == 'closure-63':
-                    developer_commit_message = developer_commit_message_dict['closure-62']
-                    developer_commit_message_vector = developer_commit_message_vector_dict['closure-62']
+                    developer_commit_message = self.developer_commit_message_dict['closure-62']
+                    developer_commit_message_vector = self.developer_commit_message_vector_dict['closure-62']
                 elif project_id == 'closure-93':
-                    developer_commit_message = developer_commit_message_dict['closure-92']
-                    developer_commit_message_vector = developer_commit_message_vector_dict['closure-92']
+                    developer_commit_message = self.developer_commit_message_dict['closure-92']
+                    developer_commit_message_vector = self.developer_commit_message_vector_dict['closure-92']
                 else:
-                    developer_commit_message = developer_commit_message_dict[project_id]
-                    developer_commit_message_vector = developer_commit_message_vector_dict[project_id]
-                generated_commit_message = commit_message_dict[patch_id]
-                generated_commit_message_vector = commit_message_vector_dict[patch_id]
-                word_number = len(generated_commit_message.split(' '))
-                bug_report = bug_report_dict[project_id]
-                word_number2 = len(bug_report[0].split(' '))
+                    developer_commit_message = self.developer_commit_message_dict[project_id]
+                    developer_commit_message_vector = self.developer_commit_message_vector_dict[project_id]
+                generated_commit_message = self.commit_message_dict[patch_id]
+                generated_commit_message_vector = self.commit_message_vector_dict[patch_id]
+                word_number_message = len(generated_commit_message.split(' '))
+                bug_report = self.bug_report_dict[project_id]
+                word_number_report = len(bug_report[0].split(' '))
+
+                # generated_commit_message_vector = self.scaler_message1.transform(generated_commit_message_vector)
+                # developer_commit_message_vector = self.scaler_message2.transform(developer_commit_message_vector)
 
                 if generated_commit_message == '' or developer_commit_message == '':
                     print('null message')
@@ -102,13 +126,14 @@ class Classifier:
                 if y_pred[i] == y_true[i]:
                     # print('Patch id: {}'.format(patch_id))
                     # print('Commit message: {}'.format(commit_message_dict[patch_id]))
-                    correct_message_length.append(word_number)
-                    correct_report_length.append(word_number2)
+                    message_length.append(['Correct', word_number_message])
+                    report_length.append(['Correct', word_number_report])
 
                     # similarity of generated commit vs. developer commit
                     correct_distance_lev = distance.levenshtein(generated_commit_message, developer_commit_message)
-                    correct_similarity = 1-dis.euclidean(generated_commit_message_vector, developer_commit_message_vector)/(1+dis.euclidean(generated_commit_message_vector, developer_commit_message_vector))
-                    self.correct_similarity.append(correct_similarity)
+                    correct_distance_eu = dis.euclidean(generated_commit_message_vector, developer_commit_message_vector)
+                    # correct_similarity_cos = 1-dis.cosine(generated_commit_message_vector, developer_commit_message_vector)
+                    self.similarity_message.append(['Correct', correct_distance_eu])
 
                     # print('Correct prediction: ')
                     # print('Bug report: {}'.format(bug_report_dict[project_id]))
@@ -119,12 +144,13 @@ class Classifier:
                 else:
                     # print('Patch id: {}'.format(patch_id))
                     # print('Commit message: {}'.format(commit_message_dict[patch_id]))
-                    incorrect_message_length.append(word_number)
-                    incorrect_report_length.append(word_number2)
+                    message_length.append(['Incorrect', word_number_message])
+                    report_length.append(['Incorrect', word_number_report])
 
                     incorrect_distance_lev = distance.levenshtein(generated_commit_message, developer_commit_message)
-                    incorrect_similarity = 1-dis.euclidean(generated_commit_message_vector, developer_commit_message_vector)/(1+dis.euclidean(generated_commit_message_vector, developer_commit_message_vector))
-                    self.incorrect_similarity.append(incorrect_similarity)
+                    incorrect_distance_eu = dis.euclidean(generated_commit_message_vector, developer_commit_message_vector)
+                    # incorrect_similarity_cos = 1-dis.cosine(generated_commit_message_vector, developer_commit_message_vector)
+                    self.similarity_message.append(['Incorrect', incorrect_distance_eu])
 
                     # print('Incorrect prediction: ')
                     # print('Bug report: {}'.format(bug_report_dict[project_id]))
@@ -132,27 +158,46 @@ class Classifier:
                     # print('D Commit message: {}'.format(developer_commit_message))
                     # print('---------------------')
 
-        messageL_correctP = np.array(correct_message_length).mean()
-        messageL_incorrectP = np.array(incorrect_message_length).mean()
-        print('message length in correct prediction : {}'.format(messageL_correctP))
-        print('message length in incorrect prediction : {}'.format(messageL_incorrectP))
+        self.messageL = message_length
+        self.reportL = report_length
 
-        reportL_correctP = np.array(correct_report_length).mean()
-        reportL_incorrectP = np.array(incorrect_report_length).mean()
-        print('report length in correct prediction : {}'.format(reportL_correctP))
-        print('report length in incorrect prediction : {}'.format(reportL_incorrectP))
+    def evaluation_sanity(self, y_true, y_pred_prob, y_pred_random):
+        y_pred = [1 if p >= self.threshold else 0 for p in y_pred_prob]
+        y_pred_random = [1 if p >= self.threshold else 0 for p in y_pred_random]
+        cnt_model = 0.0
+        random_model = 0.0
+        for i in range(len(y_true)):
+            if y_true[i] == y_pred[i]:
+                cnt_model += 1
+                if y_true[i] == y_pred_random[i]:
+                    random_model += 1
+        self.correct += y_true.count(1)
+        self.predict_correct += cnt_model
+        self.random_correct += random_model
+        print('fail/cnt: {}'.format((cnt_model-random_model)/cnt_model))
 
-        return messageL_correctP, messageL_incorrectP, reportL_correctP, reportL_incorrectP
 
     def confusion_matrix(self, y_pred, y_test):
-        for i in range(1, 100):
-            y_pred_tn = [1 if p >= i / 100.0 else 0 for p in y_pred]
+        for i in range(1, 10):
+            y_pred_tn = [1 if p >= i / 10.0 else 0 for p in y_pred]
             tn, fp, fn, tp = confusion_matrix(y_test, y_pred_tn).ravel()
-            print('i:{}'.format(i / 100), end=' ')
-            # print('TP: %d -- TN: %d -- FP: %d -- FN: %d' % (tp, tn, fp, fn))
+            print('i:{}'.format(i / 10), end=' ')
+            print('TP: %d -- TN: %d -- FP: %d -- FN: %d --' % (tp, tn, fp, fn), end=' ')
             recall_p = tp / (tp + fn)
             recall_n = tn / (tn + fp)
             print('+Recall: {:.3f}, -Recall: {:.3f}'.format(recall_p, recall_n))
+
+            self.matrix.append([tp, tn, fp, fn, recall_p, recall_n])
+
+
+        # for i in range(1, 100):
+        #     y_pred_tn = [1 if p >= i / 100.0 else 0 for p in y_pred]
+        #     tn, fp, fn, tp = confusion_matrix(y_test, y_pred_tn).ravel()
+        #     print('i:{}'.format(i / 100), end=' ')
+        #     # print('TP: %d -- TN: %d -- FP: %d -- FN: %d' % (tp, tn, fp, fn))
+        #     recall_p = tp / (tp + fn)
+        #     recall_n = tn / (tn + fp)
+        #     print('+Recall: {:.3f}, -Recall: {:.3f}'.format(recall_p, recall_n))
 
     def cross_validation(self,):
         print('All data size: {}, Incorrect: {}, Correct: {}'.format(len(self.labels), list(self.labels).count(0), list(self.labels).count(1)))
@@ -210,15 +255,18 @@ class Classifier:
         print('AUC: {:.3f}, +Recall: {:.3f}, -Recall: {:.3f}'.format(np.array(aucs).mean(), np.array(rcs_p).mean(), np.array(rcs_n).mean()))
         print('---------------')
 
-    def leave1out_validation(self):
+    def leave1out_validation(self, Sanity=None):
         x_train, y_train = self.train_features, self.train_labels
         x_test, y_test = self.test_features, self.test_labels
+        x_test_random = self.random_test_features
 
         # standard data
         scaler = StandardScaler().fit(x_train)
-        # scaler = MinMaxScaler().fit(x_train)
         x_train = scaler.transform(x_train)
         x_test = scaler.transform(x_test)
+
+        if Sanity:
+            x_test_random = scaler.transform(x_test_random)
 
         clf = None
         if self.algorithm == 'lr':
@@ -283,13 +331,23 @@ class Classifier:
             x_test_q = np.reshape(x_test_q, (x_test_q.shape[0], seq_maxlen, -1))
             x_test_a = np.reshape(x_test_a, (x_test_a.shape[0], seq_maxlen, -1))
             y_pred = combine_qa_model.predict([x_test_q, x_test_a])[:, 0]
+
+            if Sanity:
+                x_test_random_q = x_test_random[:, :1024]
+                x_test_random_a = x_test_random[:, 1024:]
+                x_test_random_q = np.reshape(x_test_random_q, (x_test_random_q.shape[0], seq_maxlen, -1))
+                x_test_random_a = np.reshape(x_test_random_a, (x_test_random_a.shape[0], seq_maxlen, -1))
+                y_pred_random = combine_qa_model.predict([x_test_random_q, x_test_random_a])[:, 0]
         else:
             y_pred = clf.predict_proba(x_test)[:, 1]
 
         auc_, recall_p, recall_n, acc, prc, rc, f1 = self.evaluation_metrics(y_true=list(y_test), y_pred_prob=list(y_pred),)
-        messageL_correctP, messageL_incorrectP, reportL_correctP, reportL_incorrectP = self.evaluate_message(y_true=list(y_test), y_pred_prob=list(y_pred), test_info_for_patch=self.test_info_for_patch)
+        self.evaluate_message(y_true=list(y_test), y_pred_prob=list(y_pred), test_info_for_patch=self.test_info_for_patch)
 
-        # self.confusion_matrix(y_pred, y_test)
+        if Sanity:
+            self.evaluation_sanity(y_true=list(y_test), y_pred_prob=list(y_pred), y_pred_random=list(y_pred_random))
+        else:
+            self.confusion_matrix(y_pred, y_test)
 
         print('---------------')
-        return auc_, recall_p, recall_n, acc, prc, rc, f1, messageL_correctP, messageL_incorrectP, reportL_correctP, reportL_incorrectP
+        return auc_, recall_p, recall_n, acc, prc, rc, f1

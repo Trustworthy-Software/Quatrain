@@ -14,6 +14,8 @@ import json
 import random
 import math
 import pandas as pd
+import seaborn as sns
+from matplotlib.patches import PathPatch
 import matplotlib.pyplot as plt
 # os.getcwd('./Naturality')
 dirname = os.path.dirname(__file__)
@@ -181,11 +183,27 @@ class Experiment:
         a_accs, a_prcs, a_rcs, a_f1s, a_aucs = list(), list(), list(), list(), list()
         rcs_p, rcs_n = list(), list()
         a_rcs_p, a_rcs_n = list(), list()
-        meesage_length_distribution, report_length_distribution = [], []
+        matrix_average = np.zeros((9,6))
+        all_correct, all_predict_correct, all_random_correct = 0.0, 0.0, 0.0
+        meesage_length_distribution, report_length_distribution, similarity_message_distribution = [], [], []
+
         random.seed(1)
         random.shuffle(project_ids,)
         n = int(math.ceil(len(project_ids) / float(times)))
         groups = [project_ids[i:i+n] for i in range(0, len(project_ids), n)]
+
+        all_labels = []
+        for train_id in project_ids:
+            value = dataset_json[train_id]
+            for p in range(1, len(value)):
+                label = value[p][2]
+                all_labels.append(label)
+        print('Dataset size: {}, Incorrect: {}, Correct: {}'.format(len(all_labels), all_labels.count(0), all_labels.count(1)))
+        print('Algorithm: {}'.format(algorithm))
+        print('#####')
+
+        enhance = False
+        Sanity = False
 
         for i in range(times):
             test_group = groups[i]
@@ -207,26 +225,39 @@ class Experiment:
             #     project_id = project + '-' + id
             #     developer_commit_message_vector = Developer_commit_message_dict[project_id]
 
-            enhance = False
-            onlyCorrect = True
+
             # train_features, train_labels, ASE_train_features, ASE_train_labels = self.get_train_data(train_ids, dataset_json, ASE_features, ASE, enhance=enhance)
-            train_features, train_labels, ASE_train_features, ASE_train_labels = self.get_train_data_scheme2(train_ids, dataset_json, ASE_features, ASE, enhance=enhance)
-            test_features, test_labels, ASE_test_features, ASE_test_labels, test_info_for_patch = self.get_test_data(test_ids, dataset_json, ASE_features, ASE, enhance=enhance, onlyCorrect=onlyCorrect)
+            train_features, train_labels, ASE_train_features, ASE_train_labels = self.get_train_data(train_ids, dataset_json, ASE_features, ASE, enhance=enhance)
+            test_features, test_labels, ASE_test_features, ASE_test_labels, random_test_features, test_info_for_patch = self.get_test_data(test_ids, dataset_json, ASE_features, ASE, enhance=enhance, Sanity=Sanity)
 
-            if i == 0:
-                labels = train_labels + test_labels
-                print('All data size: {}, Incorrect: {}, Correct: {}'.format(len(labels), labels.count(0), labels.count(1)))
-                print('Algorithm: {}'.format(algorithm))
-                print('#####')
+            # labels = train_labels + test_labels
+            print('Train data size: {}, Incorrect: {}, Correct: {}'.format(len(train_labels), train_labels.count(0), train_labels.count(1)))
+            print('Test data size: {}, Incorrect: {}, Correct: {}'.format(len(test_labels), test_labels.count(0), test_labels.count(1)))
+            print('#####')
 
-            print('test number: {}'.format(len(test_labels)))
-            # 1. machine learning classifier
-            cl = ML4Prediciton.Classifier(None, None, algorithm, None, train_features, train_labels, test_features, test_labels, test_info_for_patch=test_info_for_patch)
-            auc_, recall_p, recall_n, acc, prc, rc, f1, messageL_correctP, messageL_incorrectP, reportL_correctP, reportL_incorrectP = cl.leave1out_validation()
+            # classifier
+            cl = ML4Prediciton.Classifier(None, None, algorithm, None, train_features, train_labels, test_features, test_labels, random_test_features=random_test_features, test_info_for_patch=test_info_for_patch)
+            auc_, recall_p, recall_n, acc, prc, rc, f1= cl.leave1out_validation(Sanity=Sanity)
+
+            if not Sanity:
+                matrix_average += np.array(cl.matrix)
 
 
-            meesage_length_distribution.append([messageL_correctP, messageL_incorrectP])
-            report_length_distribution.append([reportL_correctP, reportL_incorrectP])
+            for m in cl.messageL:
+                m.insert(0, 'group-'+str(i+1))
+            for r in cl.reportL:
+                r.insert(0, 'group-'+str(i+1))
+            for s in cl.similarity_message:
+                s.insert(0, 'group-'+str(i+1))
+
+            meesage_length_distribution += cl.messageL
+            report_length_distribution += cl.reportL
+
+            all_correct += cl.correct
+            all_predict_correct += cl.predict_correct
+            all_random_correct += cl.random_correct
+
+            similarity_message_distribution += cl.similarity_message
 
             accs.append(acc)
             prcs.append(prc)
@@ -250,6 +281,7 @@ class Experiment:
                 a_rcs_p.append(recall_p)
                 a_rcs_n.append(recall_n)
 
+
         print('')
         print('{} leave one out mean: '.format('10-90'))
         print('Accuracy: {:.1f} -- Precision: {:.1f} -- +Recall: {:.1f} -- F1: {:.1f} -- AUC: {:.3f}'.format(
@@ -259,8 +291,22 @@ class Experiment:
                                                                      np.array(rcs_n).mean()))
         print('---------------')
 
-        self.length_distribution(meesage_length_distribution, aucs)
-        self.length_distribution(report_length_distribution, aucs)
+        if not Sanity:
+            # confusion matrix
+            np.set_printoptions(suppress=True)
+            print(np.round(matrix_average / 10, decimals=2))
+
+            self.boxplot_distribution(meesage_length_distribution, 'Words number in G. commit messages')
+            self.boxplot_distribution(report_length_distribution, 'Words number in bug reports')
+
+        if Sanity:
+            # sanity check result
+            print('All correct: {}, Predict correct: {}, Random correct :{}'.format(all_correct, all_predict_correct, all_random_correct))
+            print('Fail rate with random: {}'.format((all_predict_correct-all_random_correct)/all_predict_correct))
+
+            pass
+            # for the comparison of generated message v.s developer message
+            # self.boxplot_distribution(similarity_message_distribution, 'Similarity between messages')
 
         if ASE:
             print('')
@@ -272,7 +318,7 @@ class Experiment:
                                                                         np.array(a_rcs_n).mean()))
             print('---------------')
 
-    def get_train_data(self, train_ids, dataset_json, ASE_features=None, ASE=False, enhance=False):
+    def get_train_data_deprecated(self, train_ids, dataset_json, ASE_features=None, ASE=False, enhance=False):
         train_features, train_labels = [], []
         ASE_train_features, ASE_train_labels = [], []
         for train_id in train_ids:
@@ -313,11 +359,13 @@ class Experiment:
 
         return train_features, train_labels, ASE_train_features, ASE_train_labels
 
-    def get_train_data_scheme2(self, train_ids, dataset_json, ASE_features=None, ASE=False, enhance=False):
+    def get_train_data(self, train_ids, dataset_json, ASE_features=None, ASE=False, enhance=False):
         with open('./data/CommitMessage/Developer_commit_message_bert.pickle', 'rb') as f:
             Developer_commit_message_dict = pickle.load(f)
         train_features, train_labels = [], []
         ASE_train_features, ASE_train_labels = [], []
+        random_bug_report_vector_list = [v[0] for k, v in dataset_json.items() if (k in train_ids)]
+
         for train_id in train_ids:
             value = dataset_json[train_id]
             bugreport_vector = value[0]
@@ -333,34 +381,23 @@ class Experiment:
                 else:
                     developer_commit_message_vector = Developer_commit_message_dict[project_id]
 
-                random_bug_report_vector_list = [v[0] for k, v in dataset_json.items() if (k in train_ids and k != train_id)]
+                # random_bug_report_vector_list = [v[0] for k, v in dataset_json.items() if (k in train_ids and k != train_id)]
 
                 if '_Developer_' in train_patch_id:
+                    # nprandom = np.random.RandomState(1)
+                    random.seed(10)
+                    # for _ in range(6):
+                    features = np.concatenate((bugreport_vector, developer_commit_message_vector), axis=1)
+                    train_features.append(features[0])
+                    train_labels.append(label)
 
-                    for _ in range(6):
-                        features = np.concatenate((bugreport_vector, developer_commit_message_vector), axis=1)
-                        train_features.append(features[0])
-                        train_labels.append(label)
-
-                        features_random = np.concatenate((random.choice(random_bug_report_vector_list), developer_commit_message_vector), axis=1)
-                        train_features.append(features_random[0])
-                        train_labels.append(0)
+                    features_random = np.concatenate((random.choice(random_bug_report_vector_list), developer_commit_message_vector), axis=1)
+                    train_features.append(features_random[0])
+                    train_labels.append(0)
                 else:
-                    if label == 0:
-                        features = np.concatenate((bugreport_vector, commit_vector), axis=1)
-                        # features = np.concatenate((random.choice(bug_report_vector_list), commit_vector), axis=1)
-                        train_features.append(features[0])
-                        train_labels.append(label)
-                    if label == 1:
-                        features = np.concatenate((bugreport_vector, commit_vector), axis=1)
-                        for _ in range(6):
-                            train_features.append(features[0])
-                            train_labels.append(label)
-
-                            # # random bug report, label=0
-                            # features_random = np.concatenate((random.choice(random_bug_report_vector_list), commit_vector), axis=1)
-                            # train_features.append(features_random[0])
-                            # train_labels.append(0)
+                    features = np.concatenate((bugreport_vector, commit_vector), axis=1)
+                    train_features.append(features[0])
+                    train_labels.append(label)
 
             if ASE:
                 try:
@@ -378,10 +415,11 @@ class Experiment:
 
         return train_features, train_labels, ASE_train_features, ASE_train_labels
 
-    def get_test_data(self, test_ids, dataset_json, ASE_features=None, ASE=False, enhance=False, onlyCorrect=False):
+    def get_test_data(self, test_ids, dataset_json, ASE_features=None, ASE=False, enhance=False, Sanity=False):
         with open('./data/CommitMessage/Developer_commit_message_bert.pickle', 'rb') as f:
             Developer_commit_message_dict = pickle.load(f)
         test_features, test_labels = [], []
+        random_test_features = []
         ASE_test_features, ASE_test_labels = [], []
         test_info_for_patch = []
 
@@ -403,38 +441,25 @@ class Experiment:
 
                 # features = commit_vector
 
-                if enhance:
-                    if label == 1:
-                        for _ in range(6):
-                            test_features.append(features[0])
-                            test_labels.append(label)
-                            test_info_for_patch.append([test_id, test_patch_id])
-                    else:
-                        test_features.append(features[0])
-                        test_labels.append(label)
-                        test_info_for_patch.append([test_id, test_patch_id])
-                elif onlyCorrect:
+                if Sanity:
+                    # only consider developer patches and corresponding dev.written commit messages
                     if '_Developer_' in test_patch_id:
                     # if label == 1:
-                        # random bug report or not:
-                        # random_bug_report = random.choice(bug_report_vector_list)
-                        # features = np.concatenate((random_bug_report, commit_vector), axis=1)
-
-                        # 1.
-                        # features = np.concatenate((bugreport_vector, developer_commit_message_vector), axis=1)
-                        features = np.concatenate((bugreport_vector, commit_vector), axis=1)
-                        # 2. random
-                        # bug_report_vector_list = [v[0] for k, v in dataset_json.items() if (k in test_ids and k != test_id)]
-                        # random_bug_report = random.choice(bug_report_vector_list)
-                        # features = np.concatenate((random_bug_report, developer_commit_message_vector), axis=1)
+                        # 1. the best
+                        features = np.concatenate((bugreport_vector, developer_commit_message_vector), axis=1)
+                        # 2. random bug report
+                        bug_report_vector_list = [v[0] for k, v in dataset_json.items() if (k in test_ids and k != test_id)]
+                        random.seed(100)
+                        random_bug_report = random.choice(bug_report_vector_list)
+                        random_features = np.concatenate((random_bug_report, developer_commit_message_vector), axis=1)
+                        # 3. generated commit message
+                        # features = np.concatenate((bugreport_vector, commit_vector), axis=1)
 
                         test_features.append(features[0])
+                        random_test_features.append(random_features[0])
                         test_labels.append(label)
                         test_info_for_patch.append([test_id, test_patch_id])
 
-                        # test_features.append(features[0])
-                        # test_labels.append(label)
-                        # test_info_for_patch.append([test_id, test_patch_id])
                     else:
                         pass
                 else:
@@ -444,7 +469,6 @@ class Experiment:
                     else:
                         if '_Developer_' in test_patch_id:
                             features = np.concatenate((bugreport_vector, developer_commit_message_vector), axis=1)
-                            # features = np.concatenate((bugreport_vector, commit_vector), axis=1)
 
                             test_features.append(features[0])
                             test_labels.append(label)
@@ -466,11 +490,11 @@ class Experiment:
         test_features = np.array(test_features)
         ASE_test_features = np.array(ASE_test_features)
 
-        return test_features, test_labels, ASE_test_features, ASE_test_labels, test_info_for_patch
+        return test_features, test_labels, ASE_test_features, ASE_test_labels, random_test_features, test_info_for_patch
 
 
-    def length_distribution(self, ength_distribution, aucs):
-        df_length = pd.DataFrame(np.array(ength_distribution), index=['group-'+str(i+1) for i in range(10)], columns=['Correct prediction', 'Incorrect prediction'])
+    def plot_distribution(self, distribution, aucs, y_title):
+        df_length = pd.DataFrame(np.array(distribution), index=['group-'+str(i+1) for i in range(10)], columns=['Correct prediction', 'Incorrect prediction'])
         from sklearn.preprocessing import MinMaxScaler
         df_AUC = pd.DataFrame(MinMaxScaler().fit_transform(np.array(aucs).reshape(-1,1)), index=['group-'+str(i+1) for i in range(10)], columns=['AUC'])
 
@@ -480,7 +504,7 @@ class Experiment:
         # df_length['Incorrect prediction'].plot(ax=ax1, kind='bar', color='orange', label='Incorrect prediction')
         df_length.plot(ax=ax1, kind='bar', )
         plt.xlabel('Group', fontsize=22)
-        ax1.set_ylabel('The number of words in generated commit messages', fontsize=22)
+        ax1.set_ylabel(y_title, fontsize=22)
         plt.xticks(fontsize=20, rotation=0)
         plt.yticks(fontsize=20, )
         plt.legend(fontsize=18, loc=2)
@@ -503,6 +527,79 @@ class Experiment:
         # plt.xlabel('Group', fontsize=22)
         # plt.ylabel('The number of words in generated commit messages', fontsize=22)
         # plt.show()
+
+    def boxplot_distribution(self, distribution, y_title):
+        dfl = pd.DataFrame(distribution)
+        dfl.columns = ['Group', 'Prediction', y_title]
+        # put H on left side in plot
+        if dfl.iloc[0]['Prediction'] != 'Correct':
+            b, c = dfl.iloc[0].copy(), dfl[dfl['Prediction']=='Correct'].iloc[0].copy()
+            dfl.iloc[0], dfl[dfl['Prediction']=='Correct'].iloc[0] = c, b
+        colors = {'Correct': 'white', 'Incorrect': 'grey'}
+        fig = plt.figure(figsize=(15, 8))
+        plt.xticks(fontsize=28, )
+        plt.yticks(fontsize=28, )
+        bp = sns.boxplot(x='Group', y=y_title, data=dfl, showfliers=False, palette=colors, hue='Prediction', width=0.7, )
+        bp.set_xticklabels(bp.get_xticklabels(), rotation=320)
+        # bp.set_xticklabels(bp.get_xticklabels(), fontsize=28)
+        # bp.set_yticklabels(bp.get_yticklabels(), fontsize=28)
+        plt.xlabel('Group', size=31)
+        plt.ylabel(y_title, size=30)
+        plt.legend(bbox_to_anchor=(0, 1.02, 1, 0.2), loc="lower left",
+                   borderaxespad=0, ncol=3, fontsize=30, )
+        self.adjust_box_widths(fig, 0.8)
+        plt.tight_layout()
+        plt.show()
+
+    def adjust_box_widths(self, g, fac):
+        """
+        Adjust the widths of a seaborn-generated boxplot.
+        """
+        # iterating through Axes instances
+        for ax in g.axes:
+            # iterating through axes artists:
+            for c in ax.get_children():
+
+                # searching for PathPatches
+                if isinstance(c, PathPatch):
+                    # getting current width of box:
+                    p = c.get_path()
+                    verts = p.vertices
+                    verts_sub = verts[:-1]
+                    xmin = np.min(verts_sub[:, 0])
+                    xmax = np.max(verts_sub[:, 0])
+                    xmid = 0.5 * (xmin + xmax)
+                    xhalf = 0.5 * (xmax - xmin)
+
+                    # setting new width of box
+                    xmin_new = xmid - fac * xhalf
+                    xmax_new = xmid + fac * xhalf
+                    verts_sub[verts_sub[:, 0] == xmin, 0] = xmin_new
+                    verts_sub[verts_sub[:, 0] == xmax, 0] = xmax_new
+
+                    # setting new width of median line
+                    for l in ax.lines:
+                        if np.all(l.get_xdata() == [xmin, xmax]):
+                            l.set_xdata([xmin_new, xmax_new])
+
+
+    def plot_distribution2(self, distribution, y_title):
+        df_length = pd.DataFrame(np.array(distribution), index=['group-'+str(i+1) for i in range(10)], columns=['Correct prediction', 'Incorrect prediction'])
+        from sklearn.preprocessing import MinMaxScaler
+
+        fig = plt.figure(figsize=(10, 5))
+        ax1 = fig.add_subplot(111)
+        # df_length['Correct prediction'].plot(ax=ax1, kind='bar', color='blue', label='Correct prediction')
+        # df_length['Incorrect prediction'].plot(ax=ax1, kind='bar', color='orange', label='Incorrect prediction')
+        df_length.plot(ax=ax1, kind='bar', )
+        plt.xlabel('Group', fontsize=22)
+        ax1.set_ylabel(y_title, fontsize=22)
+        plt.xticks(fontsize=20, )
+        plt.yticks(fontsize=20, )
+        plt.ylim((0.9, 0.94))
+        plt.legend(loc=1, fontsize=18,)
+
+        plt.show()
 
     def predictASE(self, path_patch_sliced):
         cnt = 0
