@@ -1,6 +1,10 @@
 import imp
 import json
 from nltk.tokenize import word_tokenize
+from gensim.utils import tokenize
+from nltk.tokenize import RegexpTokenizer
+from nltk.tokenize import *
+
 import pickle
 from sklearn.preprocessing import StandardScaler, MinMaxScaler, Normalizer
 from sklearn.tree import DecisionTreeClassifier
@@ -30,7 +34,7 @@ class Classifier:
         self.labels = labels
         self.algorithm = algorithm
         self.kfold = kfold
-        self.threshold = 0.5
+        self.threshold = 0.4
 
         self.train_features = train_features
         self.train_labels = train_labels
@@ -113,9 +117,20 @@ class Classifier:
                     developer_commit_message_vector = self.developer_commit_message_vector_dict[project_id]
                 generated_commit_message = self.commit_message_dict[patch_id]
                 generated_commit_message_vector = self.commit_message_vector_dict[patch_id]
-                word_number_message = len(generated_commit_message.split(' '))
+
+                tokenizer = RegexpTokenizer(r'\w+')
+                # tokenizer = WhitespaceTokenizer()
+
+                if '_Developer_' in patch_id:
+                    # word_number_message = len(developer_commit_message.split(' '))
+                    word_number_message = len(set(list(tokenizer.tokenize(developer_commit_message))))
+                else:
+                    # word_number_message = len(generated_commit_message.split(' '))
+                    word_number_message = len(set(list(tokenizer.tokenize(generated_commit_message))))
+
                 bug_report = self.bug_report_dict[project_id]
-                word_number_report = len(bug_report[0].split(' '))
+                # word_number_report = len(bug_report[0].split(' '))
+                word_number_report = len(set(list(tokenizer.tokenize(bug_report[0]))))
 
                 # generated_commit_message_vector = self.scaler_message1.transform(generated_commit_message_vector)
                 # developer_commit_message_vector = self.scaler_message2.transform(developer_commit_message_vector)
@@ -135,10 +150,12 @@ class Classifier:
                     # correct_similarity_cos = 1-dis.cosine(generated_commit_message_vector, developer_commit_message_vector)
                     self.similarity_message.append(['Correct', correct_distance_eu])
 
+                    # QualityOfMessage
                     # print('Correct prediction: ')
-                    # print('Bug report: {}'.format(bug_report_dict[project_id]))
-                    # print('G Commit message: {}'.format(generated_commit_message))
-                    # print('D Commit message: {}'.format(developer_commit_message))
+                    # print('Bug report: {}'.format(bug_report))
+                    # print('D. Commit message: {}'.format(developer_commit_message))
+                    # print('Patch ID: {}'.format(patch_id))
+                    # print('G. Commit message: {}'.format(generated_commit_message))
                     # print('---------------------')
 
                 else:
@@ -175,7 +192,17 @@ class Classifier:
         self.predict_correct += cnt_model
         self.random_correct += random_model
         print('fail/cnt: {}'.format((cnt_model-random_model)/cnt_model))
+    def confusion_quality(self, y_pred, y_test):
+        for i in range(1, 10):
+            y_pred_tn = [1 if p >= i / 10.0 else 0 for p in y_pred]
+            tn, fp, fn, tp = confusion_matrix(y_test, y_pred_tn).ravel()
+            print('i:{}'.format(i / 10), end=' ')
+            print('TP: %d -- TN: %d -- FP: %d -- FN: %d --' % (tp, tn, fp, fn), end=' ')
+            recall_p = tp / (tp + fn)
+            recall_n = tn / (tn + fp)
+            print('+Recall: {:.3f}, -Recall: {:.3f}'.format(recall_p, recall_n))
 
+            self.matrix.append([tp, tn, fp, fn, recall_p, recall_n])
 
     def confusion_matrix(self, y_pred, y_test):
         for i in range(1, 10):
@@ -255,7 +282,7 @@ class Classifier:
         print('AUC: {:.3f}, +Recall: {:.3f}, -Recall: {:.3f}'.format(np.array(aucs).mean(), np.array(rcs_p).mean(), np.array(rcs_n).mean()))
         print('---------------')
 
-    def leave1out_validation(self, Sanity=None):
+    def leave1out_validation(self, Sanity=None, QualityOfMessage=None):
         x_train, y_train = self.train_features, self.train_labels
         x_test, y_test = self.test_features, self.test_labels
         x_test_random = self.random_test_features
@@ -346,7 +373,8 @@ class Classifier:
 
         if Sanity:
             self.evaluation_sanity(y_true=list(y_test), y_pred_prob=list(y_pred), y_pred_random=list(y_pred_random))
-        else:
+
+        if not QualityOfMessage:
             self.confusion_matrix(y_pred, y_test)
 
         print('---------------')
