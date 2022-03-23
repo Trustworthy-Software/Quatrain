@@ -17,6 +17,8 @@ import pandas as pd
 import seaborn as sns
 from matplotlib.patches import PathPatch
 import matplotlib.pyplot as plt
+import scipy.stats as stats
+from scipy.stats import pearsonr
 # os.getcwd('./Naturality')
 dirname = os.path.dirname(__file__)
 
@@ -184,9 +186,10 @@ class Experiment:
         rcs_p, rcs_n = list(), list()
         a_rcs_p, a_rcs_n = list(), list()
         matrix_average = np.zeros((9,6))
+        ASE_matrix_average = np.zeros((9,6))
         all_correct, all_predict_correct, all_random_correct = 0.0, 0.0, 0.0
         meesage_length_distribution, report_length_distribution, similarity_message_distribution = [], [], []
-
+        dataset_distribution = []
         random.seed(1)
         random.shuffle(project_ids,)
         n = int(math.ceil(len(project_ids) / float(times)))
@@ -202,9 +205,10 @@ class Experiment:
         print('Algorithm: {}'.format(algorithm))
         print('#####')
 
+
         enhance = False
         Sanity = False
-
+        QualityOfMessage = False
         for i in range(times):
             test_group = groups[i]
             train_group = groups[:i] + groups[i+1:]
@@ -228,36 +232,35 @@ class Experiment:
 
             # train_features, train_labels, ASE_train_features, ASE_train_labels = self.get_train_data(train_ids, dataset_json, ASE_features, ASE, enhance=enhance)
             train_features, train_labels, ASE_train_features, ASE_train_labels = self.get_train_data(train_ids, dataset_json, ASE_features, ASE, enhance=enhance)
-            test_features, test_labels, ASE_test_features, ASE_test_labels, random_test_features, test_info_for_patch = self.get_test_data(test_ids, dataset_json, ASE_features, ASE, enhance=enhance, Sanity=Sanity)
+            test_features, test_labels, ASE_test_features, ASE_test_labels, random_test_features, test_info_for_patch = self.get_test_data(test_ids, dataset_json, ASE_features, ASE, enhance=enhance, Sanity=Sanity, QualityOfMessage=QualityOfMessage)
 
             # labels = train_labels + test_labels
             print('Train data size: {}, Incorrect: {}, Correct: {}'.format(len(train_labels), train_labels.count(0), train_labels.count(1)))
             print('Test data size: {}, Incorrect: {}, Correct: {}'.format(len(test_labels), test_labels.count(0), test_labels.count(1)))
             print('#####')
-
+            dataset_distribution.append([len(train_labels), len(test_labels)])
             # classifier
-            cl = ML4Prediciton.Classifier(None, None, algorithm, None, train_features, train_labels, test_features, test_labels, random_test_features=random_test_features, test_info_for_patch=test_info_for_patch)
-            auc_, recall_p, recall_n, acc, prc, rc, f1= cl.leave1out_validation(Sanity=Sanity)
+            NLP_model = ML4Prediciton.Classifier(None, None, algorithm, None, train_features, train_labels, test_features, test_labels, random_test_features=random_test_features, test_info_for_patch=test_info_for_patch)
+            auc_, recall_p, recall_n, acc, prc, rc, f1= NLP_model.leave1out_validation(Sanity=Sanity, QualityOfMessage=QualityOfMessage)
 
-            if not Sanity:
-                matrix_average += np.array(cl.matrix)
+            if not Sanity and not QualityOfMessage:
+                matrix_average += np.array(NLP_model.matrix)
+                # length of bug report and commit message
+                for m in NLP_model.messageL:
+                    m.insert(0, str(i+1))
+                for r in NLP_model.reportL:
+                    r.insert(0, str(i+1))
+                meesage_length_distribution += NLP_model.messageL
+                report_length_distribution += NLP_model.reportL
 
-
-            for m in cl.messageL:
-                m.insert(0, 'group-'+str(i+1))
-            for r in cl.reportL:
-                r.insert(0, 'group-'+str(i+1))
-            for s in cl.similarity_message:
-                s.insert(0, 'group-'+str(i+1))
-
-            meesage_length_distribution += cl.messageL
-            report_length_distribution += cl.reportL
-
-            all_correct += cl.correct
-            all_predict_correct += cl.predict_correct
-            all_random_correct += cl.random_correct
-
-            similarity_message_distribution += cl.similarity_message
+            if Sanity:
+                all_correct += NLP_model.correct
+                all_predict_correct += NLP_model.predict_correct
+                all_random_correct += NLP_model.random_correct
+            if QualityOfMessage:
+                for s in NLP_model.similarity_message:
+                    s.insert(0, str(i+1))
+                similarity_message_distribution += NLP_model.similarity_message
 
             accs.append(acc)
             prcs.append(prc)
@@ -269,9 +272,11 @@ class Experiment:
             rcs_n.append(recall_n)
 
             if ASE:
-                cl = ML4Prediciton.Classifier(None, None, algorithm, None, ASE_train_features, ASE_train_labels, ASE_test_features,
+                ASE_model = ML4Prediciton.Classifier(None, None, 'lr', None, ASE_train_features, ASE_train_labels, ASE_test_features,
                                               ASE_test_labels)
-                auc_, recall_p, recall_n, acc, prc, rc, f1 = cl.leave1out_validation()
+                auc_, recall_p, recall_n, acc, prc, rc, f1 = ASE_model.leave1out_validation()
+
+                ASE_matrix_average += np.array(ASE_model.matrix)
                 a_accs.append(acc)
                 a_prcs.append(prc)
                 a_rcs.append(rc)
@@ -281,35 +286,59 @@ class Experiment:
                 a_rcs_p.append(recall_p)
                 a_rcs_n.append(recall_n)
 
+        # self.bar_distribution(dataset_distribution)
+        dataset_distribution = np.array(dataset_distribution)
+        print('train:test, {}'.format(dataset_distribution[:,0].mean()/dataset_distribution[:,1].mean()))
 
-        print('')
-        print('{} leave one out mean: '.format('10-90'))
-        print('Accuracy: {:.1f} -- Precision: {:.1f} -- +Recall: {:.1f} -- F1: {:.1f} -- AUC: {:.3f}'.format(
-            np.array(accs).mean() * 100, np.array(prcs).mean() * 100, np.array(rcs).mean() * 100,
-            np.array(f1s).mean() * 100, np.array(aucs).mean()))
-        print('AUC: {:.3f}, +Recall: {:.3f}, -Recall: {:.3f}'.format(np.array(aucs).mean(), np.array(rcs_p).mean(),
-                                                                     np.array(rcs_n).mean()))
-        print('---------------')
+        if not Sanity and not QualityOfMessage:
+            print('RQ-1:')
+            print('{} leave one out mean: '.format('10-90'))
+            print('Accuracy: {:.1f} -- Precision: {:.1f} -- +Recall: {:.1f} -- F1: {:.1f} -- AUC: {:.3f}'.format(
+                np.array(accs).mean() * 100, np.array(prcs).mean() * 100, np.array(rcs).mean() * 100,
+                np.array(f1s).mean() * 100, np.array(aucs).mean()))
+            print('AUC: {:.3f}, +Recall: {:.3f}, -Recall: {:.3f}'.format(np.array(aucs).mean(), np.array(rcs_p).mean(),
+                                                                         np.array(rcs_n).mean()))
+            print('---------------')
 
-        if not Sanity:
             # confusion matrix
+            print('TP _ TN _ FP _ FN _ +Recall _ -Recall')
             np.set_printoptions(suppress=True)
-            print(np.round(matrix_average / 10, decimals=2))
+            # calculate average +Recall and -Recall based on all data
+            recall_list = []
+            for i in range(matrix_average[:,:4].shape[0]):
+                tp, tn, fp, fn = matrix_average[i][0], matrix_average[i][1], matrix_average[i][2], matrix_average[i][3]
+                recall_p = tp / (tp + fn)
+                recall_n = tn / (tn + fp)
+                recall_list.append([np.round(recall_p, decimals=3), np.round(recall_n, decimals=3)])
 
-            self.boxplot_distribution(meesage_length_distribution, 'Words number in G. commit messages')
-            self.boxplot_distribution(report_length_distribution, 'Words number in bug reports')
+            new_matrix_average = np.concatenate((matrix_average[:,:4], np.array(recall_list)), axis=1)
+            print(new_matrix_average)
+
+            print('RQ-2.1:')
+            print('[Figure]')
+
+            self.boxplot_distribution(meesage_length_distribution, 'Length of code change description')
+            self.boxplot_distribution(report_length_distribution, 'Length of bug report')
 
         if Sanity:
             # sanity check result
+            print('RQ-2.2:')
             print('All correct: {}, Predict correct: {}, Random correct :{}'.format(all_correct, all_predict_correct, all_random_correct))
             print('Fail rate with random: {}'.format((all_predict_correct-all_random_correct)/all_predict_correct))
 
             pass
             # for the comparison of generated message v.s developer message
             # self.boxplot_distribution(similarity_message_distribution, 'Similarity between messages')
-
+        if QualityOfMessage:
+            print('RQ-2.3:')
+            print('{} leave one out mean: '.format('10-90'))
+            print('Accuracy: {:.1f} -- Precision: {:.1f} -- +Recall: {:.1f} -- F1: {:.1f} -- AUC: {:.3f}'.format(
+                np.array(accs).mean() * 100, np.array(prcs).mean() * 100, np.array(rcs).mean() * 100,
+                np.array(f1s).mean() * 100, np.array(aucs).mean()))
+            print('+Recall: {:.3f}'.format(np.array(rcs_p).mean()))
+            print('---------------')
         if ASE:
-            print('')
+            print('RQ-3, ASE: ')
             print('{} ASE leave one out mean: '.format('10-90'))
             print('Accuracy: {:.1f} -- Precision: {:.1f} -- +Recall: {:.1f} -- F1: {:.1f} -- AUC: {:.3f}'.format(
                 np.array(a_accs).mean() * 100, np.array(a_prcs).mean() * 100, np.array(a_rcs).mean() * 100,
@@ -317,6 +346,20 @@ class Experiment:
             print('AUC: {:.3f}, +Recall: {:.3f}, -Recall: {:.3f}'.format(np.array(a_aucs).mean(), np.array(a_rcs_p).mean(),
                                                                         np.array(a_rcs_n).mean()))
             print('---------------')
+
+            # confusion matrix
+            print('TP _ TN _ FP _ FN _ +Recall _ -Recall')
+            np.set_printoptions(suppress=True)
+            # calculate average +Recall and -Recall based on all data
+            recall_list = []
+            for i in range(ASE_matrix_average[:,:4].shape[0]):
+                tp, tn, fp, fn = ASE_matrix_average[i][0], ASE_matrix_average[i][1], ASE_matrix_average[i][2], ASE_matrix_average[i][3]
+                recall_p = tp / (tp + fn)
+                recall_n = tn / (tn + fp)
+                recall_list.append([np.round(recall_p, decimals=3), np.round(recall_n, decimals=3)])
+
+            new_ASE_matrix_average = np.concatenate((ASE_matrix_average[:,:4], np.array(recall_list)), axis=1)
+            print(new_ASE_matrix_average)
 
     def get_train_data_deprecated(self, train_ids, dataset_json, ASE_features=None, ASE=False, enhance=False):
         train_features, train_labels = [], []
@@ -415,7 +458,7 @@ class Experiment:
 
         return train_features, train_labels, ASE_train_features, ASE_train_labels
 
-    def get_test_data(self, test_ids, dataset_json, ASE_features=None, ASE=False, enhance=False, Sanity=False):
+    def get_test_data(self, test_ids, dataset_json, ASE_features=None, ASE=False, enhance=False, Sanity=False, QualityOfMessage=False):
         with open('./data/CommitMessage/Developer_commit_message_bert.pickle', 'rb') as f:
             Developer_commit_message_dict = pickle.load(f)
         test_features, test_labels = [], []
@@ -439,27 +482,31 @@ class Experiment:
                 else:
                     developer_commit_message_vector = Developer_commit_message_dict[project_id]
 
-                # features = commit_vector
-
                 if Sanity:
                     # only consider developer patches and corresponding dev.written commit messages
+                    # bug report vs random bug report
                     if '_Developer_' in test_patch_id:
                     # if label == 1:
-                        # 1. the best
+                        # 1.1 the best
                         features = np.concatenate((bugreport_vector, developer_commit_message_vector), axis=1)
-                        # 2. random bug report
+                        # 1.2 random bug report
                         bug_report_vector_list = [v[0] for k, v in dataset_json.items() if (k in test_ids and k != test_id)]
                         random.seed(100)
                         random_bug_report = random.choice(bug_report_vector_list)
                         random_features = np.concatenate((random_bug_report, developer_commit_message_vector), axis=1)
-                        # 3. generated commit message
-                        # features = np.concatenate((bugreport_vector, commit_vector), axis=1)
+                        random_test_features.append(random_features[0])
+                    else:
+                        pass
+                elif QualityOfMessage:
+                    # only consider developer patches
+                    # dev.written commit message vs generated commit message
+                    if '_Developer_' in test_patch_id:
+                        # 2. generated commit message
+                        features = np.concatenate((bugreport_vector, commit_vector), axis=1)
 
                         test_features.append(features[0])
-                        random_test_features.append(random_features[0])
                         test_labels.append(label)
                         test_info_for_patch.append([test_id, test_patch_id])
-
                     else:
                         pass
                 else:
@@ -469,12 +516,8 @@ class Experiment:
                     else:
                         if '_Developer_' in test_patch_id:
                             features = np.concatenate((bugreport_vector, developer_commit_message_vector), axis=1)
-
-                            test_features.append(features[0])
-                            test_labels.append(label)
-                        else:
-                            test_features.append(features[0])
-                            test_labels.append(label)
+                        test_features.append(features[0])
+                        test_labels.append(label)
                     test_info_for_patch.append([test_id, test_patch_id])
 
             if ASE:
@@ -528,6 +571,41 @@ class Experiment:
         # plt.ylabel('The number of words in generated commit messages', fontsize=22)
         # plt.show()
 
+    def bar_distribution(self, dataset_distribution):
+        df_length = pd.DataFrame(np.array(dataset_distribution), index=[str(i+1) for i in range(10)], columns=['Train', 'Test'])
+        # df_AUC = pd.DataFrame(MinMaxScaler().fit_transform(np.array(aucs).reshape(-1,1)), index=['group-'+str(i+1) for i in range(10)], columns=['AUC'])
+
+        fig = plt.figure(figsize=(10, 5))
+        ax1 = fig.add_subplot(111)
+        # df_length['Correct prediction'].plot(ax=ax1, kind='bar', color='blue', label='Correct prediction')
+        # df_length['Incorrect prediction'].plot(ax=ax1, kind='bar', color='orange', label='Incorrect prediction')
+        df_length.plot(ax=ax1, kind='bar', color={"Train": "White", "Test": "Grey"}, edgecolor='black')
+        plt.xlabel('Round', fontsize=28)
+        ax1.set_ylabel('The number of patches', fontsize=28)
+        plt.xticks(fontsize=22, rotation=0)
+        plt.yticks(fontsize=22, )
+        plt.ylim((0, 11000))
+        plt.legend(fontsize=20, loc=2)
+        plt.show()
+
+
+        # ax2 = ax1.twinx()
+        # df_AUC['AUC'].plot(ax=ax2, grid=False, label='AUC', style='go-.',)
+        # ax2.set_ylabel('AUC', fontsize=22)
+        # plt.xticks(fontsize=20, )
+        # plt.yticks(fontsize=20, )
+        # plt.legend(loc=1, fontsize=18,)
+
+
+        # img_df.plot(kind='bar', rot=0)
+        # plt.xticks(fontsize=20, )
+        # plt.yticks(fontsize=20, )
+        # plt.legend(fontsize=15, )
+        # plt.xlabel('Group', fontsize=22)
+        # plt.ylabel('The number of words in generated commit messages', fontsize=22)
+        # plt.show()
+
+
     def boxplot_distribution(self, distribution, y_title):
         dfl = pd.DataFrame(distribution)
         dfl.columns = ['Group', 'Prediction', y_title]
@@ -540,16 +618,46 @@ class Experiment:
         plt.xticks(fontsize=28, )
         plt.yticks(fontsize=28, )
         bp = sns.boxplot(x='Group', y=y_title, data=dfl, showfliers=False, palette=colors, hue='Prediction', width=0.7, )
-        bp.set_xticklabels(bp.get_xticklabels(), rotation=320)
+        # bp.set_xticklabels(bp.get_xticklabels(), rotation=320)
+        bp.set_xticklabels(bp.get_xticklabels())
         # bp.set_xticklabels(bp.get_xticklabels(), fontsize=28)
         # bp.set_yticklabels(bp.get_yticklabels(), fontsize=28)
         plt.xlabel('Group', size=31)
         plt.ylabel(y_title, size=30)
-        plt.legend(bbox_to_anchor=(0, 1.02, 1, 0.2), loc="lower left",
-                   borderaxespad=0, ncol=3, fontsize=30, )
+        plt.legend(fontsize=20, loc=2)
+        # plt.legend(bbox_to_anchor=(0, 1.02, 1, 0.2), loc="lower left", borderaxespad=0, ncol=3, fontsize=30, )
         self.adjust_box_widths(fig, 0.8)
         plt.tight_layout()
         plt.show()
+
+        # distribution = np.array(distribution)
+        # correct_list = []
+        # distribution_c = distribution[np.array(distribution)[:, 1] == 'Correct']
+        # for i in range(1, 11):
+        #     mean_number = distribution_c[distribution_c[:, 0] == (str(i))][:,2].astype(int).mean()
+        #     correct_list.append(mean_number)
+        #
+        # incorrect_list = []
+        # distribution_inc = distribution[np.array(distribution)[:, 1] == 'Incorrect']
+        # for i in range(1, 11):
+        #     mean_number = distribution_inc[distribution_inc[:, 0] == (str(i))][:,2].astype(int).mean()
+        #     incorrect_list.append(mean_number)
+
+        # MWW test
+        length_correct_list = dfl[dfl.iloc[:]['Prediction'] == 'Correct'][y_title].tolist()
+        length_incorrect_list = dfl[dfl.iloc[:]['Prediction'] == 'Incorrect'][y_title].tolist()
+        try:
+            hypo = stats.mannwhitneyu(length_correct_list, length_incorrect_list, alternative='two-sided')
+            # hypo = stats.mannwhitneyu(correct_list, incorrect_list, alternative='two-sided')
+            p_value = hypo[1]
+        except Exception as e:
+            if 'identical' in e:
+                p_value = 1
+        print('p-value: {}'.format(p_value))
+        if p_value < 0.05:
+            print('Significant!')
+        else:
+            print('NOT Significant!')
 
     def adjust_box_widths(self, g, fac):
         """
@@ -692,5 +800,5 @@ if __name__ == '__main__':
 
     # e.predict_10fold(embedding+'(description)', algorithm='lr')
     # e.predict_leave1out(embedding, times=30, algorithm='lr')
-    e.predict_leave1out_10fold(embedding, times=10, algorithm='qa_attetion', ASE=False)
+    e.predict_leave1out_10fold(embedding, times=10, algorithm='qa_attetion', ASE=True)
     # e.predict_leave1out_10fold(embedding, times=10, algorithm='lr', ASE=False)
