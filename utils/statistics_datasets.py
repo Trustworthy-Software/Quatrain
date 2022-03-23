@@ -28,11 +28,14 @@ def statistics_patch(path_patch, root_folder, dataset_specific='', benchmark_spe
                         for id in ids:
                             path_id = os.path.join(path_project, id)
                             patches = os.listdir(path_id)
+                            # if label == 'Incorrect' and project == 'Closure' and id == '81':
+                            #     print(tool)
                             for p in patches:
                                 if not p.startswith('patch'):
                                     patches.remove(p)
                             number_patches = len(patches)
-                            cnt += number_patches
+                            if tool == 'Developer':
+                                cnt += number_patches
                             if label == 'Correct':
                                 correct += number_patches
                             elif label == 'Incorrect':
