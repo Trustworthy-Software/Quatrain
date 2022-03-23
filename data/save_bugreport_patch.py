@@ -19,6 +19,10 @@ def save_bugreport_patch(path_patch, ):
     with open('BugReport/Bug_Report_All.json', 'rb') as f:
         bugReportText = json.load(f)
 
+    project_ids = set()
+    project_ids_noBugReport = set()
+    tmp = set()
+
     cnt_patch, cnt_patch_with_bugreport = 0, 0
     datasets = os.listdir(path_patch)
     for dataset in datasets:
@@ -50,6 +54,9 @@ def save_bugreport_patch(path_patch, ):
                                 print('collecting {}'.format(project_id))
                                 label_int = 1 if label == 'Correct' else 0
                                 project_id = project_id.lower()
+                                tmp.add(project_id)
+                                if tool == 'Developer':
+                                    project_ids.add(project_id)
 
                                 # extract bug report
                                 if project_id in bugReportText.keys():
@@ -59,6 +66,7 @@ def save_bugreport_patch(path_patch, ):
                                 else:
                                     bug_report_summary = 'None'
                                     bug_report_description = 'None'
+                                    project_ids_noBugReport.add(project_id)
 
                                 # extract patch text
                                 patch_text = ''
@@ -73,7 +81,9 @@ def save_bugreport_patch(path_patch, ):
                                                 print(e)
                                                 continue
 
-                                patch_id = patch + '-' + project_id +'_' + tool + '_' + dataset
+                                patch_id = patch + '-' + project_id + '_' + tool + '_' + dataset
+                                if patch_text == '':
+                                    print('problematic patch')
 
                                 if bug_report_summary == 'None' or patch_text == '':
                                     continue
@@ -87,37 +97,11 @@ def save_bugreport_patch(path_patch, ):
     with open(file_name, 'w+') as f:
         f.write(dataset_text_with_description)
     print('patch number: {}, patch with available bug report: {}'.format(cnt_patch, cnt_patch_with_bugreport))
+    print('All bug ids: {}, Available: {}, BugReportMissing: {}'.format(len(project_ids), len(project_ids)-len(project_ids_noBugReport), len(project_ids_noBugReport)))
+    # print(tmp-project_ids)
+    # print(project_ids)
+    # print(project_ids_noBugReport)
 
-    # for root, dirs, files in os.walk(path_patch):
-    #     for file in files:
-    #         if file.endswith('.patch'):
-    #             name = file.split('.')[0]
-    #             label = 1 if root.split('/')[-4] == 'Correct' else 0
-    #             project = name.split('-')[1]
-    #             # if project != 'Closure':
-    #             #     continue
-    #             id = name.split('-')[2]
-    #             project_id = project + '-' + id
-    #             print('collecting {}'.format(project_id))
-    #             commit_file = name + '.txt'
-    #             try:
-    #                 with open(os.path.join(root, commit_file), 'r+') as f:
-    #                     commit_content = f.readlines()[0].strip('\n')
-    #             except Exception as e:
-    #                 print(e)
-    #                 commit_content = ''
-    #             if project_id in self.bugReportText.keys():
-    #                 bug_report_text = self.bugReportText[project_id]
-    #                 bug_report_summary = bug_report_text[0].strip()
-    #                 bug_report_description = bug_report_text[1].strip()
-    #             else:
-    #                 bug_report_summary = 'None'
-    #                 bug_report_description = 'None'
-    #             # TODO: use description info of bug report
-    #             # dataset_text += '$$'.join([project_id, bug_report_summary, name, commit_content, str(label)]) + '\n'
-    #             dataset_text_with_description += '$$'.join([project_id, bug_report_summary, bug_report_description, name, commit_content, str(label)]) + '\n'
-    # with open(file_name, 'w+') as f:
-    #     f.write(dataset_text_with_description)
 
 if __name__ == '__main__':
     path_patch = config.Config().path_patch
