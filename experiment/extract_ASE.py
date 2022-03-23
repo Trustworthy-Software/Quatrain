@@ -235,17 +235,25 @@ def merge_json(path_patch, w2v):
                                             if ase_feature != []:
                                                 ASE_feature_combined.append(ase_feature)
                                 if ASE_feature_combined == []:
-                                    # print('no feature')
+                                    print('{} no feature'.format(path_id))
                                     continue
                                 else:
                                     if len(ASE_feature_combined) > 1:
-                                        print('multiple files')
-                                        # pass
-                                    ASE_feature_combined = np.mean(ASE_feature_combined, axis=0).tolist()
-                                    # ASE_feature_combined = np.sum(ASE_feature_combined, axis=0).tolist()
+                                        # print('multiple files')
+                                        pass
+                                    # ASE_feature_combined = np.mean(ASE_feature_combined, axis=0).tolist()
+                                    ASE_feature_combined = np.sum(ASE_feature_combined, axis=0).tolist()
                                     if len(ASE_feature_combined) != 2050:
                                         print('???: {}'.format(len(ASE_feature_combined)))
-                                    key = project + '-' + id
+                                    if benchmark == 'Bugsjar' and '+' in project:
+                                        project1 = project.split('+')[1]
+                                        project1 = project1.lower()
+                                        project_id = project1 + '-' + id
+                                    else:
+                                        project_id = project + '-' + id
+
+                                    key = project_id
+                                    key = key.lower()
                                     # value = [ASE_feature_combined, label_int]
                                     # dict_ASE_feature[key] = value
 
@@ -280,7 +288,7 @@ if __name__ == '__main__':
     # w2v = 'CC2Vec'
     path_patch = cf = config.Config().path_patch
     # 1. extract ASE feature of each file changed by patches. note that one patch could change several files.
-    obtain_ASE_features(path_patch, w2v=w2v)
+    # obtain_ASE_features(path_patch, w2v=w2v)
 
     # 2. merge feature vectors of different changed files one patch involves
     merge_json(path_patch, w2v=w2v)
