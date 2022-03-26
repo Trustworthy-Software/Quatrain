@@ -208,7 +208,7 @@ class Experiment:
 
         enhance = False
         Sanity = False
-        QualityOfMessage = False
+        QualityOfMessage = True
         for i in range(times):
             test_group = groups[i]
             train_group = groups[:i] + groups[i+1:]
@@ -327,8 +327,7 @@ class Experiment:
             print('Fail rate with random: {}'.format((all_predict_correct-all_random_correct)/all_predict_correct))
 
             pass
-            # for the comparison of generated message v.s developer message
-            # self.boxplot_distribution(similarity_message_distribution, 'Similarity between messages')
+
         if QualityOfMessage:
             print('RQ-2.3:')
             print('{} leave one out mean: '.format('10-90'))
@@ -337,6 +336,10 @@ class Experiment:
                 np.array(f1s).mean() * 100, np.array(aucs).mean()))
             print('+Recall: {:.3f}'.format(np.array(rcs_p).mean()))
             print('---------------')
+
+            # for the comparison of generated message v.s developer message
+            self.boxplot_distribution(similarity_message_distribution, 'Distance between descriptions')
+
         if ASE:
             print('RQ-3, ASE: ')
             print('{} ASE leave one out mean: '.format('10-90'))
@@ -489,6 +492,9 @@ class Experiment:
                     # if label == 1:
                         # 1.1 the best
                         features = np.concatenate((bugreport_vector, developer_commit_message_vector), axis=1)
+                        test_features.append(features[0])
+                        test_labels.append(label)
+                        test_info_for_patch.append([test_id, test_patch_id])
                         # 1.2 random bug report
                         bug_report_vector_list = [v[0] for k, v in dataset_json.items() if (k in test_ids and k != test_id)]
                         random.seed(100)
@@ -624,7 +630,7 @@ class Experiment:
         # bp.set_yticklabels(bp.get_yticklabels(), fontsize=28)
         plt.xlabel('Group', size=31)
         plt.ylabel(y_title, size=30)
-        plt.legend(fontsize=20, loc=2)
+        plt.legend(fontsize=22, loc=1)
         # plt.legend(bbox_to_anchor=(0, 1.02, 1, 0.2), loc="lower left", borderaxespad=0, ncol=3, fontsize=30, )
         self.adjust_box_widths(fig, 0.8)
         plt.tight_layout()
