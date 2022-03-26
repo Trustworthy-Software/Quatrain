@@ -34,7 +34,7 @@ class Classifier:
         self.labels = labels
         self.algorithm = algorithm
         self.kfold = kfold
-        self.threshold = 0.4
+        self.threshold = 0.5
 
         self.train_features = train_features
         self.train_labels = train_labels
@@ -136,7 +136,7 @@ class Classifier:
                 # developer_commit_message_vector = self.scaler_message2.transform(developer_commit_message_vector)
 
                 if generated_commit_message == '' or developer_commit_message == '':
-                    print('null message')
+                    # print('null message')
                     continue
                 if y_pred[i] == y_true[i]:
                     # print('Patch id: {}'.format(patch_id))
@@ -147,8 +147,8 @@ class Classifier:
                     # similarity of generated commit vs. developer commit
                     correct_distance_lev = distance.levenshtein(generated_commit_message, developer_commit_message)
                     correct_distance_eu = dis.euclidean(generated_commit_message_vector, developer_commit_message_vector)
-                    # correct_similarity_cos = 1-dis.cosine(generated_commit_message_vector, developer_commit_message_vector)
-                    self.similarity_message.append(['Correct', correct_distance_eu])
+                    correct_similarity_cos = dis.cosine(generated_commit_message_vector, developer_commit_message_vector)
+                    self.similarity_message.append(['Correct', correct_distance_lev])
 
                     # QualityOfMessage
                     # print('Correct prediction: ')
@@ -166,8 +166,8 @@ class Classifier:
 
                     incorrect_distance_lev = distance.levenshtein(generated_commit_message, developer_commit_message)
                     incorrect_distance_eu = dis.euclidean(generated_commit_message_vector, developer_commit_message_vector)
-                    # incorrect_similarity_cos = 1-dis.cosine(generated_commit_message_vector, developer_commit_message_vector)
-                    self.similarity_message.append(['Incorrect', incorrect_distance_eu])
+                    incorrect_similarity_cos = dis.cosine(generated_commit_message_vector, developer_commit_message_vector)
+                    self.similarity_message.append(['Incorrect', incorrect_distance_lev])
 
                     # print('Incorrect prediction: ')
                     # print('Bug report: {}'.format(bug_report_dict[project_id]))
@@ -374,7 +374,7 @@ class Classifier:
         if Sanity:
             self.evaluation_sanity(y_true=list(y_test), y_pred_prob=list(y_pred), y_pred_random=list(y_pred_random))
 
-        if not QualityOfMessage:
+        if not Sanity and not QualityOfMessage:
             self.confusion_matrix(y_pred, y_test)
 
         print('---------------')
