@@ -94,7 +94,7 @@ class Experiment:
 
 
     def predict_10fold(self, embedding_method, algorithm):
-        dataset = pickle.load(open('../data/bugreport_patch_'+embedding_method+'.pickle', 'rb'))
+        dataset = pickle.load(open(os.path.join(dirname, 'data/bugreport_patch_array_'+embedding_method+'.pickle'), 'rb'))
         bugreport_vector = np.array(dataset[0]).reshape((len(dataset[0]),-1))
         commit_vector = np.array(dataset[1]).reshape((len(dataset[1]),-1))
         labels = np.array(dataset[2])
@@ -208,7 +208,7 @@ class Experiment:
 
         enhance = False
         Sanity = False
-        QualityOfMessage = True
+        QualityOfMessage = False
         for i in range(times):
             test_group = groups[i]
             train_group = groups[:i] + groups[i+1:]
@@ -804,7 +804,6 @@ if __name__ == '__main__':
 
     # e.statistics(embedding+'(description)')
 
-    # e.predict_10fold(embedding+'(description)', algorithm='lr')
+    e.predict_10fold(embedding, algorithm='lr')
     # e.predict_leave1out(embedding, times=30, algorithm='lr')
-    e.predict_leave1out_10fold(embedding, times=10, algorithm='qa_attetion', ASE=True)
-    # e.predict_leave1out_10fold(embedding, times=10, algorithm='lr', ASE=False)
+    # e.predict_leave1out_10fold(embedding, times=10, algorithm='qa_attetion', ASE=False)
