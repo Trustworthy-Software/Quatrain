@@ -257,11 +257,29 @@ class Classifier:
                 clf = xgb.train(params={'objective': 'binary:logistic', 'verbosity': 0}, dtrain=dtrain, )
             elif self.algorithm == 'nb':
                 clf = GaussianNB().fit(X=x_train, y=y_train)
+            elif self.algorithm == 'qa_attetion':
+                seq_maxlen = 64
+                y_train = np.array(y_train).astype(float)
+                x_train_q = x_train[:, :1024]
+                x_train_a = x_train[:, 1024:]
+                x_train_q = np.reshape(x_train_q, (x_train_q.shape[0], seq_maxlen, -1))
+                x_train_a = np.reshape(x_train_a, (x_train_a.shape[0], seq_maxlen, -1))
+                combine_qa_model = get_qa_attention(x_train_q.shape[1:], x_train_a.shape[1:])
+                callback = [keras.callbacks.EarlyStopping(monitor='val_auc', patience=1, mode="max", verbose=0), ]
+                combine_qa_model.fit([x_train_q, x_train_a], y_train, callbacks=callback, validation_split=0.2, batch_size=128, epochs=10,)
+
 
             if self.algorithm == 'xgb':
                 x_test_xgb = x_test
                 x_test_xgb_dmatrix = xgb.DMatrix(x_test_xgb, label=y_test)
                 y_pred = clf.predict(x_test_xgb_dmatrix)
+            elif self.algorithm == 'qa_attetion':
+                seq_maxlen = 64
+                x_test_q = x_test[:, :1024]
+                x_test_a = x_test[:, 1024:]
+                x_test_q = np.reshape(x_test_q, (x_test_q.shape[0], seq_maxlen, -1))
+                x_test_a = np.reshape(x_test_a, (x_test_a.shape[0], seq_maxlen, -1))
+                y_pred = combine_qa_model.predict([x_test_q, x_test_a])[:, 0]
             else:
                 y_pred = clf.predict_proba(x_test)[:, 1]
 
