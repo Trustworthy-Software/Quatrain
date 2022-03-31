@@ -18,6 +18,8 @@ import seaborn as sns
 from matplotlib.patches import PathPatch
 import matplotlib.pyplot as plt
 import scipy.stats as stats
+import warnings
+warnings.filterwarnings("ignore")
 from scipy.stats import pearsonr
 # os.getcwd('./Naturality')
 dirname = os.path.dirname(__file__)
@@ -172,12 +174,15 @@ class Experiment:
                                                                      np.array(rcs_n).mean()))
         print('---------------')
 
-    def predict_leave1out_10fold(self, embedding_method, times, algorithm, ASE):
+    def predict_leave1out_10fold(self, embedding_method, times, algorithm, comparison):
         dataset_json = pickle.load(open(os.path.join(dirname, 'data/bugreport_patch_json_' + embedding_method + '.pickle'), 'rb'))
-        ASE_features = None
-        if ASE:
+        self.ASE_features = None
+        if comparison == 'ASE':
             # ASE_features = pickle.load(open('../data/ASE_features_'+embedding_method+'.pickle', 'rb'))
-            ASE_features = pickle.load(open(os.path.join(dirname, 'data/ASE_features_bert.pickle'), 'rb'))
+            self.ASE_features = pickle.load(open(os.path.join(dirname, 'data/ASE_features2_bert.pickle'), 'rb'))
+        elif comparison == 'BATS':
+            with open('data/BATS_RESULT.json', 'r+') as f:
+                self.BATS_RESULTS_json = json.load(f)
         # leave one out
         project_ids = list(dataset_json.keys())
         n = len(project_ids)
@@ -206,7 +211,6 @@ class Experiment:
         print('#####')
 
 
-        enhance = False
         Sanity = False
         QualityOfMessage = False
         for i in range(times):
@@ -230,9 +234,8 @@ class Experiment:
             #     developer_commit_message_vector = Developer_commit_message_dict[project_id]
 
 
-            # train_features, train_labels, ASE_train_features, ASE_train_labels = self.get_train_data(train_ids, dataset_json, ASE_features, ASE, enhance=enhance)
-            train_features, train_labels, ASE_train_features, ASE_train_labels = self.get_train_data(train_ids, dataset_json, ASE_features, ASE, enhance=enhance)
-            test_features, test_labels, ASE_test_features, ASE_test_labels, random_test_features, test_info_for_patch = self.get_test_data(test_ids, dataset_json, ASE_features, ASE, enhance=enhance, Sanity=Sanity, QualityOfMessage=QualityOfMessage)
+            train_features, train_labels, ASE_train_features, ASE_train_labels = self.get_train_data(train_ids, dataset_json, comparison)
+            test_features, test_labels, ASE_test_features, ASE_test_labels, random_test_features, test_info_for_patch = self.get_test_data(test_ids, dataset_json, comparison, Sanity=Sanity, QualityOfMessage=QualityOfMessage)
 
             # labels = train_labels + test_labels
             print('Train data size: {}, Incorrect: {}, Correct: {}'.format(len(train_labels), train_labels.count(0), train_labels.count(1)))
@@ -271,7 +274,7 @@ class Experiment:
             rcs_p.append(recall_p)
             rcs_n.append(recall_n)
 
-            if ASE:
+            if comparison == 'ASE':
                 ASE_model = ML4Prediciton.Classifier(None, None, 'lr', None, ASE_train_features, ASE_train_labels, ASE_test_features,
                                               ASE_test_labels)
                 auc_, recall_p, recall_n, acc, prc, rc, f1 = ASE_model.leave1out_validation()
@@ -340,7 +343,7 @@ class Experiment:
             # for the comparison of generated message v.s developer message
             self.boxplot_distribution(similarity_message_distribution, 'Distance between descriptions')
 
-        if ASE:
+        if comparison == 'ASE':
             print('RQ-3, ASE: ')
             print('{} ASE leave one out mean: '.format('10-90'))
             print('Accuracy: {:.1f} -- Precision: {:.1f} -- +Recall: {:.1f} -- F1: {:.1f} -- AUC: {:.3f}'.format(
@@ -364,7 +367,7 @@ class Experiment:
             new_ASE_matrix_average = np.concatenate((ASE_matrix_average[:,:4], np.array(recall_list)), axis=1)
             print(new_ASE_matrix_average)
 
-    def get_train_data_deprecated(self, train_ids, dataset_json, ASE_features=None, ASE=False, enhance=False):
+    def get_train_data_deprecated(self, train_ids, dataset_json, ASE=False, enhance=False):
         train_features, train_labels = [], []
         ASE_train_features, ASE_train_labels = [], []
         for train_id in train_ids:
@@ -391,7 +394,7 @@ class Experiment:
 
             if ASE:
                 try:
-                    ASE_value = ASE_features[train_id]
+                    ASE_value = self.ASE_features[train_id]
                     for p in range(len(ASE_value)):
                         ASE_vector, ASE_label = ASE_value[p][0], ASE_value[p][1]
 
@@ -405,7 +408,7 @@ class Experiment:
 
         return train_features, train_labels, ASE_train_features, ASE_train_labels
 
-    def get_train_data(self, train_ids, dataset_json, ASE_features=None, ASE=False, enhance=False):
+    def get_train_data(self, train_ids, dataset_json,  comparison=False,):
         with open('./data/CommitMessage/Developer_commit_message_bert.pickle', 'rb') as f:
             Developer_commit_message_dict = pickle.load(f)
         train_features, train_labels = [], []
@@ -445,11 +448,11 @@ class Experiment:
                     train_features.append(features[0])
                     train_labels.append(label)
 
-            if ASE:
+            if comparison == 'ASE':
                 try:
-                    ASE_value = ASE_features[train_id]
+                    ASE_value = self.ASE_features[train_id]
                     for p in range(len(ASE_value)):
-                        ASE_vector, ASE_label = ASE_value[p][0], ASE_value[p][1]
+                        patch_id, ASE_vector, ASE_label = ASE_value[p][0], ASE_value[p][1], ASE_value[p][2]
 
                         ASE_train_features.append(np.array(ASE_vector))
                         ASE_train_labels.append(ASE_label)
@@ -461,7 +464,7 @@ class Experiment:
 
         return train_features, train_labels, ASE_train_features, ASE_train_labels
 
-    def get_test_data(self, test_ids, dataset_json, ASE_features=None, ASE=False, enhance=False, Sanity=False, QualityOfMessage=False):
+    def get_test_data(self, test_ids, dataset_json,  comparison=False, Sanity=False, QualityOfMessage=False):
         with open('./data/CommitMessage/Developer_commit_message_bert.pickle', 'rb') as f:
             Developer_commit_message_dict = pickle.load(f)
         test_features, test_labels = [], []
@@ -526,12 +529,11 @@ class Experiment:
                         test_labels.append(label)
                     test_info_for_patch.append([test_id, test_patch_id])
 
-            if ASE:
+            if comparison == 'ASE':
                 try:
-                    ASE_value = ASE_features[test_id]
+                    ASE_value = self.ASE_features[test_id]
                     for p in range(len(ASE_value)):
-                        ASE_vector, ASE_label = ASE_value[p][0], ASE_value[p][1]
-
+                        patch_id, ASE_vector, ASE_label = ASE_value[p][0], ASE_value[p][1], ASE_value[p][2]
                         ASE_test_features.append(np.array(ASE_vector))
                         ASE_test_labels.append(ASE_label)
                 except Exception as e:
@@ -800,10 +802,11 @@ class Experiment:
 
 if __name__ == '__main__':
     embedding = 'bert'
+    comparison = 'ASE'
     e = Experiment()
 
     # e.statistics(embedding+'(description)')
 
-    e.predict_10fold(embedding, algorithm='lr')
+    # e.predict_10fold(embedding, algorithm='lr')
     # e.predict_leave1out(embedding, times=30, algorithm='lr')
-    # e.predict_leave1out_10fold(embedding, times=10, algorithm='qa_attetion', ASE=False)
+    e.predict_leave1out_10fold(embedding, times=10, algorithm='qa_attetion', comparison=comparison)
