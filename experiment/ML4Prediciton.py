@@ -207,7 +207,10 @@ class Classifier:
     def confusion_matrix(self, y_pred, y_test):
         for i in range(1, 10):
             y_pred_tn = [1 if p >= i / 10.0 else 0 for p in y_pred]
-            tn, fp, fn, tp = confusion_matrix(y_test, y_pred_tn).ravel()
+            if y_test == y_pred_tn:
+                tn, fp, fn, tp = 1, 0, 0, 1
+            else:
+                tn, fp, fn, tp = confusion_matrix(y_test, y_pred_tn).ravel()
             print('i:{}'.format(i / 10), end=' ')
             print('TP: %d -- TN: %d -- FP: %d -- FN: %d --' % (tp, tn, fp, fn), end=' ')
             recall_p = tp / (tp + fn)
@@ -315,7 +318,7 @@ class Classifier:
 
         clf = None
         if self.algorithm == 'lr':
-            clf = LogisticRegression(solver='lbfgs', max_iter=1000).fit(X=x_train, y=y_train)
+            clf = LogisticRegression().fit(X=x_train, y=y_train)
         elif self.algorithm == 'dt':
             clf = DecisionTreeClassifier().fit(X=x_train, y=y_train, sample_weight=None)
         elif self.algorithm == 'rf':
@@ -385,6 +388,8 @@ class Classifier:
                 y_pred_random = combine_qa_model.predict([x_test_random_q, x_test_random_a])[:, 0]
         else:
             y_pred = clf.predict_proba(x_test)[:, 1]
+        self.y_pred = y_pred
+        self.y_test = y_test
 
         auc_, recall_p, recall_n, acc, prc, rc, f1 = self.evaluation_metrics(y_true=list(y_test), y_pred_prob=list(y_pred),)
         self.evaluate_message(y_true=list(y_test), y_pred_prob=list(y_pred), test_info_for_patch=self.test_info_for_patch)
