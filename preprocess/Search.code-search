@@ -1,3 +1,0 @@
-# Query: 
-# ContextLines: 1
-
