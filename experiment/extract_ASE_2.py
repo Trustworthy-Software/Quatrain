@@ -300,8 +300,9 @@ if __name__ == '__main__':
     w2v = 'bert'
     # w2v = 'CC2Vec'
     path_patch = cf = config.Config().path_patch
-    # 1. extract ASE feature of all file changed by patches.
+    # 1. extract ASE feature of all files changed by patches at one time.
     # obtain_ASE_features(path_patch, w2v=w2v)
     # path_patch = '../' + path_patch
     obtain_ASE_features2(path_patch, w2v)
+
 
