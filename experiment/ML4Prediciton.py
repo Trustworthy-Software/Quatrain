@@ -261,7 +261,7 @@ class Classifier:
             elif self.algorithm == 'nb':
                 clf = GaussianNB().fit(X=x_train, y=y_train)
             elif self.algorithm == 'qa_attetion':
-                seq_maxlen = 64
+                seq_maxlen = 8
                 y_train = np.array(y_train).astype(float)
                 x_train_q = x_train[:, :1024]
                 x_train_a = x_train[:, 1024:]
@@ -277,7 +277,7 @@ class Classifier:
                 x_test_xgb_dmatrix = xgb.DMatrix(x_test_xgb, label=y_test)
                 y_pred = clf.predict(x_test_xgb_dmatrix)
             elif self.algorithm == 'qa_attetion':
-                seq_maxlen = 64
+                seq_maxlen = 8
                 x_test_q = x_test[:, :1024]
                 x_test_a = x_test[:, 1024:]
                 x_test_q = np.reshape(x_test_q, (x_test_q.shape[0], seq_maxlen, -1))
@@ -353,7 +353,7 @@ class Classifier:
             callback = [keras.callbacks.EarlyStopping(monitor='val_auc', patience=2, mode="max", verbose=1), ]
             combine_qa_model.fit([x_train_q, x_train_a], y_train, validation_split=0.1, batch_size=64,epochs=10,)
         elif self.algorithm == 'qa_attetion':
-            seq_maxlen = 64
+            seq_maxlen = 8
             y_train = np.array(y_train).astype(float)
             x_train_q = x_train[:, :1024]
             x_train_a = x_train[:, 1024:]
@@ -373,7 +373,7 @@ class Classifier:
             x_test_a = x_test[:, 1024:]
             y_pred = combine_qa_model.predict([x_test_q, x_test_a])[:, 0]
         elif self.algorithm == 'qa_attetion':
-            seq_maxlen = 64
+            seq_maxlen = 8
             x_test_q = x_test[:, :1024]
             x_test_a = x_test[:, 1024:]
             x_test_q = np.reshape(x_test_q, (x_test_q.shape[0], seq_maxlen, -1))
