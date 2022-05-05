@@ -39,7 +39,7 @@ def obtain_ods_features(path_dataset):
                       '-mode features -parameters cross:false -input files -location {} -output {}'.format(location, root)
                 try:
                     with Popen(cmd, stdout=PIPE, stderr=PIPE, shell=True, encoding='utf-8') as p:
-                        output, errors = p.communicate(timeout=180)
+                        output, errors = p.communicate(timeout=60)
                         # print(output)
                         # if errors:
                         #     raise CalledProcessError(errors, '-1')
@@ -172,8 +172,8 @@ def engineered_features(path_json):
 if __name__ == '__main__':
     path_dataset = cf = config.Config().path_patch
     # 1. extract ods feature of each file changed by patches. note that one patch could change several files.
-    # obtain_ods_features(path_dataset)
+    obtain_ods_features(path_dataset)
 
     # 2. merge feature vectors of different changed files one patch involves
-    for benchmark in os.listdir(path_dataset):
-        merge_json(os.path.join(path_dataset, benchmark))
+    # for benchmark in os.listdir(path_dataset):
+    #     merge_json(os.path.join(path_dataset, benchmark))
