@@ -115,7 +115,7 @@ def get_qa_attention(dimension_bug_report, dimension_commit_message):
     # aenc.add(Dropout(0.3))
 
     # attention
-    attOut = Dot(axes=1, normalize=True)([qenc.output, aenc.output])
+    attOut = Dot(axes=2, normalize=True)([qenc.output, aenc.output])
     attOut = Flatten()(attOut)  # shape is now only (samples,)
     attOut = Dense((qenc.output_shape[1] * (dimension_bug_report[1] )))(attOut)
     attOut = Reshape((qenc.output_shape[1], dimension_bug_report[1] ))(attOut)
@@ -125,7 +125,7 @@ def get_qa_attention(dimension_bug_report, dimension_commit_message):
 
     similarity = Dot(axes=1, normalize=True)([flatQencOut, flatAttOut])
     # concat_tensor = Concatenate()([Flatten()(qenc.output), Flatten()(aenc.output), similarity])
-    concat_tensor = Concatenate()([Flatten()(qenc.output), similarity])
+    # concat_tensor = Concatenate()([Flatten()(qenc.output), similarity])
 
     output_tensor = Dense(1, activation='sigmoid')(similarity)
     # concat_tensor = Dense(1)(concat_tensor)
