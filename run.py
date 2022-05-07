@@ -4,7 +4,12 @@ import experiment.config as config
 import os
 from representation.word2vec import Word2vector
 import pickle
-from scipy.spatial import distance
+from sklearn.preprocessing import StandardScaler, Normalizer, MinMaxScaler
+from sklearn.cluster import KMeans, DBSCAN, AgglomerativeClustering, AffinityPropagation
+from pyclustering.cluster.xmeans import xmeans, splitting_type
+from sklearn.metrics import silhouette_score ,calinski_harabasz_score, davies_bouldin_score
+import distance._levenshtein
+from scipy.spatial import distance as dis
 from sklearn.metrics import roc_curve, auc, accuracy_score, recall_score, precision_score
 from sklearn.metrics import confusion_matrix, average_precision_score
 import numpy as np
@@ -46,11 +51,14 @@ class Experiment:
         rc = recall_score(y_true=y_trues, y_pred=y_preds)
         f1 = 2 * prc * rc / (prc + rc)
 
-        print('\n***------------***')
+        print('***------------***')
         print('Evaluating AUC, F1, +Recall, -Recall')
         print('Test data size: {}, Incorrect: {}, Correct: {}'.format(len(y_trues), y_trues.count(0), y_trues.count(1)))
         print('Accuracy: %f -- Precision: %f -- +Recall: %f -- F1: %f ' % (acc, prc, rc, f1))
-        tn, fp, fn, tp = confusion_matrix(y_trues, y_preds).ravel()
+        if y_trues == y_preds:
+            tn, fp, fn, tp = 1, 0, 0, 1
+        else:
+            tn, fp, fn, tp = confusion_matrix(y_trues, y_preds).ravel()
         recall_p = tp / (tp + fn)
         recall_n = tn / (tn + fp)
         print('AUC: {:.3f}, +Recall: {:.3f}, -Recall: {:.3f}'.format(auc_, recall_p, recall_n))
@@ -94,6 +102,272 @@ class Experiment:
                     dict_b[project_id] = [bugReportSummary, bugReportDescription]
         pickle.dump(dict_b, open(file_name, 'wb'))
 
+    def validate_hypothesis(self, embedding_method):
+        self.validateByVector(embedding_method)
+        # self.validateBysString()
+
+    def validateBysString(self,):
+        random.seed(10)
+        cnt = 0
+        distribution_distance = []
+        bug_report_txts = []
+        developer_commits = []
+        with open('./data/bugreport_patch.txt', 'r+') as f:
+            for line in f:
+                project_id = line.split('$$')[0].strip()
+                bugreport_summary = line.split('$$')[1].strip()
+                bugreport_description = line.split('$$')[2].strip()
+
+                patch_id = line.split('$$')[3].strip()
+                commit_content = line.split('$$')[4].strip()
+                label = int(float(line.split('$$')[5].strip()))
+                if 'Developer' not in patch_id or bugreport_summary == 'None' or commit_content == 'None':
+                    continue
+                bug_report_txt = bugreport_summary + '. ' + bugreport_description
+                bug_report_txts.append(bug_report_txt)
+                developer_commits.append(commit_content)
+                cnt +=1
+        for i in range(len(bug_report_txts)):
+            br = bug_report_txts[i]
+            dc = developer_commits[i]
+            random_ind = random.randint(0, len(bug_report_txts)-1)
+            dc_r = developer_commits[random_ind]
+
+            dis_ground = distance.levenshtein(br, dc)
+            dis_random = distance.levenshtein(br, dc_r)
+
+            distribution_distance.append(['Original pairs' , dis_ground])
+            distribution_distance.append(['Random pairs' , dis_random])
+
+        y_title = 'distribution of distance'
+        self.boxplot_distribution_correlation(distribution_distance, y_title, 'Original pairs', 'Random pairs')
+
+
+    def validateByVector(self, embedding_method):
+        dataset_json = pickle.load(open(os.path.join(dirname, 'data/bugreport_patch_json_' + embedding_method + '.pickle'), 'rb'))
+        # dataset_json = pickle.load(open(os.path.join(dirname, 'data/bugreport_patch_json_onlysummary_bert.nocode'), 'rb'))
+        with open('./data/CommitMessage/Developer_commit_message_bert.pickle', 'rb') as f:
+            Developer_commit_message_dict = pickle.load(f)
+        all_bug_report, all_developer_commit = [], []
+        project_ids = []
+
+        for k,v in dataset_json.items():
+            value = v
+            bugreport_vector = value[0]
+            project_id = k
+            if project_id == 'closure-63':
+                developer_commit_message_vector = Developer_commit_message_dict['closure-62']
+            elif project_id == 'closure-93':
+                developer_commit_message_vector = Developer_commit_message_dict['closure-92']
+            else:
+                developer_commit_message_vector = Developer_commit_message_dict[project_id]
+            bugreport_vector = bugreport_vector.flatten()
+            developer_commit_message_vector = developer_commit_message_vector.flatten()
+
+            project_ids.append(project_id)
+            all_bug_report.append(bugreport_vector)
+            all_developer_commit.append(developer_commit_message_vector)
+
+        # 1.
+        # clusters, number = self.cluster_bug_report(all_bug_report, 'xmeans', 0)
+        # self.patch_commit(all_developer_commit, clusters, number)
+        # # random cluster
+        # self.cluster_patch_commit(all_developer_commit, number)
+
+        scaler = StandardScaler()
+        all_bug_report = scaler.fit_transform(np.array(all_bug_report))
+        scaler = StandardScaler()
+        all_developer_commit = scaler.fit_transform(np.array(all_developer_commit))
+        # 2.
+        random.seed(10)
+        distribution_distance = []
+        for i in range(all_bug_report.shape[0]):
+            # print(project_ids[i])
+            br = all_bug_report[i]
+            dc = all_developer_commit[i]
+            random_ind = random.randint(0, all_bug_report.shape[0]-1)
+            dc_r = all_developer_commit[random_ind]
+
+            dis_ground = dis.euclidean(br, dc)
+            dis_random = dis.euclidean(br, dc_r)
+            # if dis_ground < 0.1:
+            #     continue
+            distribution_distance.append(['Original pairs' , dis_ground])
+            distribution_distance.append(['Random pairs' , dis_random])
+
+        y_title = 'Distance of pairs'
+        self.boxplot_distribution_correlation(distribution_distance, y_title, 'Original pairs', 'Random pairs')
+
+    def boxplot_distribution_correlation(self, distribution_distance, y_title, group1, group2):
+
+        dfl = pd.DataFrame(distribution_distance)
+        dfl.columns = ['Category', y_title]
+        # put H on left side in plot
+        # if dfl.iloc[0]['Category'] != 'Original pairs':
+        #     b, c = dfl.iloc[0].copy(), dfl[dfl['Category']=='Original pairs'].iloc[0].copy()
+        #     dfl.iloc[0], dfl[dfl['Category']=='Original pairs'].iloc[0] = c, b
+        colors = {group1: 'white', group2: 'grey'}
+        fig = plt.figure(figsize=(14, 10))
+        plt.xticks(fontsize=28, )
+        plt.yticks(fontsize=28, )
+
+        bp = sns.boxplot(x=y_title, y='Category', data=dfl, showfliers=False, palette=colors, width=0.5, orient='h', notch=True)
+        # bp = sns.stripplot(x=y_title, y='Category', data=dfl, alpha = 0.2, color = 'blue')
+        # bp.set_xticklabels(bp.get_xticklabels(), rotation=320)
+        # bp.set_xticklabels(bp.get_xticklabels())
+        # bp.set_xticklabels(bp.get_xticklabels(), fontsize=28)
+        # bp.set_yticklabels(bp.get_yticklabels(), fontsize=28)
+        plt.xlabel(y_title, size=31)
+        plt.ylabel('', size=30)
+        # plt.legend(fontsize=22, loc=1)
+        # plt.legend(bbox_to_anchor=(0, 1.02, 1, 0.2), loc="lower left", borderaxespad=0, ncol=3, fontsize=30, )
+        # self.adjust_box_widths(fig, 0.8)
+        # plt.tight_layout()
+        plt.subplots_adjust(bottom=0.3, left=0.2)
+
+        plt.show()
+
+        # MWW test
+        length_correct_list = dfl[dfl.iloc[:]['Category'] == group1][y_title].tolist()
+        length_incorrect_list = dfl[dfl.iloc[:]['Category'] == group2][y_title].tolist()
+        try:
+            hypo = stats.mannwhitneyu(length_correct_list, length_incorrect_list, alternative='two-sided')
+            # hypo = stats.mannwhitneyu(correct_list, incorrect_list, alternative='two-sided')
+            p_value = hypo[1]
+        except Exception as e:
+            if 'identical' in e:
+                p_value = 1
+        print('p-value: {}'.format(p_value))
+        if p_value < 0.05:
+            print('Significant!')
+        else:
+            print('NOT Significant!')
+
+    def cluster_bug_report(self, vectors, method, number):
+        scaler = Normalizer()
+        vectors = scaler.fit_transform(vectors)
+        X = pd.DataFrame(vectors)
+
+        # original distance as one cluster
+        center_one = np.mean(X, axis=0)
+        dists_one = [distance.euclidean(vec, np.array(center_one)) for vec in np.array(X)]
+
+        if method == 'kmeans':
+            kmeans = KMeans(n_clusters=number, random_state=1)
+            # kmeans.fit(np.array(test_vector))
+            clusters = kmeans.fit_predict(X)
+        elif method == 'dbscan':
+            db = DBSCAN(eps=0.5, min_samples=5)
+            clusters = db.fit_predict(X)
+            number = max(clusters)+2
+        elif method == 'hier':
+            hu = AgglomerativeClustering(n_clusters=number)
+            clusters = hu.fit_predict(X)
+        elif method == 'xmeans':
+            xmeans_instance = xmeans(X, kmax=200, splitting_type=splitting_type.MINIMUM_NOISELESS_DESCRIPTION_LENGTH)
+            clusters = xmeans_instance.process().predict(X)
+            # clusters = xmeans_instance.process().get_clusters()
+            number = max(clusters)+1
+        elif method == 'biKmeans':
+            bk = biKmeans()
+            clusters = bk.biKmeans(dataSet=np.array(X), k=number)
+        elif method == 'ap':
+            # ap = AffinityPropagation(random_state=5)
+            # clusters = ap.fit_predict(X)
+            APC = AffinityPropagation(verbose=True, max_iter=200, convergence_iter=25).fit(X)
+            APC_res = APC.predict(X)
+            clusters = APC.cluster_centers_indices_
+        else:
+            raise
+        # X["Cluster"] = clusters
+        print('Cluster bug report------')
+        SC_list = self.score_inside_outside(X, clusters, number)
+
+        # s1 = silhouette_score(X, clusters)
+        # s2 = calinski_harabasz_score(X, clusters)
+        # s3 = davies_bouldin_score(X, clusters)
+        # print('number: {}'.format(number))
+        # print('Silhouette: {}'.format(s1))
+        # print('CH: {}'.format(s2))
+        # print('DBI: {}'.format(s3))
+
+        return clusters, number
+
+    def patch_commit(self, all_developer_commit, clusters, number):
+        scaler = Normalizer()
+        P = pd.DataFrame(scaler.fit_transform(all_developer_commit))
+
+        print('Associated patch commit------')
+        SC_list = self.score_inside_outside(P, clusters, number)
+
+        # s1 = silhouette_score(P, clusters)
+        # s2 = calinski_harabasz_score(P, clusters)
+        # s3 = davies_bouldin_score(P, clusters)
+        # print('Silhouette: {}'.format(s1))
+        # print('CH: {}'.format(s2))
+        # print('DBI: {}'.format(s3))
+
+    def cluster_patch_commit(self, all_developer_commit, number):
+        scaler = Normalizer()
+        random.seed(0)
+        P = pd.DataFrame(scaler.fit_transform(all_developer_commit))
+        clusters = [random.randint(0, number-1) for i in range(len(all_developer_commit))]
+        clusters = np.array(clusters)
+        print('Random cluster patch Commit------')
+        SC_list = self.score_inside_outside(P, clusters, number)
+
+        # s1 = silhouette_score(P, clusters)
+        # s2 = calinski_harabasz_score(P, clusters)
+        # s3 = davies_bouldin_score(P, clusters)
+        # print('number: {}'.format(number))
+        # print('Silhouette: {}'.format(s1))
+        # print('CH: {}'.format(s2))
+        # print('DBI: {}'.format(s3))
+
+
+    def score_inside_outside(self, vectors, clusters, number):
+        cnt = 0
+        SC_list = []
+        print('Calculating...')
+        for n in range(number):
+            # print('cluster index: {}'.format(n))
+            index_inside = np.where(clusters == n)
+            score_inside_mean = []
+            score_outside_mean = []
+            vector_inside = vectors.iloc[index_inside]
+            for i in range(vector_inside.shape[0]):
+                cur = vector_inside.iloc[i]
+
+                # compared to vectors inside this cluster
+                for j in range(i+1, vector_inside.shape[0]):
+                    cur2 = vector_inside.iloc[j]
+                    dist = distance.euclidean(cur, cur2) / (1 + distance.euclidean(cur, cur2))
+                    score = 1 - dist
+                    score_inside_mean.append(score)
+
+                # compared to vectors outside the cluster
+                index_outside = np.where(clusters!=n)
+                vector_outside = vectors.iloc[index_outside]
+                for k in range(vector_outside.shape[0]):
+                    cur3 = vector_outside.iloc[k]
+                    dist = distance.euclidean(cur, cur3) / (1 + distance.euclidean(cur, cur3))
+                    score = 1 - dist
+                    score_outside_mean.append(score)
+
+            inside_score = np.array(score_inside_mean).mean()
+            outside_score = np.array(score_outside_mean).mean()
+            # print('inside: {}'.format(inside_score), end='    ')
+            # print('outside: {}'.format(outside_score))
+
+            SC = (inside_score - outside_score) / max(inside_score, outside_score)
+            SC_list.append(SC)
+
+
+        CSC = np.array(SC_list).mean()
+        print('Qualified: {}/{}'.format(len(np.where(np.array(SC_list)>0)[0]), len(SC_list)))
+        print('CSC: {}'.format(CSC))
+
+        return SC_list
 
     def predict_10fold(self, embedding_method, algorithm):
         dataset = pickle.load(open(os.path.join(dirname, 'data/bugreport_patch_array_'+embedding_method+'.pickle'), 'rb'))
@@ -181,18 +455,25 @@ class Experiment:
             # ASE_features = pickle.load(open('../data/ASE_features_'+embedding_method+'.pickle', 'rb'))
             self.ASE_features = pickle.load(open(os.path.join(dirname, 'data/ASE_features2_bert.pickle'), 'rb'))
         elif comparison == 'BATS':
-            with open('data/BATS_RESULT.json', 'r+') as f:
+            with open('data/BATS_RESULT_0.8.json', 'r+') as f:
                 self.BATS_RESULTS_json = json.load(f)
+        elif comparison == 'PATCHSIM':
+            with open('data/PATCHSIM_RESULT.json', 'r+') as f:
+                self.PATCHSIM_RESULTS_json = json.load(f)
         # leave one out
         project_ids = list(dataset_json.keys())
         n = len(project_ids)
         accs, prcs, rcs, f1s, aucs = list(), list(), list(), list(), list()
-        a_accs, a_prcs, a_rcs, a_f1s, a_aucs = list(), list(), list(), list(), list()
+        a_accs, a_prcs, a_rcs, a_f1s, a_aucs, a_rcs_p, a_rcs_n = list(), list(), list(), list(), list(), list(), list()
+        bp_aucs, bp_f1s, bp_rcs_p, bp_rcs_n = list(), list(), list(), list()
         rcs_p, rcs_n = list(), list()
-        a_rcs_p, a_rcs_n = list(), list()
+        NLP_model_ytests, NLP_model_preds, ASE_model_preds, BatsPatchSim_model_preds = [], [], [], []
+        new_identify_cnt, identify_cnt = 0, 0
+        test_patches_info = []
         matrix_average = np.zeros((9,6))
         ASE_matrix_average = np.zeros((9,6))
-        all_correct, all_predict_correct, all_random_correct = 0.0, 0.0, 0.0
+        # all_correct, all_predict_correct, all_random_correct = 0.0, 0.0, 0.0
+        all_correct, all_predict_correct, all_random_correct = 0.0, [], []
         meesage_length_distribution, report_length_distribution, similarity_message_distribution = [], [], []
         dataset_distribution = []
         random.seed(1)
@@ -234,7 +515,7 @@ class Experiment:
             #     developer_commit_message_vector = Developer_commit_message_dict[project_id]
 
 
-            train_features, train_labels, ASE_train_features, ASE_train_labels = self.get_train_data(train_ids, dataset_json, comparison)
+            train_features, train_labels, ASE_train_features, ASE_train_labels = self.get_train_data(train_ids, dataset_json, comparison, QualityOfMessage=QualityOfMessage)
             test_features, test_labels, ASE_test_features, ASE_test_labels, random_test_features, test_info_for_patch = self.get_test_data(test_ids, dataset_json, comparison, Sanity=Sanity, QualityOfMessage=QualityOfMessage)
 
             # labels = train_labels + test_labels
@@ -274,33 +555,63 @@ class Experiment:
             rcs_p.append(recall_p)
             rcs_n.append(recall_n)
 
+            # for average results
+            NLP_model_preds += list(NLP_model.y_pred)
+            NLP_model_ytests += list(NLP_model.y_test)
+            test_patches_info += test_info_for_patch
+
             if comparison == 'ASE':
-                ASE_model = ML4Prediciton.Classifier(None, None, 'lr', None, ASE_train_features, ASE_train_labels, ASE_test_features,
+                ASE_model = ML4Prediciton.Classifier(None, None, 'rf', None, ASE_train_features, ASE_train_labels, ASE_test_features,
                                               ASE_test_labels)
                 auc_, recall_p, recall_n, acc, prc, rc, f1 = ASE_model.leave1out_validation()
 
+                # a_accs.append(acc)
+                # a_prcs.append(prc)
+                # a_rcs.append(rc)
+                # a_f1s.append(f1)
+                #
+                # a_aucs.append(auc_)
+                # a_rcs_p.append(recall_p)
+                # a_rcs_n.append(recall_n)
+
                 ASE_matrix_average += np.array(ASE_model.matrix)
-                a_accs.append(acc)
-                a_prcs.append(prc)
-                a_rcs.append(rc)
-                a_f1s.append(f1)
+                ASE_model_preds += list(ASE_model.y_pred)
+            elif comparison == 'BATS' or comparison == 'PATCHSIM':
+                recall_p, recall_n, acc, prc, rc, f1, auc_  = self.evaluation_metrics(NLP_model.y_test, self.comparison_pred)
+                bp_aucs.append(auc_)
+                bp_f1s.append(f1)
+                bp_rcs_p.append(recall_p)
+                bp_rcs_n.append(recall_n)
+                BatsPatchSim_model_preds += list(self.comparison_pred)
 
-                a_aucs.append(auc_)
-                a_rcs_p.append(recall_p)
-                a_rcs_n.append(recall_n)
 
-        # self.bar_distribution(dataset_distribution)
+        self.bar_distribution(dataset_distribution)
+        print('############################################')
         dataset_distribution = np.array(dataset_distribution)
-        print('train:test, {}'.format(dataset_distribution[:,0].mean()/dataset_distribution[:,1].mean()))
+        print('Train:Test, {}'.format(dataset_distribution[:,0].mean()/dataset_distribution[:,1].mean()))
 
         if not Sanity and not QualityOfMessage:
-            print('RQ-1:')
+            print('RQ-1, NLP:')
             print('{} leave one out mean: '.format('10-90'))
-            print('Accuracy: {:.1f} -- Precision: {:.1f} -- +Recall: {:.1f} -- F1: {:.1f} -- AUC: {:.3f}'.format(
-                np.array(accs).mean() * 100, np.array(prcs).mean() * 100, np.array(rcs).mean() * 100,
-                np.array(f1s).mean() * 100, np.array(aucs).mean()))
-            print('AUC: {:.3f}, +Recall: {:.3f}, -Recall: {:.3f}'.format(np.array(aucs).mean(), np.array(rcs_p).mean(),
-                                                                         np.array(rcs_n).mean()))
+            # print('Accuracy: {:.1f} -- Precision: {:.1f} -- +Recall: {:.1f} -- F1: {:.1f} -- AUC: {:.3f}'.format(
+            #     np.array(accs).mean() * 100, np.array(prcs).mean() * 100, np.array(rcs).mean() * 100,
+            #     np.array(f1s).mean() * 100, np.array(aucs).mean()))
+            # # print('AUC: {:.3f}, +Recall: {:.3f}, -Recall: {:.3f}'.format(np.array(aucs).mean(), np.array(rcs_p).mean(), np.array(rcs_n).mean()))
+            # print('AUC: {:.3f},'.format(np.array(aucs).mean()))
+            # print('new average results:')
+            '''
+            # balance test data for F1
+            index_1 = [i for i in range(len(NLP_model_ytests)) if NLP_model_ytests[i]==1]
+            index_0 = [j for j in range(len(NLP_model_ytests)) if NLP_model_ytests[j]==0]
+            random.shuffle(index_0)
+            index_0_small = index_0[:1591]
+            index_final = index_0_small + index_1
+            NLP_model_ytests_4f1 = [NLP_model_ytests[m] for m in index_final]
+            NLP_model_preds_4f1 = [NLP_model_preds[n] for n in index_final]
+            self.evaluation_metrics(NLP_model_ytests_4f1, NLP_model_preds_4f1)
+            '''
+
+            self.evaluation_metrics(NLP_model_ytests, NLP_model_preds)
             print('---------------')
 
             # confusion matrix
@@ -320,16 +631,22 @@ class Experiment:
             print('RQ-2.1:')
             print('[Figure]')
 
-            self.boxplot_distribution(meesage_length_distribution, 'Length of code change description')
-            self.boxplot_distribution(report_length_distribution, 'Length of bug report')
+            self.boxplot_distribution(meesage_length_distribution, 'Length of patch description')
+            # self.boxplot_distribution(report_length_distribution, 'Length of bug report')
 
         if Sanity:
             # sanity check result
             print('RQ-2.2:')
-            print('All correct: {}, Predict correct: {}, Random correct :{}'.format(all_correct, all_predict_correct, all_random_correct))
-            print('Fail rate with random: {}'.format((all_predict_correct-all_random_correct)/all_predict_correct))
+            cnt_all_predict_correct = len(all_predict_correct)
+            cnt_all_random_correct =  sum(i>=0.5 for i in all_random_correct)
+            print('All correct: {}, Predict correct: {}, Random correct :{}'.format(all_correct, cnt_all_predict_correct, cnt_all_random_correct))
+            print('Fail rate with random: {}'.format((cnt_all_predict_correct-cnt_all_random_correct)/cnt_all_predict_correct))
+            all_predict_correct_box = [['Original pairs', prob] for prob in all_predict_correct]
+            all_random_correct_box = [['Random pairs', prob] for prob in all_random_correct]
+            distribution_prob = all_predict_correct_box + all_random_correct_box
 
-            pass
+            self.boxplot_distribution_correlation(distribution_prob, 'Prediction probability by Quatrain', 'Original pairs', 'Random pairs')
+
 
         if QualityOfMessage:
             print('RQ-2.3:')
@@ -343,16 +660,19 @@ class Experiment:
             # for the comparison of generated message v.s developer message
             self.boxplot_distribution(similarity_message_distribution, 'Distance between descriptions')
 
+        NLP_model_preds = [1 if p >= 0.5 else 0 for p in NLP_model_preds]
+        ASE_model_preds = [1 if p >= 0.5 else 0 for p in ASE_model_preds]
+        BatsPatchSim_model_preds = [1 if p >= 0.5 else 0 for p in BatsPatchSim_model_preds]
         if comparison == 'ASE':
             print('RQ-3, ASE: ')
-            print('{} ASE leave one out mean: '.format('10-90'))
-            print('Accuracy: {:.1f} -- Precision: {:.1f} -- +Recall: {:.1f} -- F1: {:.1f} -- AUC: {:.3f}'.format(
-                np.array(a_accs).mean() * 100, np.array(a_prcs).mean() * 100, np.array(a_rcs).mean() * 100,
-                np.array(a_f1s).mean() * 100, np.array(a_aucs).mean()))
-            print('AUC: {:.3f}, +Recall: {:.3f}, -Recall: {:.3f}'.format(np.array(a_aucs).mean(), np.array(a_rcs_p).mean(),
-                                                                        np.array(a_rcs_n).mean()))
-            print('---------------')
+            print('Test data size: {}'.format(len(NLP_model_ytests)))
+            # print('Accuracy: {:.1f} -- Precision: {:.1f} -- +Recall: {:.1f} -- F1: {:.1f} -- AUC: {:.3f}'.format(
+            #     np.array(a_accs).mean() * 100, np.array(a_prcs).mean() * 100, np.array(a_rcs).mean() * 100,
+            #     np.array(a_f1s).mean() * 100, np.array(a_aucs).mean()))
+            # print('AUC: {:.3f}'.format(np.array(a_aucs).mean()))
+            self.evaluation_metrics(NLP_model_ytests, ASE_model_preds)
 
+            print('---------------')
             # confusion matrix
             print('TP _ TN _ FP _ FN _ +Recall _ -Recall')
             np.set_printoptions(suppress=True)
@@ -366,6 +686,32 @@ class Experiment:
 
             new_ASE_matrix_average = np.concatenate((ASE_matrix_average[:,:4], np.array(recall_list)), axis=1)
             print(new_ASE_matrix_average)
+
+            # diff against NLP
+            for i in range(len(NLP_model_ytests)):
+                if NLP_model_ytests[i] == NLP_model_preds[i]:
+                    identify_cnt += 1
+                    if NLP_model_ytests[i] != ASE_model_preds[i]:
+                        new_identify_cnt += 1
+            print('new_identify_cnt: {}/{}'.format(new_identify_cnt, identify_cnt))
+        elif comparison == 'BATS' or comparison == 'PATCHSIM':
+            print('RQ-3, {}: '.format(comparison))
+            print('Test data size: {}'.format(len(NLP_model_ytests)))
+            # print('AUC: {:.3f} -- F1: {:.1f} -- +Recall: {:.1f} -- -Recall: {:.1f}'.format(
+            #     np.array(bp_aucs).mean() * 100, np.array(bp_f1s).mean() * 100, np.array(bp_rcs_p).mean() * 100,
+            #     np.array(bp_rcs_n).mean() * 100))
+            self.evaluation_metrics(NLP_model_ytests, BatsPatchSim_model_preds)
+
+            print('---------------')
+
+            for i in range(len(NLP_model_ytests)):
+                if NLP_model_ytests[i] == NLP_model_preds[i]:
+                    identify_cnt += 1
+                    if NLP_model_ytests[i] != BatsPatchSim_model_preds[i]:
+                        new_identify_cnt += 1
+                        # print('New identification: {}'.format(test_patches_info[i]))
+            print('new_identify_cnt: {}/{}'.format(new_identify_cnt, identify_cnt))
+
 
     def get_train_data_deprecated(self, train_ids, dataset_json, ASE=False, enhance=False):
         train_features, train_labels = [], []
@@ -408,7 +754,7 @@ class Experiment:
 
         return train_features, train_labels, ASE_train_features, ASE_train_labels
 
-    def get_train_data(self, train_ids, dataset_json,  comparison=False,):
+    def get_train_data(self, train_ids, dataset_json,  comparison=False, QualityOfMessage=None):
         with open('./data/CommitMessage/Developer_commit_message_bert.pickle', 'rb') as f:
             Developer_commit_message_dict = pickle.load(f)
         train_features, train_labels = [], []
@@ -433,9 +779,7 @@ class Experiment:
                 # random_bug_report_vector_list = [v[0] for k, v in dataset_json.items() if (k in train_ids and k != train_id)]
 
                 if '_Developer_' in train_patch_id:
-                    # nprandom = np.random.RandomState(1)
                     random.seed(10)
-                    # for _ in range(6):
                     features = np.concatenate((bugreport_vector, developer_commit_message_vector), axis=1)
                     train_features.append(features[0])
                     train_labels.append(label)
@@ -471,10 +815,16 @@ class Experiment:
         random_test_features = []
         ASE_test_features, ASE_test_labels = [], []
         test_info_for_patch = []
+        self.comparison_pred = []
 
         for test_id in test_ids:
             value = dataset_json[test_id]
             bugreport_vector = value[0]
+            if comparison == 'ASE':
+                try:
+                    ASE_value = self.ASE_features[test_id]
+                except Exception as e:
+                    print('No this project in ASE feature!')
             for v in range(1, len(value)):
                 test_patch_id = value[v][0]
                 project, id = test_patch_id.split('_')[0].split('-')[1], test_patch_id.split('_')[0].split('-')[2]
@@ -529,15 +879,32 @@ class Experiment:
                         test_labels.append(label)
                     test_info_for_patch.append([test_id, test_patch_id])
 
-            if comparison == 'ASE':
-                try:
-                    ASE_value = self.ASE_features[test_id]
-                    for p in range(len(ASE_value)):
-                        patch_id, ASE_vector, ASE_label = ASE_value[p][0], ASE_value[p][1], ASE_value[p][2]
-                        ASE_test_features.append(np.array(ASE_vector))
-                        ASE_test_labels.append(ASE_label)
-                except Exception as e:
-                    print(e)
+                    if comparison == 'ASE':
+                        for p in range(len(ASE_value)):
+                            patch_id, ASE_vector, ASE_label = ASE_value[p][0], ASE_value[p][1], ASE_value[p][2]
+                            if patch_id.lower() == test_patch_id.lower():
+                                ASE_test_features.append(np.array(ASE_vector))
+                                ASE_test_labels.append(ASE_label)
+                                break
+                        else:
+                            print('patch_id: {}'.format(patch_id))
+                            continue
+                            # ASE_test_features.append(np.zeros(2050))
+                            # ASE_test_labels.append(1)
+                    elif comparison == 'BATS':
+                        if test_patch_id.lower() in self.BATS_RESULTS_json.keys():
+                            BATS_pred = self.BATS_RESULTS_json[test_patch_id.lower()]
+                            self.comparison_pred.append(BATS_pred)
+                        else:
+                            continue
+                    elif comparison == 'PATCHSIM':
+                        if test_patch_id.lower() in self.PATCHSIM_RESULTS_json.keys():
+                            PATCHSIM_pred = self.PATCHSIM_RESULTS_json[test_patch_id.lower()]
+                            self.comparison_pred.append(PATCHSIM_pred)
+                        else:
+                            continue
+
+
         test_features = np.array(test_features)
         ASE_test_features = np.array(ASE_test_features)
 
@@ -588,12 +955,13 @@ class Experiment:
         # df_length['Correct prediction'].plot(ax=ax1, kind='bar', color='blue', label='Correct prediction')
         # df_length['Incorrect prediction'].plot(ax=ax1, kind='bar', color='orange', label='Incorrect prediction')
         df_length.plot(ax=ax1, kind='bar', color={"Train": "White", "Test": "Grey"}, edgecolor='black')
-        plt.xlabel('Round', fontsize=28)
-        ax1.set_ylabel('The number of patches', fontsize=28)
-        plt.xticks(fontsize=22, rotation=0)
-        plt.yticks(fontsize=22, )
-        plt.ylim((0, 11000))
-        plt.legend(fontsize=20, loc=2)
+        plt.xlabel('Round', fontsize=32)
+        ax1.set_ylabel('The number of patches', fontsize=30)
+        plt.xticks(fontsize=28, rotation=0)
+        plt.yticks(fontsize=28, )
+        plt.ylim((0, 12000))
+        plt.legend(fontsize=25, loc=2)
+        plt.subplots_adjust(bottom=0.2, left=0.2)
         plt.show()
 
 
@@ -625,17 +993,18 @@ class Experiment:
         fig = plt.figure(figsize=(15, 8))
         plt.xticks(fontsize=28, )
         plt.yticks(fontsize=28, )
-        bp = sns.boxplot(x='Group', y=y_title, data=dfl, showfliers=False, palette=colors, hue='Prediction', width=0.7, )
+        bp = sns.boxplot(x='Group', y=y_title, data=dfl, showfliers=False, palette=colors, hue='Prediction', width=0.7, notch=True)
         # bp.set_xticklabels(bp.get_xticklabels(), rotation=320)
         bp.set_xticklabels(bp.get_xticklabels())
         # bp.set_xticklabels(bp.get_xticklabels(), fontsize=28)
         # bp.set_yticklabels(bp.get_yticklabels(), fontsize=28)
-        plt.xlabel('Group', size=31)
+        plt.xlabel('Group', size=32)
         plt.ylabel(y_title, size=30)
-        plt.legend(fontsize=22, loc=1)
+        plt.legend(fontsize=28, loc=1)
         # plt.legend(bbox_to_anchor=(0, 1.02, 1, 0.2), loc="lower left", borderaxespad=0, ncol=3, fontsize=30, )
         self.adjust_box_widths(fig, 0.8)
         plt.tight_layout()
+        plt.subplots_adjust(bottom=0.2, left=0.1)
         plt.show()
 
         # distribution = np.array(distribution)
@@ -778,7 +1147,7 @@ class Experiment:
         cl.cross_validation()
 
     def statistics(self, embedding_method,):
-        dataset_json = pickle.load(open('../data/bugreport_patch_json_' + embedding_method + '.pickle', 'rb'))
+        dataset_json = pickle.load(open('./data/bugreport_patch_json_' + embedding_method + '.pickle', 'rb'))
         project_ids = list(dataset_json.keys())
 
         plt_data = []
@@ -802,11 +1171,11 @@ class Experiment:
 
 if __name__ == '__main__':
     embedding = 'bert'
-    comparison = 'ASE'
+    comparison = ''
     e = Experiment()
 
-    # e.statistics(embedding+'(description)')
+    # e.validate_hypothesis(embedding)
 
-    # e.predict_10fold(embedding, algorithm='lr')
-    # e.predict_leave1out(embedding, times=30, algorithm='lr')
+    # e.statistics(embedding)
+    # e.predict_10fold(embedding, algorithm='rf')
     e.predict_leave1out_10fold(embedding, times=10, algorithm='qa_attetion', comparison=comparison)
