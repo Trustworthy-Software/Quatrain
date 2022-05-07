@@ -45,8 +45,8 @@ class Classifier:
 
         self.matrix = []
         self.correct = 0
-        self.predict_correct = 0
-        self.random_correct = 0
+        self.predict_correct = []
+        self.random_correct = []
 
         self.messageL = []
         self.reportL = []
@@ -147,7 +147,7 @@ class Classifier:
                     # similarity of generated commit vs. developer commit
                     correct_distance_lev = distance.levenshtein(generated_commit_message, developer_commit_message)
                     correct_distance_eu = dis.euclidean(generated_commit_message_vector, developer_commit_message_vector)
-                    correct_similarity_cos = dis.cosine(generated_commit_message_vector, developer_commit_message_vector)
+                    # correct_similarity_cos = dis.cosine(generated_commit_message_vector, developer_commit_message_vector)
                     self.similarity_message.append(['Correct', correct_distance_lev])
 
                     # QualityOfMessage
@@ -166,7 +166,7 @@ class Classifier:
 
                     incorrect_distance_lev = distance.levenshtein(generated_commit_message, developer_commit_message)
                     incorrect_distance_eu = dis.euclidean(generated_commit_message_vector, developer_commit_message_vector)
-                    incorrect_similarity_cos = dis.cosine(generated_commit_message_vector, developer_commit_message_vector)
+                    # incorrect_similarity_cos = dis.cosine(generated_commit_message_vector, developer_commit_message_vector)
                     self.similarity_message.append(['Incorrect', incorrect_distance_lev])
 
                     # print('Incorrect prediction: ')
@@ -178,20 +178,20 @@ class Classifier:
         self.messageL = message_length
         self.reportL = report_length
 
-    def evaluation_sanity(self, y_true, y_pred_prob, y_pred_random):
-        y_pred = [1 if p >= self.threshold else 0 for p in y_pred_prob]
-        y_pred_random = [1 if p >= self.threshold else 0 for p in y_pred_random]
-        cnt_model = 0.0
-        random_model = 0.0
+    def evaluation_sanity(self, y_true, y_pred_prob, y_pred_random_prob):
+        # y_pred = [1 if p >= self.threshold else 0 for p in y_pred_prob]
+        # y_pred_random = [1 if p >= self.threshold else 0 for p in y_pred_random]
+        cnt_model, random_model = 0.0, 0.0
+        cnt_model, random_model = [], []
         for i in range(len(y_true)):
-            if y_true[i] == y_pred[i]:
-                cnt_model += 1
-                if y_true[i] == y_pred_random[i]:
-                    random_model += 1
+            if y_pred_prob[i] >= 0.5:
+                cnt_model.append(y_pred_prob[i])
+                # if y_true[i] == y_pred_random[i]:
+                random_model.append(y_pred_random_prob[i])
         self.correct += y_true.count(1)
-        self.predict_correct += cnt_model
-        self.random_correct += random_model
-        print('fail/cnt: {}'.format((cnt_model-random_model)/cnt_model))
+        self.predict_correct = cnt_model
+        self.random_correct = random_model
+        # print('fail/cnt: {}'.format((cnt_model-random_model)/cnt_model))
     def confusion_quality(self, y_pred, y_test):
         for i in range(1, 10):
             y_pred_tn = [1 if p >= i / 10.0 else 0 for p in y_pred]
@@ -261,7 +261,7 @@ class Classifier:
             elif self.algorithm == 'nb':
                 clf = GaussianNB().fit(X=x_train, y=y_train)
             elif self.algorithm == 'qa_attetion':
-                seq_maxlen = 8
+                seq_maxlen = 64
                 y_train = np.array(y_train).astype(float)
                 x_train_q = x_train[:, :1024]
                 x_train_a = x_train[:, 1024:]
@@ -277,7 +277,7 @@ class Classifier:
                 x_test_xgb_dmatrix = xgb.DMatrix(x_test_xgb, label=y_test)
                 y_pred = clf.predict(x_test_xgb_dmatrix)
             elif self.algorithm == 'qa_attetion':
-                seq_maxlen = 8
+                seq_maxlen = 64
                 x_test_q = x_test[:, :1024]
                 x_test_a = x_test[:, 1024:]
                 x_test_q = np.reshape(x_test_q, (x_test_q.shape[0], seq_maxlen, -1))
@@ -353,7 +353,7 @@ class Classifier:
             callback = [keras.callbacks.EarlyStopping(monitor='val_auc', patience=2, mode="max", verbose=1), ]
             combine_qa_model.fit([x_train_q, x_train_a], y_train, validation_split=0.1, batch_size=64,epochs=10,)
         elif self.algorithm == 'qa_attetion':
-            seq_maxlen = 8
+            seq_maxlen = 64
             y_train = np.array(y_train).astype(float)
             x_train_q = x_train[:, :1024]
             x_train_a = x_train[:, 1024:]
@@ -373,7 +373,7 @@ class Classifier:
             x_test_a = x_test[:, 1024:]
             y_pred = combine_qa_model.predict([x_test_q, x_test_a])[:, 0]
         elif self.algorithm == 'qa_attetion':
-            seq_maxlen = 8
+            seq_maxlen = 64
             x_test_q = x_test[:, :1024]
             x_test_a = x_test[:, 1024:]
             x_test_q = np.reshape(x_test_q, (x_test_q.shape[0], seq_maxlen, -1))
@@ -395,7 +395,7 @@ class Classifier:
         self.evaluate_message(y_true=list(y_test), y_pred_prob=list(y_pred), test_info_for_patch=self.test_info_for_patch)
 
         if Sanity:
-            self.evaluation_sanity(y_true=list(y_test), y_pred_prob=list(y_pred), y_pred_random=list(y_pred_random))
+            self.evaluation_sanity(y_true=list(y_test), y_pred_prob=list(y_pred), y_pred_random_prob=list(y_pred_random))
 
         if not Sanity and not QualityOfMessage:
             self.confusion_matrix(y_pred, y_test)
