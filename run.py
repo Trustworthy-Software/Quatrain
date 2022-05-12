@@ -448,7 +448,7 @@ class Experiment:
                                                                      np.array(rcs_n).mean()))
         print('---------------')
 
-    def predict_leave1out_10fold(self, embedding_method, times, algorithm, comparison):
+    def predict_leave1out_10group(self, embedding_method, times, algorithm, comparison, Sanity=False, QualityOfMessage=False):
         dataset_json = pickle.load(open(os.path.join(dirname, 'data/bugreport_patch_json_' + embedding_method + '.pickle'), 'rb'))
         self.ASE_features = None
         if comparison == 'ASE':
@@ -492,8 +492,8 @@ class Experiment:
         print('#####')
 
 
-        Sanity = False
-        QualityOfMessage = False
+        # Sanity = False
+        # QualityOfMessage = False
         for i in range(times):
             test_group = groups[i]
             train_group = groups[:i] + groups[i+1:]
@@ -1172,10 +1172,12 @@ class Experiment:
 if __name__ == '__main__':
     embedding = 'bert'
     comparison = ''
+    Sanity = False
+    QualityOfMessage = False
     e = Experiment()
 
-    # e.validate_hypothesis(embedding)
+    e.validate_hypothesis(embedding)
 
     # e.statistics(embedding)
     # e.predict_10fold(embedding, algorithm='rf')
-    e.predict_leave1out_10fold(embedding, times=10, algorithm='qa_attetion', comparison=comparison)
+    e.predict_leave1out_10group(embedding, times=10, algorithm='qa_attetion', comparison=comparison, Sanity=Sanity, QualityOfMessage=QualityOfMessage)
