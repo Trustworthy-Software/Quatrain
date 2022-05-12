@@ -1,3 +1,6 @@
+# Is this Change the Answer to that Problem? 
+Correlating Descriptions of Bug and Code Changes for Evaluating Patch Correctness
+
 # Quatrain
 Quatrain(Question Answering for Patch Correctness Evaluation), a supervised learning approach that exploits a deep NLP model to classify the
 relatedness of a bug report with a patch description.
@@ -13,6 +16,6 @@ relatedness of a bug report with a patch description.
 * validate_hypothesis: investigating the semantic similarity between the bug report and patch descriptions. 
 * predict_leave1out_10group: 10-group cross validation to evaluate the performance of approaches. Parameters as follows:
   1. algorithm: QA NLP model
-  2. comparison: '' for RQ1 and RQ2.1. 'ASE','BATS','PATCHSIM' for RQ3. 
-  3. Sanity: False or True. check sanity for RQ2.2
-  4. QualityOfMessage: quality of input for RQ2.3
+  2. comparison: '','ASE','BATS','PATCHSIM'. 
+  3. sanity: False or True. check sanity.
+  4. qualityOfMessage: False or True. quality of input.
