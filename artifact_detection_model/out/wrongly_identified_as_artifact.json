@@ -1,0 +1,3249 @@
+PlayerPresenter: 0
+
+Requested Session invalidated if session is not accessed
+
+* Original StackOverflow post: \
+
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+
+! at io.netty.util.concurrent.DefaultThreadFactory$DefaultRunnableDecorator.run(DefaultThreadFactory.java:137) [netty-all-4.0.34.Final.jar:4.0.34.Final]
+
+Status Code:101 Switching Protocols
+
+java 8u131
+
+src/main/java/Runner.java:
+
+java.lang.IndexOutOfBoundsException: Index: 0, Size: 0
+
+tx.begin()
+
+`SELECT EXPAND(out()[age = :value]) FROM #11:0 ORDER BY age asc
+
+ByteToMessageCodec "cannot determine the type of the type parameter 'I': class io.netty.handler.codec.ByteToMessageCodec$1"
+
+- spring-security-oauth2-client:5.3.2
+
+Build label: 0.24.0rc9
+
+Aug 25, 2016 6:20:11 AM com.hazelcast.client.impl.ClientHeartbeatMonitor
+
+Content-Type: text/css; charset=utf-8
+
+| first_name + ' ' + last_name | COUNT(@rid)
+
+src/main/tools/linux-sandbox-pid1.cc:393: "mount": Operation not permitted
+
+org.elasticsearch.search.SearchParseException: [test][3]: from[-1],size[-1]: Parse Failure [Failed to parse source [{"query" : {"query_string":{"query": ""}}}]]
+
+and inspect the code(io.grpc.netty.NettyClientTransport#start):
+
+  symbol:   class AuthorEntity
+
+- [  ] v2.0.x - Please specify last number: 
+
+DefaultLastHttpContent(data: UnpooledHeapByteBuf(ridx: 0, widx: 20923, cap: 20923), getDecoderResult: success)
+
+HikariCP-2.2.5.jar
+
+java
+
+### The error may exist in file [D:\workspace.metadata.plugins\org.eclipse.wst.server.core\tmp9\wtpwebapps\dubbo-monitor\WEB-INF\classes\mappers\DubboInvokeMapper.xml]
+
+InvalidJavadocPositionCheck
+
+redisson.conf
+
+java.lang.ClassCastException: com.orientechnologies.orient.core.index.OCompositeKey cannot be cast to java.lang.String
+
+UnnecessaryLocalBeforeReturn
+
+Validation needs additional <uri> catalog entry
+
+DEBUG [2016-07-05 20:19:31,715] org.redisson.connection.ElasticacheConnectionManager: Current master: //127.0.0.1:6379
+
+@Slf4j
+
+In com.basestonedata.instalment.debug:3.4.0:45.
+
+2) Launch JVM(2)
+
+javascript
+
+		return new ConditionOutcome(condition.matches(this.context, metadata),
+
+temp $ javac CheckstyleRightParenBug.java
+
+redisson-spring-boot-starter: 3.10.6
+
+… …
+
+44:0 | 1 | Test | Henzley | Dot
+
+insert into tgroup set name = 'testgroup1';  //Inserted record 'tgroup#107:0{name:testgroup1} v1' 
+
+/var/tmp $ cat Test.java
+
+OpenJDK Runtime Environment (build 1.8.0_151-8u151-b12-1~deb9u1-b12)
+
+----------END
+
+EXPLAIN query USING PERIOD COMMIT with session.readTransaction
+
+--- test code that proves the point----
+
+First query output for `bar_dates`: `["2016-01-02 00:00:02","2016-01-01 00:00:01"]`
+
+Netty Version: master (6c0fef133baa4afce11953110a6947732d87ec8e)
+
+  - eg. Leaked connection...
+
+Starting audit...
+
+	... 4 more
+
+forEach(('['+value.split('[')[3].split(']')[0]+']').parseJson(),k,k['html'].parseHtml().select('a')[0].htmlAttr('href'))
+
+:booleanList = [true]
+
+io.netty.channel.ChannelOutboundBuffer.addMessage throws java.lang.ArrayIndexOutOfBoundsException
+
+Fatal Error
+
+@philwebb 
+
+@RunWith(PactRunner.class)
+
+address(1, "street_1")
+
+! org.redisson.client.RedisTimeoutException: Command execution timeout for /127.0.0.1:6379
+
+java.lang.ClassCastException: org.springframework.boot.context.event.ApplicationFailedEvent cannot be cast to org.springframework.boot.web.context.WebServerInitializedEvent
+
+- org.glassfish.grizzly.http.HttpCodecFilter.handleRead():510 calls HttpCodecFilter.decodeWithTransferEncoding()
+
+Culprit: 9a05f3bc58f9845bf41f9f8031e97b09e5348855
+
+code=500
+
+-> _otherTempFile.xml_
+
+b -> c
+
+Build target: bazel-out/local-fastbuild/bin/src/main/java/com/google/devtools/build/lib/bazel/BazelServer_deploy.jar
+
+Caused by: java.lang.invoke.LambdaConversionException: Invalid receiver type interface com.speedment.runtime.field.Field; not a subtype of implementation type interface com.speedment.runtime.field.trait.HasFinder
+
+ERROR [2016-07-05 20:19:32,718] org.redisson.connection.ElasticacheConnectionManager: Command execution timeout for /127.0.0.1:6379
+
+/var/tmp $ cat config.xml
+
+Caused by: java.lang.ArrayIndexOutOfBoundsException
+
+4.0.42: java.lang.NoClassDefFoundError: Could not initialize class io.netty.util.internal.PlatformDependent0
+
+   * Once completed, Tracklist is: [  C  ]
+
+43:1 | 1 | Test | Stannas | Abran
+
+`SSLEngine` enables SSLv2.
+
+[xml] cvc-elt.1.a: Cannot find the declaration of element 'invoice'. [cvc-elt.1.a]
+
+Was expecting one of:
+
+getStringValue("test3") return test3
+
+file:./fname
+
+YetAnotherServletContextListener
+
+no records found
+
+INSERT INTO from SELECT using Kotlin
+
+Aug 25, 2016 6:19:51 AM com.hazelcast.client.impl.ClientHeartbeatMonitor
+
+java.lang.AssertionError: null
+
+System.err: Caused by: java.lang.IllegalStateException: Current state = CODING_END, new state = CODING
+
+ipv6Expected = false
+
+https://github.com/Azure/azure-iot-sdk-csharp/issues/431, but it refers to a not registered device, it seems not related to our error.
+
+java.lang.NullPointerException
+
+number is: 6
+
+version: apache-pulsar-2.4.0
+
+@PactBroker(host = <hostname>, port = "80", tags={"dev"} )
+
+io.grpc.Attributes - reference vs. object equality
+
+Revisit Promise signatures
+
+(version 9.4.5)
+
+- Load the warmer:  PUT to /tests/_warmer/warmer1 
+
+Stack Trace:
+
+Aug 25, 2016 6:20:01 AM com.hazelcast.client.impl.ClientHeartbeatMonitor
+
+subscriptionsPerConnection=10
+
+8 direct arena(s):
+
+E/ExoPlayerImplInternal: Renderer error.
+
+|   |   |   `-- brokerjglup9
+
+CLI distribution is missing read rights
+
+Database corruption - java.lang.AssertionError: unknown trans log instruction '0'
+
+  comparatorNullFieldsLast()
+
+/var/tmp $ cat -n InputImportOrderStaticGroupOrderBottom_Negative.java
+
+[Handler.java](https://github.com/spring-projects/spring-boot/blob/master/spring-boot-project/spring-boot-tools/spring-boot-loader/src/main/java/org/springframework/boot/loader/jar/Handler.java)  ) will parse 'com/mysql/cj/protocol/a/result/NativeResultset.class' as 'com/mysql/cj/protocol/result/NativeResultset.class'  。
+
+UPDATE(2018-01-17 12:26 CET): the problem seems to only affect release candidates and nightlies. From-source builds reset the timestamp to 0.
+
+Executing a multi group by select
+
+			return ((SpringBootCondition) condition).getMatchOutcome(this.context,
+
+- v    2.2.15 
+
+retryAttempts=10
+
+	…
+
+Helm client and server: v2.14.0
+
+@jonas-ren:
+
+/var/tmp $ cat Foo.java
+
+com.orientechnologies.orient.core.exception.OQueryParsingException: Error on parsing command at position #0: Error on parsing query
+
+/var/tmp $ java -jar checkstyle-X.XX-all.jar -c config.xml InputImportOrderStaticGroupOrderBottom_Negative.java
+
+FAILURE: Build failed with an exception.
+
+I am using com.amazonaws:aws-android-sdk-s3:2.12.5 and com.amazonaws:aws-android-sdk-core:2.12.5.
+
+PlayerPresenter: 706
+
+java.lang.NullPointerException: null
+
+   * Tracklist is: [  C  | \_F\_ |  D  |  E  ]
+
+@benas @mminella 
+
+threads: 0
+
+sha256 checksum files for the binary installer can't be used with `sha256sum -c`
+
+@EqualsAndHashCode(callSuper = false, exclude = {"rawContent", "rootElements", "chapters", "annotationBlocks", "indents"})
+
+org.glassfish.grizzly.ProcessorExecutor.execute(ProcessorExecutor.java:77),
+
+Anderss-MacBook-Pro:checkstyle andtho$ cat config.xml
+
+a_sample_key: dev_feature_value // Which is what I expect, its giving me the property from active profile
+
+Anderss-MacBook-Pro:checkstyle andtho$ java -jar checkstyle-8.2-all.jar -c config.xml Test.java
+
+Netty4: "ChunkedInput.isEndOfInput() failed"
+
+org.glassfish.grizzly.strategies.AbstractIOStrategy.fireIOEvent(AbstractIOStrategy.java:112),
+
+Error uploading: NullPointerException: String.isEmpty() on a null object reference
+
+  symbol:   class AuthorEntity
+
+velocity template can't use "spring.velocity.charset"
+
+* redisson 版本选3.6.2
+
+#4551 is similar. 
+
+1.3.0.M5
+
+[INFO ] 2017-07-02 21:57:25 io.netty.handler.logging.LoggingHandler [id: 0xdf676102] UNREGISTERED
+
+Culprit: 9c5b310257ca5c85ae261a43187d0b949319a514
+
+### SQL: SELECT             SUM(success) as success,             SUM(failure) as failure,             SUM(elapsed) as elapsed,             MAX(max_elapsed) as maxElapsed,             MIN(max_concurrent) as maxConcurrent         FROM dubbo_invoke         WHERE             1 = 1                                                     AND invoke_time >= ?                                 AND invoke_time <= ?                                 AND service = ?                                 AND method = ?                                                      AND type = ?
+
+  hibernate.cache.use_second_level_cache: true
+
+* 9a9ef4397697f52f4262a60d02132814187cdd55
+
+It seems linked to our [handling of standalone java files](https://github.com/eclipse/eclipse.jdt.ls/blob/7fadb7ffdc7a841f95c918b0b712c1254e254bc7/org.eclipse.jdt.ls.core/src/org/eclipse/jdt/ls/core/internal/JDTUtils.java#L141)
+
+@Ignore
+
+https://github.com/checkstyle/checkstyle/blob/master/src/main/java/com/puppycrawl/tools/checkstyle/ConfigurationLoader.java#L477 :
+
+Between a type annotation and [] or ....
+
+ctiveFilteredRows.java:65)
+
+  |   | # of remove operations | 50K
+
+This can happen if --
+
+java.lang.NoClassDefFoundError: com.amazonaws.services.s3.AmazonS3
+
+Initialization of bean failed; nested exception is org.springframework.beans.TypeMismatchException: Failed to convert property value of type 'java.lang.String' to required type 'int' for property 'transactionIsolation'; nested exception is java.lang.NumberFormatException: For input string: "TRANSACTION_READ_COMMITTED"
+
+r2.9.6
+
+Accept header with trailing comma produces HTTP "406 Not Acceptable"
+
+@Test
+
+I was expecting a violation to be reported on line 5.
+
+Kotlin 1.3.72
+
+  location: class ObservableService
+
+`Caused by: org.springframework.context.ApplicationContextException: Unable to start embedded container; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'errorPageFilter': Initialization of bean failed; nested exception is java.lang.IllegalStateException: Websockets are currently only supported in Tomcat (found class org.springframework.boot.context.web.ErrorPageFilter)
+
+3c17c37d029db263151a5b216fec8030600927be
+
+ Run, throw Failed to auto-configure a DataSource: 'spring.datasource.url' is not specified and no embedded datasource could be auto-configured
+
+Checkstyle ends with 1 errors.
+
+CREATE INDEX doesn't automatically bound index to the schema property in v3.0.0
+
+toryEntry(ColumnAdditionOperation.java:151)
+
+Producer Tests: 'au.com.dius:pact-jvm-provider-gradle_2.11:2.2.12'
+
+DEBUG [2016-07-05 20:19:31,925] org.redisson.client.handler.ConnectionWatchdog: reconnecting RedisConnection@37417717 [redisClient=[addr=/127.0.0.1:6379], channel=[id: 0xba92b187, 0.0.0.0/0.0.0.0:56146]] to /127.0.0.1:6379 
+
+2. Restart neo4j.
+
+numericZone = -1
+
+`        
+
+WARNING: Client heartbeat is timed out , closing connection to Connection [0.0.0.0/0.0.0.0:5701 -> null], endpoint=Address[10.1.16.211]:53760, alive=false, type=JAVA_CLIENT
+
+Using netty 4.
+
+Caused by: java.util.concurrent.ExecutionException: com.dangdang.ddframe.rdb.sharding.exception.ShardingJdbcException: java.sql.SQLException: Error
+
+select record
+
+enter:  http://localhost:8080/user
+
+rBinary.fromStream(ORecordSerializerBinary.java:72)
+
+offer an element with delay time (-2515194, "2018-11-20 20:00:52") when create time is "2018-11-20 20:42:08".
+
+  just use the value of key “m3u8”  [m3u8 list](http://192.168.229.152:7701/live/live_list?gametype=3)
+
+if (status == TXN_STATUS_NO_TXN || status == TXN_STATUS_UNKNOWN
+
+a_sample_key: shared_feature_value // Which is not correct, its returning me value from included profile
+
+java.lang.IllegalStateException: null
+
+https://docs.oracle.com/javase/7/docs/api/java/nio/channels/FileChannel.html#truncate(long)
+
+Process finished with exit code -1
+
+error:
+
+insert into tuser set name = 'test8';        //Inserted record 'tuser#105:7{name:test1} v1'
+
+System Information:
+
+... 16 more
+
+   bug现象
+
+WxzZSxyZWFkUXVvcnVtOjEsd3JpdGVRdW9ydW06MixmYWlsdXJlQXZhaWxhYmxlTm9kZXNMZXNzUXVvcnVtOmZhbHNlLHJlYWRZb
+
+number is: 6
+
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+
+IntelliJ IDEA 12.1.7
+
+org.glassfish.grizzly.nio.transport.TCPNIOTransport.fireIOEvent(TCPNIOTransport.java:550),
+
+redirect_uri: http://localhost?foo=bar/login/oauth2/code/registration-1
+
+Sonarlint is reporting this error on org.eclipse.jdt.ls.core.internal.corext.codemanipulation.OrganizeImportsOperation.UnresolvableImportMatcher.getProblematicImport(IProblem, CompilationUnit):
+
+YetAnotherConfiguration
+
+Source code about org.redisson.RedissonLocalCachedMap$LocalCachedMapInvalidate:
+
+NullPointerException: null at org.springframework.boot.autoconfigure.EnableAutoConfigurationImportSelector.selectImports(EnableAutoConfigurationImportSelector.java:63)
+
+org.springframework.beans.factory.BeanDefinitionStoreException: Failed to load bean class: ; nested exception is java.lang.NullPointerException
+
+Sec-WebSocket-Accept:CHHUseBBz5XJ9stOJiBImbNrd5A=
+
+Version: v3.44.1-2018e (Time4A)
+
+MsgEchoClient :
+
+StrictMode: How to avoid "resource was acquired ... but never released"
+
+com.orientechnologies.orient.core.exception.OSerializationException: Cannot
+
+org.osgi.framework.BundleException: Could not resolve module: com.google.cloud.tools.eclipse.appengine.localserver [1044]
+
+Warning: Supported source version 'RELEASE_6' from annotation processor
+
+[BaseClientDetails](https://github.com/spring-projects/spring-security-oauth/blob/master/spring-security-oauth2/src/main/java/org/springframework/security/oauth2/provider/client/BaseClientDetails.java) equals method compares _accessTokenValiditySeconds_ and _refreshTokenValiditySeconds_ fields which are Integer (wrapper type) with != instead of equals:
+
+Likely a side-effect of https://github.com/ceylon/ceylon-spec/issues/1468.
+
+D/EventLogger: state [0.35, true, B]
+
+Darwin MacBook-Pro-sy.local 17.5.0 Darwin Kernel Version 17.5.0: Mon Mar  5 22:24:32 PST 2018; root:xnu-4570.51.1~1/RELEASE_X86_64 x86_64
+
+$bazel
+
+What! SQLType.DDL == sqlType 居然返回masterSlaveDataSource.getAllDataSources()！！！
+
+"globalEventExecutor-1-1"@4,148 in group "main": RUNNING
+
+RedissonSetMultimap has a bug here redisson.getSetMultimap( "" ).removeAll( collection )
+
+This is due to https://github.com/spring-projects/spring-security-oauth/blob/b055772adbb9c10497b1077a0480bf2c2649fb04/spring-security-oauth2/src/main/java/org/springframework/security/oauth2/client/token/AccessTokenProviderChain.java#L166.
+
+/var/tmp $ javac Foo.java
+
+ 3 Percolator a Document
+
+JobA:
+
+Probably comes from 81a4763.
+
+java.lang.Thread.run(Thread.java:701)
+
+/var/tmp $ cat FinalLocalVariableMultiCatch.java
+
+set BAZEL_VS=C:/Program Files (x86)/Microsoft Visual Studio/2017/Enterprise
+
+/java/repro/BUILD
+
+failed to install bazel on Red Hat 6.7
+
+D/EventLogger: loading [true]
+
+Removing the two lines ...
+
+`java.lang.OutOfMemoryError: Java heap space
+
+GET /robots.txt HTTP/1.1
+
+java - java-11-openjdk-11.0.3.7-0.el7_6.x86_64
+
+AsyncHttpClient : 2.5.2
+
+/var/tmp $ cat TestClass.java
+
+## PropertyAccessException[[Error: unresolvable property or identifier: one]
+
+I got error Invalid file: file:///Users/UserName/.gitignore_global
+
+@ConditionalOnProperty(prefix = "management.health.db", name = "enabled", matchIfMissing = true)
+
+appengine_war() fails because it looks for appengine.BUILD in project's workspace
+
+Internal: Wait until engine has started up when acquiring searcher
+
+io.netty.handler.ssl.ReferenceCountedOpenSslEngine.OpenSslSession#initPeerCerts
+
+request: http://localhost/oauth2/authorization/registration-1?foo=bar
+
+The comments // $ + x = [$,x]
+
+macOS Sierra (16.4.0 Darwin Kernel Version 16.4.0: Thu Dec 22 22:53:21 PST 2016; root:xnu-3789.41.3~3/RELEASE_X86_64 x86_64)
+
+- [  ] Other, name? 
+
+RequeryA: 
+
+security.user.role=USER  # can be set but if one does that all tests are failing
+
+org.apache.jsp.index_jsp
+
+Host:127.0.0.1:8080
+
+incompatible_strict_argument_ordering
+
+### The error may involve com.handu.open.dubbo.monitor.DubboMonitorService.countDubboInvokeInfo-Inline
+
+@PactBroker(host="uscinwsdfyv4xq1", port=80)
+
+MsgEchoServer :
+
+... 14 more
+
+@ConditionalOnExpression("${health.db.enabled:true}")
+
+WARNING: Client heartbeat is timed out , closing connection to Connection [0.0.0.0/0.0.0.0:5701 -> null], endpoint=Address[10.1.16.211]:53760, alive=false, type=JAVA_CLIENT
+
+Most probably related to the issues: #3835, #4104, #3535.
+
+Undertow embedded servlet container ignores SSL server.ssl.key-alias
+
+setCircleRadius(0) not working on v3.0.0
+
+  [Using file XXXX (edited to private info)]
+
+Sec-WebSocket-Key:Urs+rkRJzGp+TRG6HDoqsQ==
+
+==========take: 1_1_2
+
+ 0 = {Region@6447} "ap-northeast-1"
+
+4.4.0-83-generic
+
+4) Relaunch JVM(2)
+
+ 12 = {Region@6459} "us-east-2"
+
+Caused by: java.lang.ArrayIndexOutOfBoundsException
+
+io.netty.handler.codec.http2.Http2MultiplexCodecTest.channelClosedWhenInactiveFired(Http2MultiplexCodecTest.java:471)
+
+nettyThreads: 0
+
+BAZEL_VC = C:\Program Files (x86)\Microsoft Visual Studio\2017\Professional\VC
+
+UselessParentheses
+
+Suspected culprit is https://github.com/bazelbuild/bazel/commit/934c4fd4a4a96093a2cd0b08cf619bef04d0b582
+
+keepAlive=true
+
+3. Start Management Center: "cd ./management-center/hazelcast-management-center-3.11.3 && ./start.sh"
+
+the explict flush can be ignored because of improrer use of the OP_WRITE/EPOLLOUT flag.......
+
+COLLATION 'utf8_bin' is not valid for CHARACTER SET 'utf8mb4'
+
+bin/plugin tells you to use --list when plugin not found
+
+Dozer: 5.5.1
+
+`[main] WARN  au.com.dius.pact.matchers.Matchers – Path expression $.serviceNode.entity.status.thirdNode['@description] is invalid, ignoring: [1.76] failure: `'' expected but end of source found`
+
+permissions: ["USER"]; //array of strings
+
+1. jar:file:/C:/Users/.../junit4507521104116618629.tmp!/n123456789012345678901234567890.jar!/
+
+  subscriptionsPerConnection: 5
+
+java.lang.IllegalStateException: Can't find tenured space; update this class for a new collector
+
+/var/tmp $ java -jar checkstyle-7.8.2-all.jar -c config.xml YOUR_FILE.java
+
+/var/tmp $ javac an/extremelylongpackagenamethat/hasmultiplecomponents/Test.java
+
+spring-security-oauth2-client:5.1.0.M2
+
+Path returned to client
+
+management.health.db.enabled=false
+
+Previously...
+
+Message:    
+
+I know @Encode will stop decoding the parameter, but I need to decode it from url encoding...
+
+Vendor: Oracle Corporation
+
+INFO: Invocation ID: 6dd107dd-272e-4040-8c2e-e1a7061b1533
+
+/var/tmp $ cat TestConfig.xml
+
+Last-Modified: Fri, 12 Apr 2013 13:00:53 GMT
+
+org.mybatis.spring.MyBatisSystemException: nested exception is org.apache.ibatis.exceptions.PersistenceException: 
+
+StrictHttpFirewall.isNormalized(String)
+
+curl -XPOST localhost:9200/idx1/type1 -d '{ "name": "igor", "sane": "partially" }'`
+
+implementation 'com.amazonaws:aws-android-sdk-core:2.12.5'
+
+implementation 'com.google.android.exoplayer:exoplayer-core:2.8.1'
+
+Vary: Accept-Encoding
+
+ NPE at org.eclipse.elk.conn.gmf.GmfLayoutConfigurationStore.getContainer
+
+Caused by: io.netty.util.concurrent.BlockingOperationException: DefaultPromise@19827b5e(incomplete)
+
+WebSessionTestWebSessionManager:
+
+Consumer : "au.com.dius:pact-jvm-consumer-groovy-v3_2.11:3.0.1"
+
+System.err:     at org.jsoup.nodes.Element.html(Element.java:1360)
+
+- Thread 2 adds Session 1 to 1420656480000
+
+null build --strategy=Javac=worker --worker_quit_after_build --fetch --nostamp --javacopt='-source 1.8 -target 1.8'
+
+groovy scripting docs are buggy for 'multiValued'
+
+a_sample_key: dev_feature_value  // Which is what I expect, its giving me the property from active profile
+
+System.err:     at org.jsoup.nodes.Attributes.html(Attributes.java:323)
+
+Caused by: java.util.concurrent.ExecutionException: java.lang.NoSuchMethodError: org.apache.http.impl.conn.PoolingHttpClientConnectionManager.setValidateAfterInactivity(I)V
+
+redisson-tomcat-8-2.15.2-SNAPSHOT.jar
+
+Anderss-MacBook-Pro:checkstyle andtho$ cat Test.java 
+
+- vertex Relation->> v(Person)[#-1:-2]
+
+glmBuild2
+
+|Rose |
+
+ChildrenQuery.ParentScorer#nextDoc()
+
+/var/tmp $ cat config.xml
+
+14:0, 14:1, 15:0, 16:0 respectively 
+
+**org.redisson.client.RedisTimeoutException: Redis server response timeout (3000 ms) occured for command: (HGET) with params: [redisson:tomcat_session:793608B88C44BAB4E33D83A057A2BD09, PooledUnsafeDirectByteBuf(ridx: 0, widx: 9, cap: 256)] channel: [id: 0x9d152a45, L:/127.0.0.1:60560 - R:127.0.0.1/127.0.0.1:6379]**
+
+  |   | Value type | Integer
+
+Caused by: java.lang.IllegalArgumentException: No enum constant com.hazelcast.config.PartitionGroupConfig.MemberGroupType.NULL
+
+`delete from (select expand(accounts) from #30:0) where type = 'test2'` - removes all accounts from #30:0, 
+
+skip unnecessary exception 'Severity not set, ignoring exception'
+
+'select $path from traverse' return null
+
+Tried to build with Gradle 2.14 as well as 3.0-20160702000020+0000.
+
+Server: Apache
+
+[2.1.2] Error importing database exported by v.1.5.0
+
+ToDo:
+
+- vertex Person->> v(Person)[#-1:-2]
+
+-------- glm.BUILD
+
+LabelLayer: cache overwriting
+
+- create database remote:localhost/testme root rootpw plocal
+
+`bwr.write(String.format("%c", rnd.nextInt(108)+20));` will work fine.
+
+1. java -jar test-0.0.1-SNAPSHOT.jar
+
+----------BEGIN
+
+GROUP BY + LIMIT rewrite incorrect
+
+42:0 | 1 | Test | Ryan | Onida
+
+Error executing must_not queries on sharded index
+
+'s 
+
+http://html5demos.com/assets/dizzy.mp4 (it's easier with longer videos to get some time for a larger time gap -> frames that are dropped)
+
+|   |       |-- dev
+
+file one : "select" 
+
+subscribeOn(Schedulers.parallel()) doesn't execute in parallel when located right after a just()
+
+redisson - 3.13.0
+
+OneStatementPerLine: false match with try-with-resources
+
+  location: class ObservableService
+
+Starting audit...
+
+  symbol:   class AuthorEntity
+
+2- Authenticate in the Authorization Server
+
+bash compile.sh
+
+Java
+
+spring.data.mongodb.username=top
+
+---------BEGIN
+
+jdk 1.8.0_131
+
+Build #IU-172.3968.16, built on August 21, 2017
+
+   `
+
+java version "10.0.2" 2018-07-17
+
+insert into tuser set name = 'test2';        //Inserted record 'tuser#105:1{name:test1} v1'
+
+- Thread 1 adds Session 1 to 1420656420000
+
+/configprops endpoint NoClassDefFoundError: org.apache.catalina.valves.AccessLogValve with Undertow
+
+Whole streamed content: [files.zip](https://github.com/google/ExoPlayer/files/3264954/files.zip)
+
+  (p4)-[:ap_has_value]->(red)
+
+PlayerPresenter: 14
+
+93% Proximity On
+
+`An exception occurred during query execution: exerr:ERROR exerr:ERROR java.lang.NullPointerException [at line 46, column 13] [at line 46, column 13]
+
+**instance.getReliableTopic("test/member/membership/event/topic").addMessageListener();**
+
+FST: 2.51
+
+Docker image `docker.io/eclipse/che-server:nightly` (`987c479083cd` 16.01.2018 14:07)
+
+  keepAlive: true
+
+WARNING: Client heartbeat is timed out , closing connection to Connection [0.0.0.0/0.0.0.0:5701 -> null], endpoint=Address[10.1.16.211]:53760, alive=false, type=JAVA_CLIENT
+
+3.0.0.M2
+
+org.glassfish.grizzly.strategies.WorkerThreadIOStrategy.run0(WorkerThreadIOStrategy.java:117),
+
+The Log4J2LoggingSystem.getConfigurationSource class identifies the url to the file as vfs:/C/devtools....
+
+number is: 5
+
+Index a new document with timestamp of 08:00 GMT:
+
+com.ning.http.client.providers.grizzly.GrizzlyAsyncHttpProvider$AsyncHttpClientTransportFilter$1.failed(GrizzlyAsyncHttpProvider.java:761),
+
+Authentication failed due to an internal error for challenge "PASSWORD_VERIFIER"
+
+'java.lang.IndexOutOfBoundsException' exception in org.redisson.jcache.JCacheEventCodec
+
+  @Test
+
+With Bazel built at 645dbc4e24f3c5b08cf4701906f4a1e54db3583b
+
+StreamObservers.copyWithFlowControl calls StreamObserver.onComplete twice
+
+Caused by: java.lang.NullPointerException
+
+bazel crash on native.package_name()
+
+System.err:     at com.testapp.thread.JsoupMultithreadedTest$ParseTask.call(JsoupMultithreadedTest.java:39)
+
+Content-Type: image/jpeg
+
+  symbol:   class AuthorEntity
+
+ Created vertex 'RecordContent#81:2{recordContentMap:#85:0,recordContentGUID:5357c9c4-f468-4c2e-98f0-a7442c8d6157,recordContent:[1]} v1' in 0.011000 sec(s).
+
+* Test to reproduce: \
+
+Connection: keep-alive
+
+  | LIST | 4979 | 4896
+
+@EnableTransactionManagement proxyTargetClass not control by spring.aop.proxyTargetClass
+
+Content-Length: 19
+
+  @Test
+
+**\* DefaultHttpContent(data: UnpooledHeapByteBuf(ridx: 0, widx: 32768, cap: 32768), getDecoderResult: success) ***
+
+com.dangdang.ddframe.rdb.sharding.exception.ShardingJdbcException: java.sql.SQLException: Error
+
+Exception in thread "main" java.lang.BootstrapMethodError: call site initialization exception
+
+RedissonSetMultimap Line 192
+
+@Select("SELECT play.id as id, play.name as name, video_image.url as coverUrl , video_image.width as width, video_image.height as height FROM play left join video_image on play.cover_id = video_image.id WHERE play.id = #{id}")
+
+ProgressiveMediaSource progressiveMediaSource =
+
+So and quit/exit...
+
+PlayerPresenter: 706
+
+### The error may exist in file [D:\workspace.metadata.plugins\org.eclipse.wst.server.core\tmp9\wtpwebapps\dubbo-monitor\WEB-INF\classes\mappers\DubboInvokeMapper.xml]
+
+Conditional is ...
+
+https://fr.wikipedia.org/w/api.php?format=json&action=query&titles=Ab%C3%A9e%20(Belgique)&exlimit=2&prop=categories%7Cextracts%7Cinfo%7Crevisions&inprop=url&exintro=&explaintext=&redirects=&rvprop=content&rvsection=0
+
+masterConnectionMinimumIdleSize=100
+
+Only Linux launch error: io.netty.handler.codec.DecoderException: CommandDecoder.decode()
+
+ 1 = {Region@6448} "ap-northeast-2"
+
+  location: class ObservableService
+
+I get repeated records from #9:4 to #9:0 like this:
+
+CPE_NAME="cpe:/o:amazon:linux:2016.09:ga"
+
+Content-Type: application/javascript
+
+java.lang.UnsupportedOperationException: Cannot convert {Synset_lemmas_totalHits=5, a=[{ son: null parent: #17:25795 } , { son: null parent: #20:39457 } ], current={ } , b=[{ son: #17:1520 parent: null } , { son: #20:14296 parent: null } , { son: #19:27075 parent: null } , { son: #17:841 parent: null } , { son: #20:39859 parent: null } ], totalHits=5} - class com.orientechnologies.orient.core.command.OBasicCommandContext to JSON
+
+- /path//path -> 500 error
+
+cc_inc_library contents stale
+
+WARNING: Client heartbeat is timed out , closing connection
+
+o.a.n.r.NettyRequestSender$1.operationComplete() java.lang.NullPointerException: timeoutsHolder
+
+[H264] Non-Square Pixel Aspect Ratio Unsupported
+
+g.v('#50:11').out()
+
+**com.orientechnologies.orient.core.exception.OSchemaException: Linked type is not supported for type: LINKMAP**
+
+at build
+
+ 10 = {Region@6457} "sa-east-1"
+
+java.lang.UnsupportedOperationException: Implement OTraverseStatement.refersToParent()
+
+java.lang.AssertionError
+
+### The error may involve com.handu.open.dubbo.monitor.DubboMonitorService.countDubboInvokeInfo-Inline
+
+and more explicitly // x + $ = [$,x] ($ is always first if present)
+
+Failed to create runfiles tree (build_bazel_rules_typescript)
+
+from ClusterConnectionManager:
+
+- Angular: 6.1.7
+
+  val redis = Redisson.create( config  )
+
+com.intuit.karate.exception.KarateException: path: $[0].a, actual: 1, NOT expected: 1, reason: actual value contains expected
+
+### SQL: SELECT             SUM(success) as success,             SUM(failure) as failure,             SUM(elapsed) as elapsed,             MAX(max_elapsed) as maxElapsed,             MIN(max_concurrent) as maxConcurrent         FROM dubbo_invoke         WHERE             1 = 1                                                     AND invoke_time >= ?                                 AND invoke_time <= ?                                 AND service = ?                                 AND method = ?                                                      AND type = ?
+
+java.lang.NullPointerException
+
+`spring-boot-starter-jersey` and `spring-boot-starter-actuator` cause an exception `java.lang.NoClassDefFoundError: org/springframework/web/servlet/HandlerMapping`
+
+3) Even if I could close a JarFileArchive, it contains an instance of org.springframework.boot.loader.jar.JarFile. All instances of org.springframework.boot.loader.jar.JarFile fail to close properly when close() is called on them.
+
+new ProgressiveMediaSource.Factory(factory, extractorsFactory)
+
+Java - 1.8
+
+insert into tuser set name = 'test5';        //Inserted record 'tuser#105:4{name:test1} v1'
+
+Line  341 in org.springframework.security.oauth2.provider.token.JwtTokenServices.createRefreshToken reads:
+
+### The error occurred while setting parameters
+
+:040000 040000 941417e6df82b84dbd3ac28576aa589916d398ea c2c27160d53974c1c78a3b9108ce8f3ca16c665e M  modules
+
+Kishore Senji posted [a test case](https://groups.google.com/d/msg/aureliusgraphs/nVkl0WiD4Vs/rfJNyHz7aIYJ):
+
+INTERNAL COMPILER ERROR when class calls non existent parent
+
+1. ![Reversed Priority 1 of 2](https://cloud.githubusercontent.com/assets/1501235/9609848/04e554c2-50a4-11e5-9984-0175a05bc146.png)
+
+SELECT FROM (<MATCH query...>) not working?
+
+5.2.0.M4
+
+builder.uponReceiving("Request für ping")
+
+5.0.0 M1
+
+D/EventLogger: videoDisabled [1.03]
+
+42:2 | 1 | Test | Schoales | Cory
+
+Dozer-Spring: 5.5.1
+
+Error during closing of channel close listener - 2.1-rc6
+
+com.orientechnologies.orient.core.exception.OConcurrentModificationException: Cannot UPDATE the record #12:44 because the version is not the latest. Probably you are updating an old record or it has been modified by another user (db=v5 your=v0)
+
+5.1.0.M1
+
+System.err:     at java.nio.charset.CharsetEncoder.canEncode(CharsetEncoder.java:973)
+
+I use mybatis-3.2.4
+
+### SQL: SELECT             SUM(success) as success,             SUM(failure) as failure,             SUM(elapsed) as elapsed,             MAX(max_elapsed) as maxElapsed,             MIN(max_concurrent) as maxConcurrent         FROM dubbo_invoke         WHERE             1 = 1                                                     AND invoke_time >= ?                                 AND invoke_time <= ?                                 AND service = ?                                 AND method = ?                                                      AND type = ?
+
+[mirror of https://java.net/jira/browse/GRIZZLY-1679]
+
+DataflowAnomalyAnalysis
+
+- rebuild existdb `./build.sh rebuild`
+
+**Sec-WebSocket-Extensions:permessage-deflate**
+
+2- A client registration:
+
+2. for a jpg 750*422， ResizeOption(375,211), region(164, 0, 586,422)
+
+Opening an @Data annotated class from a lombok-powered project shows multiple codelenses for that annotation. See https://github.com/redhat-developer/vscode-java/issues/137
+
+e.g.
+
+[[https://github.com/thinkaurelius/titan/wiki/Generating-Artificial-Natural-Graphs]]
+
+   docker cp load.cyp neo4j:/var/lib/neo4j/import`
+
+TE0Mjg2OTM2OTEzMzYiXSkpLHZlcnNpb246MA== send this data for debugging [ORecordSerializerBinary][10.12
+
+  symbol:   class AuthorEntity
+
+D/EventLogger: audioDisabled [1.03]
+
+S3
+
+  (adv)-[:adv_has_product]->(p4)
+
+  location: class ObservableService
+
+Server: Play! Framework;1.2.5;prod ***
+
+! at io.netty.util.concurrent.GlobalEventExecutor$TaskRunner.run(GlobalEventExecutor.java:236) [netty-all-4.0.34.Final.jar:4.0.34.Final]
+
+@EnableCaching spring annotation
+
+number is: 5
+
+### SQL: SELECT             SUM(success) as success,             SUM(failure) as failure,             SUM(elapsed) as elapsed,             MAX(max_elapsed) as maxElapsed,             MIN(max_concurrent) as maxConcurrent         FROM dubbo_invoke         WHERE             1 = 1                                                     AND invoke_time >= ?                                 AND invoke_time <= ?                                 AND service = ?                                 AND method = ?                                                      AND type = ?
+
+/var/tmp $ javac Test.java
+
+ANSI_COLOR="0;33"
+
+unctiveFilteredRows.java:76)
+
+Caused by: java.lang.IllegalStateException: Missing closed braket character: ']', position: 14
+
+PUT to /tests/_warmer/warmer1
+
+The culprit is e7be839c1ce7df2048b86bc956207f86db4e5b65
+
+java.lang.ArrayIndexOutOfBoundsException: 97
+
+  "declare @type: TestClass: @Configurable;" via roo
+
+def.bzl
+
+No toolchain found for cpu 'piii'. Valid cpus are [k8, armeabi-v7a]
+
+### SQL: SELECT             SUM(success) as success,             SUM(failure) as failure,             SUM(elapsed) as elapsed,             MAX(max_elapsed) as maxElapsed,             MIN(max_concurrent) as maxConcurrent         FROM dubbo_invoke         WHERE             1 = 1                                                     AND invoke_time >= ?                                 AND invoke_time <= ?                                 AND service = ?                                 AND method = ?                                                      AND type = ?
+
+  - `Error at round 28111: # of items=28111
+
+`/var/tmp $ java -Duser.language=en -Duser.country=US -jar checkstyle-8.8-all.jar -c config.xml TestClass.java`:
+
+"hz.ecstreaming.wait-notify" #134 prio=5 os_prio=0 tid=0x00007fc6d48d2800 nid=0x72d5 waiting on     condition [0x00007fc5210cf000]
+
+foo.n4js
+
+ :: Spring Boot ::        (v1.1.4.RELEASE)
+
+`/var/tmp $ java  -jar checkstyle-X.XX-all.jar -c checks.xml InputTest.java`:
+
+(org.springframework.security.oauth2.core.OAuth2AccessToken.TokenType)
+
+e.g.
+
+Connection:Upgrade
+
+5) Double-click the Ceylon file to show the diff
+
+SForge request: 468
+
+Generating ./test/TestClass.html...
+
+java io.netty.example.proxy.HexDumpProxy 7000 localhost 22
+
+FtCLI new param --port=/tmp/foo.txt
+
+reactor.core.publisher.FluxRetry.RetrySubscriber#resubscribe  
+
+POST /_ah/upload/aglub19hcHBfaWRyGwsSFV9fQmxvYlVwbG9hZFNlc3Npb25fXxg4DA HTTP/1.1
+
+eg: (Class = ci, schemaless, cluster ID = 13)
+
+! at org.redisson.connection.ElasticacheConnectionManager$1.run(ElasticacheConnectionManager.java:134) ~[redisson-2.2.13.jar:na]
+
+temp $ java -jar checkstyle-7.4-all.jar -c config.xml CheckstyleRightParenBug.java
+
+### The error occurred while setting parameters
+
+$range is the parameter in question with an example value [100, 200]
+
+org.springframework.boot:spring-boot-starter:jar:1.2.7.RELEASE
+
+### The error may involve com.handu.open.dubbo.monitor.DubboMonitorService.countDubboInvokeInfo-Inline
+
+Sec-WebSocket-Extensions:permessage-deflate; client_max_window_bits, x-webkit-deflate-frame
+
+VoidChannelPromise eats exceptions...
+
+tworkProtocolBinary]
+
+Version: v3.44-2018e
+
+Full example application is attached: [principal-coroutine-null.zip](https://github.com/spring-projects/spring-framework/files/3190278/principal-coroutine-null.zip)
+
+OrientDb: 2.0.14
+
+Darwin tw-mbp13-mnakamura.local 16.7.0 Darwin Kernel Version 16.7.0: Thu Jun 15 17:36:27 PDT 2017; root:xnu-3789.70.16~2/RELEASE_X86_64 x86_64
+
+ 17 = {Region@6464} "us-gov-west-1"
+
+3) Kill JVM(2)
+
+- vertex Person->> v(Person)[#-1:-2]
+
+`/var/tmp $ java -Duser.language=en -Duser.country=US -jar checkstyle-8.8-all.jar -c config.xml TestClass.java`:
+
+java.lang.IllegalStateException: Unable to create XADataSource instance from 'org.mysql.jdbc.MySQLDataSource'
+
+Content-Encoding: gzip
+
+---- BUILD
+
+/var/tmp $ javac FinalLocalVariableMultiCatch.java
+
+io.netty:netty-all:4.1.18.Final
+
+com.redhat.ceylon.common.NonNull not found crashes the build
+
+Connection: close
+
+ com/orientechnologies/orient/core/storage/impl/local/paginated/wal/OWriteAheadLog$LogSegment$FlushTask.flushPage
+
+  [Using file /home/jojo/workspace/workflowengine-micro/target/pacts/WorkflowListenertest-WorkflowEnginetest.json]
+
+http://delivery-42-lb1.elib.se/library/v4/mp3:http/2f0d8302-ca3f-4f8c-9c89-1f18c4e1df06.mp3/playlist.m3u8?StreamSession=79cb6038-9a03-467c-9193-a6a466f547c2&validate=3ca0f7b4436f43b5c99006788f0629cf
+
+TestFolder/BUILD
+
+System.err:     at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1162)
+
+original code is http://hg.openjdk.java.net/jdk9/jdk9/jdk/file/d966fc5a7be5/test/java/io/charStreams/LineGenerator.java#l59
+
+PS: I'm trying to port my netty 3 handlers to netty 4.
+
+/foo/bar.n4js
+
+org.glassfish.grizzly.filterchain.DefaultFilterChain.execute(DefaultFilterChain.java:165),
+
+  location: class ObservableService
+
+](https://github.com/checkstyle/checkstyle/blob/master/src/main/java/com/puppycrawl/tools/checkstyle/checks/annotation/AnnotationLocationCheck.java#L238)
+
+commit 7bf0f1ffca589df6e626d61182689bde005ce649
+
+! at org.redisson.client.RedisConnection.await(RedisConnection.java:128) ~[redisson-2.2.13.jar:na]
+
+Download  XML Schema https://github.com/redhat-developer/vscode-xml/files/4029276/AUTOSAR_00048.zip
+
+Starting local Bazel server and connecting to it...
+
+! at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:511) [na:1.8.0_92]
+
+   `
+
+insert into tuser set name = 'test3';        //Inserted record 'tuser#105:2{name:test1} v1'
+
+`curl --request GET 
+
+[INFO ] 2017-07-02 21:57:25 io.netty.handler.logging.LoggingHandler [id: 0xdf676102] REGISTERED
+
+Last-Modified: Fri, 12 Apr 2013 13:00:53 GMT
+
+com.orientechnologies.orient.core.exception.ODatabaseException: Error on retrieving record #105:3
+
+Referenced from: https://github.com/redhat-developer/vscode-xml/issues/141
+
+  @Override
+
+uration(OHazelcastPlugin.java:780)
+
+os: OSX
+
+|   |-- plugins
+
+four edges for C: (A-C, C-A, C-D, D-C) and for edges for D: (C-D,D-C,D-B,B-D), which not only have irrelevant edges for backward direction (A-C vs. C-A), but also duplicate edges (C-D and D-C).
+
+connectionTimeout=10000
+
+4.0.0-Beta1 CompositeByteBuf read wrong value, but previous version ok
+
+https://github.com/spring-projects/spring-hadoop/blob/master/build.gradle:
+
+/var/tmp $ cat an/extremelylongpackagenamethat/hasmultiplecomponents/Test.java
+
+Building flac extension
+
+Caused by: java.lang.ClassCastException: java.lang.Integer cannot be cast to java.util.List
+
+A lot of operators don't check they actually have a Scannable for scanUnsafe(Attr<Scannable>)
+
+entCommand.java:81)
+
+The video is: [error.mp4](https://mega.nz/#!pcZ02LyC!j-zeVbs0Lx8zl3E5at3aMoP_uHHLFrtPiucCzizZ2Uo)
+
+### SQL: SELECT             SUM(success) as success,             SUM(failure) as failure,             SUM(elapsed) as elapsed,             MAX(max_elapsed) as maxElapsed,             MIN(max_concurrent) as maxConcurrent         FROM dubbo_invoke         WHERE             1 = 1                                                     AND invoke_time >= ?                                 AND invoke_time <= ?                                 AND service = ?                                 AND method = ?                                                      AND type = ?
+
+RequeryB:
+
+openjdk version "11" 2018-09-25
+
+Connection: keep-alive
+
+version : 3.6.0
+
+INFO  2016-09-26 14:45:47 [main] o.r.c.SentinelConnectionManager.<init>:80 - master: 127.0.0.1:6379 added
+
+  @Before
+
+RedissonBoundedBlockingQueue.pollAsync blocks if timeout is less than 1 second
+
+File encoding:  UTF-8
+
+**select from Company where outE('is_a')[type="Tenant"].inV()['@rid'] in [#28:9,#28:8,#28:7] limit 5** 
+
+java.lang.ArrayIndexOutOfBoundsException: 1
+
+com.orientechnologies.orient.core.exception.ODatabaseException: Cannot delete null document
+
+`Exception in thread "main" java.lang.IllegalArgumentException: Service name mismatch. Expected service name: '/mypage'. Actual method name: '/mypage'.
+
+Device : Pixel XL**
+
+- //path//path -> OK
+
+subscriptionConnectionMinimumIdleSize=100
+
+StackTrace:
+
+Exeption:  com.orientechnologies.orient.core.exception.OStorageException: File with name <> does not exist in storage
+
+@SuppressWarnings annotation does not suppress UncommentedMain
+
+/var/tmp $ javac TestClass.java
+
+Thread 1 when calls commit it throws a NPE.
+
+  location: class ObservableService
+
+return
+
+olumnAdditionOperation.java:198)
+
+Starting audit...
+
+Netty                  : 4.1.28.Final
+
+@Component("ReactiveWebSocketHandler")
+
+@trustin @normanmaurer @fredericBregier @lw346 
+
+Exception in thread "main" java.lang.OutOfMemoryError: Java heap space
+
+java
+
+.gitignore v 2.6.2
+
+Caused by: java.lang.IllegalStateException: Fragment ChooseTemplateDialogFragment{1ad7093 (f00c3c25-0707-4359-87ea-31414ba1c1d5)} not attached to a context.
+
+s)
+
+Fails to request {baseUrl}/oauth2/authorization/code/{registrationId} in status 500.
+
+temp $ cat CheckstyleRightParenBug.java
+
+- codec: org.redisson.codec.JsonJacksonCodec
+
+org.eclipse.hono.client.ServerErrorException: Error Code: 503
+
+server:redis-3.0.6
+
+Connection:Upgrade
+
+at [Source: UNKNOWN; line: -1, column: -1] (through reference chain: java.util.LinkedHashMap["client_authorities"])
+
+   "begin": [],  
+
+java.lang.ArrayIndexOutOfBoundsException: -1
+
+java.lang.NullPointerException
+
+@andrewlewis 
+
+message=There was an error processing your request. It has been logged (ID ...)
+
+eXist Home: C:\eXist216
+
+Spring-Boot 2.3.0 prints: `{baz=baz, bar=bar, foo=foo}`
+
+org.redisson.client.RedisConnectionException: Unable to init enough connections amount! Only 31 from 32 were initialized. Redis server: /57.190.12.71:6399
+
+ 1 Create Percolator Index
+
+  |   | # of values per key | 100K
+
+java.io.IOException: Was not able load pacts from broker
+
+@laszlocsomor 
+
+io.netty.handler.codec.ByteToMessageDecoder
+
+The problem is bazel tries to access the file `/home/fishy/.cache/bazel/_bazel_fishy/be5a644a18a62606127a47381fbddfe7/test/bazel-out/host/bin/external/bazel_tools/tools/android/resources_processor.runfiles/external/bazel_tools/src/tools/android/java/com/google/devtools/build/android/AndroidResourceProcessingAction`, but it missed a "test" (the workspace name) between "resources_processor.runfiles" and "external":
+
+	private ConditionOutcome getConditionOutcome(AnnotationMetadata metadata,
+
+* Repository with code to reproduce: \
+
+Hang on commit()
+
+Darwin ... 16.6.0 Darwin Kernel Version 16.6.0: Mon Apr 17 17:15:27 PDT 2017; root:xnu-3789.60.24~21/RELEASE_X86_64 x86_64
+
+Build timestamp: 1480497200
+
+foo.zip contains a symlink named foo.txt, which links to the path 'hello'
+
+================ My Code Snippet======================
+
+### The error may exist in file [D:\workspace.metadata.plugins\org.eclipse.wst.server.core\tmp9\wtpwebapps\dubbo-monitor\WEB-INF\classes\mappers\DubboInvokeMapper.xml]
+
+Darwin PROMOTE 17.4.0 Darwin Kernel Version 17.4.0: Sun Dec 17 09:19:54 PST 2017; root:xnu-4570.41.2~1/RELEASE_X86_64 x86_64
+
+v. 2.2.13
+
+Hibernate: select TOP ?  patient0_.pat_id as pat_id1_15_.......     ----1.5.1
+
+/var/tmp $ RUN_LOCALE="-Duser.language=en -Duser.country=US"
+
+Darwin C02WJ1HKG8WL 17.7.0 Darwin Kernel Version 17.7.0: Thu Jun 21 22:53:14 PDT 2018; root:xnu-4570.71.2~1/RELEASE_X86_64 x86_64
+
+Following #582,
+
+### The error may involve com.handu.open.dubbo.monitor.DubboMonitorService.countDubboInvokeInfo-Inline
+
+insert into tuser set name = 'test4';        //Inserted record 'tuser#105:3{name:test1} v1'
+
+Darwin 57172 15.6.0 Darwin Kernel Version 15.6.0: Sun Jun  4 21:43:07 PDT 2017; root:xnu-3248.70.3~1/RELEASE_X86_64 x86_64
+
+- Code after org.glassfish.grizzly.http.HttpCodecFilter.handleRead():542 therefore is not executed
+
+(...) and few more errors (...)
+
+  subscriptionConnectionMinimumIdleSize: 1
+
+is not being found :(
+
+8-19更新：
+
+`org.redisson.client.WriteRedisConnectionException: Can't send command: RedisCommand [name=GET, subName=null], params: [Ljava.lang.Object;@44d02cc5, channel: [id: 0x08bfe466, 0.0.0.0/0.0.0.0:55173 :> /127.0.0.1:6379]` (6379 is master)
+
+B.n4js
+
+gcc.BUILD (doesn't matter much):
+
+  A problem occurred configuring root project 'my-project'.
+
+v 1.0.3
+
+http2: f990f99 broke sending RST_STREAM
+
+  java version "1.8.0_101"
+
+(import static org.springframework.security.test.web.servlet.request.SecurityMockMvcRequestPostProcessors.csrf)
+
+JRE: 1.8.0_202-release-1483-b49 amd64
+
+--------------------------------------END of FLUTTER DOCTOR
+
+io.netty.handler.codec.CorruptedFrameException: RSV != 0 and no extension negotiated, RSV:1
+
+[INFO ] 2017-07-02 21:57:25 io.netty.handler.logging.LoggingHandler [id: 0xdf676102] CONNECT: /192.168.32.129:10020
+
+"
+
+3. Run the compiler `java -jar tools/compiler.jar --language_in=ECMASCRIPT6 --warning_level=VERBOSE --jscomp_error="*" --compilation_level=ADVANCED --js RegExp.make.js --externs externs.js`
+
+redis password is crs-7629154:aucyr7632.
+
+  symbol:   class AuthorEntity
+
+  --url 'http://localhost:29999/create?state=Basistestfixture&path=' \
+
+Server: Play! Framework;1.2.5;prod
+
+org.glassfish.grizzly.filterchain.DefaultFilterChain.throwChain(DefaultFilterChain.java:493),
+
+1.8.0_45-b14
+
+@Ignore
+
+Caused by: javassist.CannotCompileException: by java.lang.LinkageError: loader (instance of  org/apache/catalina/loader/WebappClassLoader): attempted  duplicate class definition for name: "com/codahale/metrics/MetricRegistry"
+
+masterConnectionPoolSize=200
+
+3.0.0.M2
+
+PsGoogle: Required parameter is missing: response_type
+
+error editing '.ceylon' file in non-Ceylon project
+
+PlayerPresenter: 14
+
+package.ceylon
+
+vlad@vlad-W65-67SB ~/Documents $ cat Input.java 
+
+strings variations: `\" \u0443 \/ \u0443,` `\u0443 \" \u0443 \/ \u0443,`
+
+When upgrading from beta11 to beta12 or above i get
+
+Secondly, put b.jar into a.jar
+
+DEBUG [2016-07-05 20:19:31,925] org.redisson.client.handler.ConnectionWatchdog: reconnecting RedisConnection@315015763 [redisClient=[addr=/127.0.0.1:6379], channel=[id: 0xe02beb0c, 0.0.0.0/0.0.0.0:56145]] to /127.0.0.1:6379 
+
+[1] https://github.com/bazelbuild/bazel/blob/a4117469b67306df4481398ce4d9b58df77d0dab/src/main/cpp/blaze_util_mingw.cc#L559
+
+7bf0f1ffca589df6e626d61182689bde005ce649 is the first bad commit
+
+System.err:     at org.jsoup.select.NodeTraversor.traverse(NodeTraversor.java:45)
+
+redirectUriTempate: "{baseUrl}/{action}/oauth2/code/{registrationId}"
+
+by 14251a4ca0d61be24cd96506b9538b1f54047417 //cc @aehlig
+
+java.lang.NullPointerException
+
+java.lang.IllegalStateException: Failed to introspect Class [org.redisson.spring.cache.RedissonCacheStatisticsAutoConfiguration] from ClassLoader
+
+looks like mainthread/forkjoinpools threads waiting for the stream to close, if i comment out stream = stream.parallel(); above example works brilliant
+
+io.netty.buffer.PoolArena
+
+Caused by: java.lang.NullPointerException
+
+Origin:http://127.0.0.1:8080
+
+/var/tmp $ java -jar checkstyle-7.3-all.jar -c config.xml FinalLocalVariableMultiCatch.java
+
+http.oauth2Login().loginProcessingUrl("url"); throws NPE.
+
+INFO: Deploying web application directory C:\java\tomcat\webapps\ROOT
+
+java.lang.AssertionError: Invalid replica! Destination
+
+A 
+
+"this.commandExecutor = commandExecutor;" 
+
+.setLooper(holdingActivity.getMainLooper())
+
+Build PS 143.2370
+
+@EqualsAndHashCode(callSuper = false, exclude = {"rawContent", "rootElements", "chapters", "annotationBlocks", "indents"})
+
+Android capture - ![image](https://cloud.githubusercontent.com/assets/7126011/2591001/a7c7d8f8-ba65-11e3-977c-f688d7914c4b.png)
+
+tabaseConfiguration(ODistributedAbstractPlugin.java:220)
+
+ctOperation.java:52)
+
+|   |       |-- che-machine-exec
+
+and finally run.ceylon
+
+Kotlin 1.3.60
+
+The result was  `[{"m": {"k2":"v2"}}]`
+
+createDefaultUsers=False breaks creating databases from Studio
+
+User-Agent: Restlet-Framework/2.1.1
+
+Audit done.
+
+redisson-spring-boot-starter - 3.13.0
+
+java.lang.NullPointerException
+
+- Now exception bubbles up, next stop is org.glassfish.grizzly.filterchain.DefaultFilterChain.execute():157
+
+Embedded Not Working: NoSuchMethodError getParameters()
+
+Server: Play! Framework;1.2.5;prod
+
+-> _otherTempFile.xml_
+
+Which gets handled on [ExecWebSocketListener](https://github.com/fabric8io/kubernetes-client/blob/7ea9ce885f9fad72949db6e3f5cc8dceb8ce8766/kubernetes-client/src/main/java/io/fabric8/kubernetes/client/dsl/internal/ExecWebSocketListener.java#L212) , We're closing socket in [close(..)](https://github.com/fabric8io/kubernetes-client/blob/7ea9ce885f9fad72949db6e3f5cc8dceb8ce8766/kubernetes-client/src/main/java/io/fabric8/kubernetes/client/dsl/internal/ExecWebSocketListener.java#L138) callback here:
+
+- Issue: java.exe not found due to wrong entry in Globals.n4js of n4js-cli
+
+/var/tmp $ RUN_LOCALE="-Duser.language=en -Duser.country=US"
+
+org.redisson.client.RedisConnectionException: Failed command RedisCommand [name=SET, subName=null] <snip />`
+
+./gradlew run
+
+  symbol:   class AuthorEntity
+
+tcpNoDelay=true
+
+Exception in thread "main" java.lang.ClassCastException: java.util.HashMap cannot be cast to java.util.List
+
+I've somehow managed to cause a NullPointerException: null at org.springframework.boot.autoconfigure.EnableAutoConfigurationImportSelector.selectImports(EnableAutoConfigurationImportSelector.java:63)
+
+  @PrepareForTest(TestClass.class)
+
+  pingConnectionInterval: 1000
+
+ =========|_|==============|___/=/_/_/_/
+
+java.nio.channels.ClosedByInterruptException
+
+from http://docs.oracle.com/javase/specs/jls/se7/html/jls-15.html#jls-15.21.1 
+
+  val config = new Config().setUseLinuxNativeEpoll( true )
+
+Culprit: 5972bee6ebfa53cf165befab9fa7962e19d5f620 
+
+public class RemoveTest
+
+  execution payload
+
+file: "/home/jojo/workspace/workflowengine-micro/build/resources/test"
+
+### The error occurred while setting parameters
+
+Eclipse Che tag 6.19.4
+
+set JAVA_HOME=C:\jdk
+
+- dev-v2: a543436b960cc97ec1dfdb1ac5efe5da6e99fbe0
+
+One can see that the original records that work have a value for ENTITY_TYPE='sku' whereas the new records have ENTITY_TYPE='Product'. Note that the fieldname is also different: name <>defaultSku.name !
+
+`inner_hits": {}` to `inner_hits": {"_source":false}`
+
+WebSessionController:
+
+javax.net.ssl.SSLException: SSLEngine closed already
+
+1) Launch class JVM(1)
+
+ 9 = {Region@6456} "eu-west-3"
+
+our command line args contain --spring.config.name=someName
+
+keepAlive=true
+
+IntelliJ IDEA 2017.2.3
+
+4% OPPO (CPH1725)
+
+[√] Android Studio (version 3.5)
+
+number is: 1
+
+Audit done.
+
+The `┌─────┐` at the top of the cycle diagram is missing.
+
+DesignForExtension: method javadoc recognized as block comments
+
+  hibernate.cache.region.factory_class: org.hibernate.cache.ehcache.SingletonEhCacheRegionFactory
+
+Caused by: java.lang.NoSuchMethodError: org.apache.http.impl.conn.PoolingHttpClientConnectionManager.setValidateAfterInactivity(I)V
+
+Exception in thread "Thread-3" com.orientechnologies.orient.core.exception.ODatabaseException: Database 'remote:orientdb:2424/mydb' is closed
+
+Stack Trace:
+
+Host: localhost:8888
+
+nettyThreads=16
+
+Build time: Wed Nov 30 09:13:20 2016 (1480497200)
+
+I found only these (possibly irrelevant):
+
+but the property key-value were  'spring.freemarker.template-loader-path[0]=classpath:/templates/view/','spring.freemarker.template-loader-path[1]=classpath:/webapp/view/'  in my debug variables
+
+IntelliJ IDEA Version IU-142.2491.4
+
+incompatible_disallow_dict_lookup_unhashable_keys
+
+41:0 | 1 | Test | Francescone | Onida
+
+io.netty.resolver.dns.DnsNameResolver#doResolveCached race condition
+
+Download  XML Schema https://github.com/redhat-developer/vscode-xml/files/4029276/AUTOSAR_00048.zip
+
+This is a recent regression bisected to dd70407455f09f3eda7288f0bb9610f8943af03e.
+
+I changed the code above removing the database name and no luck again =(
+
+pingConnectionInterval=10000
+
+MacOS
+
+- //path//path -> 500 error
+
+redirect:  http://localhost:8080/user/
+
+DefaultHttpContent(data: UnpooledHeapByteBuf(ridx: 0, widx: 32768, cap: 32768), getDecoderResult: success) ***
+
+file: "/home/jojo/workspace/workflowengine-micro/build/classes/test"
+
+With `bazel build --aspects=//package:aspect.bzl%MyAspect //package:yyy` you get a stack trace:
+
+Caused by: java.lang.NullPointerException: null
+
+org.redisson.client.RedisException: ERR Error running script (call to f_e26640977179bbd6382a41b36c8190a8dbccc7d1): @user_script:1: WRONGTYPE Operation against a key holding the wrong kind of value . channel: [id: 0x08807cdc, L:/172.31.23.38:40618 - R:/172.31.10.223:17005] command: (EVAL), params: [local res = redis.call('hdel', KEYS[1], unpack(ARGV)); if res > 0 then redis.call('del', unpack(KEYS..., 1, {bcgame:crash:user-bet-logs}:o76cyhOJyzKx+WqXE/JGLg, PooledUnsafeDirectByteBuf(ridx: 0, widx: 6, cap: 256)]
+
+Bazel: release 0.4.4
+
+JDK11 parser [grammar](http://hg.openjdk.java.net/jdk/jdk11/file/1ddf9a99e4ad/src/jdk.compiler/share/classes/com/sun/tools/javac/parser/JavacParser.java#l3035):
+
+OrientDB Enterprise Edition v2.2.4
+
+- /path//path  -> 500 error
+
+spring-security-4.0.3
+
+io.netty.handler.codec.DecoderException: io.netty.util.concurrent.BlockingOperationException: DefaultPromise@19827b5e(incomplete)
+
+/var/tmp $ cat Test.java
+
+Exception in thread "Thread-3" com.orientechnologies.orient.enterprise.channel.binary.OResponseProcessingException: Exception during response processing
+
+subscriptionsPerConnection=10
+
+- [  ] Linux
+
+Path.readSymbolicLink calls FileSystem.readSymbolicLink:
+
+SEVERE: [192.168.2.5]:6701 [management-center] com.hazelcast.query.impl.QueryException: java.lang.IllegalArgumentException: There is no suitable accessor for 'cokisId'
+
+mixed mode)
+
+banner.txt file is at \src\main\resources\banner.txt
+
+Caused by: java.lang.IllegalArgumentException: Hprof file is 0 byte length
+
+Content-Disposition: form-data; name="blob_name2"; filename="zhangrong.jpg"
+
+- `matchSubdomains = true` (the default)
+
+regions = {ArrayList@6445}  size = 18
+
+January 22nd 2020, 10:13:52.519 DEBUG org.eclipse.hono.client.impl.CachingClientFactory   failed to create new client for [testTenant/testDevice]
+
+IntelliJ IDEA 2016.3.4
+
+Netty version: current master (3d6819623efc2f634009094ac8cf6a362fd3c2c1)
+
+/var/tmp $ javac YOUR_FILE.java
+
+频繁并发执行sql出现ERROR executor.ExecutorEngine: Concurrent execute result error 和No operations allowed after statement closed
+
+-Xbootclasspath/p:/usr/lib/java/alpn-boot-8.1.3.v20150130.jar"
+
+- Node: 8.11.3
+
+WARNING: Client heartbeat is timed out , closing connection to Connection [0.0.0.0/0.0.0.0:5701 -> null], endpoint=Address[10.1.16.211]:53760, alive=false, type=JAVA_CLIENT
+
+  connectTimeout: 10000
+
+log
+
+I got this exception only 3 times: 2017-04-30 07:26:53.399, 2017-04-30 15:42:25.314, 2017-04-30 15:42:55.675 after about 4 days application non-stop working. 
+
+x86_64 GNU/Linux
+
+  location: class ObservableService
+
+  (adv)-[:adv_has_product]->(p1)
+
+DefaultHttpContent(data: UnpooledHeapByteBuf(ridx: 0, widx: 6061, cap: 8192), getDecoderResult: success)
+
+  hibernate.cache.use_query_cache: true
+
+Content-Type: text/css; charset=utf-8
+
+Windows, tests: missing toolchain while testing //src/test/j/c/g/devtools/build/lib:*
+
+retryInterval=3000
+
+8.3.2 Boolean properties
+
+3.12.x
+
+WARNING: Client heartbeat is timed out , closing connection to Connection [0.0.0.0/0.0.0.0:5701 -> null], endpoint=Address[10.1.16.211]:53760, alive=false, type=JAVA_CLIENT
+
+When compare [v2.2.5.RELEASE...v2.2.6.RELEASE/diff-DataSourceAutoConfiguration#EmbeddedDatabaseCondition](https://github.com/spring-projects/spring-boot/compare/v2.2.5.RELEASE...v2.2.6.RELEASE#diff-b92846465d3be1a7c61e34c055c30e07L119):
+
+netty 4.1
+
+0.5.0 or 0.5.1
+
+ 15 = {Region@6462} "cn-north-1"
+
+Caused by: java.lang.ExceptionInInitializerError
+
+Anderss-MacBook-Pro:checkstyle andtho$ javac Test.java 
+
+CookieDecoder.decode() throws StackOverflowError
+
+Aug 25, 2016 6:20:31 AM com.hazelcast.client.impl.ClientHeartbeatMonitor
+
+System.err:     at java.lang.Thread.run(Thread.java:764)
+
+Breakages after flipping --incompatible_use_native_patch:
+
+set JAVA_HOME=C:\jdk
+
+Getting rid of the empty {} makes the error go away...
+
+`org.springframework.boot.actuate.autoconfigure.ManagementContextConfiguration=\
+
+http://195.13.206.155/vod/mp4:hn_domnica_1_1_030815_lv_hd.mp4/playlist.m3u8?resource_id=kino_domnica_2015_08_03&auth_token=app_eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE0ODUyNDU4NTAsImV4cCI6NDY5MjcxNTMxMTAsInVzZXJfaWQiOm51bGwsInJpZ2h0cyI6bnVsbCwidWlkIjoiMTIzIn0.SW3qItmcTaOlVbYan_o-arhZ5IIa7ApV6MbGbzDdZH0
+
+x /tmp/tomcat*
+
+`java.lang.NullPointerException
+
+Java Runtime: 1.8
+
+implementation 'com.google.android.exoplayer:exoplayer-hls:2.8.4'
+
+2) (attempted) playing the audio
+
+Relevant commit introducing the regression: 9b2087618bba6cd546066e2f27deb166f6870a64
+
+refer discussion https://stackoverflow.com/q/59241235/143475
+
+Content-Type: text/plain; charset=UTF-8
+
+java.lang.NullPointerException
+
+redisson-tomcat-8-3.11.1-SNAPSHOT.jar
+
+|   |   `-- ws
+
+  comparatorNullFieldsFirst()
+
+* dev-v2, 163a3a7bb876d309f5d28cc62473f093802d8aea
+
+Build #RM-173.3727.132, built on November 28, 2017
+
+where the node count begins to decrease...
+
+org.glassfish.grizzly.strategies.WorkerThreadIOStrategy.access$100(WorkerThreadIOStrategy.java:56),
+
+/var/tmp $ cat YOUR_FILE.java
+
+masterConnectionPoolSize=200
+
+Uptime: PT8H43M14.379S
+
+Build #IU-173.2941.3, built on October 4, 2017
+
+git revisions are specified above
+
+Loading source file TestClass.java...
+
+should be `$.headers.Content-Type`
+
+/run/shm/Y.java:3:80: error: Only one statement per line allowed.
+
+LoadTask: Unexpected exception loading stream
+
+WebSessionTest:
+
+Attention to `JAVADOC ->  This is\n        a method <EOF> [2:0]`. Line number is 2, however column number is 0 despite it is actually on 7th column. So expected column number is 7.
+
+MINGW64_NT-10.0
+
+-> _otherTempFile.xml_
+
+v2.10.4
+
+2- Authenticate in the Authorization Server
+
+java.lang.NullPointerException: Attempt to invoke virtual method 'boolean com.owncloud.android.datamodel.OCFile.canWrite()' on a null object reference
+
+.toJSON don't insert commas in-between array elements
+
+@phillipuniverse
+
+"
+
+file two : "a category"
+
+@Select("SELECT play.id as id, play.name as name, video_image.url as coverUrl , video_image.width as width, video_image.height as height FROM play left join video_image on play.cover_id = video_image.id WHERE play.id = #{id}")
+
+1. Added spring-security-messaging.jar
+
+import org.slf4j.LoggerFactory
+
+java.lang.IllegalStateException: null
+
+onLastAssembly() could be invoked more than once per subscribe()/block()
+
+process; data not found for key DataDocumentKey [dataId=408, documentId=50000]
+
+The class SetFromMap of Collections don't have no args construct method....
+
+  symbol:   class AuthorEntity
+
+Host: www.aroundtheglobe.nl
+
+insert into tuser set name = 'test7';        //Inserted record 'tuser#105:6{name:test1} v1'
+
+clusterScanInterval=2000
+
+% uname -a
+
+Aug 25, 2016 6:21:01 AM com.hazelcast.client.impl.ClientHeartbeatMonitor
+
++ CPU:  Hisilicon Kirin 955 
+
+Servlet 2.5 throws NoSuchMethodError: SessionRepositoryRequestWrapper.getServletContext()
+
+PlayerPresenter: 400
+
+		@ConditionalOnProperty(prefix = "development", name = "enabled", matchIfMissing = false, havingValue = "true")
+
+DefaultLastHttpContent(data: UnpooledHeapByteBuf(ridx: 0, widx: 10, cap: 256), getDecoderResult: success)
+
+This is : 3_PostData_Request.xml
+
+- v.2.2.6 (build 2.2.x@r4b1cc998b36ca2ae21a1679938912a8f545a994a; 2016-07-27 15:34:14)
+
+e.g.
+
+Date: Tue, 29 Apr 2014 22:18:06 GMT
+
+dev-v2: 75242281601fcdd5cf365d0025e453a83d919863
+
+/var/tmp $ java -jar checkstyle-7.4-all.jar -c config.xml Test.java
+
+java.lang.NullPointerException
+
+java.lang.IndexOutOfBoundsException
+
+DELETE not allowing request body for Jersey
+
+in place of the right one: 0,1,2,3.
+
+`org.redisson.client.WriteRedisConnectionException: Can't send command: RedisCommand [name=GET, subName=null], params: [Ljava.lang.Object;@1283c11d, channel: [id: 0x05e26dda, 0.0.0.0/0.0.0.0:54360 :> /127.0.0.1:6380]` (6380 is slave)
+
+### The error may involve com.handu.open.dubbo.monitor.DubboMonitorService.countDubboInvokeInfo-Inline
+
+**Content of /root/tmp/update**
+
+number is: 8
+
+|-- workspace41yc8hv9o2pacs9i                                                                                                                                                                                     
+
+ 2 = {Region@6449} "ap-south-1"
+
+16.5.0 Darwin Kernel Version 16.5.0: Fri Mar  3 16:52:33 PST 2017; root:xnu-3789.51.2~3/RELEASE_X86_64 x86_64
+
+Build #PS-191.7141.52, built on May 8, 2019
+
+1. access http://127.0.0.1:8080/admin/v2/brokers/health
+
+3- Configure the WebClient:
+
+Nov 17, 2014 4:33:02 AM org.apache.catalina.startup.HostConfig deployDirectory
+
+Regression: 4.1.0 broke with(csrf())
+
+Build label: 0.4.1
+
+1.java.lang.IllegalStateException: setAttribute: Session [F766FB4EAE8FE29451215A67300EF46A] has already been invalidated
+
+Content-Type: application/javascript
+
+0001-Add-tests-for-timezone-problems.patch:
+
+Proguard v1.0.0
+
+v3.2: Android does not accept ResourceBundle.Control.getFormats()
+
+insert into tuser set name = 'test1';        //Inserted record 'tuser#105:0{name:test1} v1' 
+
+/var/tmp $ cat TestClass.java
+
+	 * finding of modules (see {@link #findModulesViaServiceLoader}),
+
+ID="amzn"
+
+Caused by: java.lang.ClassCastException: java.util.HashMap cannot be cast to java.util.List
+
+-=david=-
+
+RqOnce
+
+Order By SQL Context should be: SUM(order_id)
+
+${prompt.text} and ${prompt.secret} double prompting
+
+@Provider("CardServiceProvider")
+
+Caused by: java.lang.LinkageError: loader (instance of  org/apache/catalina/loader/WebappClassLoader): attempted  duplicate class definition for name: "com/codahale/metrics/MetricRegistry"
+
+only paste comma inside `\" \"`
+
+|   |   |-- che-plugin-broker
+
+At least in 1.0.0
+
+transportMode: "NIO"
+
+Assertion failed: Registering post-startup activity that will never be run: disposed=false; open=false; passed=true
+
+_search" -d '{"query":{"term":{"State":{"value":"wa","boost":7.0}}}}'
+
+import org.redisson._
+
+**\* DefaultLastHttpContent(data: UnpooledHeapByteBuf(ridx: 0, widx: 2399, cap: 2399), getDecoderResult: success) ***
+
+@ToString(exclude = {"rawContent", "rootElements", "chapters", "annotationBlocks", "indents"})
+
+Content-Length: 78574
+
+ | PROPERTIES    |
+
+Redis server v=4.0.7
+
+openjdk version "10.0.2" 2018-07-17
+
+PSD file ImageIO.read gives java.io.EOFException: Unexpected end of PackBits stream
+
+Yields `[{"bar": "baz", "quux": 1}]` in 2.1.5 but `["baz", 1]` in 2.1.10.
+
+严重: Servlet.service() for servlet [springServlet] in context with path [/dubbo-monitor] threw exception [Request processing failed; nested exception is org.mybatis.spring.MyBatisSystemException: nested exception is org.apache.ibatis.exceptions.PersistenceException: 
+
+42:1 | 1 | Test | Ranking | Abran
+
+My SDK is located here (
+
+Path request matcher not matching correctly for H2 console (PathRequest.toH2Console())
+
+PlayerPresenter: 400
+
+java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615),
+
+	 * <p>Modules specified here will be registered after
+
+serializationService = new SerializationServiceBuilder()
+
+  Create a new object calling new TestClass()
+
+:integerList = [1]
+
+I believe the relevant code is https://github.com/adamretter/exist/blob/76abc91f1ad5d9697b6dbd466ef8dc60940ad9a4/src/org/exist/xquery/functions/fn/FnFormatDates.java#L318-L331. 
+
+$proxy is NULL
+
+set BAZEL_SH=C:/msys64/usr/bin/bash.exe
+
+Fix regression in org.eclipse.n4js.xsemantics.caching.PerformanceSubtypeTest.testSubtyping1000
+
+RsMatchStatus
+
+redisson-all-3.11.1-SNAPSHOT.jar
+
+- graaljs-scriptengine.jar
+
+- use_dis_max parameter is set to false
+
+DEBUG [2016-07-05 20:19:31,926] org.redisson.client.handler.ConnectionWatchdog: reconnecting RedisConnection@505461609 [redisClient=[addr=/127.0.0.1:6379], channel=[id: 0x3e7120a1, 0.0.0.0/0.0.0.0:56142]] to /127.0.0.1:6379 
+
+java.lang.NullPointerException [ONetworkProtocolHttpDb
+
+  retryAttempts: 3
+
+org.glassfish.grizzly.strategies.WorkerThreadIOStrategy$WorkerThreadRunnable.run(WorkerThreadIOStrategy.java:137),
+
+DataSource.Factory factory = new DefaultDataSourceFactory(holdingActivity.get(),
+
+  location: package ru.samlib.client.domain.entity
+
+BeanTypeRegistry getConfigurationClassFactoryBeanGeneric only considers @Bean methods that take no arguments
+
+Aug 25, 2016 6:20:21 AM com.hazelcast.client.impl.ClientHeartbeatMonitor
+
+—
+
+ 14 = {Region@6461} "us-west-2"
+
+Caused by: java.lang.IllegalArgumentException: There is no suitable accessor for 'cokisId'
+
+it will throw 'java.lang.IllegalArgumentException' : Mapped Statements collection already contains...
+
+See example project [spring-boot-ex.zip](https://github.com/spring-projects/spring-boot/files/449349/spring-boot-ex.zip)
+
+ 4 = {Region@6451} "ap-southeast-2"
+
+  (p1)-[:ap_has_value]->(red)
+
+"spring" shell script error on AIX Bash 4.3.0
+
+@jackygurui
+
+43:0 | 1 | Test | Ryan | Maximilien
+
+[3.5.4.Final] Can't call DefaultCookie#setMaxAge(Integer.MIN_VALUE)
+
+IntelliJ IDEA 2017.3 EAP (Ultimate Edition)
+
+vlad@vlad-W65-67SB ~/Documents $ javac Input.java
+
+Build id: 20140925-1800
+
+--myweiredboundaryasdfasdfasdf
+
+Underlying input stream returned zero bytes
+
+org.restlet.engine.util.CallResolver not resolving variables h* and f*
+
+  subscriptionConnectionPoolSize: 50
+
+---- WORKSPACE
+
+StackTrace:
+
+error
+
+"compress": false
+
+Changing the if condition at line 890 to  -
+
+Caused by: java.lang.ClassCastException: java.lang.Integer cannot be cast to int
+
+neo4j-sh (?)$ export selection=[30688,27682]
+
+==========take: 1_1_1
+
+WARNING: Client heartbeat is timed out , closing connection to Connection [0.0.0.0/0.0.0.0:5701 -> null], endpoint=Address[10.1.16.211]:53760, alive=false, type=JAVA_CLIENT
+
+IllegalType: rename "format" property to "illegalAbstractClassNameFormat"
+
+`<quorum-type>WRITE </quorum-type>`   'WRITE ' is not (edited) 
+
+A.n4js
+
+  symbol:   class AuthorEntity
+
+create data:
+
+Caused by: java.sql.SQLException: Error
+
+.setTrackSelector(new DefaultTrackSelector(holdingActivity))
+
+org.neo4j.kernel.impl.nioneo.store.InvalidRecordException: DynamicRecord Not in use, blockId[1]
+
+http://viacomitalytest-lh.akamaihd.net/i/sbshdlive_1@195657/master.m3u8
+
+:pactVerify_NameService FAILED          
+
+getStringValue("test3") return test1
+
+e.invoke(StandardContextValve.java:122)
+
+macOS / amd64 10.15.4
+
+With Bazel built at 8d6da00ff0c84d623ccdde7232e0514690d95269
+
+delete vertex #53:63
+
+r2.3.0
+
+DefaultExtractorsFactory extractorsFactory =
+
+org.nd4j.linalg.workspace.ND4JWorkspaceException: Cannot duplicate INDArray: Array outdated workspace pointer from workspace WS_LAYER_WORKING_MEM (array generation 846, current workspace generation 847)
+
+java.lang.IllegalStateException: Can't decode replay
+
+Excessive number of total requests to process `graph.getVertices(key, value)`
+
+### 3rd scenario
+
+4.0.0: gc log configuration error
+
+! at org.redisson.client.RedisConnection.sync(RedisConnection.java:147) ~[redisson-2.2.13.jar:na]
+
+1. In the elasticsearch config (elasticsearch.yml) set action.auto_create_index: true and index.mapper.dynamic: false
+
+1.0.2o
+
+($2012-12-27 was packet start as ASCII where $ was length header)
+
+Server crashed during startup. Now printing /home/lmilbaum/.cache/bazel/_bazel_lmilbaum/55f4e23676d5e49ea9e22174e2f40c96/server/jvm.out
+
+Stack Trace:
+
+  idleConnectionTimeout: 10000
+
+RedissonRedLock.tryLock(long waitTime, long leaseTime, TimeUnit unit) still have something wrong
+
+:pactVerify_WorkflowEnginetest FAILED
+
+INFO  2016-09-26 14:45:46 [main] org.redisson.Version.logVersion:41 - Redisson 2.3.0
+
+Client: 2.1.5
+
+Incremental: V11.0.17.0.PFDEUXM
+
+400 Bad Request in PsFacebook
+
+`SELECT EXPAND(out()[age IN :values]) FROM #11:0 ORDER BY age asc
+
+orientdb {db=cdrarch}> list servers
+
+  connectionMinimumIdleSize: 32
+
+subscriptionConnectionMinimumIdleSize=100
+
+2/ http://localhost:8084/supervision/  is redirected to http://localhost:8084/supervision
+
+  @RunWith(PowerMockRunner.class)
+
+vlad@vlad-W65-67SB ~/Documents $ cat my_check.xml 
+
+JerseyConfig
+
+error
+
+|   |   |   |-- broker5ib5vi
+
+AbstractByteBuf#order(ByteOrder):
+
+Throwable: Directory index is already disposed for Project (Disposed) PROJECT_NAME 
+
+/var/tmp $ javac TestClass.java
+
+System.err:     at org.jsoup.nodes.Node$OuterHtmlVisitor.head(Node.java:709)
+
+version >= 3.4.2
+
+### The error may exist in file [D:\workspace.metadata.plugins\org.eclipse.wst.server.core\tmp9\wtpwebapps\dubbo-monitor\WEB-INF\classes\mappers\DubboInvokeMapper.xml]
+
+- Which returns to org.glassfish.grizzly.ProcessorExecutor.execute():77
+
+`SELECT $_root.nextVertices AS _root, $_layerA AS _layerA LET $_root = map('nextVertices', (SELECT FROM RootType)), $_layerA = (SELECT @rid AS parentId, out('rootToA') AS nextVertices FROM $_root.nextVertices) FETCHPLAN _root:1 _layerA:2` (in this example, $_root will contains the set of root nodes and $_layerA will contains the nodes of type TypeA that are direct descendant of the root nodes).
+
+number is: 2
+
+LOGBACK: No context given for c.q.l.core.rolling.SizeAndTimeBasedRollingPolicy
+
+With cache turned off I'm getting the following error: nested: ClassCastException[org.apache.lucene.util.FixedBitSet cannot be cast to org.elasticsearch.common.lucene.docset.FixedBitDocSet]
+
+(only top-left.lat changes)
+
+---------------------------------------------------------------------block of code------------------
+
+... 14 more
+
+0 | SET | 109689 | 4998
+
+n4jside: Build time: 2017-05-03 12:04:43
+
+Audit done.
+
+java.lang.NoClassDefFoundError: ProbesConfiguration
+
+HOME_URL="http://aws.amazon.com/amazon-linux-ami/"
+
+E.g.
+
+3- Get redirected to the /authorize/oauth2/code/[myclient] endpoint
+
+  | LIST | 29053 | 30636
+
+java.util.NoSuchElementException
+
+   "provider":"lucene"
+
+- [  ] I'm using the Enterprise Edition
+
+java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1146),
+
+number is: 3
+
+- tregex.jar
+
+Reject put mapping requests when the root node is not equal to `type`
+
+action.auto_create_index: +willwork*
+
+Caused by: java.lang.IllegalArgumentException: There is no suitable accessor for 'cokisId'
+
+There was bug #1186, and it looks it should be fixed in RC2.
+
+... no errors ...
+
+Target '@sassc//:sassc' is not visible from target '//tools/build_defs/sass:sassc'
+
+System.err:     at org.jsoup.nodes.Entities.canEncode(Entities.java:298)
+
+NPE in com.redhat.ceylon.eclipse.code.hover.DocumentationHover.getDocumentationFor
+
+Redis server v=3.2.6 sha=00000000:0 malloc=jemalloc-4.0.3 bits=64 build=6135068212e7fc88
+
+  connectionPoolSize: 64
+
+This is a follow up to [this stackoverflow question](https://stackoverflow.com/questions/55377162/how-to-make-a-copy-of-the-result-of-a-call/55377608?noredirect=1#comment97481644_55377608)
+
+### The error may involve com.handu.open.dubbo.monitor.DubboMonitorService.countDubboInvokeInfo-Inline
+
+OrientDb: 2.0.8
+
+WARNING: Client heartbeat is timed out , closing connection to Connection [0.0.0.0/0.0.0.0:5701 -> null], endpoint=Address[10.1.16.211]:53760, alive=false, type=JAVA_CLIENT
+
+PlayerPresenter: 14
+
+And ACTUAL within this response, there is a key value pair:   "data": 1234,
+
+([docs](https://docs.spring.io/spring-boot/docs/2.2.0.BUILD-SNAPSHOT/reference/html/production-ready-features.html#health-groups))
+
+`/var/tmp $ java -Duser.language=en -Duser.country=US -jar checkstyle-8.8-all.jar -c config.xml Test.java`:
+
+| Jack |
+
+5.1.0.M1
+
+System.err:     at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:636)
+
+`[nioEventLoopGroup-3-3] WARN io.netty.util.concurrent.DefaultPromise - An exception was thrown by org.redisson.CommandExecutorService$6.operationComplete()
+
+dev-v2,
+
+Possibly related/causing my other issues (#5068, #5033, #5048)
+
+  location: class ObservableService
+
+Syntax is described here: https://docs.oracle.com/en/database/oracle/oracle-database/18/sqlrf/Literals.html#GUID-1824CBAA-6E16-4921-B2A6-112FB02248DA
+
+https://github.com/uglyog/pact-maven-amqp-test/compare/master...crummy:master
+
+DELETE EDGE not removing all identical lightweightEdges
+
+`No converter found capable of converting from type [java.util.LinkedHashMap<?, ?>] to type [java.lang.String]
+
+For configClient-2.0.3.RELEASE - `sampleProperty = sample property client`
+
+VERSION_ID="2016.09"
+
+Unhandled exception IllegalStateException during playback live HLS (media index)
+
+`spring-session-1.1.0.RC1.jar`,`spring-expression-4.2.4.RELEASE.jar`, `spring-security-web-4.0.3.RELEASE.jar`, `spring-security-core-4.0.3.RELEASE.jar`
+
+ 5 = {Region@6452} "ca-central-1"
+
+com.dangdang.ddframe.rdb.sharding.exception.ShardingJdbcException: java.sql.SQLException: Error
+
+[Here is an example project](http://timboudreau.com/files/netty-dns-bug.tar.bz2) that demonstrates the problem.
+
+java.util.concurrent.ExecutionException: java.lang.IllegalArgumentException: value cannot be null
+
+com.mysql.jdbc.exceptions.jdbc4.MySQLNonTransientConnectionException: No operations allowed after statement closed.
+
+`git rev-parse HEAD`:    2c3bcb49f8d1092241fd982874dce621bbcde91f
+
+ (a 
+
+- //path/path -> OK
+
+/var/tmp $ java -jar checkstyle-7.5-all.jar -c config.xml Test.java
+
+! at io.netty.util.concurrent.ScheduledFutureTask.run(ScheduledFutureTask.java:126) [netty-all-4.0.34.Final.jar:4.0.34.Final]
+
+@ToString(exclude = {"rawContent", "rootElements", "chapters", "annotationBlocks", "indents"})
+
+Sample project: [datasourcenpe.zip](https://github.com/spring-projects/spring-boot/files/475490/datasourcenpe.zip)
+
+java.io.FileNotFoundException: /Users/xxx/.metadata/.plugins/org.eclipse.n4js.external.libraries/.n4npm/node_modules/redux/lib/index.n4jsd (No such file or directory)"
+
+Caused by: java.lang.NullPointerException: null
+
+  - `BUILD` file: `sh_test(name="x", srcs=["test.sh"])`
+
+jstack output
+
+Starting local Bazel server and connecting to it...
+
+JaegerTracer.extract: UnsupportedFormatException: Builtin.BINARY_EXTRACT
+
+[3.0]CONTAINS empty list or empty dict return unexpected result
+
+  location: class ObservableService
+
+1. jar:file:/C:/Users/.../junit4507521104116618629.tmp!/nesting-nested.jar!/
+
+http2: Compatibility issue: SETTINGS ACK may be reordered
+
+"
+
+....when you combine out() function with the name of edge using underscore characters.....
+
+connectionTimeout=10000
+
+No qualifying bean of type [org.springframework.web.servlet.mvc.method.RequestMappingInfoHandlerMapping]
+
+Version:    1.7.0_51
+
+### The error may exist in file [D:\workspace.metadata.plugins\org.eclipse.wst.server.core\tmp9\wtpwebapps\dubbo-monitor\WEB-INF\classes\mappers\DubboInvokeMapper.xml]
+
+Cache miss exception for (v) => v..foo()
+
+  symbol:   class AuthorEntity
+
+java.lang.NullPointerException
+
+1. I downloaded the latest compiler from http://dl.google.com/closure-compiler/compiler-latest.zip
+
+Content-Type: multipart/form-data
+
+r1.5.8
+
+java.lang.IllegalArgumentException: Invalid property value for OResult: [#1982:-3] - com.orientechnologies.orient.core.db.record.ridbag.ORidBag  
+
+dev-v2-r2.10.3 - 1275217bca00184d52f0c374d59db985ebf070c1
+
+retryAttempts=10
+
+Checked out at head, ran "bazel build //src/test/docker:docker-debian-stretch":
+
+Java versione: 9.0.4
+
+1 = 1 => return 1
+
+Linux 3.13.0-042stab120.3 x86_64 x86_64 x86_64 GNU/Linux
+
+health.db.enabled=false
+
+Exception in thread "main" java.lang.RuntimeException: java.lang.IllegalArgumentException: No enum constant com.hazelcast.config.PartitionGroupConfig.MemberGroupType.NULL
+
+This might be similar to these issues:  #11408, #13376 
+
+java.lang.IllegalStateException: Failed to load ApplicationContext
+
+jdk8
+
+#5397 assumed that rawConfig includes policy name, but the constructor 
+
+- graaljs.jar
+
+No enum constant com.hazelcast.config.PartitionGroupConfig.MemberGroupType.NULL
+
+  - (contains no entries besides manifest)
+
+io.netty.handler.codec.DecoderException: CommandDecoder.decode() must consume the inbound data or change its state if it did not decode anything.
+
+"status": 500
+
+import org.scalatest._ 
+
+Spring Session: 1.3.1
+
+implementation 'com.amazonaws:aws-android-sdk-s3:2.12.5'
+
+When executing the shutdown request over stdio the response is invalid because the shutting down method writes plain text logging to stdout here https://github.com/eclipse/eclipse.jdt.ls/blob/master/org.eclipse.jdt.ls.core/src/org/eclipse/jdt/ls/core/internal/LanguageServer.java#L75
+
+  "explain": false,
+
+retryInterval=3000
+
+Download [font.zip](https://github.com/libgdx/libgdx/files/378695/font.zip)
+
+jdk: jdk1.7.0_15
+
+Steps to reproduce: element.outerHtml() ->
+
+Index a new document with timestamp of 00:00 GMT:
+
+/var/tmp $ javac Test.java
+
+redisson-all-2.15.2-SNAPSHOT.jar
+
+http://www.timeanddate.com/time/zone/argentina/catamarca confirms that this would have been at 3am UTC (midnight local)
+
+ src:bazel`
+
+Instead I receive `e: /home/wmbest2/realm-library-test/app/src/main/kotlin/io/vokal/realmtest/MainActivity.kt: (37, 23): Unresolved reference: findSpot`
+
+- .h5 weightsArchive
+
+AbstractChannel.java can prevent reentry to flush0()
+
+Nov 17, 2014 4:33:03 AM com.zaxxer.hikari.metrics.CodaHaleShim loadOrShimCodahale
+
+The cookie-loading code in org.springframework.session.web.http.CookieHttpSessionStrategy#getSessionIds assumes that a single sessionId must be associated with DEFAULT_ALIAS:
+
+   java.lang.Thread.State: TIMED_WAITING (parking)
+
+LocalConnector.getResponse() doesn't find close if using HTTP/1.1 w/Connection: close
+
+- compile 'io.requery:requery-kotlin:1.0.0-rc2'
+
+5.3.47]:2434 [orientdb] [3.3] hz._hzInstance_1_orientdb.event-2 caught an exception while processing
+
+Event Journal throws StaleSequenceException when TTL > 0
+
+ 16 = {Region@6463} "cn-northwest-1"
+
+java.lang.InternalError: data were not fully read, check your serializer
+
+sql batch - wrong result 'null'
+
+3.3.0.M1
+
+user calls writeAndFlush(packet)
+
+- [  ] MacOSX
+
+io.netty.bootstrap.BootstrapTest.testAsyncResolutionFailure sometimes fails
+
+jul-to-slf4j-1.7.7.jar
+
+1/ http://localhost:8084/supervision is redirected to http://localhost:8084/supervision/
+
+Stacktrace
+
+vlad@vlad-W65-67SB ~/Documents $ java -jar checkstyle-7.6-all.jar -c my_check.xml Input.java
+
+※`SessionRepositoryFilter$SessionRepositoryRequestWrapper.getRequestedSessionId()`
+
+@Configuration
+
+I caught Certificate Exception same as #1296,
+
+4. Exception thrown in the worker thread, and it hangs on realm.close()
+
+Incomplete Audio Object Type Parsing
+
+	 *Specify one or more modules to be registered with the {@link ObjectMapper}.
+
+Connection marked as broken because of SQLSTATE(08003)
+
+label 'label' type mismatch with previous definition: TOKEN_LABEL!=RULE_LABEL
+
+D/EventLogger: loading [false]
+
+- [  ] v2.1.x - Please specify last number: 
+
+/var/tmp $ cat config.xml
+
+4.1.7: java.lang.NoClassDefFoundError: Could not initialize class io.netty.util.internal.PlatformDependent0
+
+- [  ] I have a distributed setup with multiple servers. How many? 
+
+PlayerPresenter: 14
+
+import org.redisson.RedissonClient
+
+  location: class ObservableService
+
+/var/tmp $ cat config.xml
+
+**org.redisson.pubsub.AsyncSemaphore.java** 
+
+Caused by: java.lang.IllegalArgumentException: value cannot be null
+
+/var/tmp $ java $RUN_LOCALE -jar checkstyle-8.10-all.jar -c TestConfig.xml TestClass.java
+
+@NotNull method mobi/hsz/idea/gitignore/util/CacheMap.getParentStatus must not return null
+
+without explicit import of spring-boot-starter-oauth2-client, compilation throws java.lang.RuntimeException: java.lang.NoClassDefFoundError: org.springframework.security.oauth2.jwt.Jwt$Builder
+
+java 1.8
+
+[Operating System : Mac OS X 10.14.6 x86_64] 
+
+4.0.11 (running in standalone mode)
+
+Culprit: 50a2d6c9b9c55776ec747a656a2edd971e723771
+
+SEVERE: Error deploying web application directory C:\java\tomcat\webapps\ROOT
+
+|   |       `-- theia-ide
+
+Linux eshmun 4.9.0-5-amd64 #1 SMP Debian 4.9.65-3+deb9u2 (2018-01-04) x86_64 GNU/Linux
+
+Culprit: 9cc954a8c1e1f5134c4b6701588cd226e9e52707
+
+git bisect blames 37a03f338de2e602757d57d49fad8c5e9c5e89c2
+
+addr = null
+
+  Photometric Interpretation: min-is-white
+
+StrictHttpFirewall allows "//path" "//path//path" patterns.
+
+for example: LEADING_ASTERISK=1 and RULE_htmlElement = 1.
+
++ RAM:  3.0 GB
+
+org.redisson.client.RedisTimeoutException: Unable to send command! Try to increase 'nettyThreads' and/or connection pool size settings Node source: NodeSource [slot=null, addr=null, redisClient=null, redirect=null, entry=MasterSlaveEntry [masterEntry=[freeSubscribeConnectionsAmount=1, freeSubscribeConnectionsCounter=value:50:queue:0, freeConnectionsAmount=31, freeConnectionsCounter=value:63:queue:0, freezed=false, freezeReason=null, client=[addr=redis://127.0.0.1:6379], nodeType=MASTER, firstFail=0]]], connection: RedisConnection@1164990041 [redisClient=[addr=redis://127.0.0.1:6379], channel=[id: 0xfe590eb3, L:/127.0.0.1:61299 - R:127.0.0.1/127.0.0.1:6379], command=null], current command in queue: null, command: (EVAL), params: [local insertable = false; local value = redis.call('hget', KEYS[1], ARGV[5]); local t, val;if value ..., 8, HibernateCache.Product, redisson__timeout__set:{HibernateCache.Product}, redisson__idle__set:{HibernateCache.Product}, redisson_map_cache_created:{HibernateCache.Product}, redisson_map_cache_updated:{HibernateCache.Product}, redisson__map_cache__last_access__set:{HibernateCache.Product}, redisson_map_cache_removed:{HibernateCache.Product}, {HibernateCache.Product}:redisson_options, ...] after 0 retry attempts
+
+JavadocStyleCheck: String index out of range: -1
+
+Test failure: org.elasticsearch.search.aggregations.pipeline.PercentilesBucketIT.testNested
+
+- Introduced since eXist-4.1.0
+
+Server: 3.0.3
+
+1.8.0_121-b13
+
+0.9.3 Breaking Change to File Loading
+
+@PactBroker(host = <hostname>, port = "80", tags={"prod"} )
+
+此时直接返回了唯一的结果集（limit 0,30）
+
+temp $ cat config.xml
+
+92sql语法规范
+
+(Also on stackoverflow: http://stackoverflow.com/q/15481471)
+
+Exception in thread "main" io.netty.util.IllegalReferenceCountException: refCnt: 0
+
+HEAD (at time of testing, i.e. 2a26c3ce02370ebec317d9148a13ca53853feab6)
+
+System.err:     at org.jsoup.nodes.Entities.escape(Entities.java:233)
+
+  PowerMockito.mockStatic(TestClass.class)
+
+file: "/home/jojo/workspace/workflowengine-micro/build/resources/main"
+
+com.orientechnologies.orient.server.network.protocol.http.OHttpRequestException: Syntax error: document/<database>/<record-id>[/fetchPlan] [ONetworkProtocolHttpDb]
+
+Audit done.
+
+### The error may exist in file [D:\workspace.metadata.plugins\org.eclipse.wst.server.core\tmp9\wtpwebapps\dubbo-monitor\WEB-INF\classes\mappers\DubboInvokeMapper.xml]
+
+netty 4.1.6 
+
+`Mono.error(new IllegalStateException("boom")).log("foo", FINE)` logs at DEBUG level with SLF4J.
+
+  symbol:   class AuthorEntity
+
+* Protobuf: 3.4.0
+
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+
+mysql-connector-java-5.1.33.jar
+
+Created: 2008-06-05
+
+java.lang.InternalError: data were not fully read, check your serializer
+
+ifname = null
+
+/var/tmp $ java -jar checkstyle-7.5.1-all.jar -c config.xml an/extremelylongpackagenamethat/hasmultiplecomponents/Test.java
+
+JavaNCSSCheck: unknown format type: numero inteiro
+
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+
+Class<?> eventClass = the interface Auditable
+
+antlr4-maven-plugin prints incomplete error messages, without detail
+
+Sec-WebSocket-Version:13
+
+Wrapped by: org.springframework.data.redis.connection.RedisPipelineException: Pipeline contained one or more invalid commands; nested exception is org.redisson.client.WriteRedisConnectionException: Unable to write command into connection! Node source: NodeSource [slot=null, addr=null, redisClient=null, redirect=null, entry=MasterSlaveEntry [masterEntry=[freeSubscribeConnectionsAmount=1, freeSubscribeConnectionsCounter=value:50:queue:0, freeConnectionsAmount=23, freeConnectionsCounter=value:63:queue:0, freezed=false, freezeReason=null, client=[addr=rediss://…:6379], nodeType=MASTER, firstFail=0]]], connection: RedisConnection@968537160 [redisClient=[addr=rediss://<redacted>:6379], channel=[id: 0x6a0eb23a, L:/<redacted>:49244 - R:<redacted>/<redacted>:6379], currentCommand=null], command: null, params: null after 3 retry attempts
+
+`spring-boot-starter-actuator` depends on `spring-webmvc`
+
+Starting audit...
+
+SLF4J: See http://www.slf4j.org/codes.html#StaticLoggerBinder for further details.
+
+**com.orientechnologies.orient.core.exception.OCommandExecutionException: Property 'Test.map' already exists. Remove it before to retry.**
+
+Error: java.lang.NoSuchFieldError: INSTANCE on start
+
+And EXPECTED within this response, there is a key value pair:   "data": 1234.0,
+
+redirect:  http://localhost:8080/user/
+
+but got: org.junit.jupiter.api.extension.ParameterResolutionException: No ParameterResolver registered for parameter [mypackage.DummyTest$MyParameter arg0] in executable [public void mypackage.DummyTest.setUp(mypackage.DummyTest$MyParameter)]
+
+"Removing disconnected network channel '127.0.0.1:2424/XXX'"/"Database 'remote:localhost/xxx' is closed" when executing queries
+
+broken pipe [ONetworkProtocolHttpDb]
+
+3. execute `./build/libs/*.jar`
+
+41:1 | 1 | Test | Springham | Lauree
+
+Module org.junit.platform.launcher does not read module java.logging
+
+EchoClient:
+
+  Subfile Type: (0 = 0x0)
+
+`at java.util.AbstractCollection.toString(AbstractCollection.java:462)
+
+&lt;img alt="" ="" src="/imagelibraries/homepagebanners/british_10k_2010.jpg" />
+
+@Test
+
+E.g.
+
+Server: Play! Framework;1.2.5;prod
+
+  --header 'content-type: application/json' \
+
+System.err:     at java.nio.charset.CharsetEncoder.canEncode(CharsetEncoder.java:923)
+
+/var/tmp $ java $RUN_LOCALE -jar checkstyle-8.16-all.jar -t TestClass.java
+
+METHODS EXECUTED 460 TIMES (1 B)
+
+Accept: _/_
+
+| first_name + ' ' + last_name | COUNT(@rid)
+
+- "java.lang.IllegalStateException: Missing closed string character: '"'
+
+Resource leak: E/Surface(3163): dequeueBuffer: IGraphicBufferProducer::requestBuffer failed: -22
+
+java.lang.AbstractMethodError: java.nio.channels.SocketChannel.bind
+
+macOS
+
+http://rveach.no-ip.org/checkstyle/regression/pitest-reports/24/javadoc/com.puppycrawl.tools.checkstyle.checks.javadoc/JavadocMethodCheck.java.html#org.pitest.mutationtest.report.html.SourceFile@29d1b4da_339
+
+ 7 = {Region@6454} "eu-west-1"
+
+subscriptionConnectionPoolSize=200
+
+  symbol:   class AuthorEntity
+
+### The error occurred while setting parameters
+
+ 13 = {Region@6460} "us-west-1"
+
+DefaultHttpContent(data: UnpooledHeapByteBuf(ridx: 0, widx: 6209, cap: 8192), getDecoderResult: success)
+
+Stacktrace
+
+H2
+
+DEBUG [2016-07-05 20:19:31,924] org.redisson.client.handler.ConnectionWatchdog: reconnecting RedisConnection@274136027 [redisClient=[addr=/127.0.0.1:6379], channel=[id: 0x767c23f5, 0.0.0.0/0.0.0.0:56141]] to /127.0.0.1:6379 
+
+### The error may involve com.handu.open.dubbo.monitor.DubboMonitorService.countDubboInvokeInfo-Inline
+
+已经打开show.sql
+
+Checkstyle ends with 1 errors.
+
+Receive connection type messages ... 
+
+Introduced in rc4.
+
+e.g.
+
+PlayerPresenter: 14
+
+`initializers(new ParentContextApplicationContextInitializer(
+
+System.err:     at java.util.concurrent.FutureTask.run(FutureTask.java:266)
+
+reactor.core.publisher.MonoTimeout#subscribe
+
+spring-security-5.2.0
+
+implementation 'com.google.android.exoplayer:exoplayer-core:2.8.4'
+
+assert size==act_size;    =====> **Here will throws AssertionError**
+
+  location: package ru.samlib.client.domain.entity
+
+Culprit: af8ebca2b88a0ee1129b72b4ce825f6489c31e67
+
+44:1 | 1 | Test | Stannas | Gypsy
+
+### The error occurred while setting parameters
+
+host = "::ffff:10.186.55.168"
+
+java.lang.NullPointerException
+
+=== full console output ===
+
+43:2 | 1 | Test | Schoales | Augusta
+
+org.glassfish.grizzly.filterchain.DefaultFilterChain.process(DefaultFilterChain.java:115),
+
+  Image Width: 14400 Image Length: 11100
+
+for(Element objCurrent : objElementCollection)
+
+C++ code fails to build with clang 4.0
+
+`spring-boot-2.2.1:RELEASE`.
+
+  A GET request to retrieve names  
+
+file: "/home/jojo/workspace/workflowengine-micro/build/classes/main"
+
+SubripParser:74
+
+code sinppet (userclasses_ExperimentalStateMachine_experSsaver):
+
+http://localhost:9200/test_hightlight   [POST]
+
+[Here’s the full code in spring-security-oauth2](https://github.com/spring-projects/spring-security-oauth/blob/bff72a9bf8f12b73f945e4e77f4dd206b3636e83/spring-security-oauth2/src/main/java/org/springframework/security/oauth2/provider/token/store/redis/RedisTokenStore.java#L279) that is triggering this.
+
+audioObjectType > 31.
+
+java.lang.AssertionError
+
+--- update 
+
+Reproduced on titan05 HEAD 69b0788d86422d6e50555e1830b46639137e305c.
+
+Spring-Boot 2.2.7 prints: `{foo=foo, baz=baz, bar=bar}`
+
+process; data not found for key DataDocumentKey [dataId=381, documentId=50000]
+
+Request URL:ws://127.0.0.1:8080/websocket
+
+"Unbounded index for representation: ..."
+
+/var/tmp $ cat config.xml
+
+Need to manually set the executable bit on the jar file by executing `chmod +x ./build/libs/*.jar`
+
+https://github.com/apache/pulsar/actions?query=workflow%3A%22CI+-+Integration+-+Backwards+Compatibility%22
+
+Last-Modified: Fri, 12 Apr 2013 13:00:53 GMT
+
+Missing resource filter type: 'org.eclipse.ui.ide.multiFilter'
+
+insert into tuser set name = 'test6';        //Inserted record 'tuser#105:5{name:test1} v1'
+
+Misplaced diagnostic for cvc-elt.3.1
+
+2. Rebuild debian pacakges: `bazel build --embed_label=0.1.2 --stamp //scripts/packages/...`
+
+System.err:     at org.jsoup.nodes.Node.outerHtml(Node.java:573)
+
+3VyV3JpdGVzOnRydWUsY2x1c3RlcnM6KGludGVybmFsOigpLGluZGV4OigpLCo6KHNlcnZlcnM6WyI8TkVXX05PREU+Iiwibm9kZ
+
+v5.2.0 - v5.2.1
+
+- $ gradle clean build
+
+java.lang.ClassNotFoundException: Didn't find class "rx.subjects.SerializedSubject"
+
+Caused by: java.lang.RuntimeException: javassist.CannotCompileException: by java.lang.LinkageError: loader (instance of  org/apache/catalina/loader/WebappClassLoader): attempted  duplicate class definition for name: "com/codahale/metrics/MetricRegistry"
+
+  retryInterval: 1500
+
+i.e.
+
+The actually sensitive jolokia paths are however not secured, e.g. /jolokia/list/java.lang/type=Memory:
+
+---------END
+
+com.orientechnologies.orient.core.exception.ODatabaseException: Error on retrieving record #105:2
+
+  pingTimeout: 1000
+
+DateTimeFormat.parseInto sometimes miscalculates year (2.2)
+
+  --header 'cookie: test=12345'
+
+C:/Program\ Files\ (x86)/Microsoft\ Visual\ Studio/2017/Community/VC/Auxiliary/Build/vcvarsall.bat
+
+set PATH=C:\msys64\usr\bin;C:\jdk\bin;C:\python35;C:\python35\scripts;%PATH%
+
+### SQL: SELECT             SUM(success) as success,             SUM(failure) as failure,             SUM(elapsed) as elapsed,             MAX(max_elapsed) as maxElapsed,             MIN(max_concurrent) as maxConcurrent         FROM dubbo_invoke         WHERE             1 = 1                                                     AND invoke_time >= ?                                 AND invoke_time <= ?                                 AND service = ?                                 AND method = ?                                                      AND type = ?
+
+|   |-- che-logs                                                                                                                                                                                                  
+
+---- externals
+
+java.lang.InternalError
+
+number is: 7
+
+[eXist Build : 20191117145049] 
+
+`Error: automatic module cannot be used with jlink: springmodule from file:///home/swaechter/Nextcloud/Workspace_Java/springmodule/target/springmodule-1.0.0.jar
+
+r2.4.1
+
+glmExtBuild
+
+foo.zip contains file foo.txt, with content 'hello'
+
+  QueryParsingException[[index] spanNear [clauses] must be of type span query]
+
+With whitespace only compilation, language_in = es6_strict, language_out = es6_strict, this code:
+
+Audit done.
+
+Suppressions xpath file - suppressions_xpath.xml
+
+1cbcf9ba01ff6e6a37324119ae1dc3d57d7f2631
+
+"main"@1 in group "main": RUNNING
+
+  Unresolved requirement: Require-Bundle: com.google.cloud.tools.eclipse.appengine.ui; bundle-version="0.1.0"
+
+|   `-- projects
+
+stack:
+
+return v_test_1 which related v_test_2's name = 'jack'
+
+expected: nearly inserted record is found
+
+Memory abuse - OAuthAuthenticationDetails recursive references.
+
+  "status" : 500
+
+8ec3866d9e5d28f6c09546269ec82731c45c28ad broke the build
+
+)`
+
+v2.10.0 to v2.10.2
+
+ID_LIKE="rhel fedora"
+
+PlayerPresenter: 14
+
+  --url 'http://localhost:34228/resource/time/current?locale=de' 
+
+System.err:     at java.nio.charset.CharsetEncoder.throwIllegalStateException(CharsetEncoder.java:1014)
+
+SEVERE: Cannot generate CodaHale metrics shim
+
+* `cd` to your `bazel-cpp-test` directory and execute `bazel test examples/cpp:hello-fail_test`
+
+eXist Build:    20140616
+
+* At SHA - 155a2dd995e98ad7ce8e6615a74e127598a0173b
+
+DEBUG [2016-07-05 20:19:31,926] org.redisson.client.handler.ConnectionWatchdog: reconnecting RedisConnection@1472480975 [redisClient=[addr=/127.0.0.1:6379], channel=[id: 0x3fa13888, 0.0.0.0/0.0.0.0:56144]] to /127.0.0.1:6379 
+
+(Note the source file, foo.txt, is a normal file, with the ASCII content 'hello')
+
+Class: com.microsoft.azure.sdk.iot.device.transport.mqtt.MqttMessaging
+
+### 4th scenario
+
+Demo Project: [demo.zip](https://github.com/spring-projects/spring-boot/files/4634284/demo.zip)
+
+- [  ] Other Unix
+
+ 8 = {Region@6455} "eu-west-2"
+
+org.springframework.aop.framework.AopConfigException: Could not generate CGLIB subclass of class [class org.apache.catalina.core.ApplicationContextFacade]
+
+masterConnectionMinimumIdleSize=100
+
+DEBUG [2016-07-05 20:19:31,926] org.redisson.client.handler.ConnectionWatchdog: reconnecting RedisConnection@1396687106 [redisClient=[addr=/127.0.0.1:6379], channel=[id: 0x4d0ceba1, 0.0.0.0/0.0.0.0:56143]] to /127.0.0.1:6379 
+
+Problems encountered while copying resources. Resource '/jdt.ls-java-project/src/pom.xml' does not exist.
+
+Starting audit...
+
+GenericWhitespace: violation on generic like '...... instanceof Type<?>;'
+
+mCounterDisabled: size() => 1, isEmpty() => false
+
+E/ACodec: Unable to instantiate decoder 'CIPAMRNBDecoder'.
+
+Content-Length: 20923
+
+Exception when generating adapters: Unexpected type variable T
+
+May 17, 2016 11:14:40 AM com.orientechnologies.common.log.OLogManager log
+
+3rd request:
+
+E.g a
+
+Tomcat 8.0: java.lang.ClassNotFoundException: org.apache.coyote.UpgradeProtocol
+
+### SQL: SELECT             SUM(success) as success,             SUM(failure) as failure,             SUM(elapsed) as elapsed,             MAX(max_elapsed) as maxElapsed,             MIN(max_concurrent) as maxConcurrent         FROM dubbo_invoke         WHERE             1 = 1                                                     AND invoke_time >= ?                                 AND invoke_time <= ?                                 AND service = ?                                 AND method = ?                                                      AND type = ?
+
+@EnableGlobalAuthentication does not import ObjectPostProcessorConfiguration
+
+r2.4.1
+
+Hibernate: select TOP(?) patient0_.pat_id as pat_id1_15_......     ----1.4.3
+
+astPlugin.java:1070)
+
+Caused by: java.io.EOFException
+
+Unresolved requirement: Require-Bundle: com.google.cloud.tools.eclipse.appengine.ui; bundle-version
+
+ 6 = {Region@6453} "eu-central-1"
+
+version 1.2
+
+Audit done.
+
+With bazel HEAD (99a89acf4c7608eb56d77cb746db32842833c6c1):
+
+-- https://github.com/eclipse/jetty.project/blob/cf4e7412d440c581bc351de69fee1d00eac1a33e/jetty-server/src/main/java/org/eclipse/jetty/server/handler/ContextHandler.java#L1536-L1540
+
+'CREATE INDEX BY VALUE' breaks 'SELECT WHERE'
+
+error:
+
+TestClass.java:11: warning: no @return
+
+System.err:     at com.testapp.JsoupMultithreadedTest$ParseTask.call(JsoupMultithreadedTest.java:49)
+
+http://localhost:8080 works as expected.
+
+0. pipeline.addLast LineBasedFrameDecoder, and maxLength == 2.
+
+  dnsMonitoringInterval: 5000
+
+Process finished with exit code 0
+
+nettyThreads=16
+
+  Resolution: 600, 600 pixels/inch
+
+Failed to query codec OMX.qcom.audio.decoder.mp3 (audio/mpeg)
+
+Kotlin 1.3.60
+
+PlayerPresenter: 686
+
+mvn clean install -Psql -Pdeploy fails because deploy-apps.sh can't be found
+
+WARNING: Client heartbeat is timed out , closing connection to Connection [0.0.0.0/0.0.0.0:5701
+
+Note: this worked untill 2.0
+
+@PactBroker(host = <hostname>, port = "80", tags={"prod", "dev"} )
+
+### The error occurred while setting parameters
+
+`git bisect run /home/ci
+
+ Created: 2007-07-28
+
+`curl --request POST \
+
+Python consumer does not accept receiver_queue_size=0
+
+... 16 more
+
+AvoidEscapedUnicodeCharacters: Tail comment check failed if there's tabs before tail comment.
+
+When updated from RC1 to RC2.
+
+https://docs.oracle.com/javase/7/docs/api/java/io/RandomAccessFile.html#setLength(long)
+
+Uncaught TypeError: Cannot read property 'apply' of undefined
+
+Unhandled exception in link establishment timeout handling
+
+id3Decoder.decode(...) @ ln 131
+
+EchoServer:
+
+  `
+
+ 3 = {Region@6450} "ap-southeast-1"
+
+/var/tmp $ cat config.xml
+
+Last-Modified: Fri, 12 Apr 2013 13:00:53 GMT
+
+### The error may involve com.handu.open.dubbo.monitor.DubboMonitorService.countDubboInvokeInfo-Inline
+
+• `confBugTimestamp/filebeat-bugTimestamp.yml`
+
+Model: Mi Note 10
+
+  location: class ObservableService
+
+System.err:     at org.jsoup.nodes.Element.outerHtmlHead(Element.java:1328)
+
+See https://github.com/redhat-developer/vscode-java/issues/221 and https://github.com/redhat-developer/vscode-java/issues/229.
+
+PlayerPresenter: 400
+
+ava:57)
+
+  val set_test = java.util.UUID.randomUUID
+
+Aug 25, 2016 6:20:41 AM com.hazelcast.client.impl.ClientHeartbeatMonitor
+
+Build demo build (debug)
+
+XpathMapperTest
+
+java.lang.IllegalArgumentException: The destinationVertex must be a vertex record
+
+Caused by: java.lang.StackOverflowError: stack size 1037KB
+
+v2.2.10 MacOSX Java 
+
+Audit done.
+
+spring-security-oauth2-core-5.0.0.RELEASE.jar
+
+! at java.lang.Thread.run(Thread.java:745) [na:1.8.0_92]
+
+[√] Android Studio (version 3.4)
+
+Allow recursive calls to AuthenticationConfiguration.getAuthentication()
+
+#10071 # Description of the problem / feature request:
+
+a&b -> c
+
+/var/tmp $ cat config.xml
+
+java.sql.SQLDataException: Current position is before the first row
+
+Date: Sat, 02 Feb 2013 00:01:37 GMT
+
+  @After
+
+curl -XPOST localhost:9200/idx1/type1 -d '{ "name": "ali", "sane": "absolutely not" }'
+
+3- Get redirected to the /authorize/oauth2/code/[myclient] endpoint
+
+Build of docker image eclipse/che-mount:nightly failed
+
+CacheMap.getParentStatus must not return null
+
+100% of the time
+
+Kotlin - 1.0.4
+
+- //path/path -> 500 error ?
+
+org.apache.jsp..index_jsp
+
+ x86_64 GNU/Linux
+
+epollEventLoopGroup-2-1[1] locals
+
+veird part is ""3:14", }," checkstyle demand that coma.
+
+com.intuit.karate.exception.KarateException: path: $[*], actual: [{"a":1,"b":2},{"a":3,"b":4}], expected: {a=1}, reason: actual value does not contain expected
+
+  val system_topic = "system_bus"
+
+https://elasticsearch-ci.elastic.co/job/elastic+elasticsearch+5.6+intake/317/console
+
+`che.workspace.pluginRegistryUrl` and `che.workspace. devfileRegistryUrl `
+
+r2.8.0
+
+Error in provider verify DSL (stateChangeUrl = url(...))
+
+Caused by: io.netty.channel.ConnectTimeoutException: connection timed out: /57.190.12.71:6399
+
+with the error `assertion failed: path: /ban, actual: null, expected: '#notpresent', reason: actual xpath returned null`
+
+java.nio.channels.ClosedByInterruptException
+
+  Compression Scheme: CCITT Group 4
+
+RedundantModifier : missed violations at interface and abstract class methods signatures with final parameters
+
+Culprit: d899a036bd043fcde7db8a7d568c102f50411c79
+
+java.lang.IllegalStateException: Can't find tenured space; update this class for a new collector
+
+  clientName: null
+
+32 GB RAM
+
+spurious error in Integer.ceylon
+
+---- WORKSPACE
+
+subscriptionConnectionPoolSize=200
+
+@Test
+
+b2e80172 /tmpfs/repro > /tmpfs/bazel200.exe info release
+
+tcpNoDelay=true
+
+'/var/tmp $ javac Test.java':
+
+41:2 | 1 | Test | Whal | Cory
+
+WARNING: Error deserializing record with id #38:235 send this data for debugging: ABpEYXRhX1Byb2R1Y3RzRwAAANdNAAAA20kAAADvSwAAASVFAAAC1kMAAALZFGVnZW5za2FiZXIAAAMaCgxncm91cHMAAAMcChRhbnZlbmRlbHNlAAADUgoYcHJvZHVjdF9uYW1lAAADVAcGdXJsAAADaAcMSU1QT1JUAAADmQcSZG93bmxvYWRzAAADuQoQcmVscGFnZXMAAASTChRyZWxwcm9kdWN0AAAElQoOc2VnbWVudAAABPIHGHByb2R1Y3Rncm91cAAABPcHTwAABP9RAAAFAAAGNDIxJlRyw6RsaW0gUFUgTGp1cyA0MjFqVmF0dGVuZmFzdCBENC1saW0gZsO2ciB0csOkLCBtZXRhbGwsIGjDpXJkIHBsYXN0IG0ubS7eBjxwIGNsYXNzPSJib2R5dGV4dCI+VHLDpGxpbSBQVSBManVzIDQyMSDDpHIgZXR0IDEta29tcG9uZW50IGZ1a3Row6RyZGFuZGUgcG9seXVyZXRhbmxpbSwgc3BlY2llbGx0IGzDpG1wbGlndCBmw7ZyIGxpbW5pbmcgYXYgdHLDpCBtZWQgaMO2ZyBmdWt0aGFsdCBzYW10IGbDtnIgbGltbmluZyBhdiBtZXRhbGwsIGjDpXJkIHBsYXN0LCBleHBhbmRlcmFkIHBvbHlzdHlyZW4gKGNlbGxwbGFzdCksIGtlcmFtaXNrYSBtYXRlcmlhbCBtLm0uIDwvcD48cCBjbGFzcz0iYm9keXRleHQiPlRyw6RsaW0gUFUgTGp1cyA0MjEgYW52w6RuZHMgZMOkciBkZXQgc3TDpGxscyBzw6Ryc2tpbHQgaMO2Z2Ega3JhdiBww6UgdmFudHRlbmZhc3RoZXQgb2NoIHN0eXJrYS4gTGltbWV0IHVwcGZ5bGxlciBrcmF2ZW4gdGlsbCBrbGFzcyBENCwgZW5sLiBFTiAyMDQvMjA1LiA8L3A+BHNlBAcKdXJsLWwAAALwBwcGdXJsAAADBQcoL3BpY3MvMGEzNWE1ZTMyYy5qcGcoL3BpY3MvNGU4ZjZmNGY1Yy5qcGcAFwgXBxxwcm9kdWt0a2F0YWxvZwcIYnlnZwcOdHJhZWxpbQcmdHJhZWxpbS1wdS1sanVzLTQyMQAXJnRyYWVsaW0tcHUtbGp1cy00MjFgcHJvZHVrdGthdGFsb2cvYnlnZy90cmFlbGltL3RyYWVsaW0tcHUtbGp1cy00MjEvPkRBTkFMSU1fSU1QT1JUXzIwMTYtMjgtMTIgMTE6MjgGFwwEBwZhbHQAAAPRBwcGdXJsAAAD5AckUHJvZHVrdGluZm9ybWF0aW9uPC9wcm9kdWt0aW5mb3JtYXRpb24vc2UvNDIxLnBkZgwEBwZhbHQAAAQZBwcGdXJsAAAELAckU8Oka2VyaGV0c2RhdGFibGFkPC9zaWtrZXJoZWRzZGF0YWJsYWQvc2UvNDIxLnBkZgwEBwZhbHQAAARhBwcGdXJsAAAEdQcmQnlnZ3ZhcnVkZWtsYXJhdGlvbjovYnlnZ3ZhcnVkZWtsYXRpb24vc2UvNDIxLnBkZgAXAhcMBAcEdjEAAASrBwcEdjIAAATdB2Jwcm9kdWt0a2F0YWxvZy9ieWdnL3RyYWVsaW0vdHJhZWxpbS1wdS1tb2Vyay00MjIvKFRyw6RsaW0gUFUgTcO2cmsgNDIyCGJ5Z2cOdHJhZWxpbQAA
+
+Darwin 15.6.0 Darwin Kernel Version 15.6.0: Mon Jan  9 23:07:29 PST 2017; root:xnu-3248.60.11.2.1~1/RELEASE_X86_64 x86_64
+
+Aug 25, 2016 6:20:51 AM com.hazelcast.client.impl.ClientHeartbeatMonitor
+
+UnnecessaryLocalBeforeReturn
+
+@timurt 
+
+ShortClassName
+
+  `
+
+singleServerConfig:
+
+/var/tmp $ javac InputImportOrderStaticGroupOrderBottom_Negative.java
+
+r2.3.1
+
+Java SE 8 [1.8.0_212]
+
+和
+
+Sample Project: [cpf.zip](https://github.com/spring-projects/spring-boot/files/1695180/cpf.zip)
+
++ API level:  24
+
+And in the log ,i found
+
+ 11 = {Region@6458} "us-east-1"
+
+Non-determinism of pkg_deb because of control.tar.gz
+
+player = new SimpleExoPlayer.Builder(holdingActivity)
+
+https://source.bazel.build/bazel/+/cb9b2afbba3f8d3a1db8bf68e65d06f1b36902f5:src/main/java/com/google/devtools/build/lib/BUILD;l=1273
+
+  Rows/Strip: 11100
+
+1. com.navercorp.pinpoint.common.server.bo.filter.SequenceSpanEventFilter#filter
+
+E/ACodec: [OMX.Intel.VideoDecoder.AVC] storeMetaDataInBuffers failed w/ err -2147483648
+
+System.err:     at org.jsoup.nodes.Element.html(Element.java:1366)
+
+java.lang.AssertionError
+
+- [  ] Embedded, using MEMORY access mode
+
+Netty Version: latest master (94bf412edbea73c0b1dbac4ada8919708c4f369e)
+
+reqAddr = null
+
+Nov 17, 2014 4:33:03 AM org.apache.catalina.core.ContainerBase addChildInternal
+
+a_sample_key: shared_feature_value // Which is not correct, its returning me value from included profile
+
+@martijnvg 
+
+java.awt.color.CMMException: Can not access specified profile
+
+Full Backup error. Wal file not found
+
+JRE: 1.8.0_112-release-408-b6 amd64
+
+version A : null
+
+4- Get redirected to the root ("/") URL
+
+### The error occurred while setting parameters
+
+ER: Warning "Cannot create an instance of the class <currentClassName>. There is no linked class in <attributeName> with type <attributeType>, please configure <URLToProperty>"
+
+Starting audit...
+
+[INFO ] 2017-07-02 21:57:25 io.netty.handler.logging.LoggingHandler [id: 0xdf676102] CLOSE
+
+where the default value for spring.datasource.name is 'testdb'
+
+Info message from art: Rejecting re-init
+
+macoOS
+
+$parent.$current behaviour changes with indexed queries
+
+### The error may exist in file [D:\workspace.metadata.plugins\org.eclipse.wst.server.core\tmp9\wtpwebapps\dubbo-monitor\WEB-INF\classes\mappers\DubboInvokeMapper.xml]
+
+   bug现象
+
+@ndarilek @brianm 
+
+willRespondWith(
+
+node:  5.9.0
+
+@RegisterExtension field is silently ignored if null at evaluation time
+
+DefaultLastHttpContent(data: UnpooledHeapByteBuf(ridx: 0, widx: 10, cap: 256), getDecoderResult: success)
+
+Java
+
+WARNING: Client heartbeat is timed out , closing connection to Connection [0.0.0.0/0.0.0.0:5701 -> null], endpoint=Address[10.1.16.211]:53760, alive=false, type=JAVA_CLIENT
+
+number is: 8
+
+2. ![Reversed Priority 2 of 2](https://cloud.githubusercontent.com/assets/1501235/9609849/04e56f20-50a4-11e5-861b-d7f108bca25b.png)
+
+uickHistoryEntryProcess.java:73)
+
+slf4j-jdk14-1.7.7.jar
+
+java.lang.IllegalArgumentException: Argument for @NotNull parameter 'fragment'  must not be null
+
+error stack :
+
+* dac3dde7bb8d79e785f65b0c0c7b7425f41dffa6 (dev-v2)
+
+error 
+
+HTreeMap.expireMaxSize(1000)
+
+Infinite loop in Flux.create(...).sort(...).toStream().collect(toSet())
+
+	if ((eventClass == null || !ApplicationEvent.class.isAssignableFrom(eventClass)) &&
+
+pv0045                                                                                                                                                                                                            
+
+### The error occurred while setting parameters
+
+spring-boot-starter-oauth2-client required when using csrf()
+
+Stacktrace
+
+bazel version</summary>
+
+### The error may exist in file [D:\workspace.metadata.plugins\org.eclipse.wst.server.core\tmp9\wtpwebapps\dubbo-monitor\WEB-INF\classes\mappers\DubboInvokeMapper.xml]
+
+create a type:
+
+Caused by: java.lang.LinkageError: loader (instance of  org/apache/catalina/loader/WebappClassLoader): attempted  duplicate class definition for name: "com/codahale/metrics/MetricRegistry"
+
+Starting audit...
+
+the current implementation of [hostMatches(String,String)](https://github.com/spring-projects/spring-security-oauth/blob/ac142a6ce0c948aeb07837f7e8704dad4d3e3134/spring-security-oauth2/src/main/java/org/springframework/security/oauth2/provider/endpoint/DefaultRedirectResolver.java#L133) looks like this:
+
+  symbol:   class AuthorEntity
+
+TestFolder/BUILD
+
+insert into tuser set name = 'test9';        //Inserted record 'tuser#105:8{name:test1} v1'
+
+44:2 | 1 | Test | Garrard | Walliw
+
+Possible culprit: f07023471d261abbefee65adb2ca769b1da0ba42 
+
+pingConnectionInterval=10000
+
+Netty 4.1.0-Beta6-SNAPSHOT
+
+org.elasticsearch.search.facet.FacetExecutor$Post$Filtered, line 66
+
+$cat TestClass.java
+
+  "timeout": 60000,
+
+clusterScanInterval=2000
+
+A.n4idl
+
+		@ConditionalOnAwsCloudEnvironment
+
+org.glassfish.grizzly.filterchain.DefaultFilterChain.notifyFailure(DefaultFilterChain.java:617),
+
+There is no "<a"-tag ...
+
+see org.springframework.security.config.http.CsrfBeanDefinitionParser.parse()
+
+Caused by: java.sql.SQLException: Error
+
+Nov 17, 2014 4:33:03 AM org.apache.catalina.startup.HostConfig deployDirectory
+
+- What went wrong:
+
+java.lang.VerifyError: com/facebook/i/k at SoLoader.initImpl$230dc011(SoLoader.java:203)
+
+IntelliJ IDEA 2017.2.1
+
+  config.useSingleServer().setAddress("127.0.0.1:6379") 
+
+https://github.com/spring-projects/spring-boot/commit/c9561f031c591ca55e028ca66250511c5e62002a changed this behaviour since it does not provide a validator if a Spring validator is present.
+
+1. curl `http://localhost:9200/_nodes/_local/stats?pretty=true`
+
+"Promise already done" warning when cancelling ChannelFuture returned by bootstrap.connect()
+
+Server info: nginx/1.13.10 
+
+Expected :  to see some edges !
+
+  --data '{ "consumer": { "name": "pact-consumer" }, "provider": { "name": "pact-provider" }, "interactions": [ { "description": "get time", "request": { "method": "GET", "path": "/resource/time/current", "query": { "locale": [ "de" ] } }, "response": { "body": { "time": "13:00:34.890" }, "status": 200 }, "providerStates": [ { "name": "Basistestfixture" } ] } ], "metadata": { "pact-specification": { "version": "3.0.0" } } }'`
+
+implementation 'com.google.android.exoplayer:exoplayer-hls:2.8.1'
+
+Test case: [spring-boot-sample-simple.zip](https://github.com/spring-projects/spring-boot/files/1375095/spring-boot-sample-simple.zip)
+
+When running the application this is the log output when the logging.level.org.apache.velocity was set to DEBUG:
+
+http sliced chunk request error(in class HttpPostRequestEncoder)
+
+/var/tmp $ javac -version
+
+Previous discussion [5508](https://github.com/checkstyle/checkstyle/pull/5509#issuecomment-369576950)
+
+ava:248)
+
+http://delivery-42-lb1.elib.se/library/v4/mp3:http/2f0d8302-ca3f-4f8c-9c89-1f18c4e1df06.mp3/playlist.m3u8?StreamSession=79cb6038-9a03-467c-9193-a6a466f547c2&validate=3ca0f7b4436f43b5c99006788f0629cf

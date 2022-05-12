@@ -1,0 +1,2347 @@
+_source: 1 | 0
+
+HTTP/1.1 200 OK
+
+Open your web browser and navigate to https://127.0.0.1:8443/
+
+DOWNLOAD: http://git.eclipse.org/c/jetty/org.eclipse.jetty.project.git/plain/jetty-server/src/test/config/etc/keystore?id=master to ${jetty.base}/etc/keystore
+
+Information about operation system - type, version.
+
+Written 3900000 elements in 174288ms
+
+Actual   :500
+
+ * Test 2
+
+yunggi-do, C=KR
+
+parallel-3 / out : [5]
+
+Configuration failed. This could reflect a misconfiguration of your
+
+HEADER: Connection = Close
+
+🍃  Building Bazel with Bazel.
+
+!MESSAGE Some characters cannot be mapped using "Cp1252" character encoding.
+
+Expected DateTimeComparator to return 0 for inputs null, null; failed after 1957 iterations
+
+org.eclipse.jetty.io.ChannelEndPoint.flush(ByteBuffer[]) ChannelEndPoint.java:175
+
+	protected void write(final StepContribution contribution, final Chunk<I> inputs, final Chunk<O> outputs)
+
+xds/src/main/java/io/grpc/xds/OrcaPerRequestUtil.java:166: warning - Tag @link: reference not found: ClientStreamTracer.Factory
+
+   TransactionAutoConfiguration.EnableTransactionManagementConfiguration matched:
+
+index cace908..d71af7a 100644
+
+Size: 40603278
+
+JVM:          1.8.0_121 (Oracle Corporation 25.121-b13)
+
+accept [fdb01678-19af-4cc3-a280-a363223d2a2c] publish result: ok
+
+com.intellij.openapi.util.TraceableDisposable.ObjectNotDisposedException: See stack trace responsible for creation of unreleased object below 
+
+http://graphhopper.com/maps/?point=51.334789%2C12.30869&point=51.334789%2C12.30869&locale=de
+
+Exception in thread "Main" org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'metricsEndpoint': Could not bind properties to MetricsEndpoint (prefix=endpoints.metrics, ignoreInvalidFields=false, ignoreUnknownFields=false, ignoreNestedProperties=false); nested exception is org.springframework.beans.NotWritablePropertyException: Invalid property 'filter[enabled]' of bean class [org.springframework.boot.actuate.endpoint.MetricsEndpoint]: Cannot access indexed value in property referenced in indexed property path 'filter[enabled]'; nested exception is org.springframework.beans.NotReadablePropertyException: Invalid property 'filter[enabled]' of bean class [org.springframework.boot.actuate.endpoint.MetricsEndpoint]: Bean property 'filter[enabled]' is not readable or has an invalid getter method: Does the return type of the getter match the parameter type of the setter?
+
+https://gist.github.com/swankjesse/981fcae102f513eb13ed
+
+ERROR: bogus from //libraries:yaspl-lint.bzl is not an aspect.
+
+The dependencies of some of the beans in the application context form a cycle:
+
+ Is it normal ? it seems getFileForOutput was called several times on the same file during binary generation.
+
+Deleting outdated charts
+
+ .properties
+
+Update your application's configuration
+
+Version: 0.1.2
+
+`Rejecting mapping update to [all_together] as the final mapping would have more than 1 type: [post, doc]`
+
+component.json
+
+cp webapps/mytest/images/jetty-header.jpg webapps/mytest/images/jetty-header5.jpg
+
+consume [151136a5-2204-40ec-a31b-c0942a362b06] times 44 ok
+
+OrientDB console v.2.2.17 (build 2.2.x@rd9bace82ea8437117fd48114fc255e791056014b; 2017-02-16 17:20:27+0000) www.orientdb.com
+
+cp webapps/mytest/images/jetty-header.jpg webapps/mytest/images/jetty-header12.jpg
+
+This is the first time a pact has been published for "craft-mobile-LpnScan".
+
+Using SSLEngineImpl.
+
+Using service at https://start.spring.io
+
+Bit depth : 8 bits
+
+Format version : Version 4
+
+WARNING! This batch script has been deprecated. Please use the provided PowerShell scripts instead: http://neo4j.com/docs/stable/powershell.html
+
+The source of the existing CacheManager is: DefaultConfigurationSource [ ehcache.xml or ehcache-failsafe.xml ]
+
+index e1935fa698..2c0ba1c4dd 100644
+
+	io.netty.channel.epoll.AbstractEpollStreamChannel$EpollStreamUnsafe.epollInReady(AbstractEpollStreamChannel.java:786)
+
+`NOTE: null can be returned if no documents are accepted by this Filter`
+
+String index out of range: 2
+
+CREATE PROPERTY `TDocument`.`form` LINKMAP `TForm`
+
+alter cluster user_0 name user_usa
+
+caused by https://github.com/polymerelements/paper-menu-button.git: cannot open git-upload-pack
+
+xds/src/main/java/io/grpc/xds/OrcaPerRequestUtil.java:94: warning - Tag @link: reference not found: ClientStreamTracer.Factory
+
+org.eclipse.jetty.servlets.PushCacheFilter.doFilter(ServletRequest, ServletResponse, FilterChain) PushCacheFilter.java:120
+
+  '/usr/lib/clang/3.8.1/include/__stddef_max_align_t.h'
+
+ com/paypal/android/p2pmobile/liftoff/cashout/usagetracker/CashOutTrackerHelper.java 
+
+.           518400  IN  NS  J.ROOT-SERVERS.NET.
+
+configuration*?=83F117CAB1DE006DA205A1337FA7FDFBF2D1F000
+
+java.lang.RuntimeException: Unable to start activity ComponentInfo{com.nextcloud.android.beta/com.owncloud.android.ui.activity.ReceiveExternalFilesActivity}: java.lang.IllegalStateException: This Activity already has an action bar supplied by the window decor. Do not request Window.FEATURE_SUPPORT_ACTION_BAR and set windowActionBar to false in your theme to use a Toolbar instead.
+
+consume [21b57a16-e865-4005-ad4e-14675f7ee729] times 30 ok
+
+  batch:
+
+	io.netty.channel.AbstractChannelHandlerContext.flush(AbstractChannelHandlerContext.java:749)
+
+Standard Error
+
+[you] djsalkdjsalda
+
+Type 'help' to display all the supported commands.
+
+Java HotSpot(TM) 64-Bit Server VM (build 25.121-b13, mixed mode)
+
+Server certificate
+
+OrientDB console v.2.0.9 (build UNKNOWN@r; 2015-05-14 21:57:10+0000) www.orientechnologies.com
+
+`
+
+	PooledConnectionFactory pooledConnectionFactory = this.context
+
+	io.netty.channel.ChannelInboundHandlerAdapter.channelRead(ChannelInboundHandlerAdapter.java:86)
+
+   layout: default
+
+************ DEVICE INFORMATION ***********
+
+Successfully built image 'docker.io/library/build-image-test:0.0.1-SNAPSHOT'
+
+Bit rate mode : Variable
+
+Warning: io.requery.query.SuppliedScalar: can't find referenced class java.util.function.Supplier
+
+0x00007fa8199d8250:   00000007b2cb03d0 00007fa855b7de08
+
+Property created successfully.
+
+- First time: result says that 7 nodes deleted (they are actually deleted)
+
+`in.setIndex(offset, offset + length);`
+
+[checkstyle] com\puppycrawl\tools\checkstyle\checks\blocks\AvoidNestedBlocksCheck.java:100:5: Variable access definition in wrong order.
+
+null
+
+Using built-in specs.
+
+Test run finished after 20 ms
+
+Bazel caught interrupt signal; shutting down.
+
+The source of the existing CacheManager is: DefaultConfigurationSource [ ehcache.xml or ehcache-failsafe.xml ]
+
+Extension extended_master_secret
+
+	io.netty.channel.AbstractChannel$AbstractUnsafe.flush0(AbstractChannel.java:934)
+
+I/Choreographer: Skipped 48 frames!  The application may be doing too much work on its main thread.
+
+[issue source](https://github.com/spring-projects/spring-boot/issues/20317)
+
+Duration : 3mn 52s
+
+ if root is not None:
+
+orientdb {db=my.db}> select out('WorksFor') from Account
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"**Content-Type**" with value "**application/json; charset=UTF-8**" (<span style='color:green'>OK</span>)  
+
+value=value1111 
+
+Warning:io.requery.query.ModifiableResult: can't find referenced class io.reactivex.Flowable
+
+ P.S. but console (console.sh) made response 
+
+PhpStorm 2016.3.2
+
+service/hono-adapter-http-vertx-headless created
+
+`
+
+Written 100000 elements in 5960ms
+
+null
+
+/package.json
+
+   "foo" : 1
+
+Codec ID/Info : High Efficiency Video Coding
+
+Linux linuxbox 4.2.1-040201-generic #201509211431 SMP Mon Sep 21 18:34:44 UTC 2015 x86_64 x86_64 x86_64 GNU/Linux
+
+ * the Apache License, Version 2.0 (the "License"); you may
+
+WHERE
+
+pmessage
+
+path:
+
+	io.netty.buffer.AdvancedLeakAwareByteBuf.retainedSlice(AdvancedLeakAwareByteBuf.java:84)
+
+pubsub_patterns:0
+
+rm -rf cache
+
+ * Main class for the Bazel Android "Hello, World" app.
+
+`
+
+concatenatingMediaSource.addMediaSources(listOf(mediaSource, mediaSource))
+
+java.util.concurrent.CompletionException: java.lang.ClassCastException: org.eclipse.lsp4xml.dom.DOMCDATASection cannot be cast to org.eclipse.lsp4xml.dom.DOMElement
+
+_logger.log(marker, FQCN, level, ft.getMessage(), null, t)
+
+datasource:
+
+Operating system: vivo (android6.0)
+
+Extension elliptic_curves, curve names: {secp256r1, secp384r1, secp521r1, sect283k1, sect283r1, sect409k1, sect409r1, sect571k1, sect571r1, secp256k1}
+
+ok 2 - Put mo ok
+
+2. change all characters to their lowercase representation
+
+   AopAutoConfiguration.AspectJAutoProxyingConfiguration:
+
+sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+
+Written 2900000 elements in 118791ms
+
+C:\Users\laszlocsomor\AppData\Local\Temp\bazel_pzRvKVis\src\com\google\devtools\build\lib\remote\CasServiceGrpc.java:4: error: static import only from classes and interfaces
+
+2015-10-28 16:53:06.175  INFO 12736 --- [           main] .b.l.ClasspathLoggingApplicationListener : Application failed to start with classpath: [file:/C:/Program%20Files/Java/jdk1.8.0_60/jre/lib/charsets.jar, file:/C:/Program%20Files/Java/jdk1.8.0_60/jre/lib/deploy.jar, file:/C:/Program%20Files/Java/jdk1.8.0_60/jre/lib/javaws.jar, file:/C:/Program%20Files/Java/jdk1.8.0_60/jre/lib/jce.jar, file:/C:/Program%20Files/Java/jdk1.8.0_60/jre/lib/jfr.jar, file:/C:/Program%20Files/Java/jdk1.8.0_60/jre/lib/jfxswt.jar, file:/C:/Program%20Files/Java/jdk1.8.0_60/jre/lib/jsse.jar, file:/C:/Program%20Files/Java/jdk1.8.0_60/jre/lib/management-agent.jar, file:/C:/Program%20Files/Java/jdk1.8.0_60/jre/lib/plugin.jar, file:/C:/Program%20Files/Java/jdk1.8.0_60/jre/lib/resources.jar, file:/C:/Program%20Files/Java/jdk1.8.0_60/jre/lib/rt.jar, file:/C:/Program%20Files/Java/jdk1.8.0_60/jre/lib/ext/access-bridge-64.jar, file:/C:/Program%20Files/Java/jdk1.8.0_60/jre/lib/ext/cldrdata.jar, file:/C:/Program%20Files/Java/jdk1.8.0_60/jre/lib/ext/dnsns.jar, file:/C:/Program%20Files/Java/jdk1.8.0_60/jre/lib/ext/jaccess.jar, file:/C:/Program%20Files/Java/jdk1.8.0_60/jre/lib/ext/jfxrt.jar, file:/C:/Program%20Files/Java/jdk1.8.0_60/jre/lib/ext/localedata.jar, file:/C:/Program%20Files/Java/jdk1.8.0_60/jre/lib/ext/nashorn.jar, file:/C:/Program%20Files/Java/jdk1.8.0_60/jre/lib/ext/sunec.jar, file:/C:/Program%20Files/Java/jdk1.8.0_60/jre/lib/ext/sunjce_provider.jar, file:/C:/Program%20Files/Java/jdk1.8.0_60/jre/lib/ext/sunmscapi.jar, file:/C:/Program%20Files/Java/jdk1.8.0_60/jre/lib/ext/sunpkcs11.jar, file:/C:/Program%20Files/Java/jdk1.8.0_60/jre/lib/ext/zipfs.jar, file:/C:/Users/makits.RDH/git/untitled7/target/classes/, file:/C:/Users/makits.RDH/.m2/repository/org/springframework/boot/spring-boot-starter-web/1.3.0.RC1/spring-boot-starter-web-1.3.0.RC1.jar, file:/C:/Users/makits.RDH/.m2/repository/org/springframework/boot/spring-boot-starter/1.3.0.RC1/spring-boot-starter-1.3.0.RC1.jar, file:/C:/Users/makits.RDH/.m2/repository/org/springframework/boot/spring-boot/1.3.0.RC1/spring-boot-1.3.0.RC1.jar, file:/C:/Users/makits.RDH/.m2/repository/org/springframework/boot/spring-boot-autoconfigure/1.3.0.RC1/spring-boot-autoconfigure-1.3.0.RC1.jar, file:/C:/Users/makits.RDH/.m2/repository/org/springframework/boot/spring-boot-starter-logging/1.3.0.RC1/spring-boot-starter-logging-1.3.0.RC1.jar, file:/C:/Users/makits.RDH/.m2/repository/ch/qos/logback/logback-classic/1.1.3/logback-classic-1.1.3.jar, file:/C:/Users/makits.RDH/.m2/repository/ch/qos/logback/logback-core/1.1.3/logback-core-1.1.3.jar, file:/C:/Users/makits.RDH/.m2/repository/org/slf4j/slf4j-api/1.7.12/slf4j-api-1.7.12.jar, file:/C:/Users/makits.RDH/.m2/repository/org/slf4j/jcl-over-slf4j/1.7.12/jcl-over-slf4j-1.7.12.jar, file:/C:/Users/makits.RDH/.m2/repository/org/slf4j/jul-to-slf4j/1.7.12/jul-to-slf4j-1.7.12.jar, file:/C:/Users/makits.RDH/.m2/repository/org/slf4j/log4j-over-slf4j/1.7.12/log4j-over-slf4j-1.7.12.jar, file:/C:/Users/makits.RDH/.m2/repository/org/yaml/snakeyaml/1.16/snakeyaml-1.16.jar, file:/C:/Users/makits.RDH/.m2/repository/org/springframework/boot/spring-boot-starter-tomcat/1.3.0.RC1/spring-boot-starter-tomcat-1.3.0.RC1.jar, file:/C:/Users/makits.RDH/.m2/repository/org/apache/tomcat/embed/tomcat-embed-core/8.0.28/tomcat-embed-core-8.0.28.jar, file:/C:/Users/makits.RDH/.m2/repository/org/apache/tomcat/embed/tomcat-embed-el/8.0.28/tomcat-embed-el-8.0.28.jar, file:/C:/Users/makits.RDH/.m2/repository/org/apache/tomcat/embed/tomcat-embed-logging-juli/8.0.28/tomcat-embed-logging-juli-8.0.28.jar, file:/C:/Users/makits.RDH/.m2/repository/org/apache/tomcat/embed/tomcat-embed-websocket/8.0.28/tomcat-embed-websocket-8.0.28.jar, file:/C:/Users/makits.RDH/.m2/repository/org/springframework/boot/spring-boot-starter-validation/1.3.0.RC1/spring-boot-starter-validation-1.3.0.RC1.jar, file:/C:/Users/makits.RDH/.m2/repository/org/hibernate/hibernate-validator/5.2.2.Final/hibernate-validator-5.2.2.Final.jar, file:/C:/Users/makits.RDH/.m2/repository/javax/validation/validation-api/1.1.0.Final/validation-api-1.1.0.Final.jar, file:/C:/Users/makits.RDH/.m2/repository/org/jboss/logging/jboss-logging/3.3.0.Final/jboss-logging-3.3.0.Final.jar, file:/C:/Users/makits.RDH/.m2/repository/com/fasterxml/classmate/1.1.0/classmate-1.1.0.jar, file:/C:/Users/makits.RDH/.m2/repository/com/fasterxml/jackson/core/jackson-databind/2.6.1/jackson-databind-2.6.1.jar, file:/C:/Users/makits.RDH/.m2/repository/com/fasterxml/jackson/core/jackson-annotations/2.6.1/jackson-annotations-2.6.1.jar, file:/C:/Users/makits.RDH/.m2/repository/com/fasterxml/jackson/core/jackson-core/2.6.1/jackson-core-2.6.1.jar, file:/C:/Users/makits.RDH/.m2/repository/org/springframework/spring-web/4.2.2.RELEASE/spring-web-4.2.2.RELEASE.jar, file:/C:/Users/makits.RDH/.m2/repository/org/springframework/spring-aop/4.2.2.RELEASE/spring-aop-4.2.2.RELEASE.jar, file:/C:/Users/makits.RDH/.m2/repository/aopalliance/aopalliance/1.0/aopalliance-1.0.jar, file:/C:/Users/makits.RDH/.m2/repository/org/springframework/spring-beans/4.2.2.RELEASE/spring-beans-4.2.2.RELEASE.jar, file:/C:/Users/makits.RDH/.m2/repository/org/springframework/spring-context/4.2.2.RELEASE/spring-context-4.2.2.RELEASE.jar, file:/C:/Users/makits.RDH/.m2/repository/org/springframework/spring-webmvc/4.2.2.RELEASE/spring-webmvc-4.2.2.RELEASE.jar, file:/C:/Users/makits.RDH/.m2/repository/org/springframework/spring-expression/4.2.2.RELEASE/spring-expression-4.2.2.RELEASE.jar, file:/C:/Users/makits.RDH/.m2/repository/org/springframework/spring-core/4.2.2.RELEASE/spring-core-4.2.2.RELEASE.jar, file:/C:/Program%20Files%20(x86)/JetBrains/IntelliJ%20IDEA%2014.1.3/lib/idea_rt.jar]
+
+message
+
+res1: String = 0 years 0 mons 1 days 0 hours 0 mins 0.000 secs
+
+Actual   :15
+
+let
+
+>     at com.intellij.rt.execution.junit.JUnitStarter.main(JUnitStarter.java:74)
+
+message
+
+New, TLSv1/SSLv3, Cipher is AES128-SHA
+
+orient|2015-04-21 14:41:30:326 WARNING Error on creating cluster on distributed nodes: ids are different (local=16 and remote=17). Retrying 6/10... [ODistributedStorage]
+
+* About to connect() to localhost port 9200 (#0)
+
+api/src/main/java/io/grpc/ClientStreamTracer.java:68: warning - Tag @link: can't find newClientStreamTracer(StreamInfo, Metadata) in io.grpc.ClientStreamTracer.Factory
+
+lrwxrwxrwx  3.0 unx        7 bx        7 stor 16-May-18 13:46 current
+
+Wrapped by: java.lang.NoClassDefFoundError: org/eclipse/jetty/webapp/WebAppContext
+
+publish request [b81afdb8-fe94-4a70-8232-6f8eb5fde86a] ok
+
+Priority: optional
+
+   EmbeddedWebServerFactoryCustomizerAutoConfiguration.UndertowWebServerFactoryCustomizerConfiguration:
+
+Source)
+
+Error parsing 'text/plain' response
+
+D/REALM﹕ REALM_CHANGED realm:io.realm.HandlerController@41bc2690 updating async queries, total: 3
+
+liquibase.change-log: classpath:/liquibase/changelog.xml
+
+ * Created 20/10/16 16:51
+
+FINE: Call timeout set to '4997013555' ns, due to context deadline. Explicit call timeout was not set.
+
+Binding to target org.springframework.boot.autoconfigure.web.ServerProperties@66948673 failed:
+
+total_commands_processed:8491
+
+from 192.168.0.14 by MYUSERNAME at 2019-10-24T17:26:03+00:00
+
+\"  Double quote
+
+	io.reactivity.core.broadcaster.service.FluxDecorator.decorate(FluxDecorator.java:66)
+
+zlib returned error code -3 during inflate.
+
+storage.meta.edgestore.timestamps=true
+
+h.V.count() // This line should fail
+
+ 	io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:362)
+
+ 	io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:348)
+
+Before Poll 3 - queueSize: 0, remainingCapacity: 12
+
+java.lang.IllegalArgumentException: client error code must be >= 400 and < 500
+
+service/hono-adapter-mqtt-vertx-headless created
+
+app:
+
+ * the request parameters and modify the handshake response that the server has formulated.
+
+java:176)
+
+Argument for @NotNull parameter 'file' of mobi/hsz/idea/gitignore/util/Utils.isUnder must not be null
+
+Nov 23, 2015 6:57:53 PM org.mapdb.WriteAheadLog skipRollbacks
+
+Positive matches:
+
+I/ExoPlayerImpl: Init 42b7916 [ExoPlayerLib/2.9.0] [generic_x86, Android SDK built for x86, Google, 28]
+
+ ### Issue description
+
+the ones related to createCacheConfig are big, 131kb
+
+ sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+
+cannot initialize module TreeWalker - Property 'cacheFile' does not exist, 
+
+Version: 30080053
+
+Remove @Component from example.ExampleProperties or consider disabling automatic @ConfigurationProperties scanning.
+
+CREATE PROPERTY Profile.accounts LINKLIST
+
+  message = "Child elements are missing from element:\n - Bar\n\nThe following elements are expected:\n - FooBar\n\nError indicated by\n {the schema}\nwith code:"
+
+- Index '_bb_password_recovery'...OK (24 entries)
+
+org.junit.gen5.commons.util.PreconditionViolationException: Class must not be null
+
+	public value : string
+
+### Error querying database.  Cause: com.dangdang.ddframe.rdb.sharding.exception.ShardingJdbcException: com.dangdang.ddframe.rdb.sharding.exception.ShardingJdbcException: com.mysql.jdbc.exceptions.jdbc4.MySQLSyntaxErrorException: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'key ASC' at line 14
+
+[ERROR] ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+:)
+
+consume [fbd0e428-09bc-466e-a981-c317cc67649f] times 17 ok
+
+java.lang.IllegalStateException: elementTypes and elementMembers can not both contain elements at the same time.
+
+Written 400000 elements in 17144ms
+
+						 * override that, otherwise there's no way to write the
+
+Written 4800000 elements in 249298ms
+
+java.lang.ArrayIndexOutOfBoundsException: Tried to access PointList with too big index! index:0, size:0
+
+`
+
+root cause
+
+Overall bit rate mode : Variable
+
+).
+
+12:37:54 SCHEDULING sendPing in onTransportActive, delay=19545661745 (19.5 seconds)
+
+Run queue.poll() without timeout:
+
+`
+
+ * multiple cookies in a single request header, which {@link Cookie#parse} doesn't support.
+
+Java(TM) SE Runtime Environment (build 1.8.0_144-b01)
+
+Build timestamp as int: 1534167770
+
+&& CppHelper.useInterfaceSharedLibraries(cppConfiguration, ccToolchainProvider, featureConfiguration))
+
+configmap/hono-grafana-test created
+
+打印的sql如下：
+
+Description:
+
+expired_keys:0
+
+ 	io.netty.channel.epoll.AbstractEpollStreamChannel$EpollStreamUnsafe.epollInReady(AbstractEpollStreamChannel.java:797)
+
+bazel build shell_build
+
+PROPERTIES
+
+Model: MI 8
+
+Cannot find symbol
+
+OT]
+
+online_backup_enabled=true
+
+  JADX ERROR: IndexOutOfBoundsException in pass: ClassModifier
+
+TE the record #47:4189 because the version is not the latest. Probably you are updating an old recor
+
+24G     navi
+
+  public abstract operator fun get(index: Int): Any!
+
+Duplicate found when adding file to jar: com/facebook/buck/rules/BuildRuleResolver$1.class
+
+file.cc
+
+sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+
+  0x000000002037f800 JavaThread "SwingWorker-pool-2-thread-6" daemon [_thread_blocked, id=6620, stack(0x000000002bdc0000,0x000000002bec0000)]
+
+  for header: [id:ID, :LABEL]
+
+Exception in thread "main" org.deeplearning4j.nn.modelimport.keras.exceptions.UnsupportedKerasConfigurationException: Could not read abnormally long HDF5 attribute. Please file an issue at http://github.com/deeplearning4j/deeplearning4j/issues.
+
+In file included from src/tools/singlejar/output_jar.cc:18:
+
+do finally called
+
+('Lauree', 'Springham'),
+
+com.google.testing.junit.runner.junit4.CancellableRequestFactory$CancellableRunner.run(CancellableRequestFactory.java:84)
+
+	io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:362)
+
+publish request [a3e6b48a-4799-4b1f-9933-e874bb2ba6b1] ok
+
+Before Poll 1 - queueSize: 0, remainingCapacity: 10
+
+/
+
+publish request [5a75099e-1b9b-4f36-9706-690435ed8048] ok
+
+**What is the expected output?**
+
+ When synchronizing WebVTT with PES timestamps, clients SHOULD account
+
+testNoErrorForDACreate(com.graphhopper.storage.MMapDirectoryTest)  Time elapsed: 0.021 sec  <<< ERROR!
+
+Temporary Items
+
+`https://accounts.google.com/o/oauth2/v2/auth?access_type=offline&response_type=code&client_id=[my client id]&scope=[scopes]&state=[state]&redirect_uri=[redirect uri]`
+
+security:
+
+`
+
+ERROR: Couldn't start the build. Unable to run tests.
+
+Pragma: cache
+
+java.lang.NullPointerException: Attempt to invoke interface method 'boolean android.view.MenuItem.isChecked()' on a null object reference
+
+	io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:348)
+
+Ubuntu 16.04
+
+Brand: Sony
+
+client_longest_output_list:0
+
+-rwxr-xr-x 1 pcloudy None   257536 Jan  1  2027 build-runfiles.exe
+
+Response:
+
+OrientDB etl v.2.1.4 (build @BUILD@) www.orientdb.com
+
+Neo4j 3.2.3
+
+Subscription is active until January 30, 2018
+
+- Cluster _bb_asset... Processed: 0
+
+### Cause: com.dangdang.ddframe.rdb.sharding.exception.ShardingJdbcException: com.dangdang.ddframe.rdb.sharding.exception.ShardingJdbcException: com.mysql.jdbc.exceptions.jdbc4.MySQLSyntaxErrorException: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'key ASC' at line 14
+
+1. remove leading and trailing whitespace
+
+	io.netty.channel.DefaultChannelPipeline$HeadContext.channelRead(DefaultChannelPipeline.java:1359)
+
+ * However, it must be possible to add it via a with clause, as shown in class D.
+
+this returns the list of adjacent outgoing vertices and the result is as expected
+
+*4
+
+   } else if(jdbcType != null) { //notice:mybatis will get type handler by jdbcType if javaType is null
+
+select from C
+
+@PrepareForTest ( {MyStaticClass.class} )
+
+Runtime version: 11.0.3+12-b304.10 x86_64
+
+org.xmldb.api.base.XMLDBException
+
+null
+
+09:22:47,582 [INFO  pGroup-3-1 netty.channel.nio.NioEventLoop] Migrated 0 channel(s) to the new Selector.
+
+	io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:348)
+
+Learn how to resolve this issue at https://developer.android.com/tools/building/multidex.html
+
+The current character read is '?' with an int value of 0
+
+   * This opts out of adding charset to png resources.
+
+	io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:362)
+
+ com/paypal/android/foundation/core/appsupport/ConfigImpl.java 
+
+consume [58337154-1947-4429-bd46-ed16c8293cc2] times 3 ok
+
+Here are the logs in Win10 console :
+
+Consider injecting the bean as one of its interfaces or forcing the use of CGLib-based proxies by setting proxyTargetClass=true on @EnableAsync and/or @EnableCaching.
+
+- Index '_bb_internal'...OK (2 entries)
+
+ * Bug
+
+java.net.SocketException: Too many open files
+
+* https://github.com/bazelbuild/bazel/issues/7397
+
+Caused by: java.security.cert.CertificateExpiredException: NotAfter: Wed Mar 12 05:55:45 UTC 1919
+
+Caused by: java.lang.IllegalArgumentException: ListableBeanFactory must not be null
+
+Insertion finished in 256764ms
+
+d3e102c9fb62f4416099dc9f097a5f207aa7d442
+
+expected type 'Target' for 'targets' element but got type 'Target' instead.
+
+"pool-1-thread-7" #18 prio=5 os_prio=31 cpu=2134.24ms elapsed=143.88s tid=0x00007ffec32f3800 nid=0x7403 waiting for monitor entry  [0x000070001c8db000]
+
+lua
+
+null
+
+	io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:362)
+
+05-27 15:59:08.168 911-1964/? W/Watchdog: **Get SF Time **1
+
+<td width="*"><a href="https://pmd.github.io/pmd-6.22.0/pmd_rules_java_codestyle.html#unnecessaryfullyqualifiedname">Unnecessary use of fully qualified name 'ValueParserConstants.METHOD_PARSER' due to existing static import 'net.sourceforge.pmd.properties.ValueParserConstants.METHOD_PARSER'</a></td>
+
+Version: 30080090
+
+0     0b             -1b    Lucas-MacBook-Air.local 192.168.0.13 Hazard
+
+Id: MOB30J
+
+JVM: OpenJDK 64-Bit Server VM by JetBrains s.r.o
+
+ * Set up multicast for the events so that they execute asynchronously.
+
+[Ljava.nio.Buffer;@38c95fbd
+
+I/DEBUG	  (  123):     be908f30 be909000 00090000 be908fc8 58d8fda0  
+
+throw exception
+
+ * @throws IOException If an error occurred reading or parsing data from the source.
+
+09:22:47,594 [INFO  pGroup-3-1 netty.channel.nio.NioEventLoop] Migrated 0 channel(s) to the new Selector.
+
+File cacheFile = new File(path)
+
+After  Poll 1 - queueSize: 0, remainingCapacity: 11
+
+Filename: stable/neo4j-enterprise_1.9.4_all.deb
+
++++ b/hazelcast/src/main/java/com/hazelcast/impl/BlockingQueueManager.java
+
+Identify and stop the process that's listening on port 443 or configure this application to listen on another port.
+
+Written 4100000 elements in 187034ms
+
+check_cxxflags -Wtype-limits
+
+	io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:362)
+
+ERROR: [0m/home/ci/workspace/Bazel/JAVA_VERSION/1.8/PLATFORM_NAME/linux-x86_64/WORKSPACE:39:1: /home/ci/workspace/Bazel/JAVA_VERSION/1.8/PLATFORM_NAME/linux-x86_64/WORKSPACE:39:1: [{"api_level": 23, "build_tools_version": "24.0.0-preview", "name": "androidsdk", "path": "/home/ci/android/android-sdk-linux"}, android_sdk_repository(name = "androidsdk", path = "/home...", <2 more arguments>), <Environment[workspace /home/ci/workspace/Bazel/JAVA_VERSION/1.8/PLATFORM_NAME/linux-x86_64/WORKSPACE]>] (java.lang.NullPointerException)
+
+* About to connect() to localhost port 9200 (#0)
+
+).
+
+==>v[8]
+
+	io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:372)
+
+	io.netty.channel.AbstractChannelHandlerContext.fireChannelRead(AbstractChannelHandlerContext.java:340)
+
+operable program or batch file.
+
+CentOS Linux release 7.4.1708 (Core)
+
+Description:
+
+`
+
+Transfer-Encoding: chunked
+
+INFO: Analysed target //examples/android/java/bazel:hello_world (0 packages loaded).
+
+recoveryInProgress:true
+
+npm WARN targetplatform@ No description
+
+`
+
+cp webapps/mytest/images/jetty-header.jpg webapps/mytest/images/jetty-header4.jpg
+
+eleven
+
+************ CAUSE OF ERROR ************
+
+maxmemory_policy:noeviction
+
+value: 0.94868326
+
+7. normalize extended western characters to their ASCII representation**
+
+`
+
+4.  `SslHandler.wrap`
+
+SLF4J: Failed to load class "org.slf4j.impl.StaticLoggerBinder".
+
+  environments:
+
+  jpa:
+
+com.google.common.base.VerifyException: expected a non-null reference
+
+`
+
+secret/hono-adapter-amqp-vertx-conf created
+
+RIP=0x00007fa85505224c, EFLAGS=0x0000000000010296, CSGSFS=0x0000000000000033, ERR=0x0000000000000004
+
+ERROR: Could not find sources for Windows JNI library
+
+request + Proxy-Authorization -> 401 + WWW-Authenticate
+
+Video
+
+JetBrains Rider 2018.1.2
+
+update failed for AnAction with ID=Vcs.ShowTabbedFileHistory: Argument for @NotNull parameter 'directory' of mobi/hsz/idea/gitignore/util/Utils.isUnder must not be null
+
+redisson:
+
+/.idea
+
+Caused by: com.dangdang.ddframe.rdb.sharding.exception.ShardingJdbcException: java.sql.SQLSyntaxErrorException: Unknown column 'playplayer_id' in 'on clause'
+
+  app:
+
+parent | son
+
+org.eclipse.jetty.server.HttpOutput.write(ByteBuffer, boolean, Callback) HttpOutput.java:179
+
+Register to memory mapping:
+
+"xml.fileAssociations": [
+
+	io.netty.channel.AbstractChannelHandlerContext.fireChannelRead(AbstractChannelHandlerContext.java:340)
+
+ALTER DATABASE TIMEZONE "UTC"
+
+Feature: browser automation
+
+New, TLSv1.3, Cipher is TLS_AES_256_GCM_SHA384
+
+management:
+
+__keyevent@*__:*
+
+   global.t3.environment: "APPLICATION-DEV"
+
+txt
+
+ID: com.nextcloud.client
+
+select difference([1,2,3],[1,2])
+
+map:
+
+Not using buckd because NO_BUCKD is set.
+
+	io.netty.channel.ChannelInboundHandlerAdapter.channelRead(ChannelInboundHandlerAdapter.java:86)
+
+management:
+
+example:
+
+  id identifier
+
+Access to XMLHttpRequest at 'https://ws.something.com/ws/info?t=1571689325027' from origin 'https://something.com' has been blocked by CORS policy: No 'Access-Control-Allow-Origin' header is present on the requested resource.
+
+Output artifact '_objs/upb_lib/descriptor.upb.pic.o' not under package directory 'external/com_google_protobuf' for target '@com_google_protobuf//:descriptor_proto'               
+
+XXX3: file
+
+management:
+
+ERROR in ch.qos.logback.core.pattern.parser.Compiler@729ed61b - Failed to create converter for [%clr] keyword
+
+2019-04-24 11:32:27.494UTC INFO  [main] [AAH-Correlation-Id=33049b2b-30d2-4c23-ba3d-139eb32a4f7c] o.r.Reflections - Reflections took 172 ms to scan 228 urls, producing 4 keys and 10 values 
+
+Model: F5321
+
+@ResponseStatus(HttpStatus.NO_CONTENT)
+
+used_memory_lua:37888
+
+example:
+
+`
+
+IndexError: list index out of range
+
+pmessage
+
+ERROR: Couldn't start the build. Unable to run tests.
+
+General error during instruction selection: java.lang.NoClassDefFoundError: com.amazonaws.services.s3.AmazonS3                                                       
+
+spring.mvc.locale-resolver=FIXED
+
+I have created a gist that reproduces the issue: 
+
+redis_git_dirty:0
+
+	io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:348)
+
+java.lang.NoClassDefFoundError: com/intellij/ui/components/JBPanel
+
+test:
+
+class
+
+[MutualSSLAuthServer](https://gist.github.com/bm3780/0fe9b73a32dfcd7b940054409c77e607) 
+
+accept [ed5e3995-bee6-4595-8e8a-71c394b88c7d] publish result: ok
+
+➜  ~  curl localhost:9200/my_index/my_type/_mapping -XPUT -d '{"my_type":{"properties":{"my_date":{"type":"date","format":"dateOptionalTime"}}}}'
+
+*4
+
+Sep 10, 2018 2:18:30 PM org.eclipse.lsp4xml.XMLLanguageServer initialize
+
+java.lang.NoClassDefFoundError: java/nio/charset/StandardCharsets
+
+edge N1.P1->T1
+
+ERROR: /var/lib/buildkite-agent/builds/bk-docker-dnlw/bazel-downstream-projects/rules_closure/WORKSPACE:6:1: Traceback (most recent call last):
+
+Error: Invalid character
+
+sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+
+Europe/Madrid
+
+value str = 10 + 10.string;
+
+eight
+
+0x00007fa85505224c:   c5 fa 6f 4c d7 d8 c5 fa 7f 4c d6 d8 c5 fa 6f 54
+
+MERGE (t:Thread{id:toint(line.id)})
+
+Return a special ChannelPromise which can be reused for different operations.
+
+	io.netty.channel.unix.IovArray.add(IovArray.java:79)
+
+		<h1 class="title" id="rgn_ncc_0001"><a href="dtb_0001.smil#rgn_txt_0001_0001">Brave New Brain by Nancy C. Andreasen, M.D., Ph.D.</a></h1>
+
+requires java.base
+
+atomicvar_api:atomic-builtin
+
+Implementation-Version: 3.0.0.rc2 bb924219d30952dfaa97b6702ca1a4547a17
+
+> BAZEL-~1\SH-BIN~1.EXE
+
+ docs:
+
+Java(TM) SE Runtime Environment (build 1.8.0_161-b12)
+
+Message: Error while loading DOCTYPE subset
+
+ on java.lang.UNIXProcess@5c0accba
+
+exception DiagnosticWrappedException thrown during post-processing
+
+OpenJDK 64-Bit Server VM (build 25.91-b14, mixed mode)
+
+spring.security.oauth2.client.registration.myclient.client-id=myclient-client-id
+
+org.eclipse.jface.operation.ModalContext.run line: 374 
+
+.Spotlight-V100
+
+--- a/library/src/main/java/com/google/android/exoplayer/VideoFrameReleaseTimeHelper.java
+
+package net.corda.schemas.jpa
+
+OpenJDK 64-Bit Server VM (build 25.112-b15, mixed mode)
+
+testGradient2dSimple(org.deeplearning4j.gradientcheck.BNGradientCheckTest)  Time elapsed: 0.164 sec  <<< ERROR!
+
+10240+0 records in
+
+package tests
+
+with a, movie
+
+224: previewEvidenceList(:ridParam)[0].evidence as evidence 
+
+Failing for the past 1 build (Since #128 )
+
+Caused by: org.springframework.boot.context.properties.bind.UnboundConfigurationPropertiesException: The elements [demo-properties.nested-data[2].data] were left unbound.
+
+….
+
+testParseReverseDateRangeWithoutYearAndDay(com.graphhopper.reader.osm.conditional.DateRangeParserTest)  Time elapsed: 0 sec  <<< ERROR!
+
+`
+
+startup failed:
+
+java.base/java.util.concurrent.CompletableFuture.completeExceptionally(Unknown
+
+libc++abi.dylib: terminating with uncaught exception of type NSException
+
+java.lang.IllegalArgumentException: Argument for @NotNull parameter 'fragment' of com/intellij/ui/SimpleColoredText.append must not be null
+
+   Table1Entity.COLUMN2,
+
+create index Main.linksetprop on Main (linksetprop) NOTUNIQUE
+
+sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+
+WebSocket Client connected!
+
+`java.lang.IllegalArgumentException: Field title in document is not stored and cannot be analyzed`
+
+Vary: Origin
+
+Parameter 1 of method batchConfigurer in org.springframework.boot.autoconfigure.batch.BatchConfigurerConfiguration$JdbcBatchConfiguration required a bean of type 'javax.sql.DataSource' that could not be found.
+
+Command-line arguments:  -os linux -ws gtk -arch x86_64 -product org.eclipse.epp.package.jee.product
+
+Error has been observed at the following site(s):
+
+`
+
+@Target({ ElementType.ANNOTATION_TYPE, ElementType.FIELD })
+
+`
+
+	io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:348)
+
+spring.datasource.type=com.zaxxer.hikari.HikariDataSource
+
+org.mapdb.DBException$PointerChecksumBroken: Broken bit parity
+
+do so (now or later) by using -b with the checkout command again. Example:
+
+protected void decode(ChannelHandlerContext ctx, DatagramPacket packet, 
+
+publish request [ed5e3995-bee6-4595-8e8a-71c394b88c7d] ok
+
+Format settings, Matrix : Default
+
+Windows 10
+
+Depends: openjdk-8-jdk, openjdk-8-source, pkg-config, zip, g++,
+
+OpenJDK Runtime Environment (build 11.0.1+13-Ubuntu-3ubuntu116.04ppa1)
+
+connection: Upgrade
+
+ERROR: build interrupted.
+
+03-26 10:02:20.066 126-126/? I/DEBUG: signal 11 (SIGSEGV), code 1 (SEGV_MAPERR), fault addr deadbaad
+
+- Cluster ofunction... Processed: 0
+
+fallbackResponseError
+
+> BAZEL-~1\SH-BIN~1.exe
+
+check_cflags -Wtype-limits
+
+__keyevent@*__:*
+
+ context-path: /supervision
+
+length=7; index=10
+
+Creating new release branch release-v0 for release v0
+
+   // After successful forwarding, add the user to Map , In case of slow execution，
+
+provider: gradle
+
+null
+
+  libpostproc    54.  0.100 / 54.  0.100
+
+  in field: :LABEL:2
+
+c6055c48c39fb044599a53d56431f0af33f7d8c913951f60615e26e0ce4ae1d2  bazel-0.1.0-installer-linux-x86_64.sh
+
+cat WORKSPACE
+
+nodeSize.minimum: "(40.0,35.0)"
+
+Consider renaming one of the beans or enabling overriding by setting spring.main.allow-bean-definition-overriding=true
+
+Can not set org.jsoup.safety.Whitelist field org.jsoup.safety.Cleaner.whitelist to org.jsoup.safety.Whitelist
+
+JRE: 1.8.0_40-release-b132 x86_64
+
+com.google.android.exoplayer:exoplayer:2.9.6
+
+ * KIND, either express or implied.  See the License for the
+
+Product: D5803
+
+neo4j-sh (?)$ with  {selection} as collection
+
+Resolved Exception:
+
+CUDA error at /projects/skymind/deploy/linux-x86_64/libnd4j/blas/cuda/NativeOps.cu:5192 code=77(<unknown>) "result" 
+
+Exception in thread "main" javax.xml.stream.XMLStreamException: ParseError at [row,col]:[1722,79]
+
+SystemClock: time going backwards: prev 7299786994940(ioctl) vs now 7299784280399(ioctl), tid=32607
+
+Unable to make org.junit.jupiter.api.condition.EnabledOnJreCondition() accessible:
+
+throws:
+
+					 * If the last exception was not skippable we don't need to
+
+*4
+
+  // Line indices from the top of the window start from 0, but we want a blank row to act as
+
+Wrapped by: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'scopedTarget.oauth2ClientContext': Scope 'session' is not active for the current thread; consider defining a scoped proxy for this bean if you intend to refer to it from a singleton; nested exception is java.lang.IllegalStateException: No thread-bound request found: Are you referring to request attributes outside of an actual web request, or processing a request outside of the originally receiving thread? If you are actually operating within a web request and still receive this message, your code is probably running outside of DispatcherServlet/DispatcherPortlet: In this case, use RequestContextListener or RequestContextFilter to expose the current request.
+
+\t  Tab
+
+[Ljava.nio.Buffer;@38c95fbd
+
+`ArrayIndexOutOfBoundsException at org.mapdb.BTreeMap.replace(BTreeMap.java:1171):`
+
+com.navercorp.pinpoint.exception.PinpointException: Failed to load plugin class com.navercorp.pinpoint.plugin.undertow.interceptor.ConnectorsExecuteRootHandlerInterceptor with classLoader ModuleClassLoader for Module "io.undertow.core" version 2.0.13.Final from local module loader @5e39850 (finder: local module finder @1603dc2f (roots: C:\project\was\wildfly-servlet-14.0.1.Final\modules,C:\project\was\wildfly-servlet-14.0.1.Final\modules\system\layers\base))
+
+Consider revisiting the entries above or defining a bean of type 'javax.sql.DataSource' in your configuration.
+
+description: boost
+
+category example
+
+ * Test 2
+
+SSL handshake has read 3475 bytes and written 304 bytes
+
+Description:
+
+OrientDB console v.2.2.17 (build 2.2.x@rd9bace82ea8437117fd48114fc255e791056014b; 2017-02-16 17:20:27+0000) www.orientdb.com
+
+  - Support for downloading remote resources through proxies by
+
+[DEBUG] provider classpath:  /Users/manavdeepbrar/.m2/repository/org/junit/platform/junit-platform-surefire-provider/1.0.0-M5/junit-platform-surefire-provider-1.0.0-M5.jar  /Users/manavdeepbrar/.m2/repository/org/junit/platform/junit-platform-launcher/1.0.0-M5/junit-platform-launcher-1.0.0-M5.jar  /Users/manavdeepbrar/.m2/repository/org/apache/maven/surefire/common-java5/2.19.1/common-java5-2.19.1.jar  /Users/manavdeepbrar/.m2/repository/org/junit/jupiter/junit-jupiter-engine/5.0.0-M5/junit-jupiter-engine-5.0.0-M5.jar  /Users/manavdeepbrar/.m2/repository/org/junit/platform/junit-platform-engine/1.0.0-M5/junit-platform-engine-1.0.0-M5.jar  /Users/manavdeepbrar/.m2/repository/org/junit/platform/junit-platform-commons/1.0.0-M5/junit-platform-commons-1.0.0-M5.jar  /Users/manavdeepbrar/.m2/repository/org/opentest4j/opentest4j/1.0.0-M2/opentest4j-1.0.0-M2.jar  /Users/manavdeepbrar/.m2/repository/org/junit/jupiter/junit-jupiter-api/5.0.0-M5/junit-jupiter-api-5.0.0-M5.jar  /Users/manavdeepbrar/.m2/repository/junit/junit/4.12/junit-4.12.jar  /Users/manavdeepbrar/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar  /Users/manavdeepbrar/.m2/repository/org/apache/maven/reporting/maven-reporting-api/3.0/maven-reporting-api-3.0.jar
+
+testCnnSamePaddingMode(org.deeplearning4j.gradientcheck.CNNGradientCheckTest)  Time elapsed: 0.267 sec  <<< FAILURE!
+
+Build timestamp as int: 1559819105
+
+service/hono-service-device-registry-ext created
+
+	io.netty.channel.AbstractChannelHandlerContext.fireChannelRead(AbstractChannelHandlerContext.java:340)
+
+--- a/demo/src/main/java/com/google/android/exoplayer/demo/PlayerActivity.java
+
+Removed 7 classes.
+
+webClient.
+
+   MailSenderAutoConfiguration.MailSenderValidator
+
+Close control frame by an endpoint.  It is designated for use in
+
+    OSchemaShared.createClass(String) line: 275 
+
+a1  b1  c1  ?
+
+stacktrace
+
+with "ceylon classpath --force app/1.0.0" to select the latest versions
+
+	io.netty.channel.DefaultChannelPipeline$HeadContext.channelRead(DefaultChannelPipeline.java:1359)
+
+E/Codec2Client: createComponent(c2.android.flac.decoder) -- call failed: NOT_FOUND.
+
+Failed to start Neo4j on unknown address Unrecognized unit m            
+
+ten
+
+OS Name	Microsoft Windows 10 Pro
+
+ERROR: C:/bazel/tools/build_rules/genproto.bzl:28:9: missing else clause in conditional expression or semicolon before if.
+
+  libswscale      4.  0.100 /  4.  0.100
+
+deployment.apps/hono-service-auth created
+
+messages_es.properties
+
+sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+
+run_id:3c1a4fd32e311a07d2d9c5ece9b937580467a241
+
+total_connections_received:3548
+
+Product: BRAVIA_ATV3_4K_EU
+
+tokens:
+
+Caused by: java.net.URISyntaxException: Illegal character in query at index 81: http://catalogue.unice.fr/primo-explore/fulldisplay?docid=sc_aleph_uns01000411732 any,contains,comptabilité générale zoom
+
+diff in 2 aggs calls:
+
+2.5) query_string: fast - forcing search_analyzer
+
+Build timestamp as int: 1460136941
+
+set -eu
+
+/cspbd/64bit-powerpc-aix7.1-gcc4.8-ora12.1-tux12.1-s-rx13/cs.platform.WD2-1.13.1.3/src/cs.mp.vtis-0.0.25/spring-cloud-cli
+
+ * Hazelcast Client enables you to do all Hazelcast operations without being a member of the cluster. Clients can be:
+
+('Cory', 'Schoales'),
+
+Description:
+
+testGradientDense(org.deeplearning4j.gradientcheck.BNGradientCheckTest)  Time elapsed: 0.15 sec  <<< ERROR!
+
+[2015-04-15 12:07:34,398][DEBUG][index.cache.query.parser.resident] [nodeD2] [test1-2015.04.15] using [resident] query cache with max_size [100], expire [null]
+
+java.net.SocketTimeoutException: Connect Timeout
+
+release 2.0.0
+
+And now we are changing popertyA of object 3 to point to Object 2.
+
+messages_fr.properties
+
+incorrect indentation level 16, expected level should be 12
+
+Written 3000000 elements in 122881ms
+
+	 * (note the HealthContributorNameFactory will strip the HealthContributor bean name suffix)
+
+Version: 1.9.4
+
+update failed for AnAction with ID=Gitignore.IgnoreGroup
+
+gremlin> 
+
+ * Insert javadoc.
+
+ org.springframework.boot.SpringApplication.refresh(SpringApplication.java:768)
+
+************ CAUSE OF ERROR ************
+
+ * Called by the container after it has formulated a handshake response resulting from
+
+aof_last_bgrewrite_status:ok
+
+.end method
+
+keep_logical_logs=true
+
+Description:
+
+	io.netty.buffer.AdvancedLeakAwareByteBuf.readInt(AdvancedLeakAwareByteBuf.java:432)
+
+0x00007fa8199d81f0:   00007fa8199d8220 000000006a6af87d
+
+Method [public void tst.Listener.onEvent(tst.Auditable)]
+
+gremlin>
+
+consume [043e5df4-0601-447b-9d99-bf8e388d6d91] times 29 ok
+
+Java URL
+
+:118)
+
+  autoconfigure:
+
+	io.netty.channel.epoll.EpollEventLoop.processReady(EpollEventLoop.java:404)
+
+  - Make C++ modules compatible with tools using
+
+[Ljava.nio.Buffer;@38c95fbd
+
+	io.netty.channel.ChannelInboundHandlerAdapter.channelRead(ChannelInboundHandlerAdapter.java:86)
+
+严重: The session manager failed to start
+
+Release: 8.0.0
+
+   (Successful) response to a CONNECT request
+
+greedySwitch.type: OFF
+
+description: queryNorm
+
+('Cory', 'Whal'),
+
+).
+
+05-27 15:59:05.465 357-18554/? D/AudioPolicyManager: getOutput() device 2, stream 3, samplingRate 0, format 0, channelMask 3, flags 0
+
+ffprobe version 3.0.2 Copyright (c) 2007-2016 the FFmpeg developers
+
+[ERROR] TestClass.java:3: 'array initialization lcurly' have incorrect indentation level 2, expected level should be 4. [Indentation]
+
+   ConnectionFactoryConfigurations.Pool matched:
+
+dpkg: warning: downgrading bazel from 0.1.2rc2 to 0.1.2
+
+  0x000000002037f000 JavaThread "SwingWorker-pool-2-thread-2" daemon [_thread_blocked, id=336, stack(0x000000002b8c0000,0x000000002b9c0000)]
+
+in modular form will be supported via the concept of upgradeable modules.
+
+Java(TM) SE Runtime Environment (build 1.8.0_25-b17
+
+0) Verifying a pact between customer-details-consumer and customer-details-provider - a created event for the new customer Given a new customer is created
+
+node N4
+
+null
+
+			http://www.springframework.org/schema/beans/spring-beans.xsd
+
+also has Connection: Close
+
+Database        : PostgreSQL 9.6.1 on x86_64-pc-linux-gnu, compiled by gcc, 64-bit
+
+WebStorm 2017.2.4
+
+__keyevent@*__:*
+
+FATAL EXCEPTION: main
+
+Tests run: 3, Failures: 2, Errors: 0, Skipped: 0, Time elapsed: 0.106 sec <<< FAILURE! - in io.github.bonigarcia.PlayingWithReportingTest
+
+ call
+
+load script 'schema.sql'
+
+testUnifiedLoaderArchive1(org.deeplearning4j.models.WordVectorSerializerTest)  Time elapsed: 0.251 sec  <<< ERROR!
+
+consume [43b1a2f4-b652-4a2f-bd23-3902d00ae3bb] times 45 ok
+
+jar:file:/Users/foo/SPR-13685/target/SPR-13685-0.0.1-SNAPSHOT.jar!/BOOT-INF/classes!/
+
+ 	io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:348)
+
+Description:
+
+`bazel build ...`
+
+[ERROR] D:\Rickys\Java\EclipseStuff\checkstyle\src\main\java\test\TestClass.java:4: First sentence of Javadoc is incomplete (period is missing) or not present. [SummaryJavadoc]
+
+* GratefulDeadConcerts (plocal)
+
+mandatory: bool = False, 
+
+  hdrs=glob(["glm/**/*.hpp"])+glob(["glm/**/*.h"]),
+
+Caused by: org.springframework.beans.NotReadablePropertyException: Invalid property 'filter[enabled]' of bean class [org.springframework.boot.actuate.endpoint.MetricsEndpoint]: Bean property 'filter[enabled]' is not readable or has an invalid getter method: Does the return type of the getter match the parameter type of the setter?
+
+Database created successfully.
+
+  Scenario: First 'scenario' with single quotes in title
+
+Could not fetch user details: class org.springframework.beans.factory.BeanCreationException, Error creating bean with name 'scopedTarget.oauth2ClientContext': Scope 'request' is not active for the current thread; consider defining a scoped proxy for this bean if you intend to refer to it from a singleton; nested exception is java.lang.IllegalStateException: No thread-bound request found: Are you referring to request attributes outside of an actual web request, or processing a request outside of the originally receiving thread? If you are actually operating within a web request and still receive this message, your code is probably running outside of DispatcherServlet/DispatcherPortlet: In this case, use RequestContextListener or RequestContextFilter to expose the current request.
+
+output/HZ/HzClient1HZ/HzClient1HZ.hprof
+
+VM state:not at safepoint (normal execution)
+
+Other Threads:
+
+57363813d3c72129c61c35a2b03c3033b62cb49d
+
+I/requery: afterExecuteUpdate 0
+
+Number of keys: 10
+
+- Couldn't resolve reference to ElkConnectableShape '^start'.
+
+	io.netty.channel.nio.AbstractNioByteChannel$NioByteUnsafe.read(AbstractNioByteChannel.java:123)
+
+`
+
+server.session.persistent: "true"
+
+npm WARN targetplatform@ No license field.
+
+I/requery: afterExecuteUpdate 1
+
+License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
+
+Both Node(108) and Node(148) have the label `TEST` and property `TEST_ID` = '1 2'
+
+NOAUTH Authentication required.
+
+Problems encountered while copying resources.
+
+null
+
+[Fatal Error] :3:3: The markup declarations contained or pointed to by the document type declaration must be well-formed.
+
+Exif Resolution : 960 x 960
+
+jvm 1    |      at com.orientechnologies.orient.server.distributed.task.OTxTask.execute(OTxTask.java
+
+Error has been observed by the following operator(s):
+
+Using CATALINA_BASE:   /opt/appstack/apache-tomcat
+
+python3.lib(python3.dll) : error LNK2005: __NULL_IMPORT_DESCRIPTOR already defined in _tkinter.lib(_tkinter.pyd)
+
+Caused by: org.springframework.beans.NotReadablePropertyException: Invalid property 'configuration[use-double-quotes]' of bean class [org.springframework.boot.autoconfigure.groovy.template.GroovyTemplateProperties]: Bean property 'configuration[use-double-quotes]' is not readable or has an invalid getter method: Does the return type of the getter match the parameter type of the setter?
+
+javax.servlet.http.HttpServlet.service(ServletRequest, ServletResponse) HttpServlet.java:790
+
+RBP=0x00007fa8199d8120 is pointing into the stack for thread: 0x00007fa78401b000
+
+Unable to execute early startup code for the org.eclipse.ui.IStartup extension contributed by the 'com.redhat.ceylon.eclipse.ui' plug-in.
+
+  Scenario: Each not contains
+
+Cannot terminate server process with PID 6024
+
+ConfigurationProperties(prefix = "management", ignoreUnknownFields = false)
+
+Model: BRAVIA 4K UR1
+
+SEVERE: The web application [/atmosphere-chat] created a ThreadLocal with key of type [java.lang.ThreadLocal] (value [java.lang.ThreadLocal@41a80e5a]) and a value of type [org.atmosphere.util.chmv8.ForkJoinPool.Submitter]
+
+  that is why "player.seekTo(playerPosition)" should be the last line in the: initializePlayer method
+
+   *  2) SqlSession 1 closes.
+
+node T3
+
+Test run finished after 2363 ms
+
+ create mode 100644 CHANGELOG.md
+
+   ReactiveWebServerFactoryConfiguration.EmbeddedTomcat:
+
+   Line | Method
+
+https://github.com/jakubnabrdalik/boot.2.2.1.csrf.error/blob/master/src/test/groovy/eu/solidcraft/hentairental/HentaiRentalApplicationTests.groovy
+
+update failed for AnAction with ID=Gitignore.New: com/intellij/openapi/actionSystem/CommonDataKeys
+
+Error: YAML parse error on eclipse-hono/templates/hono-adapter-coap/hono-adapter-coap-vertx-secret.yaml: error converting YAML to JSON: yaml: line 14: mapping values are not allowed in this context
+
+Caused by: java.lang.ClassNotFoundException: com.google.common.base.Function
+
+macOS 10.12.6
+
+************ FIRMWARE ************
+
+  **c**.column4,
+
+- Cluster _bb_nodevertex... Processed: 3
+
+logging.level.liquibase: WARN
+
+Message: Character reference "&#
+
+-- stop cassandra, delete the cassandra related data directories and restart cassandra
+
+ *  *  Unless required by applicable law or agreed to in writing, software
+
+release 0.6.1
+
+  Given employee list exists
+
+  address: localhost
+
+ * Now we have SETTINGS synchronization, flow control error can be
+
+Status: Image is up to date for cloudfoundry/cnb:bionic
+
+DROP INDEX Main.uuid
+
+cp webapps/mytest/images/jetty-header.jpg webapps/mytest/images/jetty-header2.jpg
+
+  $ date -d @1516011656 ; date -d @1516011656 +%Y
+
+v(TestVertex)[#11:0]
+
+org.eclipse.jetty.server.HttpChannel.sendResponse(MetaData$Response, ByteBuffer, boolean, Callback) HttpChannel.java:692
+
+BUILD
+
+changes and commit them, and you can discard any commits you make in this
+
+0 - No such property: message for class: java.lang.String
+
+Given path 'users', first.id
+
+[DEBUG] test classpath:  /Users/manavdeepbrar/Documents/Coursera_algorithmic_toolbox/primitive.array/target/test-classes  /Users/manavdeepbrar/Documents/Coursera_algorithmic_toolbox/primitive.array/target/classes  /Users/manavdeepbrar/.m2/repository/org/junit/jupiter/junit-jupiter-api/5.0.0-M5/junit-jupiter-api-5.0.0-M5.jar  /Users/manavdeepbrar/.m2/repository/org/opentest4j/opentest4j/1.0.0-M2/opentest4j-1.0.0-M2.jar  /Users/manavdeepbrar/.m2/repository/org/junit/platform/junit-platform-commons/1.0.0-M5/junit-platform-commons-1.0.0-M5.jar  /Users/manavdeepbrar/.m2/repository/org/junit/jupiter/junit-jupiter-params/5.0.0-M5/junit-jupiter-params-5.0.0-M5.jar  /Users/manavdeepbrar/.m2/repository/org/junit/platform/junit-platform-runner/1.0.0-M5/junit-platform-runner-1.0.0-M5.jar  /Users/manavdeepbrar/.m2/repository/org/junit/platform/junit-platform-launcher/1.0.0-M5/junit-platform-launcher-1.0.0-M5.jar  /Users/manavdeepbrar/.m2/repository/org/junit/platform/junit-platform-engine/1.0.0-M5/junit-platform-engine-1.0.0-M5.jar  /Users/manavdeepbrar/.m2/repository/org/junit/platform/junit-platform-suite-api/1.0.0-M5/junit-platform-suite-api-1.0.0-M5.jar  /Users/manavdeepbrar/.m2/repository/junit/junit/4.12/junit-4.12.jar  /Users/manavdeepbrar/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar
+
+VERSION="7 (Core)"
+
+java.lang.IllegalArgumentException: Prometheus requires that all meters with the same name have the same set of tag keys. There is already an existing meter named 'http_client_requests_seconds' containing tag keys [application, clientName, method, outcome, status, uri]. The meter you are attempting to register has keys [application, clientName, method, status, uri].
+
+Headers.of(String... namesAndValues)
+
+MultiException stack 2 of 3
+
+GoPro AVC encoder, 1920 × 1440, 23.976 fps, 29.97 Mbps
+
+Release: 6.0.1
+
+WARNING: A connection to http://localhost:55231/ was leaked. Did you forget to close a response body?
+
+Id: HUAWEISTK-LX1
+
+openjdk 10.0.1-BellSoft 2018-04-17
+
+/Users/mna07/.m2/repository/org/glassfish/jersey/core/jersey-client/2.25/jersey-client-2.25-sources.jar!/org/glassfish/jersey/client/JerseyInvocation.java
+
+CrashReporter Key: 718B9F67-EEC4-AAC0-AA77-E2BC2E9868E18BD68E1B 
+
+-rwxr-xr-x 1 pcloudy None    90112 Jan  1  2027 linux-sandbox.exe
+
+____Starting clean (this may take a while). Consider using --expunge_async if the clean takes more than several minutes.
+
+ sun.misc.Unsafe.park(Native Method)
+
+ JAVASCRIPT
+
+Pragma: no-cache
+
+Error on parsing query
+
+  rabbitmq:
+
+ENTRYPOINT java -server -jar spring-boot.jar
+
+I am PY2!
+
+   * Assert:
+
+RAX=0xaab4aaa9b5a9a9b5 is an unknown value
+
+Brand: Sony
+
+pmessage
+
+`
+
+   or                     .display (ChronoFormatter.java)
+
+FINE: netty_transport_native_epoll was loaded from java.libary.path
+
+date: Wed, 20 Jul 2016 14:38:18 GMT
+
+- [ ] 7
+
+setup:
+
+- Cluster e... Processed: 0
+
+	io.netty.channel.epoll.EpollRecvByteAllocatorHandle.allocate(EpollRecvByteAllocatorHandle.java:71)
+
+symbol defined
+
+a_sample_key: dev_feature_value
+
+* Description
+
+es16a.: /dev/xvdl5             25G  173M   24G   1% /ebs/es5
+
+cf847b82e87340cac005ad1a5f32a59bb8815662 Remove versions directory that was not completely cleaned up by rollback.
+
+Before Poll 4 - queueSize: 0, remainingCapacity: 10
+
+Audio Tracks:
+
+cannot access class java.util.logging.Level (in module java.logging)
+
+null
+
+RETURN a, b
+
+java.lang.UnsupportedOperationException: Cannot find Tomcat 7 or 8 ApplicationListener class
+
+value: 1
+
+   * Test Plan with Autocommit on:
+
+fatal: not a git repository (or any of the parent directories): .git
+
+`
+
+ * Created by paspi on 26.05.2014.
+
+Description:
+
+org.springframework.http.converter.HttpMessageNotReadableException: An error occurred reading the OAuth 2.0 Error: Invalid JSON input: Cannot deserialize instance of `java.lang.String` out of START_ARRAY token; nested exception is com.fasterxml.jackson.databind.exc.MismatchedInputException: Cannot deserialize instance of `java.lang.String` out of START_ARRAY token
+
+   *  5) SqlSession 3 executes "select * from A".
+
+- #359
+
+WARN  10:50:21 Error while loading Git properties from simulator-git.properties
+
+  - Add support for .tar.xz archives to http_archive rules.
+
+add description
+
+Disconnecting from the database [testdb]...Error during closing of channel close listener
+
+		retrieveSupportedAccessories() returns multiple Accessory
+
+09:56:25,998 ERROR [org.jboss.as.server] (XNIO-1 task-3) JBAS015870: Deploy of deployment "steamstats.war" was rolled back with the following failure message: 
+
+Error in input data
+
+> No signature of method: org.apache.http.message.BasicStatusLine.startsWith() is applicable for argument types: (java.lang.String) values: [FAILED!]
+
+* Adding handle: recv: 0
+
+cp webapps/mytest/images/jetty-header.jpg webapps/mytest/images/jetty-header11.jpg
+
+Extension renegotiation_info, renegotiated_connection: <empty>
+
+delete vertex edgetest
+
+	io.netty.channel.AbstractChannelHandlerContext.flush(AbstractChannelHandlerContext.java:749)
+
+Recent access records: 
+
+					 * BATCH-1761: we need advance warning of the scan about to
+
+ * Représentation d'un show
+
+   propertyB.LINK
+
+[ERROR] TestClass.java:3: First sentence of Javadoc is incomplete (period is missing) or not present. [SummaryJavadoc]
+
+This application has no explicit mapping for /error, so you are seeing this as a fallback.
+
+Servlet.service() for servlet jsp threw exception
+
+NAME="CentOS Linux"
+
+Received message which is neither a response nor a notification message:
+
+javax.management.InstanceNotFoundException: com.zaxxer.hikari:type=Pool (corePool)
+
+scheduledRecovery:true
+
+service/hono-dispatch-router created
+
+seven
+
+  compression:
+
+Input #0, matroska,webm, from 'SampleFile.mkv':
+
+SAML2AssertionValidationParameters.SC_VALID_ADDRESSES
+
+[logs-2016-09-20] IndexNotFoundException[no such index]
+
+rejected_connections:0
+
+spring.datasource:
+
+py
+
+io/netty/util/internal/PlatformDependent0.class
+
+Results :
+
+create index DocStorage.createdOn on DocStorage (createdOn) NOTUNIQUE
+
+	io.netty.channel.DefaultChannelPipeline$HeadContext.channelRead(DefaultChannelPipeline.java:1359)
+
+null
+
+Warning:io.requery.query.BaseScalar: can't find referenced class io.reactivex.Single
+
+* https://github.com/stari4ek/ExoPlayer/tree/tvirl/issues/1785
+
+	io.netty.channel.epoll.EpollEventLoop.processReady(EpollEventLoop.java:404)
+
+connected_slaves:0
+
+2016-06-08 11:47:32.849  INFO 63549 --- [           main] .b.l.ClasspathLoggingApplicationListener : Application failed to start with classpath: [file:/private/tmp/foo/small-foo/cheese/target/classes/, file:/Users/jstrachan/.m2/repository/com/sun/xml/bind/jaxb-core/2.2.11/jaxb-core-2.2.11.jar, file:/Users/jstrachan/.m2/repository/org/springframework/spring-expression/4.2.6.RELEASE/spring-expression-4.2.6.RELEASE.jar, file:/Users/jstrachan/.m2/repository/aopalliance/aopalliance/1.0/aopalliance-1.0.jar, file:/Users/jstrachan/.m2/repository/org/springframework/spring-aop/4.2.6.RELEASE/spring-aop-4.2.6.RELEASE.jar, file:/Users/jstrachan/.m2/repository/org/eclipse/aether/aether-spi/1.0.0.v20140518/aether-spi-1.0.0.v20140518.jar, file:/Users/jstrachan/.m2/repository/org/apache/maven/wagon/wagon-http-shared/2.6/wagon-http-shared-2.6.jar, file:/Users/jstrachan/.m2/repository/com/squareup/okio/okio/1.6.0/okio-1.6.0.jar, file:/Users/jstrachan/.m2/repository/javax/interceptor/javax.interceptor-api/1.2/javax.interceptor-api-1.2.jar, file:/Users/jstrachan/.m2/repository/org/jboss/arquillian/test/arquillian-test-api/1.1.11.Final/arquillian-test-api-1.1.11.Final.jar, file:/Users/jstrachan/.m2/repository/org/apache/camel/camel-spring-boot/2.17.1/camel-spring-boot-2.17.1.jar, file:/Users/jstrachan/.m2/repository/org/jboss/arquillian/container/arquillian-container-impl-base/1.1.11.Final/arquillian-container-impl-base-1.1.11.Final.jar, file:/Users/jstrachan/.m2/repository/org/apache/maven/maven-settings-builder/3.2.5/maven-settings-builder-3.2.5.jar, file:/Users/jstrachan/.m2/repository/org/jboss/arquillian/container/arquillian-container-test-impl-base/1.1.11.Final/arquillian-container-test-impl-base-1.1.11.Final.jar, file:/Users/jstrachan/.m2/repository/org/springframework/spring-web/4.2.6.RELEASE/spring-web-4.2.6.RELEASE.jar, file:/Users/jstrachan/.m2/repository/org/jboss/arquillian/container/arquillian-container-test-api/1.1.11.Final/arquillian-container-test-api-1.1.11.Final.jar, file:/Users/jstrachan/.m2/repository/org/jboss/shrinkwrap/shrinkwrap-spi/1.2.3/shrinkwrap-spi-1.2.3.jar, file:/Users/jstrachan/.m2/repository/org/springframework/spring-beans/4.2.6.RELEASE/spring-beans-4.2.6.RELEASE.jar, file:/Users/jstrachan/.m2/repository/org/eclipse/aether/aether-connector-basic/1.0.0.v20140518/aether-connector-basic-1.0.0.v20140518.jar, file:/Users/jstrachan/.m2/repository/xml-apis/xml-apis/1.4.01/xml-apis-1.4.01.jar, file:/Users/jstrachan/.m2/repository/org/springframework/boot/spring-boot-starter-tomcat/1.3.5.RELEASE/spring-boot-starter-tomcat-1.3.5.RELEASE.jar, file:/Users/jstrachan/.m2/repository/com/googlecode/json-simple/json-simple/1.1.1/json-simple-1.1.1.jar, file:/Users/jstrachan/.m2/repository/org/jsoup/jsoup/1.7.2/jsoup-1.7.2.jar, file:/Users/jstrachan/.m2/repository/org/jboss/shrinkwrap/descriptors/shrinkwrap-descriptors-api-base/2.0.0-alpha-8/shrinkwrap-descriptors-api-base-2.0.0-alpha-8.jar, file:/Users/jstrachan/.m2/repository/com/fasterxml/jackson/dataformat/jackson-dataformat-yaml/2.6.6/jackson-dataformat-yaml-2.6.6.jar, file:/Users/jstrachan/.m2/repository/org/codehaus/plexus/plexus-compiler-javac/2.3/plexus-compiler-javac-2.3.jar, file:/Users/jstrachan/.m2/repository/org/apache/tomcat/embed/tomcat-embed-el/8.0.33/tomcat-embed-el-8.0.33.jar, file:/Users/jstrachan/.m2/repository/commons-io/commons-io/2.4/commons-io-2.4.jar, file:/Users/jstrachan/.m2/repository/org/jboss/shrinkwrap/resolver/shrinkwrap-resolver-api/2.2.2/shrinkwrap-resolver-api-2.2.2.jar, file:/Users/jstrachan/.m2/repository/javax/el/javax.el-api/2.2.5/javax.el-api-2.2.5.jar, file:/Users/jstrachan/.m2/repository/org/eclipse/aether/aether-api/1.0.0.v20140518/aether-api-1.0.0.v20140518.jar, file:/Users/jstrachan/.m2/repository/io/fabric8/kubernetes-model/1.0.48/kubernetes-model-1.0.48.jar, file:/Users/jstrachan/.m2/repository/commons-logging/commons-logging/1.2/commons-logging-1.2.jar, file:/Users/jstrachan/.m2/repository/io/fabric8/fabric8-devops/2.2.125/fabric8-devops-2.2.125.jar, file:/Users/jstrachan/.m2/repository/org/apache/camel/camel-spring/2.17.1/camel-spring-2.17.1.jar, file:/Users/jstrachan/.m2/repository/javax/validation/validation-api/1.1.0.Final/validation-api-1.1.0.Final.jar, file:/Users/jstrachan/.m2/repository/org/codehaus/plexus/plexus-compiler-api/2.3/plexus-compiler-api-2.3.jar, file:/Users/jstrachan/.m2/repository/org/jboss/arquillian/config/arquillian-config-impl-base/1.1.11.Final/arquillian-config-impl-base-1.1.11.Final.jar, file:/Users/jstrachan/.m2/repository/org/sonatype/plexus/plexus-cipher/1.4/plexus-cipher-1.4.jar, file:/Users/jstrachan/.m2/repository/org/slf4j/jcl-over-slf4j/1.7.21/jcl-over-slf4j-1.7.21.jar, file:/Users/jstrachan/.m2/repository/org/jboss/arquillian/test/arquillian-test-spi/1.1.11.Final/arquillian-test-spi-1.1.11.Final.jar, file:/Users/jstrachan/.m2/repository/org/springframework/spring-tx/4.2.6.RELEASE/spring-tx-4.2.6.RELEASE.jar, file:/Users/jstrachan/.m2/repository/org/apache/httpcomponents/httpclient-osgi/4.3.3/httpclient-osgi-4.3.3.jar, file:/Users/jstrachan/.m2/repository/org/springframework/boot/spring-boot-starter-web/1.3.5.RELEASE/spring-boot-starter-web-1.3.5.RELEASE.jar, file:/Users/jstrachan/.m2/repository/org/jboss/shrinkwrap/resolver/shrinkwrap-resolver-spi-maven/2.2.2/shrinkwrap-resolver-spi-maven-2.2.2.jar, file:/Users/jstrachan/.m2/repository/org/jboss/arquillian/container/arquillian-container-spi/1.1.11.Final/arquillian-container-spi-1.1.11.Final.jar, file:/Users/jstrachan/.m2/repository/com/google/guava/guava/19.0/guava-19.0.jar, file:/Users/jstrachan/.m2/repository/org/eclipse/sisu/org.eclipse.sisu.plexus/0.3.0.M1/org.eclipse.sisu.plexus-0.3.0.M1.jar, file:/Users/jstrachan/.m2/repository/commons-lang/commons-lang/2.6/commons-lang-2.6.jar, file:/Users/jstrachan/.m2/repository/org/springframework/boot/spring-boot-starter-validation/1.3.5.RELEASE/spring-boot-starter-validation-1.3.5.RELEASE.jar, file:/Users/jstrachan/.m2/repository/io/fabric8/fabric8-utils/2.2.125/fabric8-utils-2.2.125.jar, file:/Users/jstrachan/.m2/repository/javax/enterprise/cdi-api/1.2/cdi-api-1.2.jar, file:/Users/jstrachan/.m2/repository/commons-codec/commons-codec/1.10/commons-codec-1.10.jar, file:/Users/jstrachan/.m2/repository/org/apache/maven/wagon/wagon-provider-api/2.6/wagon-provider-api-2.6.jar, file:/Users/jstrachan/.m2/repository/org/springframework/boot/spring-boot-starter/1.3.5.RELEASE/spring-boot-starter-1.3.5.RELEASE.jar, file:/Users/jstrachan/.m2/repository/javax/inject/javax.inject/1/javax.inject-1.jar, file:/Users/jstrachan/.m2/repository/org/slf4j/slf4j-api/1.7.21/slf4j-api-1.7.21.jar, file:/Users/jstrachan/.m2/repository/org/jboss/arquillian/junit/arquillian-junit-core/1.1.11.Final/arquillian-junit-core-1.1.11.Final.jar, file:/Users/jstrachan/.m2/repository/org/jboss/shrinkwrap/shrinkwrap-api/1.2.3/shrinkwrap-api-1.2.3.jar, file:/Users/jstrachan/.m2/repository/com/squareup/okhttp/okhttp/2.7.2/okhttp-2.7.2.jar, file:/Users/jstrachan/.m2/repository/org/apache/maven/maven-aether-provider/3.2.5/maven-aether-provider-3.2.5.jar, file:/Users/jstrachan/.m2/repository/com/sun/xml/bind/jaxb-impl/2.2.11/jaxb-impl-2.2.11.jar, file:/Users/jstrachan/.m2/repository/org/eclipse/aether/aether-util/1.0.0.v20140518/aether-util-1.0.0.v20140518.jar, file:/Users/jstrachan/.m2/repository/org/apache/camel/camel-spring-boot-starter/2.17.1/camel-spring-boot-starter-2.17.1.jar, file:/Users/jstrachan/.m2/repository/org/jboss/arquillian/core/arquillian-core-spi/1.1.11.Final/arquillian-core-spi-1.1.11.Final.jar, file:/Users/jstrachan/.m2/repository/org/apache/maven/maven-settings/3.2.5/maven-settings-3.2.5.jar, file:/Users/jstrachan/.m2/repository/ch/qos/logback/logback-classic/1.1.7/logback-classic-1.1.7.jar, file:/Users/jstrachan/.m2/repository/com/squareup/okhttp/logging-interceptor/2.7.2/logging-interceptor-2.7.2.jar, file:/Users/jstrachan/.m2/repository/io/fabric8/kubernetes-jolokia/2.2.125/kubernetes-jolokia-2.2.125.jar, file:/Users/jstrachan/.m2/repository/org/ops4j/pax/url/pax-url-aether/2.4.7/pax-url-aether-2.4.7.jar, file:/Users/jstrachan/.m2/repository/io/fabric8/kubernetes-client/1.3.95/kubernetes-client-1.3.95.jar, file:/Users/jstrachan/.m2/repository/org/jboss/logging/jboss-logging/3.3.0.Final/jboss-logging-3.3.0.Final.jar, file:/Users/jstrachan/.m2/repository/dnsjava/dnsjava/2.1.7/dnsjava-2.1.7.jar, file:/Users/jstrachan/.m2/repository/org/eclipse/aether/aether-impl/1.0.0.v20140518/aether-impl-1.0.0.v20140518.jar, file:/Users/jstrachan/.m2/repository/com/github/mifmif/generex/0.0.4/generex-0.0.4.jar, file:/Users/jstrachan/.m2/repository/org/slf4j/jul-to-slf4j/1.7.21/jul-to-slf4j-1.7.21.jar, file:/Users/jstrachan/.m2/repository/io/fabric8/fabric8-annotations/2.2.125/fabric8-annotations-2.2.125.jar, file:/Users/jstrachan/.m2/repository/com/squareup/okhttp/okhttp-ws/2.7.2/okhttp-ws-2.7.2.jar, file:/Users/jstrachan/.m2/repository/org/hibernate/hibernate-validator/5.2.4.Final/hibernate-validator-5.2.4.Final.jar, file:/Users/jstrachan/.m2/repository/org/apache/maven/wagon/wagon-file/2.6/wagon-file-2.6.jar, file:/Users/jstrachan/.m2/repository/org/jboss/shrinkwrap/resolver/shrinkwrap-resolver-impl-maven-archive/2.2.2/shrinkwrap-resolver-impl-maven-archive-2.2.2.jar, file:/Users/jstrachan/.m2/repository/org/springframework/boot/spring-boot-starter-actuator/1.3.5.RELEASE/spring-boot-starter-actuator-1.3.5.RELEASE.jar, file:/Users/jstrachan/.m2/repository/org/apache/maven/wagon/wagon-http-lightweight/2.6/wagon-http-lightweight-2.6.jar, file:/Users/jstrachan/.m2/repository/org/apache/maven/maven-model-builder/3.2.5/maven-model-builder-3.2.5.jar, file:/Users/jstrachan/.m2/repository/org/springframework/boot/spring-boot-autoconfigure/1.3.5.RELEASE/spring-boot-autoconfigure-1.3.5.RELEASE.jar, file:/Users/jstrachan/.m2/repository/org/springframework/boot/spring-boot-actuator/1.3.5.RELEASE/spring-boot-actuator-1.3.5.RELEASE.jar, file:/Users/jstrachan/.m2/repository/org/codehaus/plexus/plexus-component-annotations/1.5.5/plexus-component-annotations-1.5.5.jar, file:/Users/jstrachan/.m2/repository/org/jboss/shrinkwrap/descriptors/shrinkwrap-descriptors-spi/2.0.0-alpha-8/shrinkwrap-descriptors-spi-2.0.0-alpha-8.jar, file:/Users/jstrachan/.m2/repository/org/apache/maven/maven-repository-metadata/3.2.5/maven-repository-metadata-3.2.5.jar, file:/Users/jstrachan/.m2/repository/com/fasterxml/classmate/1.1.0/classmate-1.1.0.jar, file:/Users/jstrachan/.m2/repository/org/apache/tomcat/embed/tomcat-embed-core/8.0.33/tomcat-embed-core-8.0.33.jar, file:/Users/jstrachan/.m2/repository/org/apache/maven/maven-model/3.2.5/maven-model-3.2.5.jar, file:/Users/jstrachan/.m2/repository/org/json/json/20140107/json-20140107.jar, file:/Users/jstrachan/.m2/repository/org/apache/tomcat/embed/tomcat-embed-logging-juli/8.0.33/tomcat-embed-logging-juli-8.0.33.jar, file:/Users/jstrachan/.m2/repository/org/apache/tomcat/embed/tomcat-embed-websocket/8.0.33/tomcat-embed-websocket-8.0.33.jar, file:/Users/jstrachan/.m2/repository/org/springframework/boot/spring-boot/1.3.5.RELEASE/spring-boot-1.3.5.RELEASE.jar, file:/Users/jstrachan/.m2/repository/com/fasterxml/jackson/module/jackson-module-jaxb-annotations/2.7.2/jackson-module-jaxb-annotations-2.7.2.jar, file:/Users/jstrachan/.m2/repository/org/apache/camel/camel-core/2.17.1/camel-core-2.17.1.jar, file:/Users/jstrachan/.m2/repository/com/fasterxml/jackson/core/jackson-core/2.6.6/jackson-core-2.6.6.jar, file:/Users/jstrachan/.m2/repository/org/eclipse/sisu/org.eclipse.sisu.inject/0.3.0.M1/org.eclipse.sisu.inject-0.3.0.M1.jar, file:/Users/jstrachan/.m2/repository/org/springframework/spring-webmvc/4.2.6.RELEASE/spring-webmvc-4.2.6.RELEASE.jar, file:/Users/jstrachan/.m2/repository/org/codehaus/plexus/plexus-interpolation/1.21/plexus-interpolation-1.21.jar, file:/Users/jstrachan/.m2/repository/org/jboss/arquillian/core/arquillian-core-impl-base/1.1.11.Final/arquillian-core-impl-base-1.1.11.Final.jar, file:/Users/jstrachan/.m2/repository/org/slf4j/log4j-over-slf4j/1.7.21/log4j-over-slf4j-1.7.21.jar, file:/Users/jstrachan/.m2/repository/org/jboss/shrinkwrap/resolver/shrinkwrap-resolver-spi-maven-archive/2.2.2/shrinkwrap-resolver-spi-maven-archive-2.2.2.jar, file:/Users/jstrachan/.m2/repository/org/assertj/assertj-core/2.4.1/assertj-core-2.4.1.jar, file:/Users/jstrachan/.m2/repository/org/jboss/arquillian/config/arquillian-config-api/1.1.11.Final/arquillian-config-api-1.1.11.Final.jar, file:/Users/jstrachan/.m2/repository/org/jboss/arquillian/core/arquillian-core-api/1.1.11.Final/arquillian-core-api-1.1.11.Final.jar, file:/Users/jstrachan/.m2/repository/org/yaml/snakeyaml/1.16/snakeyaml-1.16.jar, file:/Users/jstrachan/.m2/repository/org/jboss/shrinkwrap/shrinkwrap-impl-base/1.2.3/shrinkwrap-impl-base-1.2.3.jar, file:/Users/jstrachan/.m2/repository/org/jboss/arquillian/container/arquillian-container-test-spi/1.1.11.Final/arquillian-container-test-spi-1.1.11.Final.jar, file:/Users/jstrachan/.m2/repository/dk/brics/automaton/automaton/1.11-8/automaton-1.11-8.jar, file:/Users/jstrachan/.m2/repository/org/jboss/shrinkwrap/resolver/shrinkwrap-resolver-depchain/2.2.2/shrinkwrap-resolver-depchain-2.2.2.pom, file:/Users/jstrachan/.m2/repository/org/eclipse/aether/aether-transport-wagon/1.0.0.v20140518/aether-transport-wagon-1.0.0.v20140518.jar, file:/Users/jstrachan/.m2/repository/org/springframework/spring-core/4.2.6.RELEASE/spring-core-4.2.6.RELEASE.jar, file:/Users/jstrachan/.m2/repository/org/jboss/shrinkwrap/resolver/shrinkwrap-resolver-api-maven/2.2.2/shrinkwrap-resolver-api-maven-2.2.2.jar, file:/Users/jstrachan/.m2/repository/org/jolokia/jolokia-client-java/1.3.3/jolokia-client-java-1.3.3.jar, file:/Users/jstrachan/.m2/repository/io/fabric8/kubernetes-api/2.2.125/kubernetes-api-2.2.125.jar, file:/Users/jstrachan/.m2/repository/org/jboss/shrinkwrap/resolver/shrinkwrap-resolver-impl-maven/2.2.2/shrinkwrap-resolver-impl-maven-2.2.2.jar, file:/Users/jstrachan/.m2/repository/io/fabric8/openshift-client/1.3.95/openshift-client-1.3.95.jar, file:/Users/jstrachan/.m2/repository/org/jboss/shrinkwrap/resolver/shrinkwrap-resolver-spi/2.2.2/shrinkwrap-resolver-spi-2.2.2.jar, file:/Users/jstrachan/.m2/repository/org/sonatype/plexus/plexus-sec-dispatcher/1.3/plexus-sec-dispatcher-1.3.jar, file:/Users/jstrachan/.m2/repository/com/fasterxml/jackson/core/jackson-databind/2.6.6/jackson-databind-2.6.6.jar, file:/Users/jstrachan/.m2/repository/org/springframework/boot/spring-boot-starter-logging/1.3.5.RELEASE/spring-boot-starter-logging-1.3.5.RELEASE.jar, file:/Users/jstrachan/.m2/repository/org/springframework/spring-context/4.2.6.RELEASE/spring-context-4.2.6.RELEASE.jar, file:/Users/jstrachan/.m2/repository/org/jboss/arquillian/test/arquillian-test-impl-base/1.1.11.Final/arquillian-test-impl-base-1.1.11.Final.jar, file:/Users/jstrachan/.m2/repository/org/jboss/shrinkwrap/resolver/shrinkwrap-resolver-api-maven-archive/2.2.2/shrinkwrap-resolver-api-maven-archive-2.2.2.jar, file:/Users/jstrachan/.m2/repository/ch/qos/logback/logback-core/1.1.7/logback-core-1.1.7.jar, file:/Users/jstrachan/.m2/repository/com/fasterxml/jackson/core/jackson-annotations/2.6.6/jackson-annotations-2.6.6.jar, file:/Users/jstrachan/.m2/repository/io/fabric8/kubernetes-assertions/2.2.125/kubernetes-assertions-2.2.125.jar, file:/Users/jstrachan/.m2/repository/org/codehaus/plexus/plexus-utils/3.0.22/plexus-utils-3.0.22.jar, file:/Users/jstrachan/.m2/repository/io/fabric8/jolokia-assertions/2.2.125/jolokia-assertions-2.2.125.jar]
+
+java.lang.IndexOutOfBoundsException: setSpan (-448 ... -452) has end before start
+
+Model: Nexus 6P
+
+Sdk: 28
+
+tools/bazel.rc:
+
+@Autowired(required = false)
+
+File File: ADocument.bundleid.irs, stored=0 does not exist.
+
+  JUnit Jupiter:AutomaticModuleNameTests:automaticModuleName(String):[3] junit-jupiter-migration-support
+
+NAMESPACE_ERR: An attempt is made to create or change an object in a way which is incorrect with regard to namespaces.
+
+   CacheAutoConfiguration.CacheManagerEntityManagerFactoryDependsOnPostProcessor:
+
+  at android.util.Log.println_native (Native Method)
+
+ * Note that contexts are optimized for low cardinality key/value storage, and a user
+
+	io.netty.channel.DefaultChannelPipeline.touch(DefaultChannelPipeline.java:116)
+
+D/CCodecBufferChannel: [c2.android.flac.decoder#18] Created input block pool with allocatorID 16 => poolID 17 - OK (0)
+
+[lots more spam here]
+
+An error occurred reading the OAuth 2.0 Access Token Response: JSON parse error: Cannot deserialize instance of `java.lang.String` out of START_OBJECT token; nested exception is com.fasterxml.jackson.databind.exc.MismatchedInputException: Cannot deserialize instance of `java.lang.String` out of START_OBJECT token
+
+0 - Expected header 'Access-Control-Expose-Headers' to have value 'content-length' but was 'content-length,content-type', Expected header 'Access-Control-Expose-Headers' to have value 'content-type' but was ''
+
+--- a/codec-http2/src/test/java/io/netty/handler/codec/http2/UniformStreamByteDistributorTest.java
+
+Embedded servlet container failed to start. Port 443 was already in use.
+
+PerformanceReportTest.java
+
+- [ ] 6
+
+spring.rabbitmq.listener.simple.retry.stateless / spring.rabbitmq.listener.simple.retry.stateless
+
+{"message":"Invalid number of points in LineString (found 1 - must be 0 or >= 2)...
+
+edge N2 -> N4
+
+*4
+
+consume [a3e6b48a-4799-4b1f-9933-e874bb2ba6b1] times 50 ok
+
+Manifest-Version: 1.0
+
+   public void testJdkGZIP2() throws Exception
+
+Proxy-Authenticate: NTLM
+
+	io.netty.channel.AbstractChannelHandlerContext.fireChannelRead(AbstractChannelHandlerContext.java:340)
+
+Picked up JAVA_TOOL_OPTIONS: -Dhttp.proxyHost=localhost -Dhttp.proxyPort=3128 -Dhttps.proxyHost=localhost -Dhttps.proxyPort=3128
+
+Input error: Invalid delimiter '\0', expected one character
+
+com.google.android.exoplayer2.upstream.Loader$UnexpectedLoaderException: Unexpected ArrayIndexOutOfBoundsException: length=65025; regionStart=65025; regionLength=65025
+
+!! hs success!!
+
+org.springframework.boot.context.properties.bind.BindException: Failed to bind properties under 'app.property' to int
+
+	io.netty.channel.DefaultChannelPipeline.touch(DefaultChannelPipeline.java:116)
+
+Error Message
+
+!MESSAGE Severe error occurred in transpiler=es message=cannot locate element factory function of JSX backend for N4JSX resource platform:/resource/com.enfore.opr.ui.tests/test/n4js/tests/n4/ui/input/timeslotselector/TimeSlotSelectorPopOverTest.n4jsx.
+
+response = urllib2.urlopen(url)
+
+I/requery: afterExecuteUpdate 1
+
+	io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:362)
+
+100%
+
+ERROR: package contains errors: bazel-ci_build-cache/.cache/bazel/_bazel_jenkins/install/2ed8c6c819c55073ad03a9309500f9b2/_embedded_binaries/embedded_tools/src/main/protobuf.
+
+propertyA and propertyB are linked
+
+null
+
+* [CloudPlatform in 2.2.x](https://github.com/spring-projects/spring-boot/blob/2.2.x/spring-boot-project/spring-boot/src/main/java/org/springframework/boot/cloud/CloudPlatform.java#L74)
+
+ERROR: no such package '@local_jdk//': com.google.devtools.build.lib.skyframe.InconsistentFilesystemException: Inconsistent filesystem operations. C:/Program Files/Java/jdk1.8.0_73 is no longer an existing directory. Did you delete it during the build? The results of the build are not guaranteed to be correct. You should probably run 'blaze clean' and investigate the filesystem inconsistency (likely due to filesytem updates concurrent with the build).
+
+zer.java:63)
+
+-Djava.endorsed.dirs=C:\Localdata\eXist-db\lib\endorsed is not supported. Endorsed standards and standalone APIs
+
+./compile.sh
+
+ExoPlayerImplInternal:         at android.media.MediaCodec.native_queueSecureInputBuffer(Native Method)
+
+Description:
+
+publish request [048072d4-8c28-46a2-954e-c05d6577f4db] ok
+
+`
+
+警告: Unknown version string [3.1]. Default version will be used.
+
+a_sample_key: global_feature_value
+
+`
+
+E  FATAL EXCEPTION: main
+
+- [ ] 7
+
+Duplicate found when adding file to jar: com/facebook/buck/rules/BuildRuleResolver.class
+
+    OSchemaShared.createClusters(String) line: 1121 
+
+Failures:
+
+Warning: io.requery.query.SuppliedScalar: can't find referenced class java.util.function.Supplier
+
+### Error querying database.  Cause: com.dangdang.ddframe.rdb.sharding.exception.ShardingJdbcException: com.dangdang.ddframe.rdb.sharding.exception.ShardingJdbcException: java.sql.SQLSyntaxErrorException: Unknown column 'playplayer_id' in 'on clause'
+
+openjdk version "1.8.0_161"
+
+  password: null
+
+type x64
+
+STATUS: 200 OK
+
+nodes: 
+
+Homepage: http://bazel.io
+
+java.io.IOException.<init>(String) IOException.java:58
+
+Caused by:
+
+JVM: OpenJDK 64-Bit Server VM by JetBrains s.r.o
+
+If we have 5 `Objects` and 7 `V`, when executing `truncate class V unsafe`:
+
+Message: While performing ICompletionParticipant#onTagOpen
+
+   $> java SSLMutualAuthServer JDK
+
+null
+
+contains org.springframework.boot.loader.jar
+
+requester
+
+`
+
+near "order": syntax error (code 1): , while compiling: 
+
+Error: com.orientechnologies.orient.core.exception.OStorageException: Cannot route COMMAND operation to the distributed node
+
+sessionCreated with id :fa9bf22e-8162-46ee-b355-ec787809e7a0
+
+spring.rabbitmq.listener.simple.concurrency / concurrency
+
+	io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:362)
+
+com.android.builder.dexing.DexArchiveMergerException: Error while merging dex archives: 
+
+caused by https://github.com/polymerelements/paper-menu-button.git: cannot open git-upload-pack
+
+HTTP/1.1 200 OK
+
+inferred: CAP#3
+
+new Partial(clockhourOfDay(), 1).with(hourOfDay(), 1).isEqual(new Partial(hourOfDay() ,1).with(clockhourOfDay(), 1)) // throws objects must have matching field types
+
+* Adding handle: recv: 0
+
+ (value [org.atmosphere.util.chmv8.ForkJoinPool$Submitter@450ae3fb]) but failed to remove it when the web application was stopped. This is very likely to create a memory leak.
+
+release 0.5.0
+
+ shardFailures {[PDCUCebERaCutbxDWeAORg][test][4]:
+
+role:master
+
+scripts/deploy/
+
+dataStore.select(FooEntity::class.java).get().toList() // throws NPE.
+
+Manufacturer: LGE 
+
+2019-08-07 07:15:39.806045 +0000 SERVER (info) enabling remote authentication service eclipse-hono-service-auth:5671
+
+// XPECT FIXME nowarnings --> "An intersection type should not contain more than one class. Otherwise there cannot exist a value of such a type."
+
+keep_logical_logs=true
+
+  - Another thing I must type.
+
+	version="3.1">
+
+[checkstyle] [ERROR] .../api/JavadocTokenTypes.java:84: Must include both @java.lang.Deprecated annotation and @deprecated Javadoc tag with description. [MissingDeprecated]
+
+nameserver 114.114.114.114
+
+No module descriptor found. Derived automatic module.
+
+twitter.common.python has been renamed to pex.  please switch imports
+
+redis_git_dirty:0
+
+Java(TM) SE Runtime Environment (build 1.8.0_40-b25)
+
+tion.java:228)
+
+Caused by: java.security.PrivilegedActionException: java.net.BindException: Address already in use
+
+Cannot deserialize instance of `java.lang.Double` out of START_ARRAY token
+
+`IllegalArgumentException: length: 0 (length: >= 1)`
+
+E/MediaCodec: Codec reported err 0x16, actionCode 0, while in state 0
+
+Unable to create a Configuration, because no Bean Validation provider could be found
+
+Returns free workers amount available for tasks
+
+commit 8ec3866d9e5d28f6c09546269ec82731c45c28ad
+
+throws:
+
+Running with the JUnit 4 `@Test` the results are:
+
+ enabled: false # par defaut desactive
+
+				// the test FooControllerTest will pass when below line is commented out
+
+[ERROR] TestClass.java:15: 'object def lcurly' have incorrect indentation level 16, expected level should be one of the following: 8, 12. [Indentation]
+
+* Adding handle: send: 0
+
+- mismatched input 'start' expecting RULE_ID
+
+.LSOverride
+
+==>v[4]
+
+k\web\reactive\function" -f text -R java-basic -verbose
+
+0.7.0:
+
+api/src/main/java/io/grpc/LoadBalancerProvider.java:75: warning - Tag @see:illegal character: "47" in "https://github.com/grpc/proposal/blob/master/A24-lb-policy-config.md"
+
+more
+
+stream.setLongFileMode(TarArchiveOutputStream.LONGFILE_POSIX)
+
+jvm 1    |      at com.orientechnologies.orient.core.record.impl.ODocument.toStream(ODocument.java:2
+
+2014-11-17 00:06:07,692 ERROR [http-apr-8080-exec-1] o.s.boot.context.web.ErrorPageFilter -  - Cannot forward to error page for request to /my-app/internal/hystrix.stream as the response has already been committed. As a result, the response may have the wrong status code. If your application is running on WebSphere Application Server you may be able to resolve this problem by setting  com.ibm.ws.webcontainer.invokeFlushAfterService to false
+
+http://docs.spring.io/spring-boot/docs/1.1.3.RELEASE/reference/htmlsingle/#howto-enable-multiple-connectors-in-tomcat
+
+- [ ] 6
+
+		extendsFrom annotationProcessor
+
+org.springframework.boot.env.PropertySourceLoader=com.jinhill.common.spring.UTF8PropertySourceLoader
+
+# rm -r data logs # !!! careful !!! this wipes all your topics etc.
+
+Written 4600000 elements in 240256ms
+
+Build #PS-172.4155.41, built on September 15, 2017
+
+consume [843e0d65-d5d5-41c5-bfc3-933e475faae1] times 35 ok
+
+[ERROR] E:\test\TestClass.java:3: Unicode escape(s) usage should be avoided. [AvoidEscapedUnicodeCharacters]
+
+## using java 1.8.0_161 (64bit) from
+
+Description:
+
+misc
+
+Manufacturer: Sony
+
+null
+
+	io.netty.channel.epoll.AbstractEpollStreamChannel.doWriteMultiple(AbstractEpollStreamChannel.java:505)
+
+ * time).
+
+Consider defining a bean of type 'java.lang.String' in your configuration.
+
+/* The websocket implementation creates a new instance of the decoder per endpoint instance
+
+`timeout = hardTimeout - clockSource.elapsedMillis(startTime, now);`
+
+Last cause: null
+
+An annotation processor threw an uncaught exception.
+
+`
+
+Written 2600000 elements in 105795ms
+
+(SystemJS) Cannot find module 'json-cycle/cycle'
+
+consume [c26ee613-6baf-4b20-ad6c-d77889d64e72] times 38 ok
+
+Java HotSpot(TM) 64-Bit Server VM (build 25.112-b15, mixed mode)
+
+  nested exception is java.lang.NoClassDefFoundError: com/navercorp/pinpoint/bootstrap/interceptor/MethodDescriptor
+
+set -eu
+
+- [ ] 7
+
+output/HZ/HzMember4HZ/HzMember4HZ.hprof
+
+  libswresample   2.  0.101 /  2.  0.101
+
+GOPR0969.MP4 (3.72 GB)
+
+PROPERTIES
+
+api/src/main/java/io/grpc/LoadBalancerProvider.java:75: warning - Tag @see:illegal character: "47" in "https://github.com/grpc/proposal/blob/master/A24-lb-policy-config.md"
+
+[es-node-3] Message not fully read (request) for [128466] and action [indices:admin/get], resetting
+
+						 * If the exception is marked as no-rollback, we need to
+
+* Curl_addHandleToPipeline: length: 1
+
+Java HotSpot(TM) 64-Bit Server VM (build 25.121-b13, mixed mode)
+
+javax.ws.rs.ProcessingException: java.net.ProtocolException: Invalid HTTP method: PATCH
+
+DeviceMethod methodClient = DeviceMethod.
+
+git clone https://github.com/spring-projects/spring-boot.git && cd spring-boot/spring-boot-samples/spring-boot-sample-devtools
+
+[2015-09-15 11:26:22.439][error][command:17850afd-f86f-427b-91fe-db1f94b0639a][tid:01][com.facebook.buck.cli.Main] Uncaught exception at top level
+
+d or it has been modified by another user (db=v34 your=v33)
+
+* attr2="someotherting">
+
+    "documentName":"business Contract JSON business vendor and rep credentialing program ensures that Kutti Kumar and reps you are doing business with meet your requirements and are sound business partners With the business Small Business Package you can be where the buyers business are Not only do you get Business access to more than Business 1800 business hospitals you can BUSINESS promote your business in the only credentialed supplier sourcing tool used by Business healthcare organizations across business the country",
+
+Bazel caught interrupt signal; shutting down.
+
+  session:
+
+Execution failed for task ':imagepipeline:ndk_build_imagepipeline'.
+
+	io.reactivity.core.broadcaster.service.FluxDecorator.decorate(FluxDecorator.java:84)
+
+Before Poll 5 - queueSize: 0, remainingCapacity: 10
+
+testGradientCNNMLN(org.deeplearning4j.gradientcheck.CNNGradientCheckTest)  Time elapsed: 0.272 sec  <<< FAILURE!
+
+jvm 1    |      at com.orientechnologies.orient.core.conflict.OVersionRecordConflictStrategy.checkVe
+
+index c87a23a..775004a 100644
+
+java version "11.0.4" 2019-07-16 LTS
+
+ :: Spring Boot ::  (v1.3.0.BUILD-SNAPSHOT)
+
+a_sample_key: shared_feature_value
+
+Start rebuild index orole.name
+
+Ubuntu 14.04
+
+Running redfin.automation.junit.jupiter.FooTest
+
+信息: Deploying web application archive /opt/appstack/apache-tomcat/webapps/mtopc.war
+
+size must be between 5 and 100,please.
+
+org.eclipse.jetty.server.handler.HandlerWrapper.handle(String, Request, HttpServletRequest, HttpServletResponse) HandlerWrapper.java:134
+
+   * This closes off the object graph build from the DSL in case any close[Object|Array] methods have not been called.
+
+null
+
+	io.netty.channel.AbstractChannelHandlerContext.invokeChannelReadComplete(AbstractChannelHandlerContext.java:380)
+
+I am PY3!
+
+OpenJDK Runtime Environment (build 10.0.2+13-Ubuntu-1ubuntu0.18.04.1)
+
+java.net.BindException: Address already in use
+
+ModuleLoader: commonjs
+
+index d515873..eb7355e 100644
+
+check_header stdio.h
+
+3) "a8baa8c5-d42d-4912-9a1b-e72d0728ae88:90"
+
+I am PY2!
+
+libc++abi.dylib: terminating with uncaught exception of type NSException
+
+Caused by: com.mysql.jdbc.exceptions.jdbc4.MySQLIntegrityConstraintViolationException: Cannot delete or update a parent row: a foreign key constraint fails (`broadleaf`.`blc_order_multiship_option`, CONSTRAINT `FKB3D3F7D69AF166DF` FOREIGN KEY (`ORDER_ITEM_ID`) REFERENCES `blc_order_item` (`ORDER_ITEM_ID`))
+
+jvm 1    |      at com.orientechnologies.orient.core.storage.impl.local.OAbstractPaginatedStorage.do
+
+	public value : string
+
+elk.direction: R
+
+Hello
+
+ * Test class
+
+check_cxx -Werror -Wdeclaration-after-statement
+
+but found:
+
+  Scenario: These match doesn't work
+
+Expected DateTimeComparator to return 0 for inputs null, null; failed after 5709 iterations
+
+publish request [9062568f-5c30-429b-8f46-b65ae7a5a711] ok
+
+	io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:362)
+
+  database: 0
+
+macOS Mojave 10.4.6
+
+ * A {@link
+
+	io.netty.channel.AbstractChannelHandlerContext.write(AbstractChannelHandlerContext.java:810)
+
+Ready
+
+  application:
+
+org.eclipse.ui.internal.WorkbenchWindow.run line: 2153 
+
+**Neo.DatabaseError.General.UnknownError**
+
+*4
+
+<!ENTITY % tasks "propertyfile | ccmkdir | importtypelib | vsscheckin | sql | cvspass | p4reopen | csc | dirname | wlrun | p4label | p4revert | replaceregexp | get | jjtree | sleep | jarlib-display | dependset | zip | patch | jspc | style | test | tstamp | unwar | vsshistory | icontract | cvschangelog | p4submit | ccmcheckin | p4change | bzip2 | sync | p4delete | vssadd | javadoc | p4integrate | translate | signjar | cclock | chown | vajload | jarlib-available | rexec | WsdlToDotnet | buildnumber | jpcovmerge | ejbjar | war | stlist | rename | sequential | serverdeploy | property | subant | move | ildasm | copydir | cccheckin | ccunlock | wljspc | fixcrlf | telnet | sosget | pathconvert | record | p4sync | exec | ccmklabel | p4edit | manifest | maudit | antlr | netrexxc | ftp | jpcovreport | execon | ccmcheckout | ant | xmlvalidate | xslt | p4resolve | iplanet-ejbc | ccmcheckintask | gzip | native2ascii | ccrmtype | starteam | ear | input | presetdef | rmic | checksum | mail | loadfile | vsscheckout | stylebook | soscheckin | mimemail | stlabel | gunzip | concat | cab | touch | parallel | splash | antcall | ccmkbl | cccheckout | typedef | p4have | filter | xmlproperty | import | copy | jsharpc | symlink | antstructure | script | ccmcreatetask | rpm | delete | replace | mmetrics | attrib | waitfor | untar | loadproperties | available | echoproperties | stcheckin | chgrp | vajexport | stcheckout | bunzip2 | whichresource | copyfile | p4labelsync | vsscreate | macrodef | ejbc | unjar | vbc | wsdltodotnet | mkdir | cvs | condition | tempfile | junitreport | ccmkattr | taskdef | echo | ccupdate | java | vsslabel | renameext | basename | javadoc2 | tar | vsscp | vajimport | p4fstat | setproxy | p4counter | wlstop | ilasm | soscheckout | apply | ccuncheckout | jarlib-resolve | jlink | cvstagdiff | javacc | chmod | pvcs | jarlib-manifest | jar | ccmklbtype | sound | scriptdef | defaultexcludes | mparse | blgenclient | uptodate | jjdoc | genkey | javah | ccmkelem | ccmreconfigure | fail | unzip | javac | p4add | jpcoverage | soslabel | depend | vssget | deltree | ddcreator | junit | sshexec | scp">
+
+.DS_Store is no longer an existing directory
+
+urls:
+
+null
+
+one of the threads modifies the map structurally, it must be
+
+sessionDestroyed with id 9f8eb544-cced-4e93-95be-e2df9b8b5424
+
+	io.netty.channel.DefaultChannelPipeline$HeadContext.channelRead(DefaultChannelPipeline.java:1359)
+
+Gradle suite > Gradle test > reactor.core.publisher.tck.FluxWithProcessorVerification.mustImmediatelyPassOnOnErrorEventsReceivedFromItsUpstreamToItsDownstream FAILED
+
+ * Specialized Type Mapper that stores dates on the form {@code YYYYMMDD} as
+
+  OR 
+
+  0x000000002037a800 JavaThread "SwingWorker-pool-2-thread-4" daemon [_thread_blocked, id=10224, stack(0x000000002bac0000,0x000000002bbc0000)]
+
+Expected DateTimeComparator to return 0 for inputs null, null; failed after 3972 iterations
+
+  endpoints:
+
+`
+
+Enter value for [node.name]: foo
+
+  @Mock
+
+# Now add --repo_env, does not redownload which is a problem
+
+Too many static imports may lead to messy code
+
+Unresolved directive in guides/java-redis.adoc - include::{samples-dir}springsession-sample-javaconfig-redis/src/main/java/sample/Initializer.java[tags=class]
+
+check_cc -Werror -Wtype-limits
+
+-1
+
+Unable to get Liquibase change sets
+
+OpenSSL 1.0.1f 6 Jan 2014
+
+com.hazelcast.client.exception.ClientException: java.util.concurrent.ExecutionException: com.hazelcast.client.exception.AuthenticationException: Invalid credentials!
+
+sync_partial_err:0
+
+Note: Some messages have been simplified; recompile with -Xdiags:verbose to get full output
+
+WARNING: close the connection when an exception is raised
+
+arch_bits:64
+
+	SELECT * FROM users -- won't warn here if there is a tab character on line
+
+AL lib: (EE) DSoundOpenPlayback: Device init failed: 0x80070057
+
+No qualifying bean of type [org.springframework.security.oauth2.provider.token.ResourceServerTokenServices] is defined:
+
+npm WARN tasks@0.0.1 No description
+
+return long / (double) long
+
+Title : Encoded with IFME v3.2.1.0
+
+sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+
+[Ljava.nio.Buffer;@38c95fbd
+
+["ecole", "école"] -> "ecole école"
+
+E extends Object declared in interface Where
+
+ &nbsp;p.m.
+
+REQUEST ONE:
+
+ 	io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:362)
+
+(?<![^/])\.
+
+OpenJDK Runtime Environment 18.9 (build 11+28)
+
+ALPN protocol: h2
+
+java.lang.IllegalArgumentException: PropertyName must not be empty
+
+Stacktrace:
+
+Caused by: java.lang.IllegalArgumentException: credentialList can not be null
+
+rm -f buck-out/log/buck*.log; buck clean && rm -rf buck-out eclipse-out && buck build gerrit-common:server
+
+pmessage
+
+select * from AddressGeo where ST_Intersects(coords, 'POINT (55.786396 37.58378)') = true 
+
+example:
+
+  implementation = _broken,
+
+  protected Result beginEncode(HttpMessage header, HttpContent msg, String acceptEncoding)
+
+Java(TM) SE Runtime Environment (build 1.7.0_25-b15)
+
+[## test]$ git clone https://github.com/graphhopper/graphhopper.git
+
+Linux vpavic-nb 4.8.0-27-generic #29-Ubuntu SMP Thu Oct 20 21:03:13 UTC 2016 x86_64 x86_64 x86_64 GNU/Linux
+
+ com.antivirus.o.aaf 
+
+HTTP/1.1 200 OK
+
+WARNING: build volume / is nearly full (21.4GB remain).
+
+xcrun: error: SDK "iphonesimulator" cannot be located
+
+  profiles: development
+
+mvnw clean install package spring-boot:run
+
+   CodecsAutoConfiguration.JacksonCodecConfiguration#jacksonCodecCustomizer matched:
+
+	io.netty.channel.ChannelDuplexHandler.write(ChannelDuplexHandler.java:106)
+
+Java HotSpot(TM) 64-Bit Server VM (build 25.144-b01, mixed mode)
+
+Verifying a pact between my-consumer and my-provider
+
+See http://bazel.build/docs/getting-started.html to start a new project!
+
+Linux production 2.6.32-696.3.2.el6.x86_64 #1 SMP Tue Jun 20 01:26:55 UTC 2017 x86_64 x86_64 x86_64 GNU/Linux
+
+"jvm.buffer.memory.used",
+
+Jul 24, 2017 8:08:14 PM me.wielgolaski.boot.BootWithJulApplication main
+
+node E
+
+*3
+
+springmodule@1.0.0 automatic
+
+Building index for all classes...
+
+main-class org.springframework.boot.loader.JarLauncher
+
+Bazel binaries for all official releaeses can be downloaded from here:
+
+Warning: io.requery.query.SuppliedScalar: can't find referenced class java.util.function.Supplier
+
+Assembly trace from producer [reactor.core.publisher.MonoFlatMap] :
+
+1) "3b9c4448-dfaa-4b4e-a691-cfee25458333:88"
+
+__keyevent@*__:*
+
+RETURN a, b
+
+   ReactiveWebServerFactoryConfiguration.EmbeddedJetty:
+
+Certificate chain
+
+209     at com.intellij.rt.execution.application.AppMain.main(AppMain.java:140)
+
+starting service
+
+The following artifacts could not be resolved: 
+
+BuildVersion:   17G65
+
+/
+
+VIDEO IMAGE: Grabber initialized!
+
+accept [5514e4e6-a5c7-41e1-adac-27103e763c90] publish result: ok
+
+emacs webapps/mytest/index.html
+
+Caused by: java.security.cert.CertPathValidatorException: timestamp check failed
+
+test2.java:2: error: malformed HTML
+
+orientdb {db=test}> create property stuff.values embeddedlist values
+
+exports ch.swaechter.springmodule
+
+Building index for all classes...
+
+Error has been observed at the following site(s):
+
+pmessage
+
+	io.netty.channel.AbstractChannelHandlerContext.fireChannelRead(AbstractChannelHandlerContext.java:340)
+
+- native.cc_library(
+
+INFO: hz.client_0 [Test1] [3.12.5] HazelcastClient 3.12.5 (20191210 - d54936e, 294ff46) is STARTING
+
+null
+
+The bean 'BeanName' could not be injected as a 'com...BeanName' because it is a JDK dynamic proxy that implements:
+
+  enabled: true
+
+Class created successfully.
+
+	io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:362)
+
+java -jar target/exec.jar
+
+SDK: 23
+
+Type 'help' to display all the supported commands.
+
+acquired connection for command ...
+
+executable: bool = False, 
+
+publish request [c26ee613-6baf-4b20-ad6c-d77889d64e72] ok
+
+has no content-length, but
+
+ * per connection.  The lifecycle of the Decoder instance is governed by the container calls to
+
+XQuery
+
+orient|2015-04-21 14:41:29:609 WARNING Error on creating cluster on distributed nodes: ids are different (local=16 and remote=17). Retrying 5/10... [ODistributedStorage]
+
+Unpooled.copiedBuffer("test", StandardCharsets.UTF_8)
+
+@ConditionalOnBean(annotation = { MyAnnotation.class })
+
+vendor
+
+You may try using --multi-dex option.
+
+  @CustomAnnotationWithComposedMeta 
+
+/CLASS_DEF | /CLASS_DEF/OBJBLOCK
+
+* [Zipper fails under Windows due to incorrect parameters](https://github.com/bazelbuild/bazel/issues/2164)
+
+drwxrwxr-x 2 ec2-user ec2-user  4096 Aug  2 22:03 backup
+
+Using CATALINA_TMPDIR: /opt/appstack/apache-tomcat/temp
+
+`
+
+java.base/java.util.concurrent.CompletableFuture.encodeThrowable(Unknown
+
+/** Simple dns resolver for testing stuff
+
+Log:
+
+(Hangs here forever)
+
+contains org.springframework.boot.loader.data
+
+INFO: Analysed target //examples/android/java/bazel:hello_world (28 packages loaded).
+
+* Adding handle: send: 0
+
+ + *     string|!Array<T>|!IArrayLike<T>|!Iterable<T>): R} opt_mapFn
+
+message
+
+Scan type : Progressive
+
+- https://drive.google.com/file/d/0B1Agf5-0EdOXVExQRXg0cVBBbU0/view?usp=sharing
+
+Building: finished in 2.9 sec (100%) 3/3 jobs, 3 updated
+
+only got 2 names in buffer (invalid content); nested exception is
+
+HTTP/1.0 999 Unknown
+
+node N3
+
+Details: Current thread: Thread[ApplicationImpl pooled thread 398,4,Idea Thread Group] 1296361839
+
+https://github.com/jinhill/springboot/blob/master/3.png
+
+class Marker
+
+Bit rate : 118 Kbps
+
+Standard Doclet version 1.8.0_102
+
+Error parsing command line: While parsing option --primaryData: invalid UnvalidatedAndroidData: bazel-out/android-arm-linux-androideabi-4.9-v7a-gnu-libstdcpp-fastbuild/bin/external/androidsdk/com.android.support/_aar/unzipped/resources/support-compat-25.2.0 does not exist
+
+.accept(MediaType.APPLICATION_JSON_UTF8_VALUE)
+
+@EnableConfigurationProperties(Config1.class)
+
+	io.netty.channel.AbstractChannelHandlerContext.write(AbstractChannelHandlerContext.java:816)
+
+- Index 'dictionary'...OK (0 entries)
+
+WARNING: build volume / is nearly full (5235535 inodes remain).
+
+`
+
+ - length: 20708820
+
+17143 Jps
+
+DBMaker dbmaker = DBMaker
+
+  level:
+
+* Curl_addHandleToPipeline: length: 1
+
+Error while invoking full checkpoint listener of class OLuceneIndexFactory.
+
+SDK: 23
+
+	io.netty.channel.AbstractChannelHandlerContext.invokeChannelReadComplete(AbstractChannelHandlerContext.java:398)
+
+************ FIRMWARE ************
+
+  security:
+
+  `film_id`,`title`,`description`,`release_year`,
+
+Error on releasing database 'infogileorientdatabasetest' in pool
+
+Format settings, BVOP : No
+
+Source: Microsoft JScript compilation error 
+
+Specification-Version: 1.0.0
+
+Error: Could not create the Java Virtual Machine.
+
+endpoint having received a frame that does not conform to the format

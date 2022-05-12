@@ -1,0 +1,149 @@
+set BAZEL_PYTHON=C:/python35/python.exe
+
+Microsoft (R) C/C++ Optimizing Compiler Version 19.11.25547 for x64
+
+file.cc
+
+jni-util.cc
+
+util.cc
+
+management:
+
+  security:
+
+INFO: Windows OS is detected, 262144 limit of open files will be set for the disk cache.
+
+INFO: JVM can use maximum 3628MB of heap memory
+
+INFO: Because OrientDB is running outside a container 12% of memory will be left unallocated according to the setting 'memory.leftToOS' not taking into account heap memory
+
+INFO: WAL maximum segment size is set to 6,144 MB
+
+INFO: Page size for WAL located in Z:\PortableApps\eclipse-oxygen-2\workspace\orientdbtest\.\db\test is set to 4096 bytes.
+
+WARNING: Non tx operation was used during data modification we will need index rebuild.
+
+INFO: Storage 'plocal:Z:\PortableApps\eclipse-oxygen-2\workspace\orientdbtest\.\db/test' is opened under OrientDB distribution : 3.0.21 - Veloce (build 1d8b0c01ca8fe12a516bba355681e3ec8b218d1d, branch 3.0.x)
+
+SEVERE: $ANSI{green {db=test}} Magic number verification failed for page `1425` of `pupil.pcl`.
+
+SEVERE: $ANSI{green {db=test}} Magic number verification failed for page `1425` of `pupil.pcl`.
+
+🍃  Building Bazel with Bazel.
+
+ERROR: C:/bazel/tools/build_rules/genproto.bzl:28:9: missing else clause in conditional expression or semicolon before if.
+
+est02 [*] [OHazelcastDistributedDatabase]
+
+task:com.hazelcast.spi.impl.EventServiceImpl$LocalEventDispatcher@e968b45
+
+n.java:607)
+
+ice.java:64)
+
+test02:
+
+`/var/tmp $ cat Test.java`:
+
+   example
+
+`/var/tmp $ cat checkstyle.header`:
+
+   example
+
+`/var/tmp $ cat config.xml`:
+
+ sun.misc.Unsafe.park(Native Method)
+
+ org.springframework.boot.SpringApplication.refresh(SpringApplication.java:768)
+
+ org.springframework.boot.SpringApplication.createAndRefreshContext(SpringApplication.java:362)
+
+ sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+
+ sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+
+ Caused by: java.lang.IllegalStateException: Illegal access: this web application instance has been stopped already. Could not load [external.log]. The following stack trace is thrown for debugging purposes as well as to attempt to terminate the thread which caused the illegal access.
+
+ for %%I in ("%SCRIPT_DIR%..") do set ES_HOME=%%~dpfI
+
+### OSX template
+
+.LSOverride
+
+Icon
+
+.fseventsd
+
+.Spotlight-V100
+
+.Trashes
+
+Network Trash Folder
+
+Temporary Items
+
+.apdisk
+
+Icon
+
+.RuntimeException: Could not set field value: loadFactor - class java.util.LinkedHashMap
+
+4.1.15.Final
+
+class：org.redisson.spring.data.connection.RedissonConnection.java
+
+WARNING: detected http_proxy set in env, setting no_proxy for localhost.
+
+- https://github.com/bazelbuild/bazel/pull/4307
+
+- https://github.com/bazelbuild/bazel/issues/4299
+
+HTTP/1.1 200 OK
+
+Date: Wed, 30 Jul 2014 17:03:18 GMT
+
+HTTP/1.1 200 OK
+
+Transfer-Encoding: chunked
+
+Date: Wed, 30 Jul 2014 17:01:09 GMT
+
+Linux Atplaychannel 3.5.0-17-generic #28-Ubuntu SMP Tue Oct 9 19:31:23 UTC 2012 x86_64 x86_64 x86_64 GNU/Linux
+
+java version "1.8.0_66"
+
+Java(TM) SE Runtime Environment (build 1.8.0_66-b17)
+
+Java HotSpot(TM) 64-Bit Server VM (build 25.66-b17, mixed mode)
+
+https://github.com/requery/requery/blob/14a8ac29a4a97872878ae773fc8c96d3e7c10dbb/requery/src/main/java/io/requery/sql/GenericMapping.java#L249
+
+https://media.axprod.net/TestVectors/v7-Clear/Manifest_1080p.mpd
+
+public void process(final C connection, boolean dispatch)
+
+`
+
+java version "1.8.0_111"
+
+Java(TM) SE Runtime Environment (build 1.8.0_111-b14)
+
+Java HotSpot(TM) 64-Bit Server VM (build 25.111-b14, mixed mode)
+
+Windows 7 Professional Service Pack 1
+
+Number of keys: 10
+
+Number of keys: 10
+
+Number of keys: 6
+
+http://ci.bazel.io/view/Bazel%20bootstrap%20and%20maintenance/job/Bazel/JAVA_VERSION=1.8,PLATFORM_NAME=windows-x86_64/936/consoleFull
+
+**org.redisson.Version.java**
+
+validate_template=true
+
+template_path=.github/ISSUE_TEMPLATE/bug.md

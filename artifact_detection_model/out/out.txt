@@ -1,0 +1,18 @@
+train_samples:  288038
+test_samples:  73158
+params: {'charrep__repl_all_caps': False, 'vect__ngram_range': (1, 3), 'vect__stop_words': None, 'vect__lowercase': False}
+
+              precision    recall  f1-score   support
+
+    artifact       0.96      0.97      0.96     36579
+        text       0.97      0.96      0.96     36579
+
+    accuracy                           0.96     73158
+   macro avg       0.96      0.96      0.96     73158
+weighted avg       0.96      0.96      0.96     73158
+
+roc_auc=0.9617403428196506
+
+perf_runtime=9.045520616999994
+[[35405  1174]
+ [ 1625 34954]]

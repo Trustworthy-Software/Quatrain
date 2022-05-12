@@ -1,0 +1,1 @@
+[RUN_train_model.py](artifact_detection_model/RUN_train_model.py) will generate a joblib dump of a pretrained model, performance scores and other information in this folder.
