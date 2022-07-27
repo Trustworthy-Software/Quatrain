@@ -26,9 +26,10 @@ import scipy.stats as stats
 import warnings
 warnings.filterwarnings("ignore")
 from scipy.stats import pearsonr
-# os.getcwd('./Naturality')
+# os.getcwd('./Quatrain')
 dirname = os.path.dirname(__file__)
 
+import sys
 
 
 class Experiment:
@@ -207,7 +208,7 @@ class Experiment:
         #     b, c = dfl.iloc[0].copy(), dfl[dfl['Category']=='Original pairs'].iloc[0].copy()
         #     dfl.iloc[0], dfl[dfl['Category']=='Original pairs'].iloc[0] = c, b
         colors = {group1: 'white', group2: 'grey'}
-        fig = plt.figure(figsize=(14, 10))
+        fig = plt.figure(figsize=(14, 5))
         plt.xticks(fontsize=28, )
         plt.yticks(fontsize=28, )
 
@@ -225,6 +226,8 @@ class Experiment:
         # plt.tight_layout()
         plt.subplots_adjust(bottom=0.3, left=0.2)
 
+        plt.savefig('./figure/figure3_hypothesis_validation.jpg')
+        print('The figure is saved as ./figure/figure3_hypothesis_validation.jpg')
         plt.show()
 
         # MWW test
@@ -238,10 +241,10 @@ class Experiment:
             if 'identical' in e:
                 p_value = 1
         print('p-value: {}'.format(p_value))
-        if p_value < 0.05:
-            print('Significant!')
+        if p_value <= 0.05:
+            print('Reject Null Hypothesis: Significantly different!')
         else:
-            print('NOT Significant!')
+            print('Support Null Hypothesis!')
 
     def cluster_bug_report(self, vectors, method, number):
         scaler = Normalizer()
@@ -1171,13 +1174,18 @@ class Experiment:
 
 if __name__ == '__main__':
     embedding = 'bert'
+
+    arg1 = sys.argv[1]
+    print('task: {}'.format(arg1))
+
     comparison = ''
     Sanity = False
     QualityOfMessage = False
     e = Experiment()
 
-    e.validate_hypothesis(embedding)
+    if arg1 == 'hypothesis':
+        e.validate_hypothesis(embedding)
 
     # e.statistics(embedding)
     # e.predict_10fold(embedding, algorithm='rf')
-    e.predict_leave1out_10group(embedding, times=10, algorithm='qa_attetion', comparison=comparison, Sanity=Sanity, QualityOfMessage=QualityOfMessage)
+    # e.predict_leave1out_10group(embedding, times=10, algorithm='qa_attetion', comparison=comparison, Sanity=Sanity, QualityOfMessage=QualityOfMessage)
