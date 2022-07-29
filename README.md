@@ -1,10 +1,66 @@
 # Is this Change the Answer to that Problem? 
 Correlating Descriptions of Bug and Code Changes for Evaluating Patch Correctness
 
-# Quatrain
-Quatrain(Question Answering for Patch Correctness Evaluation), a supervised learning approach that exploits a deep NLP model to classify the
+Quatrain
+=======
+Quatrain (Question Answering for Patch Correctness Evaluation), a supervised learning approach that exploits a deep NLP model to classify the
 relatedness of a bug report with a patch description.
 
+## Experiment
+
+To obtain experimental results of the paper, execute `run.py` with specific parameter:
+
+### A) Sec. 2.2 
+**Figure 3:** Distributions of Euclidean distances between bug and patch descriptions.
+
+Execute the following:
+```
+python run.py hypothesis
+```
+
+### B) Sec. 5.1 (RQ1) 
+  1. **Figure 6:** Distribution of Patches in Train and Test Data. 
+  2. **Table 2.:** Confusion matrix of Quatrain prediction.
+
+Execute the following:
+```
+python run.py RQ1
+```
+
+  3. **F1:** New F1 score by re-balancing the test data.
+
+Execute the following:
+```
+python run.py RQ1 balance
+```  
+
+### C) Sec. 5.2 (RQ2) 
+  1. **Figure 7:**  Impact of length of patch description to prediction. 
+
+Execute the following:
+```
+python run.py RQ2.1
+```  
+
+  2. **Figure 8:**  The distribution of probability of patch correctness
+on original and random bug report.
+  3. **The ratio of performance degradation:**  22% (242/1091) of developer patches, which were previously predicted as correct, are no longer recalled by Quatrain after they have been associated to a random bug report.
+
+Execute the following:
+```
+python run.py RQ2.2
+```
+
+  4. **Figure 9:**   Impact of distance between generated patch descrip-
+tion to ground truth on prediction performance.
+  5. **The ratio of performance degradation:**  The metric (+Recall) drops by 40 percentage points to 44\% when the developer-written descriptions are replaced with CodeTrans-generated descriptions.
+
+Execute the following:
+```
+python run.py RQ2.3
+```
+
+  
 ### Dataset
 * **BugReport:** Bug reports for Defects4j, Bugsjar, Bears. Structured as `bug-id $$ bug report summary $$ bug report description`.
   1. bug report summary: title for bug issue  
@@ -13,13 +69,7 @@ relatedness of a bug report with a patch description.
 * **bugreport_patch.txt:** Pairs of Bug report & Commit message. Structured as `bug-id $$ bug report summary $$ bug report description $$ patchId $$ patch description $$ label`
 * **Patches.zip:** collected patches for Defects4J, Bears, Bugs.jar
 
-### run.py
-* validate_hypothesis: investigating the semantic similarity between the bug report and patch descriptions. 
-* predict_leave1out_10group: 10-group cross validation to evaluate the performance of approaches. Parameters as follows:
-  1. algorithm: QA NLP model
-  2. comparison: '','ASE','BATS','PATCHSIM'. 
-  3. sanity: False or True. check sanity.
-  4. qualityOfMessage: False or True. quality of input.
 
-### deduplicate.py
-deduplicating same patches.
+
+[//]: # (### deduplicate.py)
+[//]: # (deduplicating same patches.)
