@@ -18,7 +18,7 @@ from sklearn.metrics import confusion_matrix
 import xgboost as xgb
 from tensorflow import keras
 from keras.layers import LSTM, Dense, Dropout, RNN
-from keras.models import Sequential
+from keras.models import Sequential, load_model
 import tensorflow as tf
 from keras.layers import Dense, Embedding, Dropout, Input, Concatenate
 from experiment.deep_learning import *
@@ -86,14 +86,14 @@ class Classifier:
         rc = recall_score(y_true=y_true, y_pred=y_pred)
         f1 = 2 * prc * rc / (prc + rc)
 
-        print('Accuracy: %f -- Precision: %f -- +Recall: %f -- F1: %f ' % (acc, prc, rc, f1))
+        print('AUC: %f -- F1: %f -- Accuracy: %f -- Precision: %f -- ' % (auc_, f1, acc, prc,))
         if y_true == y_pred:
             tn, fp, fn, tp = 1, 0, 0, 1
         else:
             tn, fp, fn, tp = confusion_matrix(y_true, y_pred).ravel()
         recall_p = tp / (tp + fn)
         recall_n = tn / (tn + fp)
-        print('AUC: {:.3f}, +Recall: {:.3f}, -Recall: {:.3f}'.format(auc_, recall_p, recall_n))
+        # print('AUC: {:.3f}, +Recall: {:.3f}, -Recall: {:.3f}'.format(auc_, recall_p, recall_n))
 
         # return , auc_
         return auc_, recall_p, recall_n, acc, prc, rc, f1
@@ -303,7 +303,7 @@ class Classifier:
         print('AUC: {:.3f}, +Recall: {:.3f}, -Recall: {:.3f}'.format(np.array(aucs).mean(), np.array(rcs_p).mean(), np.array(rcs_n).mean()))
         print('---------------')
 
-    def leave1out_validation(self, Sanity=None, QualityOfMessage=None):
+    def leave1out_validation(self, i, Sanity=None, QualityOfMessage=None):
         x_train, y_train = self.train_features, self.train_labels
         x_test, y_test = self.test_features, self.test_labels
         x_test_random = self.random_test_features
@@ -353,15 +353,20 @@ class Classifier:
             callback = [keras.callbacks.EarlyStopping(monitor='val_auc', patience=2, mode="max", verbose=1), ]
             combine_qa_model.fit([x_train_q, x_train_a], y_train, validation_split=0.1, batch_size=64,epochs=10,)
         elif self.algorithm == 'qa_attetion':
-            seq_maxlen = 64
-            y_train = np.array(y_train).astype(float)
-            x_train_q = x_train[:, :1024]
-            x_train_a = x_train[:, 1024:]
-            x_train_q = np.reshape(x_train_q, (x_train_q.shape[0], seq_maxlen, -1))
-            x_train_a = np.reshape(x_train_a, (x_train_a.shape[0], seq_maxlen, -1))
-            combine_qa_model = get_qa_attention(x_train_q.shape[1:], x_train_a.shape[1:])
-            callback = [keras.callbacks.EarlyStopping(monitor='val_auc', patience=1, mode="max", verbose=0), ]
-            combine_qa_model.fit([x_train_q, x_train_a], y_train, callbacks=callback, validation_split=0.2, batch_size=128, epochs=10,)
+            model_saved = 'models/quatrain_'+str(i+1)+'.h5'
+            if os.path.exists(model_saved):
+                combine_qa_model = load_model('models/quatrain_'+str(i+1)+'.h5')
+            else:
+                seq_maxlen = 64
+                y_train = np.array(y_train).astype(float)
+                x_train_q = x_train[:, :1024]
+                x_train_a = x_train[:, 1024:]
+                x_train_q = np.reshape(x_train_q, (x_train_q.shape[0], seq_maxlen, -1))
+                x_train_a = np.reshape(x_train_a, (x_train_a.shape[0], seq_maxlen, -1))
+                combine_qa_model = get_qa_attention(x_train_q.shape[1:], x_train_a.shape[1:])
+                callback = [keras.callbacks.EarlyStopping(monitor='val_auc', patience=1, mode="max", verbose=0), ]
+                combine_qa_model.fit([x_train_q, x_train_a], y_train, callbacks=callback, validation_split=0.2, batch_size=128, epochs=10,)
+                combine_qa_model.save('models/quatrain_'+str(i+1)+'.h5')
 
         # predict
         if self.algorithm == 'xgb':
@@ -400,5 +405,5 @@ class Classifier:
         if not Sanity and not QualityOfMessage:
             self.confusion_matrix(y_pred, y_test)
 
-        print('---------------')
+        # print('---------------')
         return auc_, recall_p, recall_n, acc, prc, rc, f1

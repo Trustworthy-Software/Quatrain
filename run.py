@@ -53,16 +53,43 @@ class Experiment:
         f1 = 2 * prc * rc / (prc + rc)
 
         print('***------------***')
-        print('Evaluating AUC, F1, +Recall, -Recall')
+        # print('Evaluating AUC, F1, +Recall, -Recall')
         print('Test data size: {}, Incorrect: {}, Correct: {}'.format(len(y_trues), y_trues.count(0), y_trues.count(1)))
-        print('Accuracy: %f -- Precision: %f -- +Recall: %f -- F1: %f ' % (acc, prc, rc, f1))
+        print('AUC: %f -- F1: %f  -- Accuracy: %f -- Precision: %f ' % (auc_, f1, acc, prc,))
         if y_trues == y_preds:
             tn, fp, fn, tp = 1, 0, 0, 1
         else:
             tn, fp, fn, tp = confusion_matrix(y_trues, y_preds).ravel()
         recall_p = tp / (tp + fn)
         recall_n = tn / (tn + fp)
-        print('AUC: {:.3f}, +Recall: {:.3f}, -Recall: {:.3f}'.format(auc_, recall_p, recall_n))
+        # print('AUC: {:.3f}, +Recall: {:.3f}, -Recall: {:.3f}'.format(auc_, recall_p, recall_n))
+        # return , auc_
+
+        # print('AP: {}'.format(average_precision_score(y_trues, y_pred_probs)))
+        return recall_p, recall_n, acc, prc, rc, f1, auc_
+
+    def evaluation_metrics_noprint(self, y_trues, y_pred_probs):
+        fpr, tpr, thresholds = roc_curve(y_true=y_trues, y_score=y_pred_probs, pos_label=1)
+        auc_ = auc(fpr, tpr)
+
+        y_preds = [1 if p >= 0.5 else 0 for p in y_pred_probs]
+
+        acc = accuracy_score(y_true=y_trues, y_pred=y_preds)
+        prc = precision_score(y_true=y_trues, y_pred=y_preds)
+        rc = recall_score(y_true=y_trues, y_pred=y_preds)
+        f1 = 2 * prc * rc / (prc + rc)
+
+        # print('***------------***')
+        # # print('Evaluating AUC, F1, +Recall, -Recall')
+        # print('Test data size: {}, Incorrect: {}, Correct: {}'.format(len(y_trues), y_trues.count(0), y_trues.count(1)))
+        # print('Accuracy: %f -- Precision: %f -- +Recall: %f -- F1: %f ' % (acc, prc, rc, f1))
+        if y_trues == y_preds:
+            tn, fp, fn, tp = 1, 0, 0, 1
+        else:
+            tn, fp, fn, tp = confusion_matrix(y_trues, y_preds).ravel()
+        recall_p = tp / (tp + fn)
+        recall_n = tn / (tn + fp)
+        # print('AUC: {:.3f}, +Recall: {:.3f}, -Recall: {:.3f}'.format(auc_, recall_p, recall_n))
         # return , auc_
 
         # print('AP: {}'.format(average_precision_score(y_trues, y_pred_probs)))
@@ -197,9 +224,9 @@ class Experiment:
             distribution_distance.append(['Random pairs' , dis_random])
 
         y_title = 'Distance of pairs'
-        self.boxplot_distribution_correlation(distribution_distance, y_title, 'Original pairs', 'Random pairs')
+        self.boxplot_distribution_correlation(distribution_distance, y_title, 'Original pairs', 'Random pairs', 'figure3_hypothesis_validation.jpg')
 
-    def boxplot_distribution_correlation(self, distribution_distance, y_title, group1, group2):
+    def boxplot_distribution_correlation(self, distribution_distance, y_title, group1, group2, figureName):
 
         dfl = pd.DataFrame(distribution_distance)
         dfl.columns = ['Category', y_title]
@@ -226,8 +253,8 @@ class Experiment:
         # plt.tight_layout()
         plt.subplots_adjust(bottom=0.3, left=0.2)
 
-        plt.savefig('./figure/figure3_hypothesis_validation.jpg')
-        print('The figure is saved as ./figure/figure3_hypothesis_validation.jpg')
+        plt.savefig('./figure/' + figureName)
+        print('The figure is saved to ./figure/' + figureName)
         plt.show()
 
         # MWW test
@@ -451,15 +478,19 @@ class Experiment:
                                                                      np.array(rcs_n).mean()))
         print('---------------')
 
-    def predict_leave1out_10group(self, embedding_method, times, algorithm, comparison, Sanity=False, QualityOfMessage=False):
+    def predict_leave1out_10group(self, embedding_method, times, algorithm, comparison, para=None, Sanity=False, QualityOfMessage=False,RQ=None):
         dataset_json = pickle.load(open(os.path.join(dirname, 'data/bugreport_patch_json_' + embedding_method + '.pickle'), 'rb'))
         self.ASE_features = None
-        if comparison == 'ASE':
+        if comparison == 'DL':
             # ASE_features = pickle.load(open('../data/ASE_features_'+embedding_method+'.pickle', 'rb'))
             self.ASE_features = pickle.load(open(os.path.join(dirname, 'data/ASE_features2_bert.pickle'), 'rb'))
         elif comparison == 'BATS':
-            with open('data/BATS_RESULT_0.8.json', 'r+') as f:
-                self.BATS_RESULTS_json = json.load(f)
+            if para == '0.0':
+                with open('data/BATS_RESULT_0.0.json', 'r+') as f:
+                    self.BATS_RESULTS_json = json.load(f)
+            elif para == '0.8':
+                with open('data/BATS_RESULT_0.8.json', 'r+') as f:
+                    self.BATS_RESULTS_json = json.load(f)
         elif comparison == 'PATCHSIM':
             with open('data/PATCHSIM_RESULT.json', 'r+') as f:
                 self.PATCHSIM_RESULTS_json = json.load(f)
@@ -470,7 +501,7 @@ class Experiment:
         a_accs, a_prcs, a_rcs, a_f1s, a_aucs, a_rcs_p, a_rcs_n = list(), list(), list(), list(), list(), list(), list()
         bp_aucs, bp_f1s, bp_rcs_p, bp_rcs_n = list(), list(), list(), list()
         rcs_p, rcs_n = list(), list()
-        NLP_model_ytests, NLP_model_preds, ASE_model_preds, BatsPatchSim_model_preds = [], [], [], []
+        NLP_model_ytests, NLP_model_preds, ASE_model_ytests, ASE_model_preds, BatsPatchSim_model_preds = [], [], [], [], []
         new_identify_cnt, identify_cnt = 0, 0
         test_patches_info = []
         matrix_average = np.zeros((9,6))
@@ -491,13 +522,15 @@ class Experiment:
                 label = value[p][2]
                 all_labels.append(label)
         print('Dataset size: {}, Incorrect: {}, Correct: {}'.format(len(all_labels), all_labels.count(0), all_labels.count(1)))
-        print('Algorithm: {}'.format(algorithm))
+        # print('Algorithm: {}'.format(algorithm))
         print('#####')
 
 
         # Sanity = False
         # QualityOfMessage = False
         for i in range(times):
+            print('***************')
+            print('ROUND: {}'.format(str(i+1)))
             test_group = groups[i]
             train_group = groups[:i] + groups[i+1:]
 
@@ -517,7 +550,7 @@ class Experiment:
             #     project_id = project + '-' + id
             #     developer_commit_message_vector = Developer_commit_message_dict[project_id]
 
-
+            self.RQ = RQ
             train_features, train_labels, ASE_train_features, ASE_train_labels = self.get_train_data(train_ids, dataset_json, comparison, QualityOfMessage=QualityOfMessage)
             test_features, test_labels, ASE_test_features, ASE_test_labels, random_test_features, test_info_for_patch = self.get_test_data(test_ids, dataset_json, comparison, Sanity=Sanity, QualityOfMessage=QualityOfMessage)
 
@@ -528,7 +561,8 @@ class Experiment:
             dataset_distribution.append([len(train_labels), len(test_labels)])
             # classifier
             NLP_model = ML4Prediciton.Classifier(None, None, algorithm, None, train_features, train_labels, test_features, test_labels, random_test_features=random_test_features, test_info_for_patch=test_info_for_patch)
-            auc_, recall_p, recall_n, acc, prc, rc, f1= NLP_model.leave1out_validation(Sanity=Sanity, QualityOfMessage=QualityOfMessage)
+            print('Quatrain.')
+            auc_, recall_p, recall_n, acc, prc, rc, f1 = NLP_model.leave1out_validation(i, Sanity=Sanity, QualityOfMessage=QualityOfMessage)
 
             if not Sanity and not QualityOfMessage:
                 matrix_average += np.array(NLP_model.matrix)
@@ -563,10 +597,11 @@ class Experiment:
             NLP_model_ytests += list(NLP_model.y_test)
             test_patches_info += test_info_for_patch
 
-            if comparison == 'ASE':
-                ASE_model = ML4Prediciton.Classifier(None, None, 'rf', None, ASE_train_features, ASE_train_labels, ASE_test_features,
+            if comparison == 'DL':
+                ASE_model = ML4Prediciton.Classifier(None, None, para, None, ASE_train_features, ASE_train_labels, ASE_test_features,
                                               ASE_test_labels)
-                auc_, recall_p, recall_n, acc, prc, rc, f1 = ASE_model.leave1out_validation()
+                print('a DL-based patch classifier.')
+                auc_, recall_p, recall_n, acc, prc, rc, f1 = ASE_model.leave1out_validation(i)
 
                 # a_accs.append(acc)
                 # a_prcs.append(prc)
@@ -579,103 +614,105 @@ class Experiment:
 
                 ASE_matrix_average += np.array(ASE_model.matrix)
                 ASE_model_preds += list(ASE_model.y_pred)
+                ASE_model_ytests += list(ASE_model.y_test)
             elif comparison == 'BATS' or comparison == 'PATCHSIM':
-                recall_p, recall_n, acc, prc, rc, f1, auc_  = self.evaluation_metrics(NLP_model.y_test, self.comparison_pred)
+                recall_p, recall_n, acc, prc, rc, f1, auc_ = self.evaluation_metrics(NLP_model.y_test, self.comparison_pred)
                 bp_aucs.append(auc_)
                 bp_f1s.append(f1)
                 bp_rcs_p.append(recall_p)
                 bp_rcs_n.append(recall_n)
                 BatsPatchSim_model_preds += list(self.comparison_pred)
 
-
-        self.bar_distribution(dataset_distribution)
-        print('############################################')
-        dataset_distribution = np.array(dataset_distribution)
-        print('Train:Test, {}'.format(dataset_distribution[:,0].mean()/dataset_distribution[:,1].mean()))
-
         if not Sanity and not QualityOfMessage:
-            print('RQ-1, NLP:')
-            print('{} leave one out mean: '.format('10-90'))
-            # print('Accuracy: {:.1f} -- Precision: {:.1f} -- +Recall: {:.1f} -- F1: {:.1f} -- AUC: {:.3f}'.format(
-            #     np.array(accs).mean() * 100, np.array(prcs).mean() * 100, np.array(rcs).mean() * 100,
-            #     np.array(f1s).mean() * 100, np.array(aucs).mean()))
-            # # print('AUC: {:.3f}, +Recall: {:.3f}, -Recall: {:.3f}'.format(np.array(aucs).mean(), np.array(rcs_p).mean(), np.array(rcs_n).mean()))
-            # print('AUC: {:.3f},'.format(np.array(aucs).mean()))
-            # print('new average results:')
-            '''
-            # balance test data for F1
-            index_1 = [i for i in range(len(NLP_model_ytests)) if NLP_model_ytests[i]==1]
-            index_0 = [j for j in range(len(NLP_model_ytests)) if NLP_model_ytests[j]==0]
-            random.shuffle(index_0)
-            index_0_small = index_0[:1591]
-            index_final = index_0_small + index_1
-            NLP_model_ytests_4f1 = [NLP_model_ytests[m] for m in index_final]
-            NLP_model_preds_4f1 = [NLP_model_preds[n] for n in index_final]
-            self.evaluation_metrics(NLP_model_ytests_4f1, NLP_model_preds_4f1)
-            '''
+            if RQ == 'RQ1' or RQ == 'RQ1gen' or RQ.startswith('RQ3'):
+                print('############################################')
+                if RQ == 'RQ1':
+                    dataset_distribution = np.array(dataset_distribution)
+                    print('Train:Test, {}:{}'.format(round(dataset_distribution[:, 0].mean() / dataset_distribution[:, 1].mean()), 1))
+                    self.bar_distribution(dataset_distribution)
 
-            self.evaluation_metrics(NLP_model_ytests, NLP_model_preds)
-            print('---------------')
+                print('RQ1, Quatrain (QUestion Answering for paTch coRrectness evAluatIoN).')
+                '''
+                # balance test data for F1
+                index_1 = [i for i in range(len(NLP_model_ytests)) if NLP_model_ytests[i]==1]
+                index_0 = [j for j in range(len(NLP_model_ytests)) if NLP_model_ytests[j]==0]
+                random.shuffle(index_0)
+                index_0_small = index_0[:1591]
+                index_final = index_0_small + index_1
+                NLP_model_ytests_4f1 = [NLP_model_ytests[m] for m in index_final]
+                NLP_model_preds_4f1 = [NLP_model_preds[n] for n in index_final]
+                self.evaluation_metrics(NLP_model_ytests_4f1, NLP_model_preds_4f1)
+                '''
 
-            # confusion matrix
-            print('TP _ TN _ FP _ FN _ +Recall _ -Recall')
-            np.set_printoptions(suppress=True)
-            # calculate average +Recall and -Recall based on all data
-            recall_list = []
-            for i in range(matrix_average[:,:4].shape[0]):
-                tp, tn, fp, fn = matrix_average[i][0], matrix_average[i][1], matrix_average[i][2], matrix_average[i][3]
-                recall_p = tp / (tp + fn)
-                recall_n = tn / (tn + fp)
-                recall_list.append([np.round(recall_p, decimals=3), np.round(recall_n, decimals=3)])
+                _, _, _, _, _, f1_quatrain, auc_quatrain = self.evaluation_metrics(NLP_model_ytests, NLP_model_preds)
+                print('---------------')
 
-            new_matrix_average = np.concatenate((matrix_average[:,:4], np.array(recall_list)), axis=1)
-            print(new_matrix_average)
+                # confusion matrix
+                print('TP _ TN _ FP _ FN _ +Recall _ -Recall')
+                np.set_printoptions(suppress=True)
+                # calculate average +Recall and -Recall based on all data
+                recall_list = []
+                for i in range(matrix_average[:,:4].shape[0]):
+                    tp, tn, fp, fn = matrix_average[i][0], matrix_average[i][1], matrix_average[i][2], matrix_average[i][3]
+                    recall_p = tp / (tp + fn)
+                    recall_n = tn / (tn + fp)
+                    recall_list.append([np.round(recall_p, decimals=3), np.round(recall_n, decimals=3)])
+                new_matrix_average = np.concatenate((matrix_average[:,:4], np.array(recall_list)), axis=1)
+                recall_p_quatrain, recall_n_quatrain = new_matrix_average[3][4], new_matrix_average[3][5]
 
-            print('RQ-2.1:')
-            print('[Figure]')
+                if RQ != 'RQ1gen':
+                    print(new_matrix_average)
 
-            self.boxplot_distribution(meesage_length_distribution, 'Length of patch description')
-            # self.boxplot_distribution(report_length_distribution, 'Length of bug report')
+            if RQ == 'RQ2.1':
+                print('############################################')
+                print('RQ-2.1, Impact of length of patch description to prediction.')
+                self.boxplot_distribution(meesage_length_distribution, 'Length of patch description', 'figure7_patch_description_length.jpg')
+                # self.boxplot_distribution(report_length_distribution, 'Length of bug report')
 
-        if Sanity:
+        if Sanity and RQ == 'RQ2.2':
             # sanity check result
-            print('RQ-2.2:')
+            print('############################################')
+            print('RQ2.2, The distribution of probability of patch correctness on original and random bug report.')
             cnt_all_predict_correct = len(all_predict_correct)
             cnt_all_random_correct =  sum(i>=0.5 for i in all_random_correct)
-            print('All correct: {}, Predict correct: {}, Random correct :{}'.format(all_correct, cnt_all_predict_correct, cnt_all_random_correct))
-            print('Fail rate with random: {}'.format((cnt_all_predict_correct-cnt_all_random_correct)/cnt_all_predict_correct))
+            print('All correct: {}, Correct by Quatrain: {}, Correct by Random:{}'.format(all_correct, cnt_all_predict_correct, cnt_all_random_correct))
+            fail_number = cnt_all_predict_correct-cnt_all_random_correct
+            print('The percentage of performance degradation: {}%({}:{})'.format(int(round(fail_number/cnt_all_predict_correct,2)*100), fail_number, cnt_all_predict_correct))
             all_predict_correct_box = [['Original pairs', prob] for prob in all_predict_correct]
             all_random_correct_box = [['Random pairs', prob] for prob in all_random_correct]
             distribution_prob = all_predict_correct_box + all_random_correct_box
 
-            self.boxplot_distribution_correlation(distribution_prob, 'Prediction probability by Quatrain', 'Original pairs', 'Random pairs')
+            self.boxplot_distribution_correlation(distribution_prob, 'Prediction probability by Quatrain', 'Original pairs', 'Random pairs', 'figure8_bug_report_quality.jpg')
 
-
-        if QualityOfMessage:
-            print('RQ-2.3:')
-            print('{} leave one out mean: '.format('10-90'))
-            print('Accuracy: {:.1f} -- Precision: {:.1f} -- +Recall: {:.1f} -- F1: {:.1f} -- AUC: {:.3f}'.format(
-                np.array(accs).mean() * 100, np.array(prcs).mean() * 100, np.array(rcs).mean() * 100,
-                np.array(f1s).mean() * 100, np.array(aucs).mean()))
-            print('+Recall: {:.3f}'.format(np.array(rcs_p).mean()))
+        if QualityOfMessage and RQ == 'RQ2.3':
+            print('############################################')
+            print('RQ2.3, Impact of distance between generated patch description to ground truth on prediction performance')
+            # print('{} leave one out mean: '.format('10-90'))
+            # print('Accuracy: {:.1f} -- Precision: {:.1f} -- +Recall: {:.1f} -- F1: {:.1f} -- AUC: {:.3f}'.format(np.array(accs).mean() * 100, np.array(prcs).mean() * 100, np.array(rcs).mean() * 100, np.array(f1s).mean() * 100, np.array(aucs).mean()))
+            print('The +Recall with generated descriptions: {:.3f}'.format(np.array(rcs_p).mean()))
             print('---------------')
 
             # for the comparison of generated message v.s developer message
-            self.boxplot_distribution(similarity_message_distribution, 'Distance between descriptions')
+            self.boxplot_distribution(similarity_message_distribution, 'Distance between descriptions', 'figure9_patch_description_quality.jpg')
 
-        NLP_model_preds = [1 if p >= 0.5 else 0 for p in NLP_model_preds]
-        ASE_model_preds = [1 if p >= 0.5 else 0 for p in ASE_model_preds]
-        BatsPatchSim_model_preds = [1 if p >= 0.5 else 0 for p in BatsPatchSim_model_preds]
-        if comparison == 'ASE':
-            print('RQ-3, ASE: ')
-            print('Test data size: {}'.format(len(NLP_model_ytests)))
+        # compare against ...
+        NLP_model_preds = [1 if p >= 0.4 else 0 for p in NLP_model_preds]
+        if comparison == 'DL':
+            # print('############################################')
+            # print('RQ3DL, a DL-based patch classifier (tian).')
+            # print(para)
+            # print('Test data size: {}'.format(len(NLP_model_ytests)))
             # print('Accuracy: {:.1f} -- Precision: {:.1f} -- +Recall: {:.1f} -- F1: {:.1f} -- AUC: {:.3f}'.format(
             #     np.array(a_accs).mean() * 100, np.array(a_prcs).mean() * 100, np.array(a_rcs).mean() * 100,
             #     np.array(a_f1s).mean() * 100, np.array(a_aucs).mean()))
             # print('AUC: {:.3f}'.format(np.array(a_aucs).mean()))
-            self.evaluation_metrics(NLP_model_ytests, ASE_model_preds)
-
+            if para == 'lr':
+                ASE_model_preds = [1 if p >= 0.1 else 0 for p in ASE_model_preds]
+            elif para == 'rf':
+                ASE_model_preds = [1 if p >= 0.3 else 0 for p in ASE_model_preds]
+            recall_positive, recall_negative, acc, prc, rc, f1, auc_ = self.evaluation_metrics_noprint(NLP_model_ytests, ASE_model_preds)
             print('---------------')
+            '''
             # confusion matrix
             print('TP _ TN _ FP _ FN _ +Recall _ -Recall')
             np.set_printoptions(suppress=True)
@@ -686,35 +723,64 @@ class Experiment:
                 recall_p = tp / (tp + fn)
                 recall_n = tn / (tn + fp)
                 recall_list.append([np.round(recall_p, decimals=3), np.round(recall_n, decimals=3)])
-
             new_ASE_matrix_average = np.concatenate((ASE_matrix_average[:,:4], np.array(recall_list)), axis=1)
             print(new_ASE_matrix_average)
-
+            '''
             # diff against NLP
             for i in range(len(NLP_model_ytests)):
                 if NLP_model_ytests[i] == NLP_model_preds[i]:
                     identify_cnt += 1
                     if NLP_model_ytests[i] != ASE_model_preds[i]:
                         new_identify_cnt += 1
-            print('new_identify_cnt: {}/{}'.format(new_identify_cnt, identify_cnt))
-        elif comparison == 'BATS' or comparison == 'PATCHSIM':
-            print('RQ-3, {}: '.format(comparison))
-            print('Test data size: {}'.format(len(NLP_model_ytests)))
+            # print('new/all: {}/{}'.format(new_identify_cnt, identify_cnt))
+
+            if para == 'lr':
+                return 'AUC:{:.3f} F1:{:.3f} +Recall:{:.3f} -Recall:{:.3f}'.format(auc_, f1, recall_positive, recall_negative)
+            elif para == 'rf':
+                return 'AUC:{:.3f} F1:{:.3f} +Recall:{:.3f} -Recall:{:.3f} \nIdentification_by_Quatrain:{} Fail_by_DL:{}'.format(auc_, f1, recall_positive, recall_negative, identify_cnt, new_identify_cnt)
+
+        elif comparison == 'BATS':
+            BatsPatchSim_model_preds = [1 if p >= 0.5 else 0 for p in BatsPatchSim_model_preds]
+            # print('RQ3, {}: '.format(comparison))
+            # print('Test data size: {}'.format(len(NLP_model_ytests)))
             # print('AUC: {:.3f} -- F1: {:.1f} -- +Recall: {:.1f} -- -Recall: {:.1f}'.format(
             #     np.array(bp_aucs).mean() * 100, np.array(bp_f1s).mean() * 100, np.array(bp_rcs_p).mean() * 100,
             #     np.array(bp_rcs_n).mean() * 100))
-            self.evaluation_metrics(NLP_model_ytests, BatsPatchSim_model_preds)
+            recall_positive, recall_negative, acc, prc, rc, f1, auc_ = self.evaluation_metrics_noprint(NLP_model_ytests, BatsPatchSim_model_preds)
 
             print('---------------')
-
             for i in range(len(NLP_model_ytests)):
                 if NLP_model_ytests[i] == NLP_model_preds[i]:
                     identify_cnt += 1
                     if NLP_model_ytests[i] != BatsPatchSim_model_preds[i]:
                         new_identify_cnt += 1
                         # print('New identification: {}'.format(test_patches_info[i]))
-            print('new_identify_cnt: {}/{}'.format(new_identify_cnt, identify_cnt))
+            # print('new_identify_cnt: {}/{}'.format(new_identify_cnt, identify_cnt))
+            if para == '0.0':
+                result = '(1) AUC:{:.3f} F1:{:.3f} +Recall:{:.3f} -Recall:{:.3f}\n'.format(auc_, f1, recall_positive, recall_negative)
+                result += '(2) AUC:{:.3f} F1:{:.3f} +Recall:{:.3f} -Recall:{:.3f}'.format(auc_quatrain, f1_quatrain, recall_p_quatrain, recall_n_quatrain)
+                return result
+            elif para == '0.8':
+                result = '(1) AUC:{:.3f} F1:{:.3f} +Recall:{:.3f} -Recall:{:.3f}\n'.format(auc_, f1, recall_positive, recall_negative)
+                result += '(2) AUC:{:.3f} F1:{:.3f} +Recall:{:.3f} -Recall:{:.3f}\n'.format(auc_quatrain, f1_quatrain, recall_p_quatrain, recall_n_quatrain)
+                result += 'Identification_by_Quatrain:{}   Fail_by_DL:{}'.format(identify_cnt, new_identify_cnt)
+                return result
+        elif comparison == 'PATCHSIM':
+            BatsPatchSim_model_preds = [1 if p >= 0.5 else 0 for p in BatsPatchSim_model_preds]
+            recall_positive, recall_negative, acc, prc, rc, f1, auc_ = self.evaluation_metrics_noprint(NLP_model_ytests, BatsPatchSim_model_preds)
+            print('---------------')
+            for i in range(len(NLP_model_ytests)):
+                if NLP_model_ytests[i] == NLP_model_preds[i]:
+                    identify_cnt += 1
+                    if NLP_model_ytests[i] != BatsPatchSim_model_preds[i]:
+                        new_identify_cnt += 1
+                        # print('New identification: {}'.format(test_patches_info[i]))
+            # print('new_identify_cnt: {}/{}'.format(new_identify_cnt, identify_cnt))
 
+            result = '(1) AUC:{:.3f} F1:{:.3f} +Recall:{:.3f} -Recall:{:.3f}\n'.format(auc_, f1, recall_positive,recall_negative)
+            result += '(2) AUC:{:.3f} F1:{:.3f} +Recall:{:.3f} -Recall:{:.3f}\n'.format(auc_quatrain, f1_quatrain,recall_p_quatrain,recall_n_quatrain)
+            result += 'Identification_by_Quatrain:{}   Fail_by_DL:{}'.format(identify_cnt, new_identify_cnt)
+            return result
 
     def get_train_data_deprecated(self, train_ids, dataset_json, ASE=False, enhance=False):
         train_features, train_labels = [], []
@@ -795,16 +861,16 @@ class Experiment:
                     train_features.append(features[0])
                     train_labels.append(label)
 
-            if comparison == 'ASE':
+            if comparison == 'DL':
                 try:
                     ASE_value = self.ASE_features[train_id]
                     for p in range(len(ASE_value)):
                         patch_id, ASE_vector, ASE_label = ASE_value[p][0], ASE_value[p][1], ASE_value[p][2]
-
                         ASE_train_features.append(np.array(ASE_vector))
                         ASE_train_labels.append(ASE_label)
                 except Exception as e:
-                    print(e)
+                    pass
+                    # print(e)
 
         train_features = np.array(train_features)
         ASE_train_features = np.array(ASE_train_features)
@@ -823,11 +889,12 @@ class Experiment:
         for test_id in test_ids:
             value = dataset_json[test_id]
             bugreport_vector = value[0]
-            if comparison == 'ASE':
+            if comparison == 'DL':
                 try:
                     ASE_value = self.ASE_features[test_id]
                 except Exception as e:
-                    print('No this project in ASE feature!')
+                    pass
+                    # print('No this project in ASE feature!')
             for v in range(1, len(value)):
                 test_patch_id = value[v][0]
                 project, id = test_patch_id.split('_')[0].split('-')[1], test_patch_id.split('_')[0].split('-')[2]
@@ -872,17 +939,8 @@ class Experiment:
                     else:
                         pass
                 else:
-                    if label == 0:
-                        test_features.append(features[0])
-                        test_labels.append(label)
-                    else:
-                        if '_Developer_' in test_patch_id:
-                            features = np.concatenate((bugreport_vector, developer_commit_message_vector), axis=1)
-                        test_features.append(features[0])
-                        test_labels.append(label)
-                    test_info_for_patch.append([test_id, test_patch_id])
-
-                    if comparison == 'ASE':
+                    # count test data of compared approaches earlier than Quatrain, keep the test dataset size same.
+                    if comparison == 'DL':
                         for p in range(len(ASE_value)):
                             patch_id, ASE_vector, ASE_label = ASE_value[p][0], ASE_value[p][1], ASE_value[p][2]
                             if patch_id.lower() == test_patch_id.lower():
@@ -890,10 +948,10 @@ class Experiment:
                                 ASE_test_labels.append(ASE_label)
                                 break
                         else:
-                            print('patch_id: {}'.format(patch_id))
-                            continue
-                            # ASE_test_features.append(np.zeros(2050))
-                            # ASE_test_labels.append(1)
+                            # print('patch_id: {}'.format(patch_id))
+                            # continue
+                            ASE_test_features.append(np.zeros(2050))
+                            ASE_test_labels.append(1)
                     elif comparison == 'BATS':
                         if test_patch_id.lower() in self.BATS_RESULTS_json.keys():
                             BATS_pred = self.BATS_RESULTS_json[test_patch_id.lower()]
@@ -906,6 +964,19 @@ class Experiment:
                             self.comparison_pred.append(PATCHSIM_pred)
                         else:
                             continue
+                    elif comparison == '':
+                        pass
+
+
+                    if label == 0:
+                        test_features.append(features[0])
+                    else:
+                        if '_Developer_' in test_patch_id and self.RQ != 'RQ1gen':
+                            # use developer commit message for RQ1 not for RQ1gen
+                            features = np.concatenate((bugreport_vector, developer_commit_message_vector), axis=1)
+                        test_features.append(features[0])
+                    test_labels.append(label)
+                    test_info_for_patch.append([test_id, test_patch_id])
 
 
         test_features = np.array(test_features)
@@ -953,7 +1024,7 @@ class Experiment:
         df_length = pd.DataFrame(np.array(dataset_distribution), index=[str(i+1) for i in range(10)], columns=['Train', 'Test'])
         # df_AUC = pd.DataFrame(MinMaxScaler().fit_transform(np.array(aucs).reshape(-1,1)), index=['group-'+str(i+1) for i in range(10)], columns=['AUC'])
 
-        fig = plt.figure(figsize=(10, 5))
+        fig = plt.figure(figsize=(12, 6))
         ax1 = fig.add_subplot(111)
         # df_length['Correct prediction'].plot(ax=ax1, kind='bar', color='blue', label='Correct prediction')
         # df_length['Incorrect prediction'].plot(ax=ax1, kind='bar', color='orange', label='Incorrect prediction')
@@ -965,6 +1036,8 @@ class Experiment:
         plt.ylim((0, 12000))
         plt.legend(fontsize=25, loc=2)
         plt.subplots_adjust(bottom=0.2, left=0.2)
+        plt.savefig('./figure/figure6_patches_distribution.jpg')
+        print('The figure is saved to ./figure/figure6_patches_distribution.jpg')
         plt.show()
 
 
@@ -985,7 +1058,7 @@ class Experiment:
         # plt.show()
 
 
-    def boxplot_distribution(self, distribution, y_title):
+    def boxplot_distribution(self, distribution, y_title, figureName):
         dfl = pd.DataFrame(distribution)
         dfl.columns = ['Group', 'Prediction', y_title]
         # put H on left side in plot
@@ -1008,6 +1081,8 @@ class Experiment:
         self.adjust_box_widths(fig, 0.8)
         plt.tight_layout()
         plt.subplots_adjust(bottom=0.2, left=0.1)
+        plt.savefig('./figure/' + figureName)
+        print('The figure is saved to ./figure/' + figureName)
         plt.show()
 
         # distribution = np.array(distribution)
@@ -1034,10 +1109,10 @@ class Experiment:
             if 'identical' in e:
                 p_value = 1
         print('p-value: {}'.format(p_value))
-        if p_value < 0.05:
-            print('Significant!')
+        if p_value <= 0.05:
+            print('Reject Null Hypothesis: Significantly different!')
         else:
-            print('NOT Significant!')
+            print('Support Null Hypothesis!')
 
     def adjust_box_widths(self, g, fac):
         """
@@ -1175,7 +1250,11 @@ class Experiment:
 if __name__ == '__main__':
     embedding = 'bert'
 
-    arg1 = sys.argv[1]
+    if len(sys.argv) >= 2:
+        script_name = sys.argv[0]
+        arg1 = sys.argv[1]
+    else:
+        arg1 = 'RQ1'
     print('task: {}'.format(arg1))
 
     comparison = ''
@@ -1185,7 +1264,35 @@ if __name__ == '__main__':
 
     if arg1 == 'hypothesis':
         e.validate_hypothesis(embedding)
+    elif arg1 == 'RQ1':
+        e.predict_leave1out_10group(embedding, times=10, algorithm='qa_attetion', comparison='', para='', Sanity=False, QualityOfMessage=False, RQ=arg1)
+    elif arg1 == 'RQ1gen':
+        e.predict_leave1out_10group(embedding, times=10, algorithm='qa_attetion', comparison='', para='', Sanity=False, QualityOfMessage=False, RQ=arg1)
+    elif arg1 == 'RQ2.1':
+        e.predict_leave1out_10group(embedding, times=10, algorithm='qa_attetion', comparison='', para='', Sanity=False, QualityOfMessage=False, RQ=arg1)
+    elif arg1 == 'RQ2.2':
+        e.predict_leave1out_10group(embedding, times=10, algorithm='qa_attetion', comparison='', para='', Sanity=True, QualityOfMessage=False, RQ=arg1)
+    elif arg1 == 'RQ2.3':
+        e.predict_leave1out_10group(embedding, times=10, algorithm='qa_attetion', comparison='', para='', Sanity=False, QualityOfMessage=True, RQ=arg1)
+    elif arg1 == 'RQ3DL':
+        result_lr = e.predict_leave1out_10group(embedding, times=10, algorithm='qa_attetion', comparison='DL', para='lr', Sanity=False, QualityOfMessage=False, RQ=arg1)
+        result_rf = e.predict_leave1out_10group(embedding, times=10, algorithm='qa_attetion', comparison='DL', para='rf', Sanity=False, QualityOfMessage=False, RQ=arg1)
+        print('############################################')
+        print('RQ3DL, Compare against a DL-based patch classifier.')
+        print('Tian et al. (LR) --- ' + result_lr)
+        print('Tian et al. (RF) --- ' + result_rf)
+    elif arg1 == 'RQ3BATS':
+        result_00 = e.predict_leave1out_10group(embedding, times=10, algorithm='qa_attetion', comparison='BATS', para='0.0', Sanity=False, QualityOfMessage=False, RQ=arg1)
+        result_08 = e.predict_leave1out_10group(embedding, times=10, algorithm='qa_attetion', comparison='BATS', para='0.8', Sanity=False, QualityOfMessage=False, RQ=arg1)
+        print('############################################')
+        print('RQ3BATS, Compare against BATS (checking patch Behaviour Against failing Test Specification).')
+        print('BATS (cut-off: 0.0) : Quatrain\n' + result_00)
+        print('-------------')
+        print('BATS (cut-off: 0.8) : Quatrain\n' + result_08)
+    elif arg1 == 'RQ3PATCHSIM':
+        result_v1 = e.predict_leave1out_10group(embedding, times=10, algorithm='qa_attetion', comparison='PATCHSIM', para='v1', Sanity=False, QualityOfMessage=False, RQ=arg1)
+        print('############################################')
+        print('RQ3PATCHSIM, Compare against PATCH-SIM (Dynamic Approach).')
+        print('PATCH-SIM : Quatrain\n' + result_v1)
 
-    # e.statistics(embedding)
     # e.predict_10fold(embedding, algorithm='rf')
-    # e.predict_leave1out_10group(embedding, times=10, algorithm='qa_attetion', comparison=comparison, Sanity=Sanity, QualityOfMessage=QualityOfMessage)
