@@ -11,9 +11,7 @@ relatedness of a bug report with a patch description.
 To obtain experimental results of the paper, execute `run.py` with specific parameter:
 
 ### A) Sec. 2.2 
-**Figure 3:** Distributions of Euclidean distances between bug and patch descriptions.
-
-Execute the following:
+  1. **Figure 3:** Distributions of Euclidean distances between bug and patch descriptions.
 ```
 python run.py hypothesis
 ```
@@ -21,43 +19,38 @@ python run.py hypothesis
 ### B) Sec. 5.1 (RQ1) 
   1. **Figure 6:** Distribution of Patches in Train and Test Data. 
   2. **Table 2.:** Confusion matrix of Quatrain prediction.
-
-Execute the following:
 ```
 python run.py RQ1
 ```
-
   3. **F1:** New F1 score by re-balancing the test data.
-
-Execute the following:
 ```
 python run.py RQ1 balance
 ```  
 
-### C) Sec. 5.2 (RQ2) 
-  1. **Figure 7:**  Impact of length of patch description to prediction. 
-
-Execute the following:
+### C) Sec. 5.2 (RQ2)
+#### RQ 2.1
+  1. **Figure 7:**  Impact of length of patch description to prediction.
 ```
 python run.py RQ2.1
-```  
-
+```
+#### RQ 2.2
   2. **Figure 8:**  The distribution of probability of patch correctness
 on original and random bug report.
-  3. **The ratio of performance degradation:**  22% (242/1091) of developer patches, which were previously predicted as correct, are no longer recalled by Quatrain after they have been associated to a random bug report.
-
-Execute the following:
+  3. **The dropped +Recall:**  22% (242/1091) of developer patches, which were previously predicted as correct, are no longer recalled by Quatrain after they have been associated to a random bug report.
 ```
 python run.py RQ2.2
 ```
-
+#### RQ 2.3
   4. **Figure 9:**   Impact of distance between generated patch descrip-
 tion to ground truth on prediction performance.
-  5. **The ratio of performance degradation:**  The metric (+Recall) drops by 40 percentage points to 44\% when the developer-written descriptions are replaced with CodeTrans-generated descriptions.
-
-Execute the following:
+  5. **The dropped +Recall:**  The metric (+Recall) drops by 40 percentage points to 44\% when the developer-written descriptions are replaced with CodeTrans-generated descriptions.
 ```
 python run.py RQ2.3
+```
+  6. **The dropped AUC:**  we evaluated Quatrain in
+a setting where all developer commit messages were replaced with generated descriptions: the AUC metric dropped by 12 percentage points to 0.754, confirming our findings.
+```
+python run.py RQ1 generate
 ```
 
   
