@@ -10,15 +10,15 @@ relatedness of a bug report with a patch description.
 
 ## Ⅰ) Experiment
 
-To obtain experimental results of the paper, execute `run.py` with specific parameter:
+To obtain experimental results of our paper, execute `run.py` with specific parameters:
 
-### A) Sec. 2.2 
+### A) Sec. 2.2 (Hypothesis validation)
   1. **Figure 3:** Distributions of Euclidean distances between bug and patch descriptions.
 ```
 python run.py hypothesis
 ```
 
-### B) Sec. 5.1 (RQ1) 
+### B) Sec. 5.1 (RQ1: Effectiveness of Quatrain) 
   1. **Figure 6:** Distribution of Patches in Train and Test Data. 
   2. **Table 2.:** Confusion matrix of Quatrain prediction.
 ```
@@ -29,7 +29,7 @@ python run.py RQ1
 python run.py RQ1 balance
 ```  
 
-### C) Sec. 5.2 (RQ2)
+### C) Sec. 5.2 (RQ2: Analysis of the Impact of Input Quality on Quatrain)
 #### RQ 2.1
   1. **Figure 7:**  Impact of length of patch description to prediction.
 ```
@@ -54,8 +54,8 @@ python run.py RQ2.3
 python run.py RQ1 generate
 ```
 
-### D) Sec. 5.3 (RQ3)
-#### Sec. 5.3.1 (Static approaches)
+### D) Sec. 5.3 (RQ3: Comparison Against the State of the Art)
+#### Sec. 5.3.1 (Comparing against Static Approaches)
   1. **Table 3:** Quatrain vs a DL-based patch classifie.
   2. **New identification:**  Among 9135 patches, our approach identifies 7591 patches, of which 2559 patches cannot be identified by Tian et al.'s approach (RF).
 ```
@@ -67,11 +67,21 @@ python run.py RQ3 DL
 python run.py RQ3 BATS
 ```
 
-#### Sec. 5.3.2 (Dynamic approach)
+#### Sec. 5.3.2 (Comparing against Dynamic Approach)
   1. **Table 5:** Quatrain vs (execution-based) PATCH-SIM.
   2. **New identification:**  Most of the patches (1867/3128) that we identify are not correctly predicted by PATCH-SIM.
 ```
 python run.py RQ3 PATCHSIM
+```
+
+### D) Sec. 6.1 (Experimental insights)
+  1. **10-fold:** RandomForest (RF) on the embeddings of the bug report and the patch based on 10-fold cross validation.
+```
+python run.py insights 10fold
+```
+  2. **10-group:** RandomForest (RF) on the embeddings of the bug report and the patch based on 10-group cross validation.
+```
+python run.py insights 10group
 ```
 
 ## Ⅱ) Dataset
