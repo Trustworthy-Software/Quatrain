@@ -1,12 +1,14 @@
-# Is this Change the Answer to that Problem? 
-Correlating Descriptions of Bug and Code Changes for Evaluating Patch Correctness
-
 Quatrain
 =======
 Quatrain (Question Answering for Patch Correctness Evaluation), a supervised learning approach that exploits a deep NLP model to classify the
 relatedness of a bug report with a patch description.
+```bibtex
+@article{tian2021is,
+  title={Is this Change the Answer to that Problem? Correlating Descriptions of Bug and Code Changes for Evaluating Patch Correctness},
+}
+```
 
-## Experiment
+## Ⅰ) Experiment
 
 To obtain experimental results of the paper, execute `run.py` with specific parameter:
 
@@ -22,7 +24,7 @@ python run.py hypothesis
 ```
 python run.py RQ1
 ```
-  3. **F1:** New F1 score by re-balancing the test data.
+  3. **F1:** F1 score by re-balancing the test data.
 ```
 python run.py RQ1 balance
 ```  
@@ -47,14 +49,32 @@ tion to ground truth on prediction performance.
 ```
 python run.py RQ2.3
 ```
-  6. **The dropped AUC:**  we evaluated Quatrain in
-a setting where all developer commit messages were replaced with generated descriptions: the AUC metric dropped by 12 percentage points to 0.754, confirming our findings.
+  6. **The dropped AUC:**  we evaluated Quatrain in a setting where all developer commit messages were replaced with generated descriptions: the AUC metric dropped by 12 percentage points to 0.770, confirming our findings.
 ```
 python run.py RQ1 generate
 ```
 
-  
-### Dataset
+### D) Sec. 5.3 (RQ3)
+#### Sec. 5.3.1 (Static approaches)
+  1. **Table 3:** Quatrain vs a DL-based patch classifie.
+  2. **New identification:**  Among 9135 patches, our approach identifies 7591 patches, of which 2559 patches cannot be identified by Tian et al.'s approach (RF).
+```
+python run.py RQ3 DL
+```
+  3. **Table 4:** Quatrain vs BATS.
+  4. **New identification:**  183 out of 342 patches are exclusively identified by Quatrain.
+```
+python run.py RQ3 BATS
+```
+
+#### Sec. 5.3.2 (Dynamic approach)
+  1. **Table 5:** Quatrain vs (execution-based) PATCH-SIM.
+  2. **New identification:**  Most of the patches (1867/3128) that we identify are not correctly predicted by PATCH-SIM.
+```
+python run.py RQ3 PATCHSIM
+```
+
+## Ⅱ) Dataset
 * **BugReport:** Bug reports for Defects4j, Bugsjar, Bears. Structured as `bug-id $$ bug report summary $$ bug report description`.
   1. bug report summary: title for bug issue  
   2. bug report description: detailed description for bug issue
@@ -62,7 +82,7 @@ python run.py RQ1 generate
 * **bugreport_patch.txt:** Pairs of Bug report & Commit message. Structured as `bug-id $$ bug report summary $$ bug report description $$ patchId $$ patch description $$ label`
 * **Patches.zip:** collected patches for Defects4J, Bears, Bugs.jar
 
-
+## Ⅲ) Requirements
 
 [//]: # (### deduplicate.py)
 [//]: # (deduplicating same patches.)
