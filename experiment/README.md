@@ -1,2 +1,1 @@
-# ODS feature extraction
-extract_ods: extract ODS features of patches
+Run `save_bugreport_dataset_json.py` to get embedding json (data/bugreport_patch_json_bert.pickle) for pairs of bug report and commit message.
