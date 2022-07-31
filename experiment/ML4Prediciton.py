@@ -86,7 +86,7 @@ class Classifier:
         rc = recall_score(y_true=y_true, y_pred=y_pred)
         f1 = 2 * prc * rc / (prc + rc)
 
-        print('AUC: %f -- F1: %f -- Accuracy: %f -- Precision: %f -- ' % (auc_, f1, acc, prc,))
+        print('AUC: %f -- F1: %f -- Accuracy: %f -- Precision: %f ' % (auc_, f1, acc, prc,))
         if y_true == y_pred:
             tn, fp, fn, tp = 1, 0, 0, 1
         else:
@@ -236,7 +236,7 @@ class Classifier:
 
         accs, prcs, rcs, f1s, aucs = list(), list(), list(), list(), list()
         rcs_p, rcs_n = list(), list()
-        skf = StratifiedKFold(n_splits=self.kfold, shuffle=True)
+        skf = StratifiedKFold(n_splits=self.kfold, shuffle=True, random_state=0)
 
         for train_index, test_index in skf.split(self.dataset, self.labels):
             x_train, y_train = self.dataset[train_index], self.labels[train_index]
@@ -254,7 +254,7 @@ class Classifier:
             elif self.algorithm == 'dt':
                 clf = DecisionTreeClassifier().fit(X=x_train, y=y_train, sample_weight=None)
             elif self.algorithm == 'rf':
-                clf = RandomForestClassifier().fit(X=x_train, y=y_train,)
+                clf = RandomForestClassifier(random_state=0).fit(X=x_train, y=y_train,)
             elif self.algorithm == 'xgb':
                 dtrain = xgb.DMatrix(x_train, label=y_train)
                 clf = xgb.train(params={'objective': 'binary:logistic', 'verbosity': 0}, dtrain=dtrain, )
@@ -298,9 +298,10 @@ class Classifier:
             rcs_n.append(recall_n)
 
         print('')
-        print('{}-fold cross validation mean: '.format(self.kfold))
-        print('Accuracy: {:.1f} -- Precision: {:.1f} -- +Recall: {:.1f} -- F1: {:.1f} -- AUC: {:.3f}'.format(np.array(accs).mean()*100, np.array(prcs).mean()*100, np.array(rcs).mean()*100, np.array(f1s).mean()*100, np.array(aucs).mean()))
-        print('AUC: {:.3f}, +Recall: {:.3f}, -Recall: {:.3f}'.format(np.array(aucs).mean(), np.array(rcs_p).mean(), np.array(rcs_n).mean()))
+        print('############################################')
+        print('Insights, {}-fold cross validation.'.format(self.kfold))
+        print('AUC: {:.3f} -- F1: {:.1f} -- Accuracy: {:.1f} -- Precision: {:.1f} -- +Recall: {:.1f} '.format(np.array(aucs).mean(), np.array(f1s).mean()*100, np.array(accs).mean()*100, np.array(prcs).mean()*100, np.array(rcs).mean()*100, ))
+        # print('AUC: {:.3f}, +Recall: {:.3f}, -Recall: {:.3f}'.format(np.array(aucs).mean(), np.array(rcs_p).mean(), np.array(rcs_n).mean()))
         print('---------------')
 
     def leave1out_validation(self, i, Sanity=None, QualityOfMessage=None):
@@ -318,14 +319,14 @@ class Classifier:
 
         clf = None
         if self.algorithm == 'lr':
-            clf = LogisticRegression().fit(X=x_train, y=y_train)
+            clf = LogisticRegression(random_state=0).fit(X=x_train, y=y_train)
         elif self.algorithm == 'dt':
             clf = DecisionTreeClassifier().fit(X=x_train, y=y_train, sample_weight=None)
         elif self.algorithm == 'rf':
-            clf = RandomForestClassifier().fit(X=x_train, y=y_train, )
+            clf = RandomForestClassifier(random_state=0).fit(X=x_train, y=y_train, )
         elif self.algorithm == 'xgb':
             dtrain = xgb.DMatrix(x_train, label=y_train)
-            clf = xgb.train(params={'objective': 'binary:logistic', 'verbosity': 0}, dtrain=dtrain, num_boost_round=500)
+            clf = xgb.train(params={'objective': 'binary:logistic', 'verbosity': 0}, dtrain=dtrain,)
         elif self.algorithm == 'nb':
             clf = GaussianNB().fit(X=x_train, y=y_train)
         elif self.algorithm == 'lstm':
