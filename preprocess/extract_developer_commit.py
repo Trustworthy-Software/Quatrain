@@ -127,7 +127,7 @@ def extract_bugsjar(path_bugs_dot_jar):
         json.dump(dict, f)
 
 def extract_bears():
-    token = os.getenv('GITHUB_TOKEN', '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')
+    token = os.getenv('GITHUB_TOKEN', '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')
     g = Github(token)
 
     path_url = 'Project_URL/bears-bugs.json'
