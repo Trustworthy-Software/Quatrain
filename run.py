@@ -36,6 +36,7 @@ class Experiment:
     def __init__(self):
         self.cf = config.Config()
         self.path_patch = self.cf.path_patch
+        self.path_ASE2020_feature = self.cf.path_ASE2020_feature
         if not 'Unique' in self.path_patch:
             raise ('please deduplicate it!')
         self.path_patch_sliced = self.cf.path_patch + '_sliced'
@@ -482,17 +483,17 @@ class Experiment:
         dataset_json = pickle.load(open(os.path.join(dirname, 'data/bugreport_patch_json_' + embedding_method + '.pickle'), 'rb'))
         self.ASE_features = None
         if comparison == 'DL':
-            # ASE_features = pickle.load(open('../data/ASE_features_'+embedding_method+'.pickle', 'rb'))
-            self.ASE_features = pickle.load(open(os.path.join(dirname, 'data/ASE_features2_bert.pickle'), 'rb'))
+            # self.ASE_features = pickle.load(open(os.path.join(dirname, 'data/ASE_features2_bert.pickle'), 'rb'))
+            self.ASE_features = pickle.load(open(self.path_ASE2020_feature, 'rb'))
         elif comparison == 'BATS':
             if para == '0.0':
-                with open('data/BATS_RESULT_0.0.json', 'r+') as f:
+                with open(os.path.join(dirname, 'data/BATS_RESULT_0.0.json'), 'r+') as f:
                     self.BATS_RESULTS_json = json.load(f)
             elif para == '0.8':
-                with open('data/BATS_RESULT_0.8.json', 'r+') as f:
+                with open(os.path.join(dirname, 'data/BATS_RESULT_0.8.json'), 'r+') as f:
                     self.BATS_RESULTS_json = json.load(f)
         elif comparison == 'PATCHSIM':
-            with open('data/PATCHSIM_RESULT.json', 'r+') as f:
+            with open(os.path.join(dirname, 'data/PATCHSIM_RESULT.json'), 'r+') as f:
                 self.PATCHSIM_RESULTS_json = json.load(f)
         # leave one out
         project_ids = list(dataset_json.keys())
@@ -1262,9 +1263,6 @@ if __name__ == '__main__':
         arg2 = ''
     print('task: {}'.format(arg1))
 
-    comparison = ''
-    Sanity = False
-    QualityOfMessage = False
     e = Experiment()
 
     if arg1 == 'hypothesis':
