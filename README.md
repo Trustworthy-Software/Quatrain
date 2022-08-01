@@ -110,7 +110,9 @@ python run.py insights 10group
 
 [//]: # (* **Patches.zip:** collected patches for Defects4J, Bears, Bugs.jar)
 
+## License
 
+Quatrain is distributed under the terms of the MIT License, see [LICENSE](LICENSE).
 
 [//]: # (### deduplicate.py)
 [//]: # (deduplicating same patches.)
