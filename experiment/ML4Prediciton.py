@@ -29,6 +29,13 @@ import os
 os.environ["CUDA_VISIBLE_DEVICES"]="-1"
 
 
+SEED = 1
+random.seed(SEED)
+np.random.seed(SEED)
+
+import tensorflow 
+tensorflow.random.set_seed(SEED)
+
 class Classifier:
     def __init__(self, dataset, labels, algorithm, kfold, train_features=None, train_labels=None, test_features=None, test_labels=None, random_test_features=None, test_info_for_patch=None):
         self.dataset = dataset
