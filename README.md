@@ -11,8 +11,10 @@ relatedness of a bug report with a patch description.
 ```
 ## Ⅰ) Requirements
 ### A) Environment 
+run `sudo apt-get install python3.7-dev` first if you don't have python3.7 dev package.
   * python 3.7
   * pip install -r requirements.txt
+
 ### B) Data elements 
   download _ASE2022withTextUnique.zip_ (need to be unzipped) and _ASE_features2_bert.pickle_ from [Zenodo](https://zenodo.org/record/6946294#.Yub3NWQzZhE "Dataset for Quatrain"), 
   accordingly change the absolute path of files in **experiment/config.py** of this repository as below.
