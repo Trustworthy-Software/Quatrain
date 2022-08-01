@@ -25,7 +25,8 @@ from experiment.deep_learning import *
 from scipy.spatial import distance as dis
 import distance._levenshtein
 import os
-os.environ["CUDA_VISIBLE_DEVICES"]="0,3"
+# os.environ["CUDA_VISIBLE_DEVICES"]="0,3"
+os.environ["CUDA_VISIBLE_DEVICES"]="-1"
 
 
 class Classifier:
