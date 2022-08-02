@@ -1,4 +1,3 @@
-import imp
 import json
 from nltk.tokenize import word_tokenize
 from gensim.utils import tokenize
@@ -29,8 +28,12 @@ import os
 os.environ["CUDA_VISIBLE_DEVICES"]="-1"
 
 
-SEED = 13
-tf.random.set_seed(SEED)
+SEED = 8
+random.seed(SEED)
+np.random.seed(SEED)
+
+import tensorflow
+tensorflow.random.set_seed(SEED)
 
 class Classifier:
     def __init__(self, dataset, labels, algorithm, kfold, train_features=None, train_labels=None, test_features=None, test_labels=None, random_test_features=None, test_info_for_patch=None):
@@ -358,20 +361,20 @@ class Classifier:
             callback = [keras.callbacks.EarlyStopping(monitor='val_auc', patience=2, mode="max", verbose=1), ]
             combine_qa_model.fit([x_train_q, x_train_a], y_train, validation_split=0.1, batch_size=64,epochs=10,)
         elif self.algorithm == 'qa_attetion':
-            model_saved = 'models/quatrain_'+str(i+1)+'.h5'
-            if os.path.exists(model_saved):
-                combine_qa_model = load_model('models/quatrain_'+str(i+1)+'.h5')
-            else:
-                seq_maxlen = 64
-                y_train = np.array(y_train).astype(float)
-                x_train_q = x_train[:, :1024]
-                x_train_a = x_train[:, 1024:]
-                x_train_q = np.reshape(x_train_q, (x_train_q.shape[0], seq_maxlen, -1))
-                x_train_a = np.reshape(x_train_a, (x_train_a.shape[0], seq_maxlen, -1))
-                combine_qa_model = get_qa_attention(x_train_q.shape[1:], x_train_a.shape[1:])
-                callback = [keras.callbacks.EarlyStopping(monitor='val_auc', patience=1, mode="max", verbose=0), ]
-                combine_qa_model.fit([x_train_q, x_train_a], y_train, callbacks=callback, validation_split=0.2, batch_size=128, epochs=10,)
-                combine_qa_model.save('models/quatrain_'+str(i+1)+'.h5')
+            # model_saved = 'models/quatrain_'+str(i+1)+'.h5'
+            # if os.path.exists(model_saved):
+            #     combine_qa_model = load_model('models/quatrain_'+str(i+1)+'.h5')
+            # else:
+            seq_maxlen = 64
+            y_train = np.array(y_train).astype(float)
+            x_train_q = x_train[:, :1024]
+            x_train_a = x_train[:, 1024:]
+            x_train_q = np.reshape(x_train_q, (x_train_q.shape[0], seq_maxlen, -1))
+            x_train_a = np.reshape(x_train_a, (x_train_a.shape[0], seq_maxlen, -1))
+            combine_qa_model = get_qa_attention(x_train_q.shape[1:], x_train_a.shape[1:])
+            callback = [keras.callbacks.EarlyStopping(monitor='val_auc', patience=1, mode="max", verbose=0), ]
+            combine_qa_model.fit([x_train_q, x_train_a], y_train, callbacks=callback, validation_split=0.2, batch_size=128, epochs=10,)
+            # combine_qa_model.save('models/quatrain_'+str(i+1)+'.h5')
 
         # predict
         if self.algorithm == 'xgb':

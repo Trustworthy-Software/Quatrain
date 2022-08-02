@@ -31,10 +31,6 @@ dirname = os.path.dirname(__file__)
 
 import sys
 
-SEED = 13
-random.seed(SEED)
-np.random.seed(SEED)
-
 
 class Experiment:
     def __init__(self):
@@ -512,6 +508,7 @@ class Experiment:
         all_correct, all_predict_correct, all_random_correct = 0.0, [], []
         meesage_length_distribution, report_length_distribution, similarity_message_distribution = [], [], []
         dataset_distribution = []
+        random.seed(1)
         random.shuffle(project_ids,)
         n = int(math.ceil(len(project_ids) / float(times)))
         groups = [project_ids[i:i+n] for i in range(0, len(project_ids), n)]
@@ -778,8 +775,8 @@ class Experiment:
                         # print('New identification: {}'.format(test_patches_info[i]))
             # print('new_identify_cnt: {}/{}'.format(new_identify_cnt, identify_cnt))
 
-            result = '(1) AUC:{:.3f} F1:{:.3f} +Recall:{:.3f} -Recall:{:.3f}\n'.format(auc_, f1, recall_positive,recall_negative)
-            result += '(2) AUC:{:.3f} F1:{:.3f} +Recall:{:.3f} -Recall:{:.3f}\n'.format(auc_quatrain, f1_quatrain,recall_p_quatrain,recall_n_quatrain)
+            result = '(1) PATCH-SIM: AUC:{:.3f} F1:{:.3f} +Recall:{:.3f} -Recall:{:.3f}\n'.format(auc_, f1, recall_positive,recall_negative)
+            result += '(2) Quatrain:  AUC:{:.3f} F1:{:.3f} +Recall:{:.3f} -Recall:{:.3f}\n'.format(auc_quatrain, f1_quatrain,recall_p_quatrain,recall_n_quatrain)
             result += '{} out of {} patches are exclusively identified by Quatrain'.format(new_identify_cnt, identify_cnt, )
             return result
 
@@ -852,7 +849,7 @@ class Experiment:
                     features = np.concatenate((bugreport_vector, developer_commit_message_vector), axis=1)
                     train_features.append(features[0])
                     train_labels.append(label)
-
+                    random.seed(1)
                     features_random = np.concatenate((random.choice(random_bug_report_vector_list), developer_commit_message_vector), axis=1)
                     train_features.append(features_random[0])
                     train_labels.append(0)
@@ -920,6 +917,7 @@ class Experiment:
                         test_info_for_patch.append([test_id, test_patch_id])
                         # 1.2 random bug report
                         bug_report_vector_list = [v[0] for k, v in dataset_json.items() if (k in test_ids and k != test_id)]
+                        random.seed(1)
                         random_bug_report = random.choice(bug_report_vector_list)
                         random_features = np.concatenate((random_bug_report, developer_commit_message_vector), axis=1)
                         random_test_features.append(random_features[0])
@@ -1297,7 +1295,7 @@ if __name__ == '__main__':
         result_v1 = e.predict_leave1out_10group(embedding, times=10, algorithm='qa_attetion', comparison='PATCHSIM', para='v1', Sanity=False, QualityOfMessage=False, RQ=arg1)
         print('############################################')
         print('RQ3-PATCHSIM, Compare against PATCH-SIM (Dynamic Approach).')
-        print('PATCH-SIM : Quatrain\n' + result_v1)
+        print(result_v1)
     elif arg1 == 'insights' and arg2 == '10fold':
         print('10-fold cross validation.')
         e.predict_10fold(embedding, algorithm='rf')
