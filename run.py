@@ -238,7 +238,7 @@ class Experiment:
         plt.xticks(fontsize=28, )
         plt.yticks(fontsize=28, )
 
-        bp = sns.boxplot(x=y_title, y='Category', data=dfl, showfliers=False, palette=colors, width=0.5, orient='h', notch=True)
+        bp = sns.boxplot(x=y_title, y='Category', data=dfl, showfliers=False, palette=colors, width=0.5, orient='h', notch=False)
         # bp = sns.stripplot(x=y_title, y='Category', data=dfl, alpha = 0.2, color = 'blue')
         # bp.set_xticklabels(bp.get_xticklabels(), rotation=320)
         # bp.set_xticklabels(bp.get_xticklabels())
@@ -733,9 +733,12 @@ class Experiment:
             # print('new/all: {}/{}'.format(new_identify_cnt, identify_cnt))
 
             if para == 'lr':
-                return 'AUC:{:.3f} F1:{:.3f} +Recall:{:.3f} -Recall:{:.3f}'.format(auc_, f1, recall_positive, recall_negative)
+                lr_re = 'Tian et al. (LR): AUC:{:.3f} F1:{:.3f} +Recall:{:.3f} -Recall:{:.3f}'.format(auc_, f1, recall_positive, recall_negative)
+                qua_re = 'Quatrain:       AUC:{:.3f} F1:{:.3f} +Recall:{:.3f} -Recall:{:.3f}'.format(auc_quatrain, f1_quatrain, recall_p_quatrain, recall_n_quatrain)
+                return lr_re, qua_re
             elif para == 'rf':
-                return 'AUC:{:.3f} F1:{:.3f} +Recall:{:.3f} -Recall:{:.3f} \n{} out of {} patches are exclusively identified by Quatrain.'.format(auc_, f1, recall_positive, recall_negative, new_identify_cnt, identify_cnt, )
+                rf_re = 'Tian et al. (RF): AUC:{:.3f} F1:{:.3f} +Recall:{:.3f} -Recall:{:.3f} \n{} out of {} patches are exclusively identified by Quatrain.'.format(auc_, f1, recall_positive, recall_negative, new_identify_cnt, identify_cnt, )
+                return rf_re
 
         elif comparison == 'BATS':
             BatsPatchSim_model_preds = [1 if p >= 0.5 else 0 for p in BatsPatchSim_model_preds]
@@ -1065,7 +1068,7 @@ class Experiment:
         fig = plt.figure(figsize=(15, 8))
         plt.xticks(fontsize=28, )
         plt.yticks(fontsize=28, )
-        bp = sns.boxplot(x='Group', y=y_title, data=dfl, showfliers=False, palette=colors, hue='Prediction', width=0.7, notch=True)
+        bp = sns.boxplot(x='Group', y=y_title, data=dfl, showfliers=False, palette=colors, hue='Prediction', width=0.7, notch=False)
         # bp.set_xticklabels(bp.get_xticklabels(), rotation=320)
         bp.set_xticklabels(bp.get_xticklabels())
         # bp.set_xticklabels(bp.get_xticklabels(), fontsize=28)
@@ -1075,7 +1078,7 @@ class Experiment:
         plt.legend(fontsize=28, loc=1)
         # plt.legend(bbox_to_anchor=(0, 1.02, 1, 0.2), loc="lower left", borderaxespad=0, ncol=3, fontsize=30, )
         self.adjust_box_widths(fig, 0.8)
-        plt.tight_layout()
+        # plt.tight_layout()
         plt.subplots_adjust(bottom=0.2, left=0.1)
         plt.savefig('./figure/' + figureName)
         print('The figure is saved to ./figure/' + figureName)
@@ -1255,7 +1258,7 @@ if __name__ == '__main__':
         arg1 = sys.argv[1]
         arg2 = sys.argv[2]
     else:
-        arg1 = 'insights'
+        arg1 = 'RQ2.3'
         arg2 = ''
     print('task: {}'.format(arg1))
 
@@ -1277,12 +1280,13 @@ if __name__ == '__main__':
     elif arg1 == 'RQ2.3':
         e.predict_leave1out_10group(embedding, times=10, algorithm='qa_attetion', comparison='', para='', Sanity=False, QualityOfMessage=True, RQ=arg1)
     elif arg1 == 'RQ3' and arg2 == 'DL':
-        result_lr = e.predict_leave1out_10group(embedding, times=10, algorithm='qa_attetion', comparison='DL', para='lr', Sanity=False, QualityOfMessage=False, RQ=arg1)
+        result_lr, result_quatrain = e.predict_leave1out_10group(embedding, times=10, algorithm='qa_attetion', comparison='DL', para='lr', Sanity=False, QualityOfMessage=False, RQ=arg1)
         result_rf = e.predict_leave1out_10group(embedding, times=10, algorithm='qa_attetion', comparison='DL', para='rf', Sanity=False, QualityOfMessage=False, RQ=arg1)
         print('############################################')
         print('RQ3-DL, Compare against a DL-based patch classifier.')
-        print('Tian et al. (LR) --- ' + result_lr)
-        print('Tian et al. (RF) --- ' + result_rf)
+        print(result_lr)
+        print(result_rf)
+        print(result_quatrain)
     elif arg1 == 'RQ3' and arg2 == 'BATS':
         result_00 = e.predict_leave1out_10group(embedding, times=10, algorithm='qa_attetion', comparison='BATS', para='0.0', Sanity=False, QualityOfMessage=False, RQ=arg1)
         result_08 = e.predict_leave1out_10group(embedding, times=10, algorithm='qa_attetion', comparison='BATS', para='0.8', Sanity=False, QualityOfMessage=False, RQ=arg1)
