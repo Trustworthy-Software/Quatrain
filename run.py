@@ -31,12 +31,9 @@ dirname = os.path.dirname(__file__)
 
 import sys
 
-SEED = 1
+SEED = 13
 random.seed(SEED)
 np.random.seed(SEED)
-
-import tensorflow 
-tensorflow.random.set_seed(SEED)
 
 
 class Experiment:
@@ -143,7 +140,6 @@ class Experiment:
         # self.validateBysString()
 
     def validateBysString(self,):
-        # random.seed(10)
         cnt = 0
         distribution_distance = []
         bug_report_txts = []
@@ -215,7 +211,6 @@ class Experiment:
         scaler = StandardScaler()
         all_developer_commit = scaler.fit_transform(np.array(all_developer_commit))
         # 2.
-        # random.seed(10)
         distribution_distance = []
         for i in range(all_bug_report.shape[0]):
             # print(project_ids[i])
@@ -347,7 +342,6 @@ class Experiment:
 
     def cluster_patch_commit(self, all_developer_commit, number):
         scaler = Normalizer()
-        # random.seed(0)
         P = pd.DataFrame(scaler.fit_transform(all_developer_commit))
         clusters = [random.randint(0, number-1) for i in range(len(all_developer_commit))]
         clusters = np.array(clusters)
@@ -518,7 +512,6 @@ class Experiment:
         all_correct, all_predict_correct, all_random_correct = 0.0, [], []
         meesage_length_distribution, report_length_distribution, similarity_message_distribution = [], [], []
         dataset_distribution = []
-        # random.seed(1)
         random.shuffle(project_ids,)
         n = int(math.ceil(len(project_ids) / float(times)))
         groups = [project_ids[i:i+n] for i in range(0, len(project_ids), n)]
@@ -856,7 +849,6 @@ class Experiment:
                 # random_bug_report_vector_list = [v[0] for k, v in dataset_json.items() if (k in train_ids and k != train_id)]
 
                 if '_Developer_' in train_patch_id:
-                    # random.seed(10)
                     features = np.concatenate((bugreport_vector, developer_commit_message_vector), axis=1)
                     train_features.append(features[0])
                     train_labels.append(label)
@@ -928,7 +920,6 @@ class Experiment:
                         test_info_for_patch.append([test_id, test_patch_id])
                         # 1.2 random bug report
                         bug_report_vector_list = [v[0] for k, v in dataset_json.items() if (k in test_ids and k != test_id)]
-                        # random.seed(100)
                         random_bug_report = random.choice(bug_report_vector_list)
                         random_features = np.concatenate((random_bug_report, developer_commit_message_vector), axis=1)
                         random_test_features.append(random_features[0])
