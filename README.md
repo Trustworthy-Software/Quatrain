@@ -32,8 +32,8 @@ run `sudo apt-get install python3.7-dev` first if you don't have python3.7 dev p
 ### B) Data elements 
   download _ASE2022withTextUnique.zip_ (need to be unzipped) and _ASE_features2_bert.pickle_ from [Zenodo](https://zenodo.org/record/6946294#.Yub3NWQzZhE "Dataset for Quatrain"), 
   accordingly change the absolute path of files in **experiment/config.py** of this repository as below.
-  1. self.path_patch ---> ASE2022withTextUnique.
-  2. self.path_ASE2020_feature ---> ASE_features2_bert.pickle.
+  1. self.path_patch ---> ASE2022withTextUnique.  Original dataset with patches text and commit messages text.
+  2. self.path_ASE2020_feature ---> ASE_features2_bert.pickle.  Tian et al.'s ASE2020 feature for RQ3 DL experiment. 
 
 ## Ⅱ) Experiment
 
