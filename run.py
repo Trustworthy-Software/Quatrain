@@ -36,6 +36,8 @@ import sys
 class Experiment:
     def __init__(self):
         self.cf = config.Config()
+        self.embedding = self.cf.embedding
+        self.dataset_json = self.cf.dataset_json
         self.path_patch = self.cf.path_patch
         self.path_ASE2020_feature = self.cf.path_ASE2020_feature
         if not 'Unique' in self.path_patch:
@@ -482,8 +484,7 @@ class Experiment:
                                                                      np.array(rcs_n).mean()))
         print('---------------')
 
-    def predict_leave1out_10group(self, embedding_method, times, algorithm, comparison, para=None, Sanity=False, QualityOfMessage=False,RQ=None):
-        dataset_json = pickle.load(open(os.path.join(dirname, 'data/bugreport_patch_json_' + embedding_method + '.pickle'), 'rb'))
+    def predict_leave1out_10group(self, dataset_json, embedding_method, times, algorithm, comparison, para=None, Sanity=False, QualityOfMessage=False, RQ=None):
         self.ASE_features = None
         if comparison == 'DL':
             # self.ASE_features = pickle.load(open(os.path.join(dirname, 'data/ASE_features2_bert.pickle'), 'rb'))
@@ -1282,7 +1283,6 @@ class Experiment:
         plt.show()
 
 if __name__ == '__main__':
-    embedding = 'bert'
 
     if len(sys.argv) == 2:
         script_name = sys.argv[0]
@@ -1306,26 +1306,28 @@ if __name__ == '__main__':
     print('task: {}'.format(arg1))
 
     e = Experiment()
+    dataset_json = e.dataset_json
+    embedding = e.embedding
 
     if arg1 == 'hypothesis':
         e.validate_hypothesis(embedding)
     elif arg1 == 'RQ1':
         if arg2 == '':
-            e.predict_leave1out_10group(embedding, times=10, algorithm='qa_attetion', comparison='', para=arg2, Sanity=False, QualityOfMessage=False, RQ=arg1)
+            e.predict_leave1out_10group(dataset_json, embedding, times=10, algorithm='qa_attetion', comparison='', para=arg2, Sanity=False, QualityOfMessage=False, RQ=arg1)
         elif arg2 == 'balance':
-            e.predict_leave1out_10group(embedding, times=10, algorithm='qa_attetion', comparison='', para=arg2, Sanity=False, QualityOfMessage=False, RQ=arg1)
+            e.predict_leave1out_10group(dataset_json, embedding, times=10, algorithm='qa_attetion', comparison='', para=arg2, Sanity=False, QualityOfMessage=False, RQ=arg1)
     elif arg1 == 'RQ2.1':
-        e.predict_leave1out_10group(embedding, times=10, algorithm='qa_attetion', comparison='', para='', Sanity=False, QualityOfMessage=False, RQ=arg1)
+        e.predict_leave1out_10group(dataset_json, embedding, times=10, algorithm='qa_attetion', comparison='', para='', Sanity=False, QualityOfMessage=False, RQ=arg1)
     elif arg1 == 'RQ2.2':
-        e.predict_leave1out_10group(embedding, times=10, algorithm='qa_attetion', comparison='', para='', Sanity=True, QualityOfMessage=False, RQ=arg1)
+        e.predict_leave1out_10group(dataset_json, embedding, times=10, algorithm='qa_attetion', comparison='', para='', Sanity=True, QualityOfMessage=False, RQ=arg1)
     elif arg1 == 'RQ2.3':
         if arg2 == '':
-            e.predict_leave1out_10group(embedding, times=10, algorithm='qa_attetion', comparison='', para='', Sanity=False, QualityOfMessage=True, RQ=arg1)
+            e.predict_leave1out_10group(dataset_json, embedding, times=10, algorithm='qa_attetion', comparison='', para='', Sanity=False, QualityOfMessage=True, RQ=arg1)
         elif arg2 == 'CodeTrans':
-            e.predict_leave1out_10group(embedding, times=10, algorithm='qa_attetion', comparison='', para=arg2, Sanity=False, QualityOfMessage=False, RQ=arg1)
+            e.predict_leave1out_10group(dataset_json, embedding, times=10, algorithm='qa_attetion', comparison='', para=arg2, Sanity=False, QualityOfMessage=False, RQ=arg1)
     elif arg1 == 'RQ3' and arg2 == 'DL':
-        result_lr, result_quatrain = e.predict_leave1out_10group(embedding, times=10, algorithm='qa_attetion', comparison='DL', para='lr', Sanity=False, QualityOfMessage=False, RQ=arg1)
-        result_rf, exclusively_re = e.predict_leave1out_10group(embedding, times=10, algorithm='qa_attetion', comparison='DL', para='rf', Sanity=False, QualityOfMessage=False, RQ=arg1)
+        result_lr, result_quatrain = e.predict_leave1out_10group(dataset_json, embedding, times=10, algorithm='qa_attetion', comparison='DL', para='lr', Sanity=False, QualityOfMessage=False, RQ=arg1)
+        result_rf, exclusively_re = e.predict_leave1out_10group(dataset_json, embedding, times=10, algorithm='qa_attetion', comparison='DL', para='rf', Sanity=False, QualityOfMessage=False, RQ=arg1)
         print('############################################')
         print('RQ3-DL, Table 3: Quatrain vs a DL-based patch classifier.')
         print('——————————————————————————————————————————————————————————————————————')
@@ -1339,7 +1341,7 @@ if __name__ == '__main__':
         print('New identification: {}'.format(exclusively_re))
     elif arg1 == 'RQ3' and arg2 == 'BATS':
         # result_00, result_qua_00 = e.predict_leave1out_10group(embedding, times=10, algorithm='qa_attetion', comparison='BATS', para='0.0', Sanity=False, QualityOfMessage=False, RQ=arg1)
-        result_08, result_qua_08, exclusively_re = e.predict_leave1out_10group(embedding, times=10, algorithm='qa_attetion', comparison='BATS', para='0.8', Sanity=False, QualityOfMessage=False, RQ=arg1)
+        result_08, result_qua_08, exclusively_re = e.predict_leave1out_10group(dataset_json, embedding, times=10, algorithm='qa_attetion', comparison='BATS', para='0.8', Sanity=False, QualityOfMessage=False, RQ=arg1)
         print('############################################')
         print('RQ3-BATS, Table 4: Quatrain vs BATS.')
         print('——————————————————————————————————————————————————————————————————————')
@@ -1353,7 +1355,7 @@ if __name__ == '__main__':
         print('——————————————————————————————————————————————————————————————————————')
         print('New identification: {}'.format(exclusively_re))
     elif arg1 == 'RQ3' and arg2 == 'PATCHSIM':
-        result_patchsim, result_quatrain, exclusively_re = e.predict_leave1out_10group(embedding, times=10, algorithm='qa_attetion', comparison='PATCHSIM', para='v1', Sanity=False, QualityOfMessage=False, RQ=arg1)
+        result_patchsim, result_quatrain, exclusively_re = e.predict_leave1out_10group(dataset_json, embedding, times=10, algorithm='qa_attetion', comparison='PATCHSIM', para='v1', Sanity=False, QualityOfMessage=False, RQ=arg1)
         print('############################################')
         print('RQ3-PATCHSIM, Table 5: Quatrain vs (execution-based) PATCH-SIM.')
         print('——————————————————————————————————————————————————————————————————————')
@@ -1365,7 +1367,7 @@ if __name__ == '__main__':
         print('New identification: {}'.format(exclusively_re))
     elif arg1 == 'insights':
         auc_10fold, f1_10fold = e.predict_10fold(embedding, algorithm='rf')
-        auc_10group, f1_10group = e.predict_leave1out_10group(embedding, times=10, algorithm='rf', comparison='', para=arg2, Sanity=False, QualityOfMessage=False, RQ=arg1)
+        auc_10group, f1_10group = e.predict_leave1out_10group(dataset_json, embedding, times=10, algorithm='rf', comparison='', para=arg2, Sanity=False, QualityOfMessage=False, RQ=arg1)
         print('############################################')
         print('Experimental insights, 10-fold vs 10-group.')
         print('RF with 10-fold:  AUC: {:.3f} -- F1: {:.3f}'.format(auc_10fold, f1_10fold))

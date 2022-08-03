@@ -123,8 +123,8 @@ python run.py RQ3 PATCHSIM
 python run.py insights
 ```
 
-## 4) Custom Prediction
-To predict the correctness of your custom patches, you can use the prediction interface.
+## 5) Custom Prediction
+To predict the correctness of your custom patches, you are welcome to use the prediction interface.
 ### A) Requirements
   * **BERT model client&server:** 24-layer, 1024-hidden, 16-heads, 340M parameters. download it [here](https://storage.googleapis.com/bert_models/2019_05_30/wwm_cased_L-24_H-1024_A-16.zip).
     
@@ -145,9 +145,14 @@ python run.py predict $bug_report_text $patch_description_text
 ```
 For instance: `python run.py predict 'Missing type-checks for var_args notation' 'check var_args properly'`
 
+## 4) Custom Train
+To re-train QUATRAIN model on our or other dataset, execute the following steps.
+  1. Structure your dataset as `data/bugreport_patch.txt`. 
+  2. Obtain Bert embeddings of your dataset via `experiment/save_bugreport_dataset_json.py`
+  3. Accordingly, change self.dataset_json in experiment/config.py 
+  4. Execute `python run.py RQ1`
 
 ## License
-
 Quatrain is distributed under the terms of the MIT License, see [LICENSE](LICENSE).
 
 [//]: # (### deduplicate.py)
