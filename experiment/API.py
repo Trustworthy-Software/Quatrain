@@ -83,7 +83,7 @@ class Quatrain:
         x_test_a = np.reshape(x_test_a, (x_test_a.shape[0], seq_maxlen, -1))
         y_pred_prob = self.predict_model.predict([x_test_q, x_test_a])[:, 0]
         y_pred = [1 if p >= self.threshold else 0 for p in list(y_pred_prob)]
-
+        print('############################################')
         if y_pred[0] == 1:
             print('Congrats! Your patch is CORRECT.')
         elif y_pred[0] == 0:
