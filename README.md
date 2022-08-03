@@ -37,7 +37,7 @@ python run.py hypothesis
 ```
 python run.py RQ1
 ```
-  3. **F1:** F1 score by re-balancing the test data.
+  3. **The improved F1:** F1 score by re-balancing the test data.
 ```
 python run.py RQ1 balance
 ```  
@@ -51,50 +51,47 @@ python run.py RQ2.1
 #### RQ 2.2
   2. **Figure 8:**  The distribution of probability of patch correctness
 on original and random bug report.
-  3. **The dropped +Recall:**  22% (242/1091) of developer patches, which were previously predicted as correct, are no longer recalled by Quatrain after they have been associated to a random bug report.
+  3. **The dropped +Recall:**  22% (241/1073) of developer patches, which were previously predicted as correct, are no longer recalled by Quatrain after they have been associated to a random bug report.
 ```
 python run.py RQ2.2
 ```
 #### RQ 2.3
   4. **Figure 9:**   Impact of distance between generated patch descrip-
 tion to ground truth on prediction performance.
-  5. **The dropped +Recall:**  The metric (+Recall) drops by 40 percentage points to 44\% when the developer-written descriptions are replaced with CodeTrans-generated descriptions.
+  5. **The dropped +Recall:**  The metric (+Recall) drops by 37 percentage points to 45\% when the developer-written descriptions are replaced with CodeTrans-generated descriptions.
 ```
 python run.py RQ2.3
 ```
-  6. **The dropped AUC:**  we evaluated Quatrain in a setting where all developer commit messages were replaced with generated descriptions: the AUC metric dropped by 12 percentage points to 0.770, confirming our findings.
+  6. **The dropped AUC:**  we evaluated Quatrain in a setting where all developer commit messages were replaced with generated descriptions: the AUC metric dropped by 11 percentage points to 0.774, confirming our findings.
 ```
-python run.py RQ1 generate
+python run.py RQ2.3 generate
 ```
 
 ### D) Sec. 5.3 (RQ3: Comparison Against the State of the Art)
 #### Sec. 5.3.1 (Comparing against Static Approaches)
   1. **Table 3:** Quatrain vs a DL-based patch classifie.
-  2. **New identification:**  Among 9135 patches, our approach identifies 7591 patches, of which 2559 patches cannot be identified by Tian et al.'s approach (RF).
+  2. **New identification:**  Among 9135 patches, our approach identifies 7842 patches, of which 2735 patches cannot be identified by Tian et al.'s approach (RF).
 ```
 python run.py RQ3 DL
 ```
   3. **Table 4:** Quatrain vs BATS.
-  4. **New identification:**  183 out of 342 patches are exclusively identified by Quatrain.
+  4. **New identification:**  180 out of 345 patches are exclusively identified by Quatrain.
 ```
 python run.py RQ3 BATS
 ```
 
 #### Sec. 5.3.2 (Comparing against Dynamic Approach)
   1. **Table 5:** Quatrain vs (execution-based) PATCH-SIM.
-  2. **New identification:**  Most of the patches (1867/3128) that we identify are not correctly predicted by PATCH-SIM.
+  2. **New identification:**  Most of the patches (1856/3149) that we identify are not correctly predicted by PATCH-SIM.
 ```
 python run.py RQ3 PATCHSIM
 ```
 
 ### D) Sec. 6.1 (Experimental insights)
-  1. **10-fold:** RandomForest (RF) on the embeddings of the bug report and the patch based on 10-fold cross validation.
+  1. **RF with 10-fold:** RandomForest (RF) on the embeddings of the bug report and the patch based on 10-fold cross validation.
+  2. **RF with 10-group:** RandomForest (RF) on the embeddings of the bug report and the patch based on 10-group cross validation.
 ```
-python run.py insights 10fold
-```
-  2. **10-group:** RandomForest (RF) on the embeddings of the bug report and the patch based on 10-group cross validation.
-```
-python run.py insights 10group
+python run.py insights
 ```
 
 ## Ⅲ) Dataset
