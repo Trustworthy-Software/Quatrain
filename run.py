@@ -60,8 +60,6 @@ class Experiment:
         # print('Evaluating AUC, F1, +Recall, -Recall')
         print('Test data size: {}, Incorrect: {}, Correct: {}'.format(len(y_trues), y_trues.count(0), y_trues.count(1)))
         # print('AUC: %f -- F1: %f  -- Accuracy: %f -- Precision: %f ' % (auc_, f1, acc, prc,))
-        if RQ == 'RQ1':
-            print('Table 2: Confusion matrix of Quatrain prediction.')
         print('AUC: %f -- F1: %f ' % (auc_, f1,))
 
         if y_trues == y_preds:
@@ -649,6 +647,9 @@ class Experiment:
                 self.evaluation_metrics(NLP_model_ytests_4f1, NLP_model_preds_4f1)
                 return
 
+            if para == '':
+                print('#####################')
+                print('Table 2: Confusion matrix of Quatrain prediction.')
             _, _, _, _, _, f1_quatrain, auc_quatrain = self.evaluation_metrics(NLP_model_ytests, NLP_model_preds, RQ)
             print('---------------')
 
