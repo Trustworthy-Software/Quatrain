@@ -651,7 +651,7 @@ class Experiment:
             print('---------------')
 
             # confusion matrix
-            print('TP _ TN _ FP _ FN _ +Recall _ -Recall')
+            # print('TP _ TN _ FP _ FN _ +Recall _ -Recall')
             np.set_printoptions(suppress=True)
             # calculate average +Recall and -Recall based on all data
             recall_list = []
@@ -659,10 +659,25 @@ class Experiment:
                 tp, tn, fp, fn = matrix_average[i][0], matrix_average[i][1], matrix_average[i][2], matrix_average[i][3]
                 recall_p = tp / (tp + fn)
                 recall_n = tn / (tn + fp)
-                recall_list.append([np.round(recall_p, decimals=3), np.round(recall_n, decimals=3)])
+                recall_list.append([np.round(recall_p, decimals=3)*100, np.round(recall_n, decimals=3)*100])
             new_matrix_average = np.concatenate((matrix_average[:,:4], np.array(recall_list)), axis=1)
-            recall_p_quatrain, recall_n_quatrain = new_matrix_average[3][4], new_matrix_average[3][5]
-            print(new_matrix_average)
+            new_matrix_average = new_matrix_average.T
+            recall_p_quatrain, recall_n_quatrain = new_matrix_average[4][3], new_matrix_average[5][3]
+
+            # print matrix
+            print('——————————————————————————————————————————————————————————————————————')
+            print('                              Threshold')
+            print('——————————————————————————————————————————————————————————————————————')
+            print('               0.1   0.2   0.3   0.4   0.5   0.6   0.7   0.8   0.9')
+            print('——————————————————————————————————————————————————————————————————————')
+            print('#TP:         {}'.format(new_matrix_average[0]))
+            print('#TN:         {}'.format(new_matrix_average[1]))
+            print('#FP:         {}'.format(new_matrix_average[2]))
+            print('#FN:         {}'.format(new_matrix_average[3]))
+            print('——————————————————————————————————————————————————————————————————————')
+            print('+Recall(%):  {}'.format(new_matrix_average[4]))
+            print('-Recall(%):  {}'.format(new_matrix_average[5]))
+            print('——————————————————————————————————————————————————————————————————————')
 
         if RQ == 'RQ2.1':
             print('############################################')
@@ -696,8 +711,8 @@ class Experiment:
 
                 # for the comparison of generated message v.s developer message
                 self.boxplot_distribution(similarity_message_distribution, 'Distance between descriptions', 'figure9_patch_description_quality.jpg')
-            elif para == 'generate':
-                print('RQ2.3-generate,')
+            elif para == 'CodeTrans':
+                print('RQ2.3-CodeTrans,')
                 print('The dropped AUC:')
                 _, _, _, _, _, f1_quatrain, auc_quatrain = self.evaluation_metrics(NLP_model_ytests, NLP_model_preds)
                 print('---------------')
@@ -718,7 +733,8 @@ class Experiment:
                 recall_n = tn / (tn + fp)
                 recall_list.append([np.round(recall_p, decimals=3), np.round(recall_n, decimals=3)])
             new_matrix_average = np.concatenate((matrix_average[:, :4], np.array(recall_list)), axis=1)
-            recall_p_quatrain, recall_n_quatrain = new_matrix_average[3][4], new_matrix_average[3][5]
+            new_matrix_average = new_matrix_average.T
+            recall_p_quatrain, recall_n_quatrain = new_matrix_average[4][3], new_matrix_average[5][3]
 
             # compare against ...
             NLP_model_preds = [1 if p >= 0.5 else 0 for p in NLP_model_preds]
@@ -988,7 +1004,7 @@ class Experiment:
                     if label == 0:
                         test_features.append(features[0])
                     else:
-                        if '_Developer_' in test_patch_id and (para != 'generate'):
+                        if '_Developer_' in test_patch_id and (para != 'CodeTrans'):
                             # use developer commit message for RQ1 not for RQ1gen
                             features = np.concatenate((bugreport_vector, developer_commit_message_vector), axis=1)
                         test_features.append(features[0])
@@ -1271,13 +1287,21 @@ if __name__ == '__main__':
         script_name = sys.argv[0]
         arg1 = sys.argv[1]
         arg2 = ''
+        arg3 = ''
     elif len(sys.argv) == 3:
         script_name = sys.argv[0]
         arg1 = sys.argv[1]
         arg2 = sys.argv[2]
+        arg3 = ''
+    elif len(sys.argv) == 4:
+        script_name = sys.argv[0]
+        arg1 = sys.argv[1]
+        arg2 = sys.argv[2]
+        arg3 = sys.argv[3]
     else:
-        arg1 = 'RQ2.3'
+        arg1 = 'RQ1'
         arg2 = ''
+        arg3 = ''
     print('task: {}'.format(arg1))
 
     e = Experiment()
@@ -1296,7 +1320,7 @@ if __name__ == '__main__':
     elif arg1 == 'RQ2.3':
         if arg2 == '':
             e.predict_leave1out_10group(embedding, times=10, algorithm='qa_attetion', comparison='', para='', Sanity=False, QualityOfMessage=True, RQ=arg1)
-        elif arg2 == 'generate':
+        elif arg2 == 'CodeTrans':
             e.predict_leave1out_10group(embedding, times=10, algorithm='qa_attetion', comparison='', para=arg2, Sanity=False, QualityOfMessage=False, RQ=arg1)
     elif arg1 == 'RQ3' and arg2 == 'DL':
         result_lr, result_quatrain = e.predict_leave1out_10group(embedding, times=10, algorithm='qa_attetion', comparison='DL', para='lr', Sanity=False, QualityOfMessage=False, RQ=arg1)
@@ -1345,3 +1369,7 @@ if __name__ == '__main__':
         print('Experimental insights, 10-fold vs 10-group.')
         print('RF with 10-fold:  AUC: {:.3f} -- F1: {:.3f}'.format(auc_10fold, f1_10fold))
         print('RF with 10-group: AUC: {:.3f} -- F1: {:.3f}'.format(auc_10group, f1_10group))
+    elif arg1 == 'predict':
+        bug_report_txt = arg2
+        patch_description = arg3
+
