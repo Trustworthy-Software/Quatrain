@@ -42,7 +42,7 @@ class Experiment:
         self.path_patch_sliced = self.cf.path_patch + '_sliced'
         # self.dict_b = {}
         self.bugReportText = None
-    def evaluation_metrics(self, y_trues, y_pred_probs):
+    def evaluation_metrics(self, y_trues, y_pred_probs, RQ=None):
         fpr, tpr, thresholds = roc_curve(y_true=y_trues, y_score=y_pred_probs, pos_label=1)
         auc_ = auc(fpr, tpr)
 
@@ -56,7 +56,11 @@ class Experiment:
         print('***------------***')
         # print('Evaluating AUC, F1, +Recall, -Recall')
         print('Test data size: {}, Incorrect: {}, Correct: {}'.format(len(y_trues), y_trues.count(0), y_trues.count(1)))
-        print('AUC: %f -- F1: %f  -- Accuracy: %f -- Precision: %f ' % (auc_, f1, acc, prc,))
+        # print('AUC: %f -- F1: %f  -- Accuracy: %f -- Precision: %f ' % (auc_, f1, acc, prc,))
+        if RQ == 'RQ1':
+            print('Table 2: Confusion matrix of Quatrain prediction.')
+        print('AUC: %f -- F1: %f ' % (auc_, f1,))
+
         if y_trues == y_preds:
             tn, fp, fn, tp = 1, 0, 0, 1
         else:
@@ -406,7 +410,8 @@ class Experiment:
         # combine bug report and commit message of patch
         features = np.concatenate((bugreport_vector, commit_vector), axis=1)
         cl = ML4Prediciton.Classifier(features, labels, algorithm, 10)
-        cl.cross_validation()
+        auc_10fold, f1_10fold = cl.cross_validation()
+        return auc_10fold, f1_10fold
 
     def predict_leave1out(self, embedding_method, times, algorithm):
         dataset_json = pickle.load(open(os.path.join(dirname, 'data/bugreport_patch_json_' + embedding_method + '.pickle'), 'rb'))
@@ -621,167 +626,180 @@ class Experiment:
                 bp_rcs_n.append(recall_n)
                 BatsPatchSim_model_preds += list(self.comparison_pred)
 
-        if not Sanity and not QualityOfMessage:
-            if RQ == 'RQ1' or RQ.startswith('insights') or RQ.startswith('RQ3'):
-                print('############################################')
-                if RQ == 'RQ1' and para == '':
-                    dataset_distribution = np.array(dataset_distribution)
-                    print('Train:Test, {}:{}'.format(round(dataset_distribution[:, 0].mean() / dataset_distribution[:, 1].mean()), 1))
-                    self.bar_distribution(dataset_distribution)
+        if RQ == 'RQ1' and not Sanity and not QualityOfMessage:
+            print('############################################')
+            if para == '':
+                print('RQ1, Effectiveness of Quatrain.')
+                dataset_distribution = np.array(dataset_distribution)
+                print('Figure 6: Distribution of Patches --- Train data:Test data, {}:{}'.format(round(dataset_distribution[:, 0].mean() / dataset_distribution[:, 1].mean()), 1))
+                self.bar_distribution(dataset_distribution)
+            elif para == 'balance':
+                print('RQ1-balance, Effectiveness of Quatrain.')
+                # balance test data for F1
+                index_1 = [i for i in range(len(NLP_model_ytests)) if NLP_model_ytests[i]==1]
+                index_0 = [j for j in range(len(NLP_model_ytests)) if NLP_model_ytests[j]==0]
+                random.shuffle(index_0)
+                index_0_small = index_0[:1591]
+                index_final = index_0_small + index_1
+                NLP_model_ytests_4f1 = [NLP_model_ytests[m] for m in index_final]
+                NLP_model_preds_4f1 = [NLP_model_preds[n] for n in index_final]
+                print('The improved F1')
+                self.evaluation_metrics(NLP_model_ytests_4f1, NLP_model_preds_4f1)
+                return
 
-                print('RQ1, Quatrain (QUestion Answering for paTch coRrectness evAluatIoN).')
+            _, _, _, _, _, f1_quatrain, auc_quatrain = self.evaluation_metrics(NLP_model_ytests, NLP_model_preds, RQ)
+            print('---------------')
 
-                if RQ == 'RQ1' and para == 'balance':
-                    # balance test data for F1
-                    index_1 = [i for i in range(len(NLP_model_ytests)) if NLP_model_ytests[i]==1]
-                    index_0 = [j for j in range(len(NLP_model_ytests)) if NLP_model_ytests[j]==0]
-                    random.shuffle(index_0)
-                    index_0_small = index_0[:1591]
-                    index_final = index_0_small + index_1
-                    NLP_model_ytests_4f1 = [NLP_model_ytests[m] for m in index_final]
-                    NLP_model_preds_4f1 = [NLP_model_preds[n] for n in index_final]
-                    self.evaluation_metrics(NLP_model_ytests_4f1, NLP_model_preds_4f1)
-                    return
+            # confusion matrix
+            print('TP _ TN _ FP _ FN _ +Recall _ -Recall')
+            np.set_printoptions(suppress=True)
+            # calculate average +Recall and -Recall based on all data
+            recall_list = []
+            for i in range(matrix_average[:,:4].shape[0]):
+                tp, tn, fp, fn = matrix_average[i][0], matrix_average[i][1], matrix_average[i][2], matrix_average[i][3]
+                recall_p = tp / (tp + fn)
+                recall_n = tn / (tn + fp)
+                recall_list.append([np.round(recall_p, decimals=3), np.round(recall_n, decimals=3)])
+            new_matrix_average = np.concatenate((matrix_average[:,:4], np.array(recall_list)), axis=1)
+            recall_p_quatrain, recall_n_quatrain = new_matrix_average[3][4], new_matrix_average[3][5]
+            print(new_matrix_average)
 
-                _, _, _, _, _, f1_quatrain, auc_quatrain = self.evaluation_metrics(NLP_model_ytests, NLP_model_preds)
-                print('---------------')
+        if RQ == 'RQ2.1':
+            print('############################################')
+            print('RQ2.1, Figure 7: Impact of length of patch description to prediction.')
+            self.boxplot_distribution(meesage_length_distribution, 'Length of patch description', 'figure7_patch_description_length.jpg')
+            # self.boxplot_distribution(report_length_distribution, 'Length of bug report')
 
-                if para != 'balance' and para != 'generate':
-                    # confusion matrix
-                    print('TP _ TN _ FP _ FN _ +Recall _ -Recall')
-                    np.set_printoptions(suppress=True)
-                    # calculate average +Recall and -Recall based on all data
-                    recall_list = []
-                    for i in range(matrix_average[:,:4].shape[0]):
-                        tp, tn, fp, fn = matrix_average[i][0], matrix_average[i][1], matrix_average[i][2], matrix_average[i][3]
-                        recall_p = tp / (tp + fn)
-                        recall_n = tn / (tn + fp)
-                        recall_list.append([np.round(recall_p, decimals=3), np.round(recall_n, decimals=3)])
-                    new_matrix_average = np.concatenate((matrix_average[:,:4], np.array(recall_list)), axis=1)
-                    recall_p_quatrain, recall_n_quatrain = new_matrix_average[3][4], new_matrix_average[3][5]
-                    print(new_matrix_average)
-
-            if RQ == 'RQ2.1':
-                print('############################################')
-                print('RQ-2.1, Impact of length of patch description to prediction.')
-                self.boxplot_distribution(meesage_length_distribution, 'Length of patch description', 'figure7_patch_description_length.jpg')
-                # self.boxplot_distribution(report_length_distribution, 'Length of bug report')
-
-        if Sanity and RQ == 'RQ2.2':
+        if RQ == 'RQ2.2' and Sanity:
             # sanity check result
             print('############################################')
-            print('RQ2.2, The distribution of probability of patch correctness on original and random bug report.')
+            print('RQ2.2, Figure 8: The distribution of probability of patch correctness on original and random bug report.')
             cnt_all_predict_correct = len(all_predict_correct)
             cnt_all_random_correct =  sum(i>=0.5 for i in all_random_correct)
             print('All correct: {}, Correct by Quatrain: {}, Correct by Random:{}'.format(all_correct, cnt_all_predict_correct, cnt_all_random_correct))
             fail_number = cnt_all_predict_correct-cnt_all_random_correct
-            print('The percentage of performance degradation: {}%({}:{})'.format(int(round(fail_number/cnt_all_predict_correct,2)*100), fail_number, cnt_all_predict_correct))
+            print('The dropped +Recall: {}%({}:{})'.format(int(round(fail_number/cnt_all_predict_correct,2)*100), fail_number, cnt_all_predict_correct))
             all_predict_correct_box = [['Original pairs', prob] for prob in all_predict_correct]
             all_random_correct_box = [['Random pairs', prob] for prob in all_random_correct]
             distribution_prob = all_predict_correct_box + all_random_correct_box
 
             self.boxplot_distribution_correlation(distribution_prob, 'Prediction probability by Quatrain', 'Original pairs', 'Random pairs', 'figure8_bug_report_quality.jpg')
 
-        if QualityOfMessage and RQ == 'RQ2.3':
+        if RQ == 'RQ2.3':
             print('############################################')
-            print('RQ2.3, Impact of distance between generated patch description to ground truth on prediction performance')
-            # print('{} leave one out mean: '.format('10-90'))
-            # print('Accuracy: {:.1f} -- Precision: {:.1f} -- +Recall: {:.1f} -- F1: {:.1f} -- AUC: {:.3f}'.format(np.array(accs).mean() * 100, np.array(prcs).mean() * 100, np.array(rcs).mean() * 100, np.array(f1s).mean() * 100, np.array(aucs).mean()))
-            print('The +Recall with CodeTrans-generated descriptions: {:.3f}'.format(np.array(rcs_p).mean()))
+            if para == '' and QualityOfMessage:
+                print('RQ2.3, Figure 9: Impact of distance between generated patch description to ground truth on prediction performance.')
+                # print('{} leave one out mean: '.format('10-90'))
+                # print('Accuracy: {:.1f} -- Precision: {:.1f} -- +Recall: {:.1f} -- F1: {:.1f} -- AUC: {:.3f}'.format(np.array(accs).mean() * 100, np.array(prcs).mean() * 100, np.array(rcs).mean() * 100, np.array(f1s).mean() * 100, np.array(aucs).mean()))
+                print('The dropped +Recall with CodeTrans-generated descriptions: {:.3f}'.format(np.array(rcs_p).mean()))
+                print('---------------')
+
+                # for the comparison of generated message v.s developer message
+                self.boxplot_distribution(similarity_message_distribution, 'Distance between descriptions', 'figure9_patch_description_quality.jpg')
+            elif para == 'generate':
+                print('RQ2.3-generate,')
+                print('The dropped AUC:')
+                _, _, _, _, _, f1_quatrain, auc_quatrain = self.evaluation_metrics(NLP_model_ytests, NLP_model_preds)
+                print('---------------')
+
+        if RQ == 'RQ3':
+            _, _, _, _, _, f1_quatrain, auc_quatrain = self.evaluation_metrics_noprint(NLP_model_ytests, NLP_model_preds)
+            incorrect_number, correct_number = int(NLP_model_ytests.count(0)), int(NLP_model_ytests.count(1))
             print('---------------')
 
-            # for the comparison of generated message v.s developer message
-            self.boxplot_distribution(similarity_message_distribution, 'Distance between descriptions', 'figure9_patch_description_quality.jpg')
-
-        # compare against ...
-        NLP_model_preds = [1 if p >= 0.5 else 0 for p in NLP_model_preds]
-        if comparison == 'DL':
-            # print('############################################')
-            # print('RQ3DL, a DL-based patch classifier (tian).')
-            # print(para)
-            # print('Test data size: {}'.format(len(NLP_model_ytests)))
-            # print('Accuracy: {:.1f} -- Precision: {:.1f} -- +Recall: {:.1f} -- F1: {:.1f} -- AUC: {:.3f}'.format(
-            #     np.array(a_accs).mean() * 100, np.array(a_prcs).mean() * 100, np.array(a_rcs).mean() * 100,
-            #     np.array(a_f1s).mean() * 100, np.array(a_aucs).mean()))
-            # print('AUC: {:.3f}'.format(np.array(a_aucs).mean()))
-            if para == 'lr':
-                ASE_model_preds = [1 if p >= 0.1 else 0 for p in ASE_model_preds]
-            elif para == 'rf':
-                ASE_model_preds = [1 if p >= 0.3 else 0 for p in ASE_model_preds]
-            recall_positive, recall_negative, acc, prc, rc, f1, auc_ = self.evaluation_metrics_noprint(NLP_model_ytests, ASE_model_preds)
-            print('---------------')
-            '''
             # confusion matrix
-            print('TP _ TN _ FP _ FN _ +Recall _ -Recall')
+            # print('TP _ TN _ FP _ FN _ +Recall _ -Recall')
             np.set_printoptions(suppress=True)
             # calculate average +Recall and -Recall based on all data
             recall_list = []
-            for i in range(ASE_matrix_average[:,:4].shape[0]):
-                tp, tn, fp, fn = ASE_matrix_average[i][0], ASE_matrix_average[i][1], ASE_matrix_average[i][2], ASE_matrix_average[i][3]
+            for i in range(matrix_average[:, :4].shape[0]):
+                tp, tn, fp, fn = matrix_average[i][0], matrix_average[i][1], matrix_average[i][2], matrix_average[i][3]
                 recall_p = tp / (tp + fn)
                 recall_n = tn / (tn + fp)
                 recall_list.append([np.round(recall_p, decimals=3), np.round(recall_n, decimals=3)])
-            new_ASE_matrix_average = np.concatenate((ASE_matrix_average[:,:4], np.array(recall_list)), axis=1)
-            print(new_ASE_matrix_average)
-            '''
-            # diff against NLP
-            for i in range(len(NLP_model_ytests)):
-                if NLP_model_ytests[i] == NLP_model_preds[i]:
-                    identify_cnt += 1
-                    if NLP_model_ytests[i] != ASE_model_preds[i]:
-                        new_identify_cnt += 1
-            # print('new/all: {}/{}'.format(new_identify_cnt, identify_cnt))
+            new_matrix_average = np.concatenate((matrix_average[:, :4], np.array(recall_list)), axis=1)
+            recall_p_quatrain, recall_n_quatrain = new_matrix_average[3][4], new_matrix_average[3][5]
 
-            if para == 'lr':
-                lr_re = 'Tian et al. (LR): AUC:{:.3f} F1:{:.3f} +Recall:{:.3f} -Recall:{:.3f}'.format(auc_, f1, recall_positive, recall_negative)
-                qua_re = 'Quatrain:       AUC:{:.3f} F1:{:.3f} +Recall:{:.3f} -Recall:{:.3f}'.format(auc_quatrain, f1_quatrain, recall_p_quatrain, recall_n_quatrain)
-                return lr_re, qua_re
-            elif para == 'rf':
-                rf_re = 'Tian et al. (RF): AUC:{:.3f} F1:{:.3f} +Recall:{:.3f} -Recall:{:.3f} \n{} out of {} patches are exclusively identified by Quatrain.'.format(auc_, f1, recall_positive, recall_negative, new_identify_cnt, identify_cnt, )
-                return rf_re
+            # compare against ...
+            NLP_model_preds = [1 if p >= 0.5 else 0 for p in NLP_model_preds]
+            if comparison == 'DL':
+                # print('############################################')
+                # print('RQ3DL, a DL-based patch classifier (tian).')
+                # print(para)
+                # print('Test data size: {}'.format(len(NLP_model_ytests)))
+                # print('Accuracy: {:.1f} -- Precision: {:.1f} -- +Recall: {:.1f} -- F1: {:.1f} -- AUC: {:.3f}'.format(
+                #     np.array(a_accs).mean() * 100, np.array(a_prcs).mean() * 100, np.array(a_rcs).mean() * 100,
+                #     np.array(a_f1s).mean() * 100, np.array(a_aucs).mean()))
+                # print('AUC: {:.3f}'.format(np.array(a_aucs).mean()))
+                if para == 'lr':
+                    ASE_model_preds = [1 if p >= 0.1 else 0 for p in ASE_model_preds]
+                elif para == 'rf':
+                    ASE_model_preds = [1 if p >= 0.3 else 0 for p in ASE_model_preds]
+                recall_positive, recall_negative, acc, prc, rc, f1, auc_ = self.evaluation_metrics_noprint(NLP_model_ytests, ASE_model_preds)
 
-        elif comparison == 'BATS':
-            BatsPatchSim_model_preds = [1 if p >= 0.5 else 0 for p in BatsPatchSim_model_preds]
-            # print('RQ3, {}: '.format(comparison))
-            # print('Test data size: {}'.format(len(NLP_model_ytests)))
-            # print('AUC: {:.3f} -- F1: {:.1f} -- +Recall: {:.1f} -- -Recall: {:.1f}'.format(
-            #     np.array(bp_aucs).mean() * 100, np.array(bp_f1s).mean() * 100, np.array(bp_rcs_p).mean() * 100,
-            #     np.array(bp_rcs_n).mean() * 100))
-            recall_positive, recall_negative, acc, prc, rc, f1, auc_ = self.evaluation_metrics_noprint(NLP_model_ytests, BatsPatchSim_model_preds)
+                # diff against NLP
+                for i in range(len(NLP_model_ytests)):
+                    if NLP_model_ytests[i] == NLP_model_preds[i]:
+                        identify_cnt += 1
+                        if NLP_model_ytests[i] != ASE_model_preds[i]:
+                            new_identify_cnt += 1
+                # print('new/all: {}/{}'.format(new_identify_cnt, identify_cnt))
 
-            print('---------------')
-            for i in range(len(NLP_model_ytests)):
-                if NLP_model_ytests[i] == NLP_model_preds[i]:
-                    identify_cnt += 1
-                    if NLP_model_ytests[i] != BatsPatchSim_model_preds[i]:
-                        new_identify_cnt += 1
-                        # print('New identification: {}'.format(test_patches_info[i]))
-            # print('new_identify_cnt: {}/{}'.format(new_identify_cnt, identify_cnt))
-            if para == '0.0':
-                result = '(1) AUC:{:.3f} F1:{:.3f} +Recall:{:.3f} -Recall:{:.3f}\n'.format(auc_, f1, recall_positive, recall_negative)
-                result += '(2) AUC:{:.3f} F1:{:.3f} +Recall:{:.3f} -Recall:{:.3f}'.format(auc_quatrain, f1_quatrain, recall_p_quatrain, recall_n_quatrain)
-                return result
-            elif para == '0.8':
-                result = '(1) AUC:{:.3f} F1:{:.3f} +Recall:{:.3f} -Recall:{:.3f}\n'.format(auc_, f1, recall_positive, recall_negative)
-                result += '(2) AUC:{:.3f} F1:{:.3f} +Recall:{:.3f} -Recall:{:.3f}\n'.format(auc_quatrain, f1_quatrain, recall_p_quatrain, recall_n_quatrain)
-                result += '{} out of {} patches are exclusively identified by Quatrain'.format(new_identify_cnt, identify_cnt)
-                return result
-        elif comparison == 'PATCHSIM':
-            BatsPatchSim_model_preds = [1 if p >= 0.5 else 0 for p in BatsPatchSim_model_preds]
-            recall_positive, recall_negative, acc, prc, rc, f1, auc_ = self.evaluation_metrics_noprint(NLP_model_ytests, BatsPatchSim_model_preds)
-            print('---------------')
-            for i in range(len(NLP_model_ytests)):
-                if NLP_model_ytests[i] == NLP_model_preds[i]:
-                    identify_cnt += 1
-                    if NLP_model_ytests[i] != BatsPatchSim_model_preds[i]:
-                        new_identify_cnt += 1
-                        # print('New identification: {}'.format(test_patches_info[i]))
-            # print('new_identify_cnt: {}/{}'.format(new_identify_cnt, identify_cnt))
+                if para == 'lr':
+                    lr_re = 'Tian et al. (LR):        {}:{} | {:.3f} {:.3f}  {:.3f}   {:.3f}'.format(incorrect_number, correct_number, auc_, f1, recall_positive, recall_negative)
+                    qua_re = 'Quatrain:                {}:{} | {:.3f} {:.3f}  {:.3f}   {:.3f}'.format(incorrect_number, correct_number, auc_quatrain, f1_quatrain,  recall_p_quatrain, recall_n_quatrain)
+                    return lr_re, qua_re
+                elif para == 'rf':
+                    rf_re = 'Tian et al. (RF):        {}:{} | {:.3f} {:.3f}  {:.3f}   {:.3f}'.format(incorrect_number, correct_number, auc_, f1, recall_positive, recall_negative,)
+                    exclusively_re = '{} out of {} patches are exclusively identified by Quatrain.'.format(new_identify_cnt, identify_cnt,)
+                    return rf_re, exclusively_re
 
-            result = '(1) PATCH-SIM: AUC:{:.3f} F1:{:.3f} +Recall:{:.3f} -Recall:{:.3f}\n'.format(auc_, f1, recall_positive,recall_negative)
-            result += '(2) Quatrain:  AUC:{:.3f} F1:{:.3f} +Recall:{:.3f} -Recall:{:.3f}\n'.format(auc_quatrain, f1_quatrain,recall_p_quatrain,recall_n_quatrain)
-            result += '{} out of {} patches are exclusively identified by Quatrain'.format(new_identify_cnt, identify_cnt, )
-            return result
+            elif comparison == 'BATS':
+                BatsPatchSim_model_preds = [1 if p >= 0.5 else 0 for p in BatsPatchSim_model_preds]
+                # print('RQ3, {}: '.format(comparison))
+                # print('Test data size: {}'.format(len(NLP_model_ytests)))
+                # print('AUC: {:.3f} -- F1: {:.1f} -- +Recall: {:.1f} -- -Recall: {:.1f}'.format(
+                #     np.array(bp_aucs).mean() * 100, np.array(bp_f1s).mean() * 100, np.array(bp_rcs_p).mean() * 100,
+                #     np.array(bp_rcs_n).mean() * 100))
+                recall_positive, recall_negative, acc, prc, rc, f1, auc_ = self.evaluation_metrics_noprint(NLP_model_ytests, BatsPatchSim_model_preds)
+
+                print('---------------')
+                for i in range(len(NLP_model_ytests)):
+                    if NLP_model_ytests[i] == NLP_model_preds[i]:
+                        identify_cnt += 1
+                        if NLP_model_ytests[i] != BatsPatchSim_model_preds[i]:
+                            new_identify_cnt += 1
+                            # print('New identification: {}'.format(test_patches_info[i]))
+                # print('new_identify_cnt: {}/{}'.format(new_identify_cnt, identify_cnt))
+                if para == '0.0':
+                    b00_re = 'BATS (cut-off: 0.0):      {}:{} | {:.3f} {:.3f}  {:.3f}   {:.3f}'.format(incorrect_number, correct_number, auc_, f1, recall_positive, recall_negative)
+                    qua_re = 'Quatrain:                 {}:{} | {:.3f} {:.3f}  {:.3f}   {:.3f}'.format(incorrect_number, correct_number, auc_quatrain, f1_quatrain,  recall_p_quatrain, recall_n_quatrain)
+                    return b00_re, qua_re
+                elif para == '0.8':
+                    b08_re = 'BATS (cut-off: 0.8):        {}:{} | {:.3f} {:.3f}  {:.3f}   {:.3f}'.format(incorrect_number, correct_number, auc_, f1, recall_positive, recall_negative)
+                    qua_re = 'Quatrain:                   {}:{} | {:.3f} {:.3f}  {:.3f}   {:.3f}'.format(incorrect_number, correct_number, auc_quatrain, f1_quatrain,  recall_p_quatrain, recall_n_quatrain)
+                    exclusively_re = '{} out of {} patches are exclusively identified by Quatrain'.format(new_identify_cnt, identify_cnt)
+                    return b08_re, qua_re, exclusively_re
+            elif comparison == 'PATCHSIM':
+                BatsPatchSim_model_preds = [1 if p >= 0.5 else 0 for p in BatsPatchSim_model_preds]
+                recall_positive, recall_negative, acc, prc, rc, f1, auc_ = self.evaluation_metrics_noprint(NLP_model_ytests, BatsPatchSim_model_preds)
+                print('---------------')
+                for i in range(len(NLP_model_ytests)):
+                    if NLP_model_ytests[i] == NLP_model_preds[i]:
+                        identify_cnt += 1
+                        if NLP_model_ytests[i] != BatsPatchSim_model_preds[i]:
+                            new_identify_cnt += 1
+                            # print('New identification: {}'.format(test_patches_info[i]))
+                # print('new_identify_cnt: {}/{}'.format(new_identify_cnt, identify_cnt))
+
+                patchsim_re = 'PATCH-SIM:                 {}:{} | {:.3f} {:.3f}  {:.3f}   {:.3f}'.format(incorrect_number, correct_number, auc_, f1, recall_positive, recall_negative)
+                qua_re = 'Quatrain:                  {}:{} | {:.3f} {:.3f}  {:.3f}   {:.3f}'.format(incorrect_number, correct_number, auc_quatrain, f1_quatrain, recall_p_quatrain, recall_n_quatrain)
+                exclusively_re = '{} out of {} patches are exclusively identified by Quatrain'.format(new_identify_cnt, identify_cnt, )
+                return patchsim_re, qua_re, exclusively_re
+
+        if RQ == 'insights':
+            _, _, _, _, _, f1_quatrain, auc_quatrain = self.evaluation_metrics_noprint(NLP_model_ytests, NLP_model_preds)
+            return auc_quatrain, f1_quatrain
 
     def get_train_data_deprecated(self, train_ids, dataset_json, ASE=False, enhance=False):
         train_features, train_labels = [], []
@@ -1271,39 +1289,59 @@ if __name__ == '__main__':
             e.predict_leave1out_10group(embedding, times=10, algorithm='qa_attetion', comparison='', para=arg2, Sanity=False, QualityOfMessage=False, RQ=arg1)
         elif arg2 == 'balance':
             e.predict_leave1out_10group(embedding, times=10, algorithm='qa_attetion', comparison='', para=arg2, Sanity=False, QualityOfMessage=False, RQ=arg1)
-        elif arg2 == 'generate':
-            e.predict_leave1out_10group(embedding, times=10, algorithm='qa_attetion', comparison='', para=arg2, Sanity=False, QualityOfMessage=False, RQ=arg1)
     elif arg1 == 'RQ2.1':
         e.predict_leave1out_10group(embedding, times=10, algorithm='qa_attetion', comparison='', para='', Sanity=False, QualityOfMessage=False, RQ=arg1)
     elif arg1 == 'RQ2.2':
         e.predict_leave1out_10group(embedding, times=10, algorithm='qa_attetion', comparison='', para='', Sanity=True, QualityOfMessage=False, RQ=arg1)
     elif arg1 == 'RQ2.3':
-        e.predict_leave1out_10group(embedding, times=10, algorithm='qa_attetion', comparison='', para='', Sanity=False, QualityOfMessage=True, RQ=arg1)
+        if arg2 == '':
+            e.predict_leave1out_10group(embedding, times=10, algorithm='qa_attetion', comparison='', para='', Sanity=False, QualityOfMessage=True, RQ=arg1)
+        elif arg2 == 'generate':
+            e.predict_leave1out_10group(embedding, times=10, algorithm='qa_attetion', comparison='', para=arg2, Sanity=False, QualityOfMessage=False, RQ=arg1)
     elif arg1 == 'RQ3' and arg2 == 'DL':
         result_lr, result_quatrain = e.predict_leave1out_10group(embedding, times=10, algorithm='qa_attetion', comparison='DL', para='lr', Sanity=False, QualityOfMessage=False, RQ=arg1)
-        result_rf = e.predict_leave1out_10group(embedding, times=10, algorithm='qa_attetion', comparison='DL', para='rf', Sanity=False, QualityOfMessage=False, RQ=arg1)
+        result_rf, exclusively_re = e.predict_leave1out_10group(embedding, times=10, algorithm='qa_attetion', comparison='DL', para='rf', Sanity=False, QualityOfMessage=False, RQ=arg1)
         print('############################################')
-        print('RQ3-DL, Compare against a DL-based patch classifier.')
+        print('RQ3-DL, Table 3: Quatrain vs a DL-based patch classifier.')
+        print('——————————————————————————————————————————————————————————————————————')
+        print('Classifier       Incorrect:Correct |   AUC    F1 +Recall -Recall')
+        print('——————————————————————————————————————————————————————————————————————')
         print(result_lr)
         print(result_rf)
+        print('——————————————————————————————————————————————————————————————————————')
         print(result_quatrain)
+        print('——————————————————————————————————————————————————————————————————————')
+        print('New identification: {}'.format(exclusively_re))
     elif arg1 == 'RQ3' and arg2 == 'BATS':
-        result_00 = e.predict_leave1out_10group(embedding, times=10, algorithm='qa_attetion', comparison='BATS', para='0.0', Sanity=False, QualityOfMessage=False, RQ=arg1)
-        result_08 = e.predict_leave1out_10group(embedding, times=10, algorithm='qa_attetion', comparison='BATS', para='0.8', Sanity=False, QualityOfMessage=False, RQ=arg1)
+        result_00, result_qua_00 = e.predict_leave1out_10group(embedding, times=10, algorithm='qa_attetion', comparison='BATS', para='0.0', Sanity=False, QualityOfMessage=False, RQ=arg1)
+        result_08, result_qua_08, exclusively_re = e.predict_leave1out_10group(embedding, times=10, algorithm='qa_attetion', comparison='BATS', para='0.8', Sanity=False, QualityOfMessage=False, RQ=arg1)
         print('############################################')
-        print('RQ3-BATS, Compare against BATS (checking patch Behaviour Against failing Test Specification).')
-        print('BATS (cut-off: 0.0) : Quatrain\n' + result_00)
-        print('-------------')
-        print('BATS (cut-off: 0.8) : Quatrain\n' + result_08)
+        print('RQ3-BATS, Table 4: Quatrain vs BATS.')
+        print('——————————————————————————————————————————————————————————————————————')
+        print('Classifier       Incorrect:Correct |   AUC    F1 +Recall -Recall')
+        print('——————————————————————————————————————————————————————————————————————')
+        print(result_00)
+        print(result_qua_00)
+        print('——————————————————————————————————————————————————————————————————————')
+        print(result_08)
+        print(result_qua_08)
+        print('——————————————————————————————————————————————————————————————————————')
+        print('New identification: {}'.format(exclusively_re))
     elif arg1 == 'RQ3' and arg2 == 'PATCHSIM':
-        result_v1 = e.predict_leave1out_10group(embedding, times=10, algorithm='qa_attetion', comparison='PATCHSIM', para='v1', Sanity=False, QualityOfMessage=False, RQ=arg1)
+        result_patchsim, result_quatrain, exclusively_re = e.predict_leave1out_10group(embedding, times=10, algorithm='qa_attetion', comparison='PATCHSIM', para='v1', Sanity=False, QualityOfMessage=False, RQ=arg1)
         print('############################################')
-        print('RQ3-PATCHSIM, Compare against PATCH-SIM (Dynamic Approach).')
-        print(result_v1)
-    elif arg1 == 'insights' and arg2 == '10fold':
-        print('10-fold cross validation.')
-        e.predict_10fold(embedding, algorithm='rf')
-    elif arg1 == 'insights' and arg2 == '10group':
-        print('10-group cross validation.')
-        e.predict_leave1out_10group(embedding, times=10, algorithm='rf', comparison='', para=arg2, Sanity=False,
-                            QualityOfMessage=False, RQ=arg1)
+        print('RQ3-PATCHSIM, Table 5: Quatrain vs (execution-based) PATCH-SIM.')
+        print('——————————————————————————————————————————————————————————————————————')
+        print('Classifier       Incorrect:Correct |   AUC    F1 +Recall -Recall')
+        print('——————————————————————————————————————————————————————————————————————')
+        print(result_patchsim)
+        print(result_quatrain)
+        print('——————————————————————————————————————————————————————————————————————')
+        print('New identification: {}'.format(exclusively_re))
+    elif arg1 == 'insights':
+        auc_10fold, f1_10fold = e.predict_10fold(embedding, algorithm='rf')
+        auc_10group, f1_10group = e.predict_leave1out_10group(embedding, times=10, algorithm='rf', comparison='', para=arg2, Sanity=False, QualityOfMessage=False, RQ=arg1)
+        print('############################################')
+        print('Experimental insights, 10-fold vs 10-group.')
+        print('RF with 10-fold:  AUC: {:.3f} -- F1: {:.3f}'.format(auc_10fold, f1_10fold))
+        print('RF with 10-group: AUC: {:.3f} -- F1: {:.3f}'.format(auc_10group, f1_10group))

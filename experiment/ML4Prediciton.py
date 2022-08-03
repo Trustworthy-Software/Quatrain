@@ -305,11 +305,11 @@ class Classifier:
             rcs_n.append(recall_n)
 
         print('')
-        print('############################################')
-        print('Insights, {}-fold cross validation.'.format(self.kfold))
-        print('AUC: {:.3f} -- F1: {:.1f} -- Accuracy: {:.1f} -- Precision: {:.1f} -- +Recall: {:.1f} '.format(np.array(aucs).mean(), np.array(f1s).mean()*100, np.array(accs).mean()*100, np.array(prcs).mean()*100, np.array(rcs).mean()*100, ))
-        # print('AUC: {:.3f}, +Recall: {:.3f}, -Recall: {:.3f}'.format(np.array(aucs).mean(), np.array(rcs_p).mean(), np.array(rcs_n).mean()))
-        print('---------------')
+        # print('############################################')
+        # print('Insights, {}-fold cross validation.'.format(self.kfold))
+        # print('AUC: {:.3f} -- F1: {:.1f} -- Accuracy: {:.1f} -- Precision: {:.1f} -- +Recall: {:.1f} '.format(np.array(aucs).mean(), np.array(f1s).mean()*100, np.array(accs).mean()*100, np.array(prcs).mean()*100, np.array(rcs).mean()*100, ))
+
+        return np.array(aucs).mean(), np.array(f1s).mean()
 
     def leave1out_validation(self, i, Sanity=None, QualityOfMessage=None):
         x_train, y_train = self.train_features, self.train_labels
