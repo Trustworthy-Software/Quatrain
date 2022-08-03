@@ -19,6 +19,7 @@ preprocess: scripts to extract bug reports and commit messages.
 representation: embeddings representation model.
 utils: scripts to deduplicate dataset.
 ---------------
+quatrain_model.h5: pre-trained QUATRAIN model for users' custom prediction.
 requirements.txt: required dependencies.
 run.py: entrance to conduct experiment.
 ```
@@ -122,7 +123,28 @@ python run.py RQ3 PATCHSIM
 python run.py insights
 ```
 
-[//]: # (* **Patches.zip:** collected patches for Defects4J, Bears, Bugs.jar)
+## 4) Custom Prediction
+To predict the correctness of your custom patches, you can use the prediction interface.
+### A) Requirements
+  * **BERT model client&server:** 24-layer, 1024-hidden, 16-heads, 340M parameters. download it [here](https://storage.googleapis.com/bert_models/2019_05_30/wwm_cased_L-24_H-1024_A-16.zip).
+    
+  * **Environment for BERT server**
+    * python 3.7 
+    * pip install tensorflow==1.14
+    * pip install bert-serving-client==1.10.0
+    * pip install bert-serving-server==1.10.0
+    * pip install protobuf==3.20.1
+    * Launch BERT server via `bert-serving-start -model_dir "Path2BertModel"/wwm_cased_L-24_H-1024_A-16 -num_worker=2 -max_seq_len=360 -port 8190`
+  * **Bug report text:** developer-written bug report.
+  * **Patch description text:** generating patch description for your plausible patches with commit message generation tools, e.g. CodeTrans. [Github](https://github.com/agemagician/CodeTrans) and [API](https://huggingface.co/SEBIS/code_trans_t5_large_commit_generation_transfer_learning_finetune).
+
+### B) Predict
+Let's give it a try!
+```
+python run.py predict $bug_report_text $patch_description_text
+```
+For instance: `python run.py predict 'Missing type-checks for var_args notation' 'check var_args properly'`
+
 
 ## License
 
