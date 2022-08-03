@@ -696,7 +696,7 @@ class Experiment:
             cnt_all_random_correct =  sum(i>=0.5 for i in all_random_correct)
             print('All correct: {}, Correct by Quatrain: {}, Correct by Random:{}'.format(all_correct, cnt_all_predict_correct, cnt_all_random_correct))
             fail_number = cnt_all_predict_correct-cnt_all_random_correct
-            print('The dropped +Recall: {}%({}:{})'.format(int(round(fail_number/cnt_all_predict_correct,2)*100), fail_number, cnt_all_predict_correct))
+            print('The dropped +Recall: {}% ({}:{})'.format(int(round(fail_number/cnt_all_predict_correct,2)*100), fail_number, cnt_all_predict_correct))
             all_predict_correct_box = [['Original pairs', prob] for prob in all_predict_correct]
             all_random_correct_box = [['Random pairs', prob] for prob in all_random_correct]
             distribution_prob = all_predict_correct_box + all_random_correct_box
@@ -709,11 +709,11 @@ class Experiment:
                 print('RQ2.3, Figure 9: Impact of distance between generated patch description to ground truth on prediction performance.')
                 # print('{} leave one out mean: '.format('10-90'))
                 # print('Accuracy: {:.1f} -- Precision: {:.1f} -- +Recall: {:.1f} -- F1: {:.1f} -- AUC: {:.3f}'.format(np.array(accs).mean() * 100, np.array(prcs).mean() * 100, np.array(rcs).mean() * 100, np.array(f1s).mean() * 100, np.array(aucs).mean()))
-                print('The dropped +Recall with CodeTrans-generated descriptions: {:.3f}'.format(np.array(rcs_p).mean()))
-                print('---------------')
-
                 # for the comparison of generated message v.s developer message
                 self.boxplot_distribution(similarity_message_distribution, 'Distance between descriptions', 'figure9_patch_description_quality.jpg')
+                print('---------------')
+                print('The dropped +Recall with CodeTrans-generated descriptions: {:.3f}'.format(np.array(rcs_p).mean()))
+
             elif para == 'CodeTrans':
                 print('RQ2.3-CodeTrans,')
                 print('The dropped AUC:')
@@ -1341,15 +1341,15 @@ if __name__ == '__main__':
         print('——————————————————————————————————————————————————————————————————————')
         print('New identification: {}'.format(exclusively_re))
     elif arg1 == 'RQ3' and arg2 == 'BATS':
-        # result_00, result_qua_00 = e.predict_leave1out_10group(embedding, times=10, algorithm='qa_attetion', comparison='BATS', para='0.0', Sanity=False, QualityOfMessage=False, RQ=arg1)
+        result_00, result_qua_00 = e.predict_leave1out_10group(dataset_json, embedding, times=10, algorithm='qa_attetion', comparison='BATS', para='0.0', Sanity=False, QualityOfMessage=False, RQ=arg1)
         result_08, result_qua_08, exclusively_re = e.predict_leave1out_10group(dataset_json, embedding, times=10, algorithm='qa_attetion', comparison='BATS', para='0.8', Sanity=False, QualityOfMessage=False, RQ=arg1)
         print('############################################')
         print('RQ3-BATS, Table 4: Quatrain vs BATS.')
         print('——————————————————————————————————————————————————————————————————————')
         print('Classifier       Incorrect:Correct |   AUC    F1 +Recall -Recall')
         print('——————————————————————————————————————————————————————————————————————')
-        # print(result_00)
-        # print(result_qua_00)
+        print(result_00)
+        print(result_qua_00)
         print('——————————————————————————————————————————————————————————————————————')
         print(result_08)
         print(result_qua_08)
