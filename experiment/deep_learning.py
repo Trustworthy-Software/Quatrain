@@ -136,7 +136,7 @@ def get_qa_attention(dimension_bug_report, dimension_commit_message):
     model.compile(loss='binary_crossentropy', optimizer='adam', metrics=['AUC'])
     # model.compile(optimizer="adam", loss=tf.keras.losses.CategoricalCrossentropy(from_logits=True, label_smoothing=0.1,),  metrics=["AUC"])
 
-    tf.keras.utils.plot_model(model, to_file="my_model.png", show_shapes=True)
+    # tf.keras.utils.plot_model(model, to_file="my_model.png", show_shapes=True)
 
 
     # # attention model
