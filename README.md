@@ -9,6 +9,20 @@ relatedness of a bug report with a patch description.
   title={Is this Change the Answer to that Problem? Correlating Descriptions of Bug and Code Changes for Evaluating Patch Correctness},
 }
 ```
+### Catalogue of Repository
+```
+artifact_detection_model: a model to detect codes in text.
+data: processed and structured dataset.
+experiment: scripts to obtain experimental results of paper. 
+figure: saved figures for experiment
+preprocess: scripts to extract bug reports and commit messages.
+representation: embeddings representation model.
+utils: scripts to deduplicate dataset.
+---------------
+requirements.txt: required dependencies.
+run.py: entrance to conduct experiment.
+```
+
 ## Ⅰ) Requirements
 ### A) Environment 
 run `sudo apt-get install python3.7-dev` first if you don't have python3.7 dev package.
