@@ -14,6 +14,7 @@ from sklearn.metrics import roc_curve, auc, accuracy_score, recall_score, precis
 from sklearn.metrics import confusion_matrix, average_precision_score
 import numpy as np
 import experiment.ML4Prediciton as ML4Prediciton
+import experiment.API as API
 import signal
 import json
 import random
@@ -1299,9 +1300,9 @@ if __name__ == '__main__':
         arg2 = sys.argv[2]
         arg3 = sys.argv[3]
     else:
-        arg1 = 'RQ1'
-        arg2 = ''
-        arg3 = ''
+        arg1 = 'predict'
+        arg2 = 'Missing type-checks for var_args notation'
+        arg3 = 'check var_args properly'
     print('task: {}'.format(arg1))
 
     e = Experiment()
@@ -1337,15 +1338,15 @@ if __name__ == '__main__':
         print('——————————————————————————————————————————————————————————————————————')
         print('New identification: {}'.format(exclusively_re))
     elif arg1 == 'RQ3' and arg2 == 'BATS':
-        result_00, result_qua_00 = e.predict_leave1out_10group(embedding, times=10, algorithm='qa_attetion', comparison='BATS', para='0.0', Sanity=False, QualityOfMessage=False, RQ=arg1)
+        # result_00, result_qua_00 = e.predict_leave1out_10group(embedding, times=10, algorithm='qa_attetion', comparison='BATS', para='0.0', Sanity=False, QualityOfMessage=False, RQ=arg1)
         result_08, result_qua_08, exclusively_re = e.predict_leave1out_10group(embedding, times=10, algorithm='qa_attetion', comparison='BATS', para='0.8', Sanity=False, QualityOfMessage=False, RQ=arg1)
         print('############################################')
         print('RQ3-BATS, Table 4: Quatrain vs BATS.')
         print('——————————————————————————————————————————————————————————————————————')
         print('Classifier       Incorrect:Correct |   AUC    F1 +Recall -Recall')
         print('——————————————————————————————————————————————————————————————————————')
-        print(result_00)
-        print(result_qua_00)
+        # print(result_00)
+        # print(result_qua_00)
         print('——————————————————————————————————————————————————————————————————————')
         print(result_08)
         print(result_qua_08)
@@ -1372,4 +1373,7 @@ if __name__ == '__main__':
     elif arg1 == 'predict':
         bug_report_txt = arg2
         patch_description = arg3
+        q = API.Quatrain()
+        bugreport_vector, commit_vector = q.learn_embedding('bert', bug_report_txt, patch_description)
+        q.predict(bugreport_vector, commit_vector)
 
