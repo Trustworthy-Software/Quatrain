@@ -13,8 +13,9 @@ import numpy as np
 import re
 from sklearn.metrics.pairwise import *
 import string
+dirname = os.path.dirname(__file__)
 
-MODEL_CC2Vec = '../representation/CC2Vec/'
+MODEL_CC2Vec = dirname + '/CC2Vec/'
 
 class Word2vector:
     def __init__(self, method=None,):
