@@ -62,7 +62,7 @@ python run.py hypothesis
 
 ### B) Sec. 5.1 (RQ1: Effectiveness of Quatrain) 
   1. **Figure 6:** Distribution of Patches in Train and Test Data. 
-  2. **Table 2.:** Confusion matrix of Quatrain prediction.
+  2. **Table 2:** Confusion matrix of Quatrain prediction.
 ```
 python run.py RQ1
 ```
@@ -123,12 +123,11 @@ python run.py RQ3 PATCHSIM
 python run.py insights
 ```
 
-## 5) Custom Prediction
+## Ⅳ) Custom Prediction
 To predict the correctness of your custom patches, you are welcome to use the prediction interface.
-### A) Requirements
+### A) Requirements for BERT
   * **BERT model client&server:** 24-layer, 1024-hidden, 16-heads, 340M parameters. download it [here](https://storage.googleapis.com/bert_models/2019_05_30/wwm_cased_L-24_H-1024_A-16.zip).
-    
-  * **Environment for BERT server**
+  * **Environment for BERT server** (different from reproduction)
     * python 3.7 
     * pip install tensorflow==1.14
     * pip install bert-serving-client==1.10.0
@@ -145,7 +144,7 @@ python run.py predict $bug_report_text $patch_description_text
 ```
 For instance: `python run.py predict 'Missing type-checks for var_args notation' 'check var_args properly'`
 
-## 4) Custom Train
+## Ⅴ) Custom Train
 To re-train QUATRAIN model on our or other dataset, execute the following steps.
   1. Structure your dataset as `data/bugreport_patch.txt`. 
   2. Obtain Bert embeddings of your dataset via `experiment/save_bugreport_dataset_json.py`
