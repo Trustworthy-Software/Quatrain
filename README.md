@@ -1,14 +1,18 @@
 [![DOI](https://zenodo.org/badge/519884433.svg)](https://zenodo.org/badge/latestdoi/519884433)
 
-Quatrain
-=======
-Quatrain (Question Answering for Patch Correctness Evaluation), a supervised learning approach that exploits a deep NLP model to classify the
-relatedness of a bug report with a patch description.
+# Is this Change the Answer to that Problem? Correlating Descriptions of Bug and Code Changes for Evaluating Patch Correctness
 ```bibtex
 @article{tian2021is,
   title={Is this Change the Answer to that Problem? Correlating Descriptions of Bug and Code Changes for Evaluating Patch Correctness},
 }
 ```
+Paper Link: 
+
+Quatrain
+=======
+Quatrain (Question Answering for Patch Correctness Evaluation), a supervised learning approach that exploits a deep NLP model to classify the
+relatedness of a bug report with a patch description.
+
 ### Catalogue of Repository
 ```
 artifact_detection_model: a model to detect codes in text.
