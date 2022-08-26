@@ -139,6 +139,7 @@ To predict the correctness of your custom patches, you are welcome to use the pr
     * pip install bert-serving-server==1.10.0
     * pip install protobuf==3.20.1
     * Launch BERT server via `bert-serving-start -model_dir "Path2BertModel"/wwm_cased_L-24_H-1024_A-16 -num_worker=2 -max_seq_len=360 -port 8190`
+    * switch the port in [BERT_Port](https://github.com/Trustworthy-Software/Quatrain/blob/main/representation/word2vec.py#L42) in case your port 8190 is occupied.
   * **Bug report text:** developer-written bug report.
   * **Patch description text:** generating patch description for your plausible patches with commit message generation tools, e.g. CodeTrans. [Github](https://github.com/agemagician/CodeTrans) and [API](https://huggingface.co/SEBIS/code_trans_t5_large_commit_generation_transfer_learning_finetune).
 
