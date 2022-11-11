@@ -131,7 +131,7 @@ python run.py RQ3 BATS
 python run.py RQ3 PATCHSIM
 ```
 
-### D) Sec. 6.1 (Experimental insights)
+### E) Sec. 6.1 (Experimental insights)
   1. **RF with 10-fold:** RandomForest (RF) on the embeddings of the bug report and the patch based on 10-fold cross validation.
   2. **RF with 10-group:** RandomForest (RF) on the embeddings of the bug report and the patch based on 10-group cross validation.
 ```
