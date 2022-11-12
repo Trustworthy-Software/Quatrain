@@ -64,6 +64,8 @@ run `sudo apt-get install python3.7-dev` first if you don't have python3.7 dev p
   accordingly change the absolute path of these two files in **experiment/config.py** of this repository as below.
   1. self.path_patch ---> ASE2022withTextUnique.  Original dataset with patches text and commit messages text.
   2. self.path_ASE2020_feature ---> ASE_features2_bert.pickle. The feature from Tian et al.'s ASE2020 [paper](https://ieeexplore.ieee.org/abstract/document/9286101) for our RQ3 DL experiment. 
+  
+Simplified dataset: [ASE2022withText.](https://zenodo.org/record/7315302#.Y293X2RKhhE)
 
 ## Ⅲ) Experiment
 
