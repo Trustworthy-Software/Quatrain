@@ -228,7 +228,7 @@ class Experiment:
             distribution_distance.append(['Random pairs' , dis_random])
 
         y_title = 'Distance of pairs'
-        self.boxplot_distribution_correlation(distribution_distance, y_title, 'Original pairs', 'Random pairs', 'figure3_hypothesis_validation.jpg')
+        self.boxplot_distribution_correlation(distribution_distance, y_title, 'Original pairs', 'Random pairs', 'figure2_hypothesis_validation.jpg')
 
     def boxplot_distribution_correlation(self, distribution_distance, y_title, group1, group2, figureName):
 
@@ -631,7 +631,7 @@ class Experiment:
             if para == '':
                 print('RQ1, Effectiveness of Quatrain.')
                 dataset_distribution = np.array(dataset_distribution)
-                print('Figure 6: Distribution of Patches --- Train data:Test data, {}:{}'.format(round(dataset_distribution[:, 0].mean() / dataset_distribution[:, 1].mean()), 1))
+                print('Figure 5: Distribution of Patches --- Train data:Test data, {}:{}'.format(round(dataset_distribution[:, 0].mean() / dataset_distribution[:, 1].mean()), 1))
                 self.bar_distribution(dataset_distribution)
             elif para == 'balance':
                 print('RQ1-balance, Effectiveness of Quatrain.')
@@ -684,14 +684,14 @@ class Experiment:
 
         if RQ == 'RQ2.1':
             print('############################################')
-            print('RQ2.1, Figure 7: Impact of length of patch description to prediction.')
+            print('RQ2.1, Figure 6: Impact of length of patch description to prediction.')
             self.boxplot_distribution(meesage_length_distribution, 'Length of patch description', 'figure7_patch_description_length.jpg')
             # self.boxplot_distribution(report_length_distribution, 'Length of bug report')
 
         if RQ == 'RQ2.2' and Sanity:
             # sanity check result
             print('############################################')
-            print('RQ2.2, Figure 8: The distribution of probability of patch correctness on original and random bug report.')
+            print('RQ2.2, Figure 7: The distribution of probability of patch correctness on original and random bug report.')
             cnt_all_predict_correct = len(all_predict_correct)
             cnt_all_random_correct =  sum(i>=0.5 for i in all_random_correct)
             print('All correct: {}, Correct by Quatrain: {}, Correct by Random:{}'.format(all_correct, cnt_all_predict_correct, cnt_all_random_correct))
@@ -706,7 +706,7 @@ class Experiment:
         if RQ == 'RQ2.3':
             print('############################################')
             if para == '' and QualityOfMessage:
-                print('RQ2.3, Figure 9: Impact of distance between generated patch description to ground truth on prediction performance.')
+                print('RQ2.3, Figure 8: Impact of distance between generated patch description to ground truth on prediction performance.')
                 # print('{} leave one out mean: '.format('10-90'))
                 # print('Accuracy: {:.1f} -- Precision: {:.1f} -- +Recall: {:.1f} -- F1: {:.1f} -- AUC: {:.3f}'.format(np.array(accs).mean() * 100, np.array(prcs).mean() * 100, np.array(rcs).mean() * 100, np.array(f1s).mean() * 100, np.array(aucs).mean()))
                 # for the comparison of generated message v.s developer message
