@@ -2,11 +2,17 @@
 
 # Is this Change the Answer to that Problem? Correlating Descriptions of Bug and Code Changes for Evaluating Patch Correctness
 ```bibtex
-@article{tian2021is,
+@inproceedings{tian2022change,
   title={Is this Change the Answer to that Problem? Correlating Descriptions of Bug and Code Changes for Evaluating Patch Correctness},
+  author={Tian, Haoye and Tang, Xunzhu and Habib, Andrew and Wang, Shangwen and Liu, Kui and Xia, Xin and Klein, Jacques and Bissyand{\'E}, Tegawend{\'E} F},
+  booktitle={37th IEEE/ACM International Conference on Automated Software Engineering},
+  pages={1--13},
+  url = {https://doi.org/10.1145/3551349.3556914}, 
+  doi = {10.1145/3551349.3556914},
+  year={2022}
 }
 ```
-Paper Link: 
+Paper Link: https://dl.acm.org/doi/abs/10.1145/3551349.3556914
 
 Quatrain
 =======
