@@ -78,13 +78,13 @@ Simplified dataset: [ASE2022withText.](https://zenodo.org/record/7315302#.Y293X2
 To obtain the experimental results of our paper, execute `run.py` with the following parameters:
 
 ### A) Sec. 2.2 (Hypothesis validation)
-  1. **Figure 3:** Distributions of Euclidean distances between bug and patch descriptions.
+  1. **Figure 2:** Distributions of Euclidean distances between bug and patch descriptions.
 ```
 python run.py hypothesis
 ```
 
 ### B) Sec. 5.1 (RQ1: Effectiveness of Quatrain) 
-  1. **Figure 6:** Distribution of Patches in Train and Test Data. 
+  1. **Figure 5:** Distribution of Patches in Train and Test Data. 
   2. **Table 2:** Confusion matrix of Quatrain prediction.
 ```
 python run.py RQ1
@@ -96,19 +96,19 @@ python run.py RQ1 balance
 
 ### C) Sec. 5.2 (RQ2: Analysis of the Impact of Input Quality on Quatrain)
 #### RQ 2.1
-  1. **Figure 7:**  Impact of length of patch description to prediction.
+  1. **Figure 6:**  Impact of length of patch description to prediction.
 ```
 python run.py RQ2.1
 ```
 #### RQ 2.2
-  2. **Figure 8:**  The distribution of probability of patch correctness
+  2. **Figure 7:**  The distribution of probability of patch correctness
 on original and random bug report.
   3. **The dropped +Recall:**  22% (241/1073) of developer patches, which were previously predicted as correct, are no longer recalled by Quatrain after they have been associated to a random bug report.
 ```
 python run.py RQ2.2
 ```
 #### RQ 2.3
-  4. **Figure 9:**   Impact of distance between generated patch descrip-
+  4. **Figure 8:**   Impact of distance between generated patch descrip-
 tion to ground truth on prediction performance.
   5. **The dropped +Recall:**  The metric (+Recall) drops by 37 percentage points to 45\% when the developer-written descriptions are replaced with CodeTrans-generated descriptions.
 ```
